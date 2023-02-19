@@ -1,0 +1,177 @@
+/**
+ * @file styles.css
+ * @author 0xChristopher
+ * @brief This file contains the css for the CRM Website.
+ */
+
+/**
+ * Table of Contents
+ * 1. General
+ * 2. Contact Form
+ * 3. Header
+ * 4. Main
+ * 5. Footer
+ * 6. Scrollbar
+ * 7. Toggle and Pseudo Class Styles
+ */
+
+/************************************************************
+ * 1. General
+ *
+ *
+ ************************************************************/
+
+*
+{
+    box-sizing: border-box;
+}
+
+html, body 
+{
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.page-mask
+{
+    display: none;
+    background-color: black;
+    opacity: 0.5;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+.error-page
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    color: black;
+}
+
+/************************************************************
+ * 2. Contact Form
+ *
+ *
+ ************************************************************/
+
+.contact-form-container
+{
+    display: none;
+    position: absolute;
+    top: 12.5rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/************************************************************
+ * 3. Header
+ *
+ *
+ ************************************************************/
+
+.header
+{
+    display: flex;
+    min-height: 5.625rem;
+    padding: 1rem;
+    background-color: #4c74a9;
+    color: white;
+    align-items: center;
+}
+
+.header--navigation--list
+{
+    display: flex;
+    margin: 0;
+    list-style-type: none;
+}
+
+.header--navigation--list--item
+{
+    margin-right: 1rem;
+}
+
+/************************************************************
+ * 4. Main
+ *
+ *
+ ************************************************************/
+
+.main
+{
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/************************************************************
+ * 5. Footer
+ *
+ *
+ ************************************************************/
+
+.footer
+{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    min-height: 5.625rem;
+    background-color: #4c74a9;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+/************************************************************
+ * 6. Scrollbar
+ *
+ *
+ ************************************************************/
+
+::-webkit-scrollbar 
+{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track 
+{
+    background: #21222A;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #323942;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #282D35;
+}
+
+/************************************************************
+ * 7. Toggle and Pseudo Class Styles
+ *
+ *
+ ************************************************************/
+
+.lock-scroll
+{
+    overflow: hidden;
+}
+
+.show
+{
+    display: block;
+}
