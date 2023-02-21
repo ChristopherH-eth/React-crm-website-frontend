@@ -2,6 +2,7 @@ import Header from "./Header"
 import Footer from "./Footer"
 import { Outlet } from "react-router-dom"
 import ContactForm from "./ContactForm"
+import { selectWindow } from "../util/appUtil"
 
 /**
  * @file App.js
@@ -9,6 +10,8 @@ import ContactForm from "./ContactForm"
  * @brief This file imports the main components of the page and returns them as the main 'App'
  *      component.
  */
+
+window.onclick = selectWindow                       // Window event handler
 
 function App()
 {

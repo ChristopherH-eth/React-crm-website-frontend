@@ -68,11 +68,77 @@ html, body
 {
     display: none;
     position: absolute;
-    top: 12.5rem;
+    top: 10.5rem;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
+}
+
+.contact-form
+{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    max-width: 70vw;
+    height: 70vh;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+}
+
+.contact-form--header
+{
+    margin-bottom: 1rem;
+    border-bottom: 0.0625rem solid #323942;
+}
+
+.contact-form--header-text
+{
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.contact-form--subheader
+{
+    margin-bottom: 0.75rem;
+    padding: 0.25rem;
+    background-color: #98a6b8;
+    border-radius: 0.625rem;
+}
+
+.contact-form--form
+{
+    width: 100%;
+}
+
+.contact-form--label
+{
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.contact-form--input-field
+{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.contact-form--input-field-checkbox
+{
+    margin-bottom: 1rem;
+}
+
+.contact-form--footer
+{
+    border-top: 0.0625rem solid #323942;
+}
+
+.contact-form--footer--buttons
+{
+    margin-top: 1rem;
 }
 
 /************************************************************
@@ -152,11 +218,13 @@ html, body
     background: #21222A;
 }
 
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb 
+{
     background: #323942;
 }
 
-::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover 
+{
     background: #282D35;
 }
 
