@@ -1,5 +1,5 @@
 import { Form } from "react-router-dom"
-import { addContactUtil } from "../util/contactUtil"
+import { addContactUtil } from "../util/contactFormUtil"
 
 /**
  * @file ContactForm.js
@@ -7,10 +7,15 @@ import { addContactUtil } from "../util/contactUtil"
  * @brief This file is responsible for the Contact Form component of the CRM website.
  */
 
-const addContact = () => addContactUtil
-
+/**
+ * @brief The ContactForm() function builds the page contact form component.
+ * @return Returns the contact form component to be added to the page
+ */
 function ContactForm()
 {
+    // Component functions stored in contactFormUtil
+    const addContact = () => addContactUtil()
+
     return (
         <section className="contact-form-container" id="contact-form-container">
             <div className="contact-form">

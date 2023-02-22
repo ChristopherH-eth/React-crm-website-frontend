@@ -8,6 +8,9 @@ import { ENDPOINTS, URLS } from "./config"
 
 const contactUrl = `${URLS}${ENDPOINTS.contacts}`
 
+/**
+ * @brief The addContactUtil() function adds a new contact to the database.
+ */
 function addContactUtil()
 {
     const firstName = document.getElementById("contact-form--first-name").value

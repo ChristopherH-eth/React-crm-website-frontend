@@ -13,6 +13,10 @@ import { selectWindow } from "../util/appUtil"
 
 window.onclick = selectWindow                       // Window event handler
 
+/**
+ * @brief The App() function builds the page app component.
+ * @return Returns the app component to be added to the page
+ */
 function App()
 {
     return (

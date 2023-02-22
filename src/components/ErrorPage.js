@@ -6,9 +6,13 @@ import { useRouteError } from "react-router-dom"
  * @brief This file is responsible for the ErrorPage module of the CRM website.
  */
 
+/**
+ * @brief The ErrorPage() function builds the error page.
+ * @return Returns the error page
+ */
 function ErrorPage()
 {
-    const error = useRouteError()
+    const error = useRouteError()                           // Get error from router
 
     return (
         <div className="error-page">

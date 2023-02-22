@@ -7,12 +7,13 @@
 /**
  * Table of Contents
  * 1. General
- * 2. Contact Form
- * 3. Header
- * 4. Main
- * 5. Footer
- * 6. Scrollbar
- * 7. Toggle and Pseudo Class Styles
+ * 2. Contacts
+ * 3. Contact Form
+ * 4. Header
+ * 5. Main
+ * 6. Footer
+ * 7. Scrollbar
+ * 8. Toggle and Pseudo Class Styles
  */
 
 /************************************************************
@@ -32,6 +33,15 @@ html, body
     font-family: "Inter", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #4c74a9;
+}
+
+.app--container
+{
+    height: 100vh;
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .page-mask
@@ -59,7 +69,75 @@ html, body
 }
 
 /************************************************************
- * 2. Contact Form
+ * 2. Contacts
+ *
+ *
+ ************************************************************/
+
+.contacts--heading, .contacts--headers, .contacts--items, .contacts--buttons
+{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contacts--heading, .contacts--buttons
+{
+    padding: 0.5rem;
+}
+
+.contacts--headers, .contacts--items
+{
+    width: 100%;
+}
+
+.contacts--name
+{
+    width: 28%;
+    padding: 0.25rem;
+    border-top: 0.0625rem solid #323942;
+    border-right: 0.0625rem solid #323942;
+    border-bottom: 0.0625rem solid #a7aeb7;
+}
+
+.contacts--account-name, .contacts--title, .contacts--phone
+{
+    width: 18%;
+    padding: 0.25rem;
+    border-top: 0.0625rem solid #323942;
+    border-right: 0.0625rem solid #323942;
+    border-bottom: 0.0625rem solid #a7aeb7;
+}
+
+.contacts--contact-owner
+{
+    width: 18%;
+    padding: 0.25rem;
+    border-top: 0.0625rem solid #323942;
+    border-bottom: 0.0625rem solid #a7aeb7;
+}
+
+.contacts--id--borderless
+{
+    width: 5%;
+    padding: 0.25rem;
+}
+
+.contacts--name--borderless
+{
+    width: 23%;
+    padding: 0.25rem;
+}
+
+.contacts--account-name--borderless, .contacts--title--borderless, 
+.contacts--phone--borderless, .contacts--contact-owner--borderless
+{
+    width: 18%;
+    padding: 0.25rem;
+}
+
+/************************************************************
+ * 3. Contact Form
  *
  *
  ************************************************************/
@@ -142,7 +220,7 @@ html, body
 }
 
 /************************************************************
- * 3. Header
+ * 4. Header
  *
  *
  ************************************************************/
@@ -152,8 +230,8 @@ html, body
     display: flex;
     min-height: 5.625rem;
     padding: 1rem;
-    background-color: #4c74a9;
-    color: white;
+    background-color: white;
+    color: black;
     align-items: center;
 }
 
@@ -170,22 +248,31 @@ html, body
 }
 
 /************************************************************
- * 4. Main
+ * 5. Main (Main component sections)
  *
  *
  ************************************************************/
 
-.main
+.main, .contacts
 {
     display: flex;
-    padding: 1rem;
+    padding: 0.5rem;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(180deg, #4c74a9 0%, white 100%);
+}
+
+.main--container, .contacts--container
+{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 0.0625rem solid #a7aeb7;
 }
 
 /************************************************************
- * 5. Footer
+ * 6. Footer
  *
  *
  ************************************************************/
@@ -203,7 +290,7 @@ html, body
 }
 
 /************************************************************
- * 6. Scrollbar
+ * 7. Scrollbar
  *
  *
  ************************************************************/
@@ -229,7 +316,7 @@ html, body
 }
 
 /************************************************************
- * 7. Toggle and Pseudo Class Styles
+ * 8. Toggle and Pseudo Class Styles
  *
  *
  ************************************************************/

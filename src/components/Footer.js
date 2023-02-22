@@ -4,6 +4,10 @@
  * @brief This file is responsible for the Footer component of the CRM website.
  */
 
+/**
+ * @brief The Footer() function builds the page footer component.
+ * @return Returns the footer component to be added to the page
+ */
 function Footer()
 {
     return (

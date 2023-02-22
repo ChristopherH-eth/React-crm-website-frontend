@@ -6,7 +6,7 @@
 
 let URLS = {}
 
-if (process.env.NODE_ENV === "development")
+if (!process.env.NODE_ENV || process.env.NODE_ENV === "development")
 {
     URLS = {
         api: "http://localhost:8000/api/v1"

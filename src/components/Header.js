@@ -6,6 +6,10 @@ import { Link } from "react-router-dom"
  * @brief This file is responsible for the Header component of the CRM website.
  */
 
+/**
+ * @brief The Header() function builds the page header component.
+ * @return Returns the header component to be added to the page
+ */
 function Header()
 {
     return (
