@@ -44,6 +44,14 @@ html, body
     margin-right: auto;
 }
 
+.link
+{
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+}
+
 .page-mask
 {
     display: none;
@@ -91,49 +99,59 @@ html, body
     width: 100%;
 }
 
-.contacts--name
-{
-    width: 28%;
-    padding: 0.25rem;
-    border-top: 0.0625rem solid #323942;
-    border-right: 0.0625rem solid #323942;
-    border-bottom: 0.0625rem solid #a7aeb7;
-}
-
-.contacts--account-name, .contacts--title, .contacts--phone
-{
-    width: 18%;
-    padding: 0.25rem;
-    border-top: 0.0625rem solid #323942;
-    border-right: 0.0625rem solid #323942;
-    border-bottom: 0.0625rem solid #a7aeb7;
-}
-
-.contacts--contact-owner
-{
-    width: 18%;
-    padding: 0.25rem;
-    border-top: 0.0625rem solid #323942;
-    border-bottom: 0.0625rem solid #a7aeb7;
-}
-
-.contacts--id--borderless
+.contacts--id, .contacts--select
 {
     width: 5%;
     padding: 0.25rem;
+    border-top: 0.0625rem solid #323942;
+    border-bottom: 0.0625rem solid #a7aeb7;
 }
 
-.contacts--name--borderless
+.contacts--name, .contacts--account-name, .contacts--title, 
+.contacts--phone, .contacts--contact-owner
 {
-    width: 23%;
+    width: 17%;
     padding: 0.25rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    border-top: 0.0625rem solid #323942;
+    border-right: 0.0625rem solid #323942;
+    border-bottom: 0.0625rem solid #a7aeb7;
 }
 
-.contacts--account-name--borderless, .contacts--title--borderless, 
+.contacts--options
+{
+    width: 5%;
+    padding: 0.25rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    border-top: 0.0625rem solid #323942;
+    border-bottom: 0.0625rem solid #a7aeb7;
+}
+
+.contacts--id--borderless, .contacts--select--borderless, .contacts--options--borderless
+{
+    display: flex;
+    width: 5%;
+    padding: 0.25rem;
+    text-align: center;
+    font-size: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-bottom: 0.0625rem solid #a7aeb7;
+}
+
+.contacts--name--borderless, .contacts--account-name--borderless, .contacts--title--borderless, 
 .contacts--phone--borderless, .contacts--contact-owner--borderless
 {
-    width: 18%;
+    display: flex;
+    width: 17%;
     padding: 0.25rem;
+    font-size: 0.8rem;
+    align-items: center;
+    background-color: white;
+    border-bottom: 0.0625rem solid #a7aeb7;
 }
 
 /************************************************************
@@ -230,7 +248,7 @@ html, body
     display: flex;
     min-height: 5.625rem;
     padding: 1rem;
-    background-color: white;
+    background-color: #e0e0e0;
     color: black;
     align-items: center;
 }
@@ -267,7 +285,7 @@ html, body
 {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: #e0e0e0;
     border: 0.0625rem solid #a7aeb7;
 }
 

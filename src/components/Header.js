@@ -20,31 +20,31 @@ function Header()
             <nav className="header--navigation">
                 <ul className="header--navigation--list">
                     <li className="header--navigation--list--item">
-                        <Link to={"/"}>Home</Link>
+                        <Link className="link" to={"/"}>Home</Link>
                     </li>
                     <li className="header--navigation--list--item">
-                        Accounts
+                        <Link className="link" to={"/"}>Accounts</Link>
                     </li>
                     <li className="header--navigation--list--item">
-                        <Link to={"contacts/"}>Contacts</Link>
+                        <Link className="link" to={"contacts/"}>Contacts</Link>
                     </li>
                     <li className="header--navigation--list--item">
-                        Sales
+                        <Link className="link" to={"/"}>Sales</Link>
                     </li>
                     <li className="header--navigation--list--item">
-                        Outreach
+                        <Link className="link" to={"/"}>Outreach</Link>
                     </li>
                     <li className="header--navigation--list--item">
-                        Service
+                        <Link className="link" to={"/"}>Service</Link>
                     </li>
                     <li className="header--navigation--list--item">
-                        Calendar
+                        <Link className="link" to={"/"}>Calendar</Link>
                     </li>
                     <li className="header--navigation--list--item">
-                        Dashboards
+                        <Link className="link" to={"/"}>Dashboards</Link>
                     </li>
                     <li className="header--navigation--list--item">
-                        Reports
+                        <Link className="link" to={"/"}>Reports</Link>
                     </li>
                 </ul>
             </nav>

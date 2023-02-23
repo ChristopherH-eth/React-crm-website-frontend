@@ -41,20 +41,30 @@ function Contacts()
                 <div className="contacts--id--borderless">
                     {contact.id}
                 </div>
+                <div className="contacts--select--borderless">
+                    <input
+                        className="contacts--select--borderless--input"
+                        id="contacts--contact-selector"
+                        type="checkbox"
+                    ></input>
+                </div>
                 <div className="contacts--name--borderless">
-                    {contact.firstName} {contact.lastName}
+                    {contact.first_name} {contact.last_name}
                 </div>
                 <div className="contacts--account-name--borderless">
-                    
+                    {contact.account_id}
                 </div>
                 <div className="contacts--title--borderless">
-                    
+                    {contact.title}
                 </div>
                 <div className="contacts--phone--borderless">
-                    
+                    {contact.phone}
                 </div>
                 <div className="contacts--contact-owner--borderless">
                     
+                </div>
+                <div className="contacts--options--borderless">
+                    <button>...</button>
                 </div>
             </div>
         )
@@ -67,6 +77,8 @@ function Contacts()
                     Contacts
                 </div>
                 <div className="contacts--headers">
+                    <div className="contacts--id" />
+                    <div className="contacts--select" />
                     <div className="contacts--name">
                         Name    
                     </div>
@@ -82,6 +94,7 @@ function Contacts()
                     <div className="contacts--contact-owner">
                         Contact Owner
                     </div>
+                    <div className="contacts--options" />
                 </div>
                 {contacts}
                 <div className="contacts--buttons">
