@@ -246,23 +246,39 @@ html, body
 .header
 {
     display: flex;
-    min-height: 5.625rem;
+    height: 10vh;
     padding: 1rem;
     background-color: #e0e0e0;
     color: black;
     align-items: center;
+    border-bottom: 0.1625rem solid #246bc8;
+}
+
+.header--title
+{
+    font-weight: 700;
+}
+
+.header--navigation
+{
+    margin-right: auto;
 }
 
 .header--navigation--list
 {
     display: flex;
-    margin: 0;
     list-style-type: none;
 }
 
 .header--navigation--list--item
 {
     margin-right: 1rem;
+    font-weight: 300;
+}
+
+.header--welcome
+{
+    font-weight: 700;
 }
 
 /************************************************************
@@ -274,10 +290,12 @@ html, body
 .main, .contacts
 {
     display: flex;
-    padding: 0.5rem;
+    padding: 1rem;
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
+    height: 80vh;
+    overflow-y: scroll;
     background-image: linear-gradient(180deg, #4c74a9 0%, white 100%);
 }
 
@@ -287,6 +305,68 @@ html, body
     flex-direction: column;
     background-color: #e0e0e0;
     border: 0.0625rem solid #a7aeb7;
+    border-radius: 0.25rem;
+}
+
+.main--get-started
+{
+    padding: 1rem;
+    font-weight: 700;
+    color: #4c74a9;
+}
+
+.main--quick-look
+{
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.main--quick-look--container
+{
+    display: flex;
+    padding: 0.5rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main--quick-look--item
+{
+    display: flex;
+    padding: 1rem;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    border: 0.0625rem solid black;
+    border-radius: 0.25rem;
+}
+
+.main--quick-look--item--container
+{
+    padding: 1rem;
+    width: 33%;
+}
+
+.main--quick-look--item--bar
+{
+    margin-right: 1rem;
+    padding: 0.5rem;
+    border-right: 0.0625rem solid #a7aeb7;
+}
+
+.main--quick-look--item--header
+{
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.main--quick-look--item--caption
+{
+    font-weight: 300;
+    font-size: 0.8rem;
 }
 
 /************************************************************
@@ -300,7 +380,7 @@ html, body
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    min-height: 5.625rem;
+    height: 10vh;
     background-color: #4c74a9;
     color: white;
     justify-content: center;

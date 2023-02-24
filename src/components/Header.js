@@ -14,7 +14,7 @@ function Header()
 {
     return (
         <header className="header">
-            <div>
+            <div className="header--title">
                 CRM Website
             </div>
             <nav className="header--navigation">
@@ -48,7 +48,7 @@ function Header()
                     </li>
                 </ul>
             </nav>
-            <div>
+            <div className="header--welcome">
                 Welcome, !
             </div>
         </header>
