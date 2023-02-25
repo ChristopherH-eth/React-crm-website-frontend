@@ -6,6 +6,7 @@ import { ENDPOINTS, URLS } from "./config"
  * @brief This file contains functions used in the ContactForm component.
  */
 
+// Contacts API endpoint
 const contactUrl = `${URLS}${ENDPOINTS.contacts}`
 
 /**
@@ -13,14 +14,17 @@ const contactUrl = `${URLS}${ENDPOINTS.contacts}`
  */
 function addContactUtil()
 {
+    // Get form values
     const firstName = document.getElementById("contact-form--first-name").value
     const lastName = document.getElementById("contact-form--last-name").value
 
+    // Build request body
     const contactBody = {
         firstName: firstName,
         lastName: lastName
     }
 
+    // Send request to server
     fetch(contactUrl, {
         method: "POST",
         mode: "cors",

@@ -23,7 +23,7 @@ function Header()
                         <Link className="link" to={"/"}>Home</Link>
                     </li>
                     <li className="header--navigation--list--item">
-                        <Link className="link" to={"/"}>Accounts</Link>
+                        <Link className="link" to={"accounts/"}>Accounts</Link>
                     </li>
                     <li className="header--navigation--list--item">
                         <Link className="link" to={"contacts/"}>Contacts</Link>

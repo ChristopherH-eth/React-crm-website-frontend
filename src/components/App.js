@@ -1,7 +1,7 @@
 import Header from "./Header"
 import Footer from "./Footer"
+import Forms from "./forms/Forms"
 import { Outlet } from "react-router-dom"
-import ContactForm from "./ContactForm"
 import { selectWindow } from "../util/appUtil"
 
 /**
@@ -26,7 +26,7 @@ function App()
             <Footer />
             {/* Login Page Mask (dimmed background) */}
             <div className="page-mask" id="page-mask" />
-            <ContactForm />
+            <Forms />
         </div>
     )
 }

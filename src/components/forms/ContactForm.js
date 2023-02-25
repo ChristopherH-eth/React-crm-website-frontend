@@ -1,5 +1,5 @@
 import { Form } from "react-router-dom"
-import { addContactUtil } from "../util/contactFormUtil"
+import { addContactUtil } from "../../util/contactFormUtil"
 
 /**
  * @file ContactForm.js
@@ -17,165 +17,160 @@ function ContactForm()
     const addContact = () => addContactUtil()
 
     return (
-        <section className="contact-form-container" id="contact-form-container">
-            <div className="contact-form">
-                <div className="contact-form--header">
-                    <div className="contact-form--header-text">
+        <section className="form-container" id="contact-form--container">
+            <div className="form">
+                <div className="form--header">
+                    <div className="form--header-text">
                         New Contact
                     </div>
                 </div>
-                <Form className="contact-form--form">
+                <Form className="form--form">
                     {/* General info section */}
-                    <div className="contact-form--subheader">
+                    <div className="form--subheader">
                         About
                     </div>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         Salutation
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--salutation"
-                        placeholder="Salutation"
                         type="text"
                     ></input>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         First Name
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--first-name"
-                        placeholder="First Name" 
+                        required 
                         type="text"
                     ></input>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         Last Name
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--last-name"
-                        placeholder="Last Name"
+                        required
                         type="text"
                     ></input>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         Account Name
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--account-name"
-                        placeholder="Account Name"
+                        required
                         type="text"
                     ></input>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         Title
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--title"
-                        placeholder="Title"
                         type="text"
                     ></input>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         Reports To
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--reports-to"
-                        placeholder="Reports To"
                         type="text"
                     ></input>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         Description
                     </div>
                     <textarea
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--description"
                         rows={5}
                         type="text"
                     ></textarea>
                     {/* Contact info section */}
-                    <div className="contact-form--subheader">
+                    <div className="form--subheader">
                         Get In Touch
                     </div>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         Phone
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--phone"
-                        placeholder="Phone"
                         type="text"
                     ></input>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         Email
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--email"
-                        placeholder="Email"
                         type="text"
                     ></input>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         Email Opt Out
                     </div>
                     <input
-                        className="contact-form--input-field-checkbox"
+                        className="form--input-field-checkbox"
                         id="contact-form--email-opt-out"
                         type="checkbox"
                     ></input>
-                    <div className="contact-form--subheader">
+                    <div className="form--subheader">
                         Mailing Address
                     </div>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         Street
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--street"
-                        placeholder="Street"
                         type="text"
                     ></input>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         City
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--city"
-                        placeholder="City"
                         type="text"
                     ></input>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         State/Province
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--state-province"
-                        placeholder="State/Province"
                         type="text"
                     ></input>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         Zip/Postal Code
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--zip-postal"
-                        placeholder="Zip/Postal Code"
                         type="text"
                     ></input>
-                    <div className="contact-form--label">
+                    <div className="form--label">
                         Country
                     </div>
                     <input
-                        className="contact-form--input-field"
+                        className="form--input-field"
                         id="contact-form--country"
-                        placeholder="Country"
                         type="text"
                     ></input>
-                    <div className="contact-form--footer">
-                        <div className="contact-form--footer--buttons">
-                            <button type="submit" onClick={addContact}>
+                    <div className="form--footer">
+                        <div className="form--footer--buttons">
+                            <button 
+                                id="add-contact--button"
+                                type="submit" 
+                                onClick={addContact}>
                                 Add Contact
                             </button>
-                            <button type="button">
+                            <button 
+                                type="button"
+                                id="form--cancel">
                                 Cancel
                             </button>
                         </div>

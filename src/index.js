@@ -7,6 +7,7 @@ import App from './components/App'
 import ErrorPage from './components/ErrorPage'
 import Main from './components/Main'
 import Contacts from './components/Contacts'
+import Accounts from './components/Accounts'
 
 /**
  * @file index.js
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: "contacts/",
                 element: <Contacts />
+            },
+            {
+                path: "accounts/",
+                element: <Accounts />
             }
         ]
     },

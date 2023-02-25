@@ -25,11 +25,12 @@ function selectWindow(event)
     }
 
     // Popups and page mask
-    if (event.target.matches("#page-mask") || event.target.matches(".contact-form-container")) 
+    if (event.target.matches("#page-mask") || event.target.matches(".form-container") 
+        || event.target.matches("#form--cancel"))
     {
         const pageMask = document.getElementsByClassName("page-mask")
-        const contactForm = document.getElementsByClassName("contact-form-container")
-        const contactInputs = document.getElementsByClassName("contact-form--input-field")
+        const contactForm = document.getElementsByClassName("form-container")
+        const contactInputs = document.getElementsByClassName("form--input-field")
 
         // Check for active page mask
         for (let i = 0; i < pageMask.length; i++) 

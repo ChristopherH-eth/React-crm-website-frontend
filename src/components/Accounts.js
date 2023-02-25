@@ -1,64 +1,64 @@
 import React from "react"
 import { URLS, ENDPOINTS } from "../util/config"
-import { showContactFormUtil } from "../util/contactsUtil"
+import { showAccountFormUtil } from "../util/accountsUtil"
 
 /**
- * @file Contacts.js
+ * @file Accounts.js
  * @author 0xChristopher
- * @brief This file is responsible for the Contacts component of the CRM website.
+ * @brief This file is responsible for the Accounts component of the CRM website.
  */
 
 /**
- * @brief The Contacts() function builds the page contacts component.
- * @return Returns the contacts component to be added to the page
+ * @brief The Accounts() function builds the page accounts component.
+ * @return Returns the accounts component to be added to the page
  */
-function Contacts()
+function Accounts()
 {
-    const [contactData, setContactData] = React.useState([])
+    const [accountData, setAccountData] = React.useState([])
 
-    // Contacts API endpoint
-    const contactUrl = `${URLS.api}${ENDPOINTS.contacts}`
+    // Accounts API endpoint
+    const accountUrl = `${URLS.api}${ENDPOINTS.accounts}`
 
-    // Component functions stored in contactsUtil
-    const showContactForm = () => showContactFormUtil()
+    // Component functions stored in accountsUtil
+    const showAccountForm = () => showAccountFormUtil()
 
     React.useEffect(() => {
-        fetch(contactUrl, {
+        fetch(accountUrl, {
             method: "GET",
             mode: "cors",
             // credentials: "include",
             headers: {"Content-type": "application/json; charset=UTF-8"}
         })
             .then((res) => res.json())
-            .then((data) => setContactData(data))
+            .then((data) => setAccountData(data))
             .catch(console.error)
-    }, [contactUrl])
+    }, [accountUrl])
 
     // Map contact data
-    const contacts = contactData.map((contact) => {
+    const accounts = accountData.map((account) => {
         return (
-            <tr className="table-data--items" key={contact.id}>
+            <tr className="table-data--items" key={account.id}>
                 <td className="table-data--id--borderless">
-                    {contact.id}
+                    {account.id}
                 </td>
                 <td className="table-data--select--borderless">
                     <input
                         className="table-data--select--borderless--input"
-                        id="contacts--contact-selector"
+                        id="accounts--account-selector"
                         type="checkbox"
                     ></input>
                 </td>
                 <td className="table-data--name--borderless">
-                    {contact.first_name} {contact.last_name}
+                    {account.first_name} {account.last_name}
                 </td>
                 <td className="table-data--account-name--borderless">
-                    {contact.account_id}
+                    {account.account_id}
                 </td>
                 <td className="table-data--title--borderless">
-                    {contact.title}
+                    {account.title}
                 </td>
                 <td className="table-data--phone--borderless">
-                    {contact.phone}
+                    {account.phone}
                 </td>
                 <td className="table-data--owner--borderless">
                     
@@ -71,10 +71,10 @@ function Contacts()
     })
 
     return (
-        <section className="contacts">
+        <section className="accounts">
             <div className="table-data--container">
                 <div className="table-data--heading">
-                    Contacts
+                    Accounts
                 </div>
                 <table className="table-data--table">
                     <tr className="table-data--headers">
@@ -93,18 +93,18 @@ function Contacts()
                             Phone
                         </td>
                         <td className="table-data--owner">
-                            Contact Owner
+                            Account Owner
                         </td>
                         <td className="table-data--options" />
                     </tr>
-                    {contacts}
+                    {accounts}
                 </table>
                 <div className="table-data--buttons">
-                    <button onClick={showContactForm}>New</button>
+                    <button onClick={showAccountForm}>New</button>
                 </div>
             </div>
         </section>
     )
 }
 
-export default Contacts
+export default Accounts
