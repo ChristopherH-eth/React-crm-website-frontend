@@ -21,7 +21,8 @@ else
 
 const ENDPOINTS = {
     contacts: "/contacts/",
-    accounts: "/accounts/"
+    accounts: "/accounts/",
+    leads: "/leads/"
 }
 
 export { URLS, ENDPOINTS }

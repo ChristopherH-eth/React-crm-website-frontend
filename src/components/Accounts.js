@@ -38,32 +38,32 @@ function Accounts()
     const accounts = accountData.map((account) => {
         return (
             <tr className="table-data--items" key={account.id}>
-                <td className="table-data--id--borderless">
+                <td className="table-data--5p--borderless">
                     {account.id}
                 </td>
-                <td className="table-data--select--borderless">
+                <td className="table-data--2_5p--borderless">
                     <input
-                        className="table-data--select--borderless--input"
+                        className="table-data--2_5p--borderless--input"
                         id="accounts--account-selector"
                         type="checkbox"
                     ></input>
                 </td>
-                <td className="table-data--name--borderless">
-                    {account.first_name} {account.last_name}
+                <td className="table-data--19_5p--borderless">
+                    {account.account_name}
                 </td>
-                <td className="table-data--account-name--borderless">
+                <td className="table-data--17p--borderless">
                     {account.account_id}
                 </td>
-                <td className="table-data--title--borderless">
+                <td className="table-data--17p--borderless">
                     {account.title}
                 </td>
-                <td className="table-data--phone--borderless">
+                <td className="table-data--17p--borderless">
                     {account.phone}
                 </td>
-                <td className="table-data--owner--borderless">
-                    
+                <td className="table-data--17p--borderless">
+                    {account.account_owner}
                 </td>
-                <td className="table-data--options--borderless">
+                <td className="table-data--5p--borderless">
                     <button>...</button>
                 </td>
             </tr>
@@ -77,27 +77,29 @@ function Accounts()
                     Accounts
                 </div>
                 <table className="table-data--table">
-                    <tr className="table-data--headers">
-                        <td className="table-data--id" />
-                        <td className="table-data--select" />
-                        <td className="table-data--name">
-                            Name    
-                        </td>
-                        <td className="table-data--account-name">
-                            Account Name
-                        </td>
-                        <td className="table-data--title">
-                            Title
-                        </td>
-                        <td className="table-data--phone">
-                            Phone
-                        </td>
-                        <td className="table-data--owner">
-                            Account Owner
-                        </td>
-                        <td className="table-data--options" />
-                    </tr>
-                    {accounts}
+                    <tbody>
+                        <tr className="table-data--headers">
+                            <td className="table-data--5p" />
+                            <td className="table-data--2_5p" />
+                            <td className="table-data--19_5p">
+                                Name    
+                            </td>
+                            <td className="table-data--17p">
+                                Account Name
+                            </td>
+                            <td className="table-data--17p">
+                                Title
+                            </td>
+                            <td className="table-data--17p">
+                                Phone
+                            </td>
+                            <td className="table-data--17p">
+                                Account Owner
+                            </td>
+                            <td className="table-data--5p-end" />
+                        </tr>
+                        {accounts}
+                    </tbody>
                 </table>
                 <div className="table-data--buttons">
                     <button onClick={showAccountForm}>New</button>

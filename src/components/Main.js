@@ -23,7 +23,7 @@ function Main()
                 </div>
                 <div className="main--quick-look--container">
                     <div className="main--quick-look--item--container">
-                        <Link className="main--quick-look--item" to={"/"}>
+                        <Link className="main--quick-look--item" to={"leads/"}>
                             <div className="main--quick-look--item--bar" />
                             <div>
                                 <div className="main--quick-look--item--header">

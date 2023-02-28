@@ -38,32 +38,32 @@ function Contacts()
     const contacts = contactData.map((contact) => {
         return (
             <tr className="table-data--items" key={contact.id}>
-                <td className="table-data--id--borderless">
+                <td className="table-data--5p--borderless">
                     {contact.id}
                 </td>
-                <td className="table-data--select--borderless">
+                <td className="table-data--2_5p--borderless">
                     <input
-                        className="table-data--select--borderless--input"
+                        className="table-data--2_5p--borderless--input"
                         id="contacts--contact-selector"
                         type="checkbox"
                     ></input>
                 </td>
-                <td className="table-data--name--borderless">
+                <td className="table-data--19_5p--borderless">
                     {contact.first_name} {contact.last_name}
                 </td>
-                <td className="table-data--account-name--borderless">
+                <td className="table-data--17p--borderless">
                     {contact.account_id}
                 </td>
-                <td className="table-data--title--borderless">
+                <td className="table-data--17p--borderless">
                     {contact.title}
                 </td>
-                <td className="table-data--phone--borderless">
+                <td className="table-data--17p--borderless">
                     {contact.phone}
                 </td>
-                <td className="table-data--owner--borderless">
-                    
+                <td className="table-data--17p--borderless">
+                    {contact.contact_owner}
                 </td>
-                <td className="table-data--options--borderless">
+                <td className="table-data--5p--borderless">
                     <button>...</button>
                 </td>
             </tr>
@@ -77,27 +77,29 @@ function Contacts()
                     Contacts
                 </div>
                 <table className="table-data--table">
-                    <tr className="table-data--headers">
-                        <td className="table-data--id" />
-                        <td className="table-data--select" />
-                        <td className="table-data--name">
-                            Name    
-                        </td>
-                        <td className="table-data--account-name">
-                            Account Name
-                        </td>
-                        <td className="table-data--title">
-                            Title
-                        </td>
-                        <td className="table-data--phone">
-                            Phone
-                        </td>
-                        <td className="table-data--owner">
-                            Contact Owner
-                        </td>
-                        <td className="table-data--options" />
-                    </tr>
-                    {contacts}
+                    <tbody>
+                        <tr className="table-data--headers">
+                            <td className="table-data--5p" />
+                            <td className="table-data--2_5p" />
+                            <td className="table-data--19_5p">
+                                Name    
+                            </td>
+                            <td className="table-data--17p">
+                                Account Name
+                            </td>
+                            <td className="table-data--17p">
+                                Title
+                            </td>
+                            <td className="table-data--17p">
+                                Phone
+                            </td>
+                            <td className="table-data--17p">
+                                Contact Owner
+                            </td>
+                            <td className="table-data--5p-end" />
+                        </tr>
+                        {contacts}
+                    </tbody>
                 </table>
                 <div className="table-data--buttons">
                     <button onClick={showContactForm}>New</button>

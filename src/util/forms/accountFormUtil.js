@@ -1,4 +1,4 @@
-import { ENDPOINTS, URLS } from "./config"
+import { ENDPOINTS, URLS } from "../config"
 
 /**
  * @file accountFormUtil.js

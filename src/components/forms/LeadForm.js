@@ -1,31 +1,31 @@
 import { Form } from "react-router-dom"
-import { addContactUtil } from "../../util/forms/contactFormUtil"
+import { addLeadUtil } from "../../util/forms/leadFormUtil"
 
 /**
- * @file ContactForm.js
+ * @file LeadForm.js
  * @author 0xChristopher
- * @brief This file is responsible for the Contact Form component of the CRM website.
+ * @brief This file is responsible for the Lead Form component of the CRM website.
  */
 
 /**
- * @brief The ContactForm() function builds the page contact form component.
- * @return Returns the contact form component to be added to the page
+ * @brief The LeadForm() function builds the page lead form component.
+ * @return Returns the lead form component to be added to the page
  */
-function ContactForm()
+function LeadForm()
 {
-    // Component functions stored in contactFormUtil
-    const addContact = () => addContactUtil()
+    // Component functions stored in leadFormUtil
+    const addLead = () => addLeadUtil()
 
     return (
         <>
             {/* Page Mask (dimmed background) */}
             <div className="page-mask" id="page-mask" />
-            {/* Contact Form */}
-            <section className="form-container" id="contact-form--container">
+            {/* Lead Form */}
+            <section className="form-container" id="lead-form--container">
                 <div className="form">
                     <div className="form--header">
                         <div className="form--header-text">
-                            New Contact
+                            New Lead
                         </div>
                     </div>
                     <Form className="form--form">
@@ -38,7 +38,7 @@ function ContactForm()
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--salutation"
+                            id="lead-form--salutation"
                             type="text"
                         ></input>
                         <div className="form--label">
@@ -46,7 +46,7 @@ function ContactForm()
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--first-name"
+                            id="lead-form--first-name"
                             required 
                             type="text"
                         ></input>
@@ -55,16 +55,16 @@ function ContactForm()
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--last-name"
+                            id="lead-form--last-name"
                             required
                             type="text"
                         ></input>
                         <div className="form--label">
-                            Account Name
+                            Company
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--account-name"
+                            id="lead-form--company"
                             required
                             type="text"
                         ></input>
@@ -73,15 +73,16 @@ function ContactForm()
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--title"
+                            id="lead-form--title"
+                            required
                             type="text"
                         ></input>
                         <div className="form--label">
-                            Reports To
+                            Website
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--reports-to"
+                            id="lead-form--website" 
                             type="text"
                         ></input>
                         <div className="form--label">
@@ -89,11 +90,20 @@ function ContactForm()
                         </div>
                         <textarea
                             className="form--input-field"
-                            id="contact-form--description"
+                            id="lead-form--description"
                             rows={5}
                             type="text"
                         ></textarea>
-                        {/* Contact info section */}
+                        <div className="form--label">
+                            Lead Status
+                        </div>
+                        <input
+                            className="form--input-field"
+                            id="lead-form--status"
+                            required
+                            type="text"
+                        ></input>
+                        {/* Lead info section */}
                         <div className="form--subheader">
                             Get In Touch
                         </div>
@@ -102,7 +112,7 @@ function ContactForm()
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--phone"
+                            id="lead-form--phone"
                             type="text"
                         ></input>
                         <div className="form--label">
@@ -110,7 +120,7 @@ function ContactForm()
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--email"
+                            id="lead-form--email"
                             type="text"
                         ></input>
                         <div className="form--label">
@@ -118,18 +128,18 @@ function ContactForm()
                         </div>
                         <input
                             className="form--input-field-checkbox"
-                            id="contact-form--email-opt-out"
+                            id="lead-form--email-opt-out"
                             type="checkbox"
                         ></input>
                         <div className="form--subheader">
-                            Mailing Address
+                            Address
                         </div>
                         <div className="form--label">
                             Street
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--street"
+                            id="lead-form--street"
                             type="text"
                         ></input>
                         <div className="form--label">
@@ -137,7 +147,7 @@ function ContactForm()
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--city"
+                            id="lead-form--city"
                             type="text"
                         ></input>
                         <div className="form--label">
@@ -145,7 +155,7 @@ function ContactForm()
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--state-province"
+                            id="lead-form--state-province"
                             type="text"
                         ></input>
                         <div className="form--label">
@@ -153,7 +163,7 @@ function ContactForm()
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--zip-postal"
+                            id="lead-form--zip-postal"
                             type="text"
                         ></input>
                         <div className="form--label">
@@ -161,16 +171,16 @@ function ContactForm()
                         </div>
                         <input
                             className="form--input-field"
-                            id="contact-form--country"
+                            id="lead-form--country"
                             type="text"
                         ></input>
                         <div className="form--footer">
                             <div className="form--footer--buttons">
                                 <button 
-                                    id="add-contact--button"
+                                    id="add-lead--button"
                                     type="submit" 
-                                    onClick={addContact}>
-                                    Add Contact
+                                    onClick={addLead}>
+                                    Add Lead
                                 </button>
                                 <button 
                                     type="button"
@@ -186,4 +196,4 @@ function ContactForm()
     )
 }
 
-export default ContactForm
+export default LeadForm
