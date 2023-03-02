@@ -174,6 +174,41 @@ function LeadForm()
                             id="lead-form--country"
                             type="text"
                         ></input>
+                        <div className="form--subheader">
+                            Segment
+                        </div>
+                        <div className="form--label">
+                            No. of Employees
+                        </div>
+                        <input
+                            className="form--input-field"
+                            id="lead-form--no-of-employees"
+                            type="text"
+                        ></input>
+                        <div className="form--label">
+                            Annual Revenue
+                        </div>
+                        <input
+                            className="form--input-field"
+                            id="lead-form--annual-revenue"
+                            type="text"
+                        ></input>
+                        <div className="form--label">
+                            Lead Source
+                        </div>
+                        <input
+                            className="form--input-field"
+                            id="lead-form--source"
+                            type="text"
+                        ></input>
+                        <div className="form--label">
+                            Industry
+                        </div>
+                        <input
+                            className="form--input-field"
+                            id="lead-form--industry"
+                            type="text"
+                        ></input>
                         <div className="form--footer">
                             <div className="form--footer--buttons">
                                 <button 

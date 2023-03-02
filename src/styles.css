@@ -104,159 +104,86 @@ html, body
     width: 100%;
 }
 
-.table-data--2_5p
+.table-data
 {
-    width: 2.5%;
+    display: flex;
     padding: 0.25rem;
     font-weight: 700;
     font-size: 0.8rem;
+    align-items: center;
+    border-top: 0.0625rem solid #323942;
+    border-right: 0.0625rem solid #323942;
+    border-bottom: 0.0625rem solid #a7aeb7;
+}
+
+.table-data--end
+{
+    display: flex;
+    padding: 0.25rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    align-items: center;
     border-top: 0.0625rem solid #323942;
     border-bottom: 0.0625rem solid #a7aeb7;
+}
+
+.table-data--borderless
+{
+    display: flex;
+    padding: 0.25rem;
+    font-size: 0.8rem;
+    align-items: center;
+    background-color: white;
+    border-bottom: 0.0625rem solid #a7aeb7;
+}
+
+.table-data--borderless--centered
+{
+    display: flex;
+    padding: 0.25rem;
+    font-size: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-bottom: 0.0625rem solid #a7aeb7;
+}
+
+.table-data--content
+{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.table-data--2_5p
+{
+    width: 2.5%;
 }
 
 .table-data--5p
 {
     width: 5%;
-    padding: 0.25rem;
-    font-weight: 700;
-    font-size: 0.8rem;
-    border-top: 0.0625rem solid #323942;
-    border-bottom: 0.0625rem solid #a7aeb7;
-}
-
-.table-data--5p-end
-{
-    width: 5%;
-    padding: 0.25rem;
-    font-weight: 700;
-    font-size: 0.8rem;
-    border-top: 0.0625rem solid #323942;
-    border-bottom: 0.0625rem solid #a7aeb7;
 }
 
 .table-data--7_5p
 {
     width: 7.5%;
-    padding: 0.25rem;
-    font-weight: 700;
-    font-size: 0.8rem;
-    border-top: 0.0625rem solid #323942;
-    border-right: 0.0625rem solid #323942;
-    border-bottom: 0.0625rem solid #a7aeb7;
 }
 
 .table-data--10p
 {
     width: 10%;
-    padding: 0.25rem;
-    font-weight: 700;
-    font-size: 0.8rem;
-    border-top: 0.0625rem solid #323942;
-    border-right: 0.0625rem solid #323942;
-    border-bottom: 0.0625rem solid #a7aeb7;
 }
 
 .table-data--17p
 {
     width: 17%;
-    padding: 0.25rem;
-    font-weight: 700;
-    font-size: 0.8rem;
-    border-top: 0.0625rem solid #323942;
-    border-right: 0.0625rem solid #323942;
-    border-bottom: 0.0625rem solid #a7aeb7;
 }
 
 .table-data--19_5p
 {
     width: 19.5%;
-    padding: 0.25rem;
-    font-weight: 700;
-    font-size: 0.8rem;
-    border-top: 0.0625rem solid #323942;
-    border-right: 0.0625rem solid #323942;
-    border-bottom: 0.0625rem solid #a7aeb7;
-}
-
-.table-data--2_5p--borderless
-{
-    display: flex;
-    width: 2.5%;
-    padding: 0.25rem;
-    text-align: center;
-    font-size: 0.8rem;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-bottom: 0.0625rem solid #a7aeb7;
-}
-
-.table-data--5p--borderless
-{
-    display: flex;
-    width: 5%;
-    padding: 0.25rem;
-    text-align: center;
-    font-size: 0.8rem;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-bottom: 0.0625rem solid #a7aeb7;
-}
-
-.table-data--7_5p--borderless
-{
-    display: flex;
-    width: 7.5%;
-    padding: 0.25rem;
-    font-size: 0.8rem;
-    align-items: center;
-    background-color: white;
-    border-bottom: 0.0625rem solid #a7aeb7;
-}
-
-.table-data--10p--borderless
-{
-    display: flex;
-    width: 10%;
-    padding: 0.25rem;
-    font-size: 0.8rem;
-    align-items: center;
-    background-color: white;
-    border-bottom: 0.0625rem solid #a7aeb7;
-}
-
-.table-data--15p--borderless
-{
-    display: flex;
-    width: 15%;
-    padding: 0.25rem;
-    font-size: 0.8rem;
-    align-items: center;
-    background-color: white;
-    border-bottom: 0.0625rem solid #a7aeb7;
-}
-
-.table-data--17p--borderless
-{
-    display: flex;
-    width: 17%;
-    padding: 0.25rem;
-    font-size: 0.8rem;
-    align-items: center;
-    background-color: white;
-    border-bottom: 0.0625rem solid #a7aeb7;
-}
-
-.table-data--19_5p--borderless
-{
-    display: flex;
-    width: 19.5%;
-    padding: 0.25rem;
-    font-size: 0.8rem;
-    align-items: center;
-    background-color: white;
-    border-bottom: 0.0625rem solid #a7aeb7;
 }
 
 /************************************************************

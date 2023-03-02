@@ -38,32 +38,44 @@ function Accounts()
     const accounts = accountData.map((account) => {
         return (
             <tr className="table-data--items" key={account.id}>
-                <td className="table-data--5p--borderless">
-                    {account.id}
+                <td className="table-data--borderless--centered table-data--5p">
+                    <span className="table-data--content">
+                        {account.id}
+                    </span>
                 </td>
-                <td className="table-data--2_5p--borderless">
+                <td className="table-data--borderless--centered table-data--2_5p">
                     <input
-                        className="table-data--2_5p--borderless--input"
+                        className="table-data--input"
                         id="accounts--account-selector"
                         type="checkbox"
                     ></input>
                 </td>
-                <td className="table-data--19_5p--borderless">
-                    {account.account_name}
+                <td className="table-data--borderless table-data--19_5p">
+                    <span className="table-data--content">
+                        {account.account_name}
+                    </span>
                 </td>
-                <td className="table-data--17p--borderless">
-                    {account.account_id}
+                <td className="table-data--borderless table-data--17p">
+                    <span className="table-data--content">
+                        {account.account_id}
+                    </span>
                 </td>
-                <td className="table-data--17p--borderless">
-                    {account.title}
+                <td className="table-data--borderless table-data--17p">
+                    <span className="table-data--content">
+                        {account.title}
+                    </span>
                 </td>
-                <td className="table-data--17p--borderless">
-                    {account.phone}
+                <td className="table-data--borderless table-data--17p">
+                    <span className="table-data--content">
+                        {account.phone}
+                    </span>
                 </td>
-                <td className="table-data--17p--borderless">
-                    {account.account_owner}
+                <td className="table-data--borderless table-data--17p">
+                    <span className="table-data--content">
+                        {account.account_owner}
+                    </span>
                 </td>
-                <td className="table-data--5p--borderless">
+                <td className="table-data--borderless--centered table-data--5p">
                     <button>...</button>
                 </td>
             </tr>
@@ -79,24 +91,34 @@ function Accounts()
                 <table className="table-data--table">
                     <tbody>
                         <tr className="table-data--headers">
-                            <td className="table-data--5p" />
-                            <td className="table-data--2_5p" />
-                            <td className="table-data--19_5p">
-                                Name    
+                            <td className="table-data--end table-data--5p" />
+                            <td className="table-data--end table-data--2_5p" />
+                            <td className="table-data table-data--19_5p">
+                                <span className="table-data--content">
+                                    Name
+                                </span>
                             </td>
-                            <td className="table-data--17p">
-                                Account Name
+                            <td className="table-data table-data--17p">
+                                <span className="table-data--content">
+                                    Account Name
+                                </span>
                             </td>
-                            <td className="table-data--17p">
-                                Title
+                            <td className="table-data table-data--17p">
+                                <span className="table-data--content">
+                                    Title
+                                </span>
                             </td>
-                            <td className="table-data--17p">
-                                Phone
+                            <td className="table-data table-data--17p">
+                                <span className="table-data--content">
+                                    Phone
+                                </span>
                             </td>
-                            <td className="table-data--17p">
-                                Account Owner
+                            <td className="table-data table-data--17p">
+                                <span className="table-data--content">
+                                    Account Owner
+                                </span>
                             </td>
-                            <td className="table-data--5p-end" />
+                            <td className="table-data--end table-data--5p" />
                         </tr>
                         {accounts}
                     </tbody>

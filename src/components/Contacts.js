@@ -38,32 +38,44 @@ function Contacts()
     const contacts = contactData.map((contact) => {
         return (
             <tr className="table-data--items" key={contact.id}>
-                <td className="table-data--5p--borderless">
-                    {contact.id}
+                <td className="table-data--borderless--centered table-data--5p">
+                    <span className="table-data--content">
+                        {contact.id}
+                    </span>
                 </td>
-                <td className="table-data--2_5p--borderless">
+                <td className="table-data--borderless--centered table-data--2_5p">
                     <input
-                        className="table-data--2_5p--borderless--input"
+                        className="table-data--input"
                         id="contacts--contact-selector"
                         type="checkbox"
                     ></input>
                 </td>
-                <td className="table-data--19_5p--borderless">
-                    {contact.first_name} {contact.last_name}
+                <td className="table-data--borderless table-data--19_5p">
+                    <span className="table-data--content">
+                        {contact.first_name} {contact.last_name}
+                    </span>
                 </td>
-                <td className="table-data--17p--borderless">
-                    {contact.account_id}
+                <td className="table-data--borderless table-data--17p">
+                    <span className="table-data--content">
+                        {contact.account_id}
+                    </span>
                 </td>
-                <td className="table-data--17p--borderless">
-                    {contact.title}
+                <td className="table-data--borderless table-data--17p">
+                    <span className="table-data--content">
+                        {contact.title}
+                    </span>
                 </td>
-                <td className="table-data--17p--borderless">
-                    {contact.phone}
+                <td className="table-data--borderless table-data--17p">
+                    <span className="table-data--content">
+                        {contact.phone}
+                    </span>
                 </td>
-                <td className="table-data--17p--borderless">
-                    {contact.contact_owner}
+                <td className="table-data--borderless table-data--17p">
+                    <span className="table-data--content">
+                        {contact.contact_owner}
+                    </span>
                 </td>
-                <td className="table-data--5p--borderless">
+                <td className="table-data--borderless--centered table-data--5p">
                     <button>...</button>
                 </td>
             </tr>
@@ -79,24 +91,34 @@ function Contacts()
                 <table className="table-data--table">
                     <tbody>
                         <tr className="table-data--headers">
-                            <td className="table-data--5p" />
-                            <td className="table-data--2_5p" />
-                            <td className="table-data--19_5p">
-                                Name    
+                            <td className="table-data--end table-data--5p" />
+                            <td className="table-data--end table-data--2_5p" />
+                            <td className="table-data table-data--19_5p">
+                                <span className="table-data--content">
+                                    Name
+                                </span>  
                             </td>
-                            <td className="table-data--17p">
-                                Account Name
+                            <td className="table-data table-data--17p">
+                                <span className="table-data--content">
+                                    Account Name
+                                </span>
                             </td>
-                            <td className="table-data--17p">
-                                Title
+                            <td className="table-data table-data--17p">
+                                <span className="table-data--content">
+                                    Title
+                                </span>
                             </td>
-                            <td className="table-data--17p">
-                                Phone
+                            <td className="table-data table-data--17p">
+                                <span className="table-data--content">
+                                    Phone
+                                </span>
                             </td>
-                            <td className="table-data--17p">
-                                Contact Owner
+                            <td className="table-data table-data--17p">
+                                <span className="table-data--content">
+                                    Contact Owner
+                                </span>
                             </td>
-                            <td className="table-data--5p-end" />
+                            <td className="table-data--end table-data--5p" />
                         </tr>
                         {contacts}
                     </tbody>

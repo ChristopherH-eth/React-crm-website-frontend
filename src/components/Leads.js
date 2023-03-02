@@ -38,44 +38,64 @@ function Leads()
     const leads = leadData.map((lead) => {
         return (
             <tr className="table-data--items" key={lead.id}>
-                <td className="table-data--5p--borderless">
-                    {lead.id}
+                <td className="table-data--borderless--centered table-data--5p">
+                    <span className="table-data--content">
+                        {lead.id}
+                    </span>
                 </td>
-                <td className="table-data--2_5p--borderless">
+                <td className="table-data--borderless--centered table-data--2_5p">
                     <input
-                        className="table-data--2_5p--borderless--input"
+                        className="table-data--input"
                         id="leads--lead-selector"
                         type="checkbox"
                     ></input>
                 </td>
-                <td className="table-data--7_5p--borderless">
-                    {lead.first_name} {lead.last_name}
+                <td className="table-data--borderless table-data--7_5p">
+                    <span className="table-data--content">
+                        {lead.first_name} {lead.last_name}
+                    </span>
                 </td>
-                <td className="table-data--10p--borderless">
-                    {lead.company}
+                <td className="table-data--borderless table-data--10p">
+                    <span className="table-data--content">
+                        {lead.company}
+                    </span>
                 </td>
-                <td className="table-data--10p--borderless">
-                    {lead.state_province}
+                <td className="table-data--borderless table-data--10p">
+                    <span className="table-data--content">
+                        {lead.state_province}
+                    </span>
                 </td>
-                <td className="table-data--10p--borderless">
-                    {lead.phone}
+                <td className="table-data--borderless table-data--10p">
+                    <span className="table-data--content">
+                        {lead.phone}
+                    </span>
                 </td>
-                <td className="table-data--10p--borderless">
-                    {lead.email}
+                <td className="table-data--borderless table-data--10p">
+                    <span className="table-data--content">
+                        {lead.email}
+                    </span>
                 </td>
-                <td className="table-data--10p--borderless">
-                    
+                <td className="table-data--borderless table-data--10p">
+                    <span className="table-data--content">
+
+                    </span>
                 </td>
-                <td className="table-data--10p--borderless">
-                    
+                <td className="table-data--borderless table-data--10p">
+                    <span className="table-data--content">
+
+                    </span>
                 </td>
-                <td className="table-data--10p--borderless">
-                    
+                <td className="table-data--borderless table-data--10p">
+                    <span className="table-data--content">
+
+                    </span>
                 </td>
-                <td className="table-data--10p--borderless">
-                    
+                <td className="table-data--borderless table-data--10p">
+                    <span className="table-data--content">
+
+                    </span>
                 </td>
-                <td className="table-data--5p--borderless">
+                <td className="table-data--borderless--centered table-data--5p">
                     <button>...</button>
                 </td>
             </tr>
@@ -91,36 +111,54 @@ function Leads()
                 <table className="table-data--table">
                     <tbody>
                         <tr className="table-data--headers">
-                            <td className="table-data--5p" />
-                            <td className="table-data--2_5p" />
-                            <td className="table-data--7_5p">
-                                Name    
+                            <td className="table-data--end table-data--5p" />
+                            <td className="table-data--end table-data--2_5p" />
+                            <td className="table-data table-data--7_5p">
+                                <span className="table-data--content">
+                                    Name 
+                                </span>   
                             </td>
-                            <td className="table-data--10p">
-                                Company
+                            <td className="table-data table-data--10p">
+                                <span className="table-data--content">
+                                    Company
+                                </span>
                             </td>
-                            <td className="table-data--10p">
-                                State/Province
+                            <td className="table-data table-data--10p">
+                                <span className="table-data--content">
+                                    State/Province
+                                </span>
                             </td>
-                            <td className="table-data--10p">
-                                Phone
+                            <td className="table-data table-data--10p">
+                                <span className="table-data--content">
+                                    Phone
+                                </span>
                             </td>
-                            <td className="table-data--10p">
-                                Email
+                            <td className="table-data table-data--10p">
+                                <span className="table-data--content">
+                                    Email
+                                </span>
                             </td>
-                            <td className="table-data--10p">
-                                Lead Status
+                            <td className="table-data table-data--10p">
+                                <span className="table-data--content">
+                                    Lead Status
+                                </span>
                             </td>
-                            <td className="table-data--10p">
-                                Created Date
+                            <td className="table-data table-data--10p">
+                                <span className="table-data--content">
+                                    Created Date
+                                </span>
                             </td>
-                            <td className="table-data--10p">
-                                Last Activity Date
+                            <td className="table-data table-data--10p">
+                                <span className="table-data--content">
+                                    Last Activity Date
+                                </span>
                             </td>
-                            <td className="table-data--10p">
-                                Lead Owner
+                            <td className="table-data table-data--10p">
+                                <span className="table-data--content">
+                                    Lead Owner
+                                </span>
                             </td>
-                            <td className="table-data--5p-end" />
+                            <td className="table-data--end table-data--5p" />
                         </tr>
                         {leads}
                     </tbody>
