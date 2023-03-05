@@ -4,6 +4,7 @@
  * @brief This file handles variables that regularly occur throughout the website.
  */
 
+// Production and development urls
 let URLS = {}
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development")
@@ -22,7 +23,8 @@ else
 const ENDPOINTS = {
     contacts: "/contacts/",
     accounts: "/accounts/",
-    leads: "/leads/"
+    leads: "/leads/",
+    login: "/users/login/"
 }
 
 export { URLS, ENDPOINTS }

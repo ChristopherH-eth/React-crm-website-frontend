@@ -1,5 +1,6 @@
 import React from "react"
 import { URLS, ENDPOINTS } from "../util/config"
+import { authHeader } from "../util/loginUtil"
 import { showAccountFormUtil } from "../util/accountsUtil"
 
 /**
@@ -27,7 +28,10 @@ function Accounts()
             method: "GET",
             mode: "cors",
             // credentials: "include",
-            headers: {"Content-type": "application/json; charset=UTF-8"}
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Authorization": `Bearer ${authHeader}`
+            }
         })
             .then((res) => res.json())
             .then((data) => setAccountData(data))

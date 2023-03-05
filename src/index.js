@@ -12,6 +12,7 @@ import Leads from "./components/Leads"
 import AccountForm from "./components/forms/AccountForm"
 import ContactForm from "./components/forms/ContactForm"
 import LeadForm from "./components/forms/LeadForm"
+import Login from "./components/Login"
 
 /**
  * @file index.js
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: "login/",
+        element: <Login />,
+        errorElement: <ErrorPage />
+    }
 ]);
 
 // Root element to render page
