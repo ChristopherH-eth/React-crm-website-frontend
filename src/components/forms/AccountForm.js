@@ -174,14 +174,16 @@ function AccountForm()
                             type="text"
                         ></input>
                         <div className="form--footer">
-                            <div className="form--footer--buttons">
+                            <div className="form--footer--button-container">
                                 <button 
+                                    className="form--footer--button"
                                     id="add-account--button"
                                     type="submit" 
                                     onClick={addAccount}>
                                     Add Account
                                 </button>
                                 <button 
+                                    className="form--footer--button-end"
                                     type="button"
                                     id="form--cancel">
                                     Cancel

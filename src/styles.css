@@ -264,9 +264,17 @@ html, body
     border-top: 0.0625rem solid #323942;
 }
 
-.form--footer--buttons
+.form--footer--button-container
 {
+    display: flex;
     margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.form--footer--button
+{
+    margin-right: 0.5rem;
 }
 
 /************************************************************

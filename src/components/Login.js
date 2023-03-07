@@ -21,30 +21,36 @@ function Login()
     return (
         <section className="login">
             <div className="login--container">
-                <div>
-                    Welcome to CRM Website!
-                </div>
-                <div>
-                    Login
-                </div>
                 <Form className="form--form">
-                    <div>
+                    <div className="form--header-text">
+                        Welcome to CRM Website!
+                    </div>
+                    <div className="form--header-text">
+                        Login
+                    </div>
+                    <div className="form--label">
                         Email
                     </div>
                     <input
+                        className="form--input-field"
                         id="login-form--email"
                         required
+                        type="text"
                     ></input>
-                    <div>
+                    <div className="form--label">
                         Password
                     </div>
                     <input
+                        className="form--input-field"
                         id="login-form--password"
                         required
+                        type="password"
                     ></input>
-                    <div>
+                    <div className="form--footer--button-container">
                         <button
                             onClick={loginUser}
+                            className="form--footer--button-end"
+                            type="submit"
                         >
                             Login
                         </button>

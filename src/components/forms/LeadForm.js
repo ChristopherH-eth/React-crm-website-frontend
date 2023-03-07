@@ -210,14 +210,16 @@ function LeadForm()
                             type="text"
                         ></input>
                         <div className="form--footer">
-                            <div className="form--footer--buttons">
+                            <div className="form--footer--button-container">
                                 <button 
+                                    className="form--footer--button"
                                     id="add-lead--button"
                                     type="submit" 
                                     onClick={addLead}>
                                     Add Lead
                                 </button>
                                 <button 
+                                    className="form--footer--button-end"
                                     type="button"
                                     id="form--cancel">
                                     Cancel
