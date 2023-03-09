@@ -1,6 +1,6 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import { URLS, ENDPOINTS } from "../util/config"
-import { authHeader } from "../util/loginUtil"
 import { showAccountFormUtil } from "../util/accountsUtil"
 
 /**
@@ -17,6 +17,8 @@ function Accounts()
 {
     const [accountData, setAccountData] = React.useState([])
 
+    const navigate = useNavigate()
+
     // Accounts API endpoint
     const accountUrl = `${URLS.api}${ENDPOINTS.accounts}`
 
@@ -27,14 +29,18 @@ function Accounts()
         fetch(accountUrl, {
             method: "GET",
             mode: "cors",
-            // credentials: "include",
+            credentials: "include",
             headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                "Authorization": `Bearer ${authHeader}`
+                "Content-type": "application/json; charset=UTF-8"
             }
         })
-            .then((res) => res.json())
-            .then((data) => setAccountData(data))
+            .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+            .then((data) => {
+                if (data.status === 401)
+                    navigate("/login")
+                else
+                    setAccountData(data.body)
+            })
             .catch(console.error)
     }, [accountUrl])
 

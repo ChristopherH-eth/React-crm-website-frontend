@@ -1,6 +1,6 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import { URLS, ENDPOINTS } from "../util/config"
-import { authHeader } from "../util/loginUtil"
 import { showLeadFormUtil } from "../util/leadsUtil"
 
 /**
@@ -17,6 +17,8 @@ function Leads()
 {
     const [leadData, setLeadData] = React.useState([])
 
+    const navigate = useNavigate()
+
     // Leads API endpoint
     const leadUrl = `${URLS.api}${ENDPOINTS.leads}`
 
@@ -27,14 +29,18 @@ function Leads()
         fetch(leadUrl, {
             method: "GET",
             mode: "cors",
-            // credentials: "include",
+            credentials: "include",
             headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                "Authorization": `Bearer ${authHeader}`
+                "Content-type": "application/json; charset=UTF-8"
             }
         })
-            .then((res) => res.json())
-            .then((data) => setLeadData(data))
+            .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+            .then((data) => {
+                if (data.status === 401)
+                    navigate("/login")
+                else
+                    setLeadData(data.body)
+            })
             .catch(console.error)
     }, [leadUrl])
 

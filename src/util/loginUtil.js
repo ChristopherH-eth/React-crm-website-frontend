@@ -9,6 +9,10 @@ import { ENDPOINTS, URLS } from "./config"
 const loginUrl = `${URLS.api}${ENDPOINTS.login}`        // Login API endpoint
 let authHeader                                          // Authorization header to be set on successful logins
 
+/**
+ * @brief The loginUserUtil() function...
+ * @param navigate 
+ */
 function loginUserUtil(navigate)
 {
     // Get form values
@@ -25,14 +29,12 @@ function loginUserUtil(navigate)
     fetch(loginUrl, {
         method: "POST",
         mode: "cors",
-        // credentials: include,
+        credentials: "include",
         headers: {"Content-type": "application/json; charset=UTF-8"},
         body: JSON.stringify(loginBody)
     })
         .then((res) => res.json().then((data) => ({status: res.status, body: data})))
         .then((data) => {
-            authHeader = data.body.jwt.token
-
             if (data.status === 200)
                 navigate("/")
         })

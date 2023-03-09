@@ -1,6 +1,6 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import { URLS, ENDPOINTS } from "../util/config"
-import { authHeader } from "../util/loginUtil"
 import { showContactFormUtil } from "../util/contactsUtil"
 
 /**
@@ -17,6 +17,8 @@ function Contacts()
 {
     const [contactData, setContactData] = React.useState([])
 
+    const navigate = useNavigate()
+
     // Contacts API endpoint
     const contactUrl = `${URLS.api}${ENDPOINTS.contacts}`
 
@@ -27,14 +29,18 @@ function Contacts()
         fetch(contactUrl, {
             method: "GET",
             mode: "cors",
-            // credentials: "include",
+            credentials: "include",
             headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                "Authorization": `Bearer ${authHeader}`
+                "Content-type": "application/json; charset=UTF-8"
             }
         })
-            .then((res) => res.json())
-            .then((data) => setContactData(data))
+            .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+            .then((data) => {
+                if (data.status === 401)
+                    navigate("/login")
+                else
+                    setContactData(data.body)
+            })
             .catch(console.error)
     }, [contactUrl])
 
