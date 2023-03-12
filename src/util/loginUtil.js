@@ -6,14 +6,14 @@ import { ENDPOINTS, URLS } from "./config"
  * @brief This file contains functions used in the LeadForm component.
  */
 
-const loginUrl = `${URLS.api}${ENDPOINTS.login}`        // Login API endpoint
-let authHeader                                          // Authorization header to be set on successful logins
+const loginUrl = `${URLS.api}${ENDPOINTS.login}`            // Login API endpoint
 
 /**
- * @brief The loginUserUtil() function...
- * @param navigate 
+ * @brief The loginUserUtil() function attempts to log in to the CRM server.
+ * @param navigate The useNavigate hook to redirect browser
+ * @param setIsLoggedIn React state function to track user login
  */
-function loginUserUtil(navigate)
+function loginUserUtil(navigate, setIsLoggedIn)
 {
     // Get form values
     const email = document.getElementById("login-form--email").value
@@ -35,10 +35,14 @@ function loginUserUtil(navigate)
     })
         .then((res) => res.json().then((data) => ({status: res.status, body: data})))
         .then((data) => {
+            // On successful login set logged in status to 'true' and navigate to root url
             if (data.status === 200)
+            {
+                setIsLoggedIn(true)
                 navigate("/")
+            }
         })
         .catch(console.error)
 }
 
-export { loginUserUtil, authHeader }
+export { loginUserUtil }

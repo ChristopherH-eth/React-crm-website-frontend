@@ -32,6 +32,11 @@ const router = createBrowserRouter([
                 element: <Main />
             },
             {
+                path: "login/",
+                element: <Login />,
+                errorElement: <ErrorPage />
+            },
+            {
                 path: "contacts/",
                 element: <><Contacts /><ContactForm /></>
             },
@@ -44,11 +49,6 @@ const router = createBrowserRouter([
                 element: <><Leads /><LeadForm /></>
             }
         ]
-    },
-    {
-        path: "login/",
-        element: <Login />,
-        errorElement: <ErrorPage />
     }
 ]);
 

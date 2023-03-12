@@ -8,12 +8,22 @@
  * @brief The Footer() function builds the page footer component.
  * @return Returns the footer component to be added to the page
  */
-function Footer()
+function Footer(props)
 {
+    const {
+        isLoggedIn
+    } = props
+
     return (
-        <footer className="footer">
-            &copy; 2022 Christopher Hardy. All rights reserved.
-        </footer>
+        <>
+            {isLoggedIn ? (
+                <footer className="footer">
+                    &copy; 2022 Christopher Hardy. All rights reserved.
+                </footer>
+            ) : (
+                <div></div>
+            )}
+        </>
     )
 }
 

@@ -10,48 +10,58 @@ import { Link } from "react-router-dom"
  * @brief The Header() function builds the page header component.
  * @return Returns the header component to be added to the page
  */
-function Header()
+function Header(props)
 {
+    const {
+        isLoggedIn
+    } = props
+
     return (
-        <header className="header">
-            <div className="header--title">
-                CRM Website
-            </div>
-            <nav className="header--navigation">
-                <ul className="header--navigation--list">
-                    <li className="header--navigation--list--item">
-                        <Link className="link" to={"/"}>Home</Link>
-                    </li>
-                    <li className="header--navigation--list--item">
-                        <Link className="link" to={"accounts/"}>Accounts</Link>
-                    </li>
-                    <li className="header--navigation--list--item">
-                        <Link className="link" to={"contacts/"}>Contacts</Link>
-                    </li>
-                    <li className="header--navigation--list--item">
-                        <Link className="link" to={"/"}>Sales</Link>
-                    </li>
-                    <li className="header--navigation--list--item">
-                        <Link className="link" to={"/"}>Outreach</Link>
-                    </li>
-                    <li className="header--navigation--list--item">
-                        <Link className="link" to={"/"}>Service</Link>
-                    </li>
-                    <li className="header--navigation--list--item">
-                        <Link className="link" to={"/"}>Calendar</Link>
-                    </li>
-                    <li className="header--navigation--list--item">
-                        <Link className="link" to={"/"}>Dashboards</Link>
-                    </li>
-                    <li className="header--navigation--list--item">
-                        <Link className="link" to={"/"}>Reports</Link>
-                    </li>
-                </ul>
-            </nav>
-            <div className="header--welcome">
-                Welcome, !
-            </div>
-        </header>
+        <>
+            {isLoggedIn ? (
+                <header className="header">
+                    <div className="header--title">
+                        CRM Website
+                    </div>
+                    <nav className="header--navigation">
+                        <ul className="header--navigation--list">
+                            <li className="header--navigation--list--item">
+                                <Link className="link" to={"/"}>Home</Link>
+                            </li>
+                            <li className="header--navigation--list--item">
+                                <Link className="link" to={"accounts/"}>Accounts</Link>
+                            </li>
+                            <li className="header--navigation--list--item">
+                                <Link className="link" to={"contacts/"}>Contacts</Link>
+                            </li>
+                            <li className="header--navigation--list--item">
+                                <Link className="link" to={"/"}>Sales</Link>
+                            </li>
+                            <li className="header--navigation--list--item">
+                                <Link className="link" to={"/"}>Outreach</Link>
+                            </li>
+                            <li className="header--navigation--list--item">
+                                <Link className="link" to={"/"}>Service</Link>
+                            </li>
+                            <li className="header--navigation--list--item">
+                                <Link className="link" to={"/"}>Calendar</Link>
+                            </li>
+                            <li className="header--navigation--list--item">
+                                <Link className="link" to={"/"}>Dashboards</Link>
+                            </li>
+                            <li className="header--navigation--list--item">
+                                <Link className="link" to={"/"}>Reports</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div className="header--welcome">
+                        Welcome, !
+                    </div>
+                </header>
+            ) : (
+                <div></div>
+            )}
+        </>
     )
 }
 

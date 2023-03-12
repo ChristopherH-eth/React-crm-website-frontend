@@ -1,4 +1,5 @@
-import { Form, useNavigate } from "react-router-dom"
+import React from "react"
+import { Form, useNavigate, useOutletContext } from "react-router-dom"
 import { loginUserUtil } from "../util/loginUtil"
 
 /**
@@ -13,10 +14,14 @@ import { loginUserUtil } from "../util/loginUtil"
  */
 function Login()
 {
+    // Set variables to context values
+    const setIsLoggedIn = useOutletContext()
+
+    // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
     // Component functions stored in contactsUtil
-    const loginUser = () => loginUserUtil(navigate)
+    const loginUser = () => loginUserUtil(navigate, setIsLoggedIn)
 
     return (
         <section className="login">
