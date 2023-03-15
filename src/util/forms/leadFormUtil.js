@@ -28,7 +28,7 @@ function addLeadUtil()
     fetch(leadUrl, {
         method: "POST",
         mode: "cors",
-        // credentials: "include",
+        credentials: "include",
         headers: {"Content-type": "application/json; charset=UTF-8"},
         body: JSON.stringify(leadBody)
     })

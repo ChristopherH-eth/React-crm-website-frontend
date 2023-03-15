@@ -13,12 +13,16 @@ import { Link } from "react-router-dom"
 function Header(props)
 {
     const {
-        isLoggedIn
+        location,
+        user
     } = props
+
+    // Path to login page
+    const loginPath = "/login"
 
     return (
         <>
-            {isLoggedIn ? (
+            {location.pathname !== loginPath ? (
                 <header className="header">
                     <div className="header--title">
                         CRM Website
@@ -55,7 +59,7 @@ function Header(props)
                         </ul>
                     </nav>
                     <div className="header--welcome">
-                        Welcome, !
+                        Welcome, {user._token}!
                     </div>
                 </header>
             ) : (

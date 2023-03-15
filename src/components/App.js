@@ -19,8 +19,11 @@ import { URLS, ENDPOINTS } from "../util/config"
 function App()
 {
     const [isLoggedIn, setIsLoggedIn] = React.useState(false)
+    const [user, setUser] = React.useState([])
 
     const refreshUrl = `${URLS.api}${ENDPOINTS.jwtRefresh}`         // JWT Refresh API endpoint
+    const userUrl = `${URLS.api}${ENDPOINTS.user}`                  // User session API endpoint
+    let location = useLocation()                                    // Current URL path variable
     window.onclick = selectWindow                                   // Window event handler
 
     /**
@@ -28,21 +31,20 @@ function App()
      * @returns Returns props to pass to the child component
      */
     const useUrl = () => {
-        // Current URL path
-        const location = useLocation()
-        console.log(location.pathname)
+        // Check for updated URL path
+        location = useLocation()
 
         switch(location.pathname)
         {
             case "/login":
                 return (setIsLoggedIn)
             default:
-                break
+                return (user)
         }
     }
 
+    // Set interval to refresh user access token every 3 minutes
     React.useEffect(() => {
-        // Set interval to refresh user access token every 3 minutes
         const refreshTokenInterval = setInterval(() => {
             if (isLoggedIn === true)
             {
@@ -61,16 +63,33 @@ function App()
         return () => clearInterval(refreshTokenInterval)
     }, [isLoggedIn, refreshUrl])
 
+    // Retrieve current user's session
+    React.useEffect(() => {
+        fetch(userUrl, {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+            .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+            .then((data) => {
+                setUser(data)
+                console.log(data)
+            })
+            .catch(console.error)
+    }, [userUrl, location])
+
     return (
         <div className="app-container">
             <Header 
-                isLoggedIn={isLoggedIn}
+                location={location}
+                user={user}
             />
             <Outlet 
                 context={useUrl()}
             />
             <Footer 
-                isLoggedIn={isLoggedIn}
+                location={location}
             />
         </div>
     )

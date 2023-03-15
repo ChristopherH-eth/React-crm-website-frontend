@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"
+import React from "react"
+import { Link, useOutletContext } from "react-router-dom"
 
 /**
  * @file Main.js
@@ -12,6 +13,9 @@ import { Link } from "react-router-dom"
  */
 function Main()
 {
+    // Set variables to context values
+    const user = useOutletContext()
+
     return (
         <main className="main">
             <div className="main--container">

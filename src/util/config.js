@@ -25,7 +25,8 @@ const ENDPOINTS = {
     accounts: "/accounts/",
     leads: "/leads/",
     jwtRefresh: "/users/refresh/",
-    login: "/users/login/"
+    login: "/users/login/",
+    user: "/users/"
 }
 
 export { URLS, ENDPOINTS }

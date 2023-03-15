@@ -11,12 +11,15 @@
 function Footer(props)
 {
     const {
-        isLoggedIn
+        location
     } = props
+
+    // Path to login page
+    const loginPath = "/login"
 
     return (
         <>
-            {isLoggedIn ? (
+            {location.pathname !== loginPath ? (
                 <footer className="footer">
                     &copy; 2022 Christopher Hardy. All rights reserved.
                 </footer>
