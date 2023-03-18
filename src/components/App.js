@@ -1,5 +1,5 @@
 import React from "react"
-import { Outlet, useLocation } from "react-router-dom"
+import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import Header from "./Header"
 import Footer from "./Footer"
 import { selectWindow } from "../util/appUtil"
@@ -23,6 +23,7 @@ function App()
 
     const refreshUrl = `${URLS.api}${ENDPOINTS.jwtRefresh}`         // JWT Refresh API endpoint
     const userUrl = `${URLS.api}${ENDPOINTS.user}`                  // User session API endpoint
+    const navigate = useNavigate()                                  // useNavigate hook to redirect browser
     let location = useLocation()                                    // Current URL path variable
     window.onclick = selectWindow                                   // Window event handler
 
@@ -55,6 +56,13 @@ function App()
                     headers: {"Content-type": "application/json; charset=UTF-8"}
                 })
                     .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+                    .then((data) => {
+                        // If the user is not logged in, redirect them to the login page
+                        if (data.status !== 200)
+                        {
+                            navigate("/login")
+                        }
+                    })
                     .catch(console.error)
             }
         }, 180000)
