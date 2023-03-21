@@ -47,29 +47,26 @@ function App()
     // Set interval to refresh user access token every 3 minutes
     React.useEffect(() => {
         const refreshTokenInterval = setInterval(() => {
-            if (isLoggedIn === true)
-            {
-                fetch(refreshUrl, {
-                    method: "POST",
-                    mode: "cors",
-                    credentials: "include",
-                    headers: {"Content-type": "application/json; charset=UTF-8"}
+            fetch(refreshUrl, {
+                method: "POST",
+                mode: "cors",
+                credentials: "include",
+                headers: {"Content-type": "application/json; charset=UTF-8"}
+            })
+                .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+                .then((data) => {
+                    // If the user is not logged in, redirect them to the login page
+                    if (data.status === 401)
+                    {
+                        navigate("/login")
+                    }
                 })
-                    .then((res) => res.json().then((data) => ({status: res.status, body: data})))
-                    .then((data) => {
-                        // If the user is not logged in, redirect them to the login page
-                        if (data.status !== 200)
-                        {
-                            navigate("/login")
-                        }
-                    })
-                    .catch(console.error)
-            }
+                .catch(console.error)
         }, 180000)
 
         // Clear interval on component dismount
         return () => clearInterval(refreshTokenInterval)
-    }, [isLoggedIn, refreshUrl])
+    }, [isLoggedIn, refreshUrl, navigate])
 
     // Retrieve current user's session
     React.useEffect(() => {
@@ -81,11 +78,16 @@ function App()
         })
             .then((res) => res.json().then((data) => ({status: res.status, body: data})))
             .then((data) => {
-                setUser(data)
-                console.log(data)
+                if (data.status !== 200)
+                    navigate("/login")
+                else
+                {
+                    console.log(data)
+                    setUser(data.body[0].user)
+                }
             })
             .catch(console.error)
-    }, [userUrl, location])
+    }, [userUrl, location.pathname, navigate])
 
     return (
         <div className="app-container">

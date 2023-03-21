@@ -6,8 +6,6 @@ import { ENDPOINTS, URLS } from "./config"
  * @brief This file contains functions used in the LeadForm component.
  */
 
-const loginUrl = `${URLS.api}${ENDPOINTS.login}`            // Login API endpoint
-
 /**
  * @brief The loginUserUtil() function attempts to log in to the CRM server.
  * @param navigate The useNavigate hook to redirect browser
@@ -15,6 +13,8 @@ const loginUrl = `${URLS.api}${ENDPOINTS.login}`            // Login API endpoin
  */
 function loginUserUtil(navigate, setIsLoggedIn)
 {
+    const loginUrl = `${URLS.api}${ENDPOINTS.login}`            // Login API endpoint
+
     // Get form values
     const email = document.getElementById("login-form--email").value
     const password = document.getElementById("login-form--password").value

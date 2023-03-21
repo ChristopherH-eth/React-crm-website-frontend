@@ -59,7 +59,7 @@ function Header(props)
                         </ul>
                     </nav>
                     <div className="header--welcome">
-                        Welcome, {user._token}!
+                        Welcome, {user}!
                     </div>
                 </header>
             ) : (

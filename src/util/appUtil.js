@@ -29,8 +29,8 @@ function selectWindow(event)
         || event.target.matches("#form--cancel"))
     {
         const pageMask = document.getElementsByClassName("page-mask")
-        const contactForm = document.getElementsByClassName("form-container")
-        const contactInputs = document.getElementsByClassName("form--input-field")
+        const form = document.getElementsByClassName("form-container")
+        const formInputs = document.getElementsByClassName("form--input-field")
 
         // Check for active page mask
         for (let i = 0; i < pageMask.length; i++) 
@@ -41,18 +41,18 @@ function selectWindow(event)
                 openPageMask.classList.remove("show")
         }
 
-        // Check for active contact form
-        for (let i = 0; i < contactForm.length; i++) 
+        // Check for active form
+        for (let i = 0; i < form.length; i++) 
         {
-            let openContactForm = contactForm[i]
+            let openForm = form[i]
 
-            if (openContactForm.classList.contains("show"))
-                openContactForm.classList.remove("show")
+            if (openForm.classList.contains("show"))
+                openForm.classList.remove("show")
         }
 
         // Clear input fields if they still contain text
-        for (let i = 0; i < contactInputs.length; i++)
-            contactInputs[i].value = ""
+        for (let i = 0; i < formInputs.length; i++)
+            formInputs[i].value = ""
 
         // Make body scrollable
         document.body.classList.remove("lock-scroll")
