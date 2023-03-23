@@ -45,4 +45,31 @@ function loginUserUtil(navigate, setIsLoggedIn)
         .catch(console.error)
 }
 
-export { loginUserUtil }
+/**
+ * @brief The logoutUserUtil() function attempts to log out of the CRM server.
+ * @param navigate The useNavigate hook to redirect browser
+ * @param setIsLoggedIn React state function to track user login
+ */
+function logoutUserUtil(navigate, setIsLoggedIn)
+{
+    const logoutUrl = `${URLS.api}${ENDPOINTS.logout}`          // Logout API endpoint
+
+    fetch(logoutUrl, {
+        method: "POST",
+        mode: "cors",
+        credentials: "include",
+        headers: {"Content-type": "application/json; charset=UTF-8"}
+    })
+        .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+        .then((data) => {
+            // On successful logout set logged in status to 'false' and navigate to login url
+            if (data.status === 200)
+            {
+                setIsLoggedIn(false)
+                navigate("/login")
+            }
+        })
+        .catch(console.error)
+}
+
+export { loginUserUtil, logoutUserUtil }

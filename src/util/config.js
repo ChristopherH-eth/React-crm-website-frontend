@@ -26,6 +26,7 @@ const ENDPOINTS = {
     leads: "/leads/",
     jwtRefresh: "/users/refresh/",
     login: "/users/login/",
+    logout: "/users/logout/",
     user: "/users/"
 }
 

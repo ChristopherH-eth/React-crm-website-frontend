@@ -318,7 +318,13 @@ html, body
 
 .header--welcome
 {
+    margin-right: 0.5rem;
     font-weight: 700;
+}
+
+.header--logout-button
+{
+    margin-right: 0.5rem;
 }
 
 /************************************************************

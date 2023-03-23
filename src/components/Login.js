@@ -20,7 +20,7 @@ function Login()
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
-    // Component functions stored in contactsUtil
+    // Component functions stored in loginUtil
     const loginUser = () => loginUserUtil(navigate, setIsLoggedIn)
 
     return (

@@ -94,6 +94,7 @@ function App()
             <Header 
                 location={location}
                 user={user}
+                setIsLoggedIn={setIsLoggedIn}
             />
             <Outlet 
                 context={useUrl()}

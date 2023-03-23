@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { logoutUserUtil } from "../util/loginUtil"
 
 /**
  * @file Header.js
@@ -14,11 +16,18 @@ function Header(props)
 {
     const {
         location,
-        user
+        user,
+        setIsLoggedIn
     } = props
 
     // Path to login page
     const loginPath = "/login"
+
+    // useNavigate hook to redirect browser
+    const navigate = useNavigate()
+
+    // Component functions stored in loginUtil
+    const logoutUser = () => logoutUserUtil(navigate, setIsLoggedIn)
 
     return (
         <>
@@ -60,6 +69,15 @@ function Header(props)
                     </nav>
                     <div className="header--welcome">
                         Welcome, {user}!
+                    </div>
+                    <div className="header--logout-button-container">
+                        <button
+                            onClick={logoutUser}
+                            className="header--logout-button"
+                            type="submit"
+                        >
+                            Logout
+                        </button>
                     </div>
                 </header>
             ) : (
