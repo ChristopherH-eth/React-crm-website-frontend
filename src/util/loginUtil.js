@@ -1,9 +1,9 @@
 import { ENDPOINTS, URLS } from "./config"
 
 /**
- * @file leadFormUtil.js
+ * @file loginFormUtil.js
  * @author 0xChristopher
- * @brief This file contains functions used in the LeadForm component.
+ * @brief This file contains functions used in the Login Form component.
  */
 
 /**
@@ -72,4 +72,14 @@ function logoutUserUtil(navigate, setIsLoggedIn)
         .catch(console.error)
 }
 
-export { loginUserUtil, logoutUserUtil }
+/**
+ * @brief The showRegisterFormUtil() function shows the register form.
+ */
+function showRegisterFormUtil()
+{
+    document.body.classList.add("lock-scroll")
+    document.getElementById("register-form--container").classList.add("show")
+    document.getElementById("page-mask").classList.add("show")
+}
+
+export { loginUserUtil, logoutUserUtil, showRegisterFormUtil }

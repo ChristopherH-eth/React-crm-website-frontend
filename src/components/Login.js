@@ -1,6 +1,7 @@
 import React from "react"
 import { Form, useNavigate, useOutletContext } from "react-router-dom"
-import { loginUserUtil } from "../util/loginUtil"
+import { loginUserUtil, showRegisterFormUtil } from "../util/loginUtil"
+import RegisterForm from "./forms/RegisterForm"
 
 /**
  * @file Login.js
@@ -22,6 +23,7 @@ function Login()
 
     // Component functions stored in loginUtil
     const loginUser = () => loginUserUtil(navigate, setIsLoggedIn)
+    const showRegisterForm = () => showRegisterFormUtil()
 
     return (
         <section className="login">
@@ -60,7 +62,12 @@ function Login()
                             Login
                         </button>
                     </div>
+                    <div className="form--text-centered" onClick={showRegisterForm}>
+                        New User? Register Here!
+                    </div>
                 </Form>
+                {/* Register Form component */}
+                <RegisterForm />
             </div>
         </section>
     )

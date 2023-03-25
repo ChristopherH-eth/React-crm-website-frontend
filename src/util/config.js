@@ -27,6 +27,7 @@ const ENDPOINTS = {
     jwtRefresh: "/users/refresh/",
     login: "/users/login/",
     logout: "/users/logout/",
+    register: "/users/register/",
     user: "/users/"
 }
 

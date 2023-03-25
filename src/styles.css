@@ -259,6 +259,15 @@ html, body
     margin-bottom: 1rem;
 }
 
+.form--text-centered
+{
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .form--footer
 {
     border-top: 0.0625rem solid #323942;
