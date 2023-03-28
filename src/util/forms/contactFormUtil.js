@@ -1,4 +1,5 @@
 import { ENDPOINTS, URLS } from "../config"
+import { clearCurrentFields } from "../util"
 
 /**
  * @file contactUtil.js
@@ -6,14 +7,14 @@ import { ENDPOINTS, URLS } from "../config"
  * @brief This file contains functions used in the ContactForm component.
  */
 
-// Contacts API endpoint
-const contactUrl = `${URLS}${ENDPOINTS.contacts}`
-
 /**
  * @brief The addContactUtil() function adds a new contact to the database.
  */
 function addContactUtil()
 {
+    const contactUrl = `${URLS}${ENDPOINTS.contacts}`                   // Contacts API endpoint
+    const contactFormInputClass = "contact-form--input"                 // Form input fields class
+
     // Get form values
     const firstName = document.getElementById("contact-form--first-name").value
     const lastName = document.getElementById("contact-form--last-name").value
@@ -33,8 +34,12 @@ function addContactUtil()
         body: JSON.stringify(contactBody)
     })
         .then((res) => res.json().then((data) => ({status: res.status, body: data})))
-        .then((res) => {
-            console.log(res)
+        .then((data) => {
+            console.log(data)
+
+            // Clear input fields on success
+            if (data.status === 201)
+                clearCurrentFields(contactFormInputClass)
         })
         .catch(console.error)
 }

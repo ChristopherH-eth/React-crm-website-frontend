@@ -1,4 +1,5 @@
 import { ENDPOINTS, URLS } from "../config"
+import { clearCurrentFields } from "../util"
 
 /**
  * @file registerFormUtil.js
@@ -11,7 +12,8 @@ import { ENDPOINTS, URLS } from "../config"
  */
 function registerUserUtil()
 {
-    const registerUrl = `${URLS.api}${ENDPOINTS.register}`            // Register API endpoint
+    const registerUrl = `${URLS.api}${ENDPOINTS.register}`              // Register API endpoint
+    const registerFormInputClass = "register-form--input"               // Form input fields class
 
     // Get form values
     const firstName = document.getElementById("register-form--first-name").value
@@ -21,8 +23,8 @@ function registerUserUtil()
 
     // Build request body
     const registerBody = {
-        firstName: firstName,
-        lastName: lastName,
+        first_name: firstName,
+        last_name: lastName,
         email: email,
         password: password
     }
@@ -38,6 +40,10 @@ function registerUserUtil()
         .then((res) => res.json().then((data) => ({status: res.status, body: data})))
         .then((data) => {
             console.log(data)
+
+            // Clear input fields on success
+            if (data.status === 201)
+                clearCurrentFields(registerFormInputClass)
         })
         .catch(console.error)
 }

@@ -37,7 +37,7 @@ function AccountForm()
                             Account Name
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--account-name"
                             required
                             type="text"
@@ -46,7 +46,7 @@ function AccountForm()
                             Website
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--website" 
                             type="text"
                         ></input>
@@ -54,7 +54,7 @@ function AccountForm()
                             Type
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--type"
                             type="text"
                         ></input>
@@ -62,7 +62,7 @@ function AccountForm()
                             Description
                         </div>
                         <textarea
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--description"
                             rows={5}
                             type="text"
@@ -71,7 +71,7 @@ function AccountForm()
                             Parent Account
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--parent-account"
                             type="text"
                         ></input>
@@ -83,7 +83,7 @@ function AccountForm()
                             Phone
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--phone"
                             type="text"
                         ></input>
@@ -94,7 +94,7 @@ function AccountForm()
                             Billing Street
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--billing-street"
                             type="text"
                         ></input>
@@ -102,7 +102,7 @@ function AccountForm()
                             Billing City
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--billing-city"
                             type="text"
                         ></input>
@@ -110,7 +110,7 @@ function AccountForm()
                             Billing State/Province
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--billing-state-province"
                             type="text"
                         ></input>
@@ -118,7 +118,7 @@ function AccountForm()
                             Billing Zip/Postal Code
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--billing-zip-postal"
                             type="text"
                         ></input>
@@ -126,7 +126,7 @@ function AccountForm()
                             Billing Country
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--billing-country"
                             type="text"
                         ></input>
@@ -137,7 +137,7 @@ function AccountForm()
                             Shipping Street
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--shipping-street"
                             type="text"
                         ></input>
@@ -145,7 +145,7 @@ function AccountForm()
                             Shipping City
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--shipping-city"
                             type="text"
                         ></input>
@@ -153,7 +153,7 @@ function AccountForm()
                             Shipping State/Province
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--shipping-state-province"
                             type="text"
                         ></input>
@@ -161,7 +161,7 @@ function AccountForm()
                             Shipping Zip/Postal Code
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--shipping-zip-postal"
                             type="text"
                         ></input>
@@ -169,7 +169,7 @@ function AccountForm()
                             Shipping Country
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field account-form--input"
                             id="account-form--shipping-country"
                             type="text"
                         ></input>

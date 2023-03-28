@@ -33,7 +33,7 @@ function RegisterForm()
                             First Name
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field register-form--input"
                             id="register-form--first-name"
                             required
                             type="text"
@@ -42,7 +42,7 @@ function RegisterForm()
                             Last Name
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field register-form--input"
                             id="register-form--last-name"
                             required
                             type="text"
@@ -51,7 +51,7 @@ function RegisterForm()
                             Email
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field register-form--input"
                             id="register-form--email"
                             required
                             type="text"
@@ -60,7 +60,7 @@ function RegisterForm()
                             Password
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field register-form--input"
                             id="register-form--password"
                             required
                             type="password"
@@ -69,7 +69,7 @@ function RegisterForm()
                             Confirm Password
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field register-form--input"
                             id="register-form--confirm-password"
                             required
                             type="password"

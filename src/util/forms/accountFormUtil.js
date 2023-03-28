@@ -1,4 +1,5 @@
 import { ENDPOINTS, URLS } from "../config"
+import { clearCurrentFields } from "../util"
 
 /**
  * @file accountFormUtil.js
@@ -6,14 +7,14 @@ import { ENDPOINTS, URLS } from "../config"
  * @brief This file contains functions used in the AccountForm component.
  */
 
-// Accounts API endpoint
-const accountUrl = `${URLS}${ENDPOINTS.accounts}`
-
 /**
  * @brief The addAccountUtil() function adds a new account to the database.
  */
 function addAccountUtil()
 {
+    const accountUrl = `${URLS}${ENDPOINTS.accounts}`                   // Accounts API endpoint
+    const accountFormInputClass = "account-form--input"                 // Form input fields class
+
     // Get form values
     const accountName = document.getElementById("account-form--first-name").value
     const website = document.getElementById("account-form--website").value
@@ -28,13 +29,17 @@ function addAccountUtil()
     fetch(accountUrl, {
         method: "POST",
         mode: "cors",
-        // credentials: "include",
+        credentials: "include",
         headers: {"Content-type": "application/json; charset=UTF-8"},
         body: JSON.stringify(accountBody)
     })
         .then((res) => res.json().then((data) => ({status: res.status, body: data})))
-        .then((res) => {
-            console.log(res)
+        .then((data) => {
+            console.log(data)
+
+            // Clear input fields on success
+            if (data.status === 201)
+                clearCurrentFields(accountFormInputClass)
         })
         .catch(console.error)
 }

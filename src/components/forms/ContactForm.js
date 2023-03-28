@@ -37,7 +37,7 @@ function ContactForm()
                             Salutation
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--salutation"
                             type="text"
                         ></input>
@@ -45,7 +45,7 @@ function ContactForm()
                             First Name
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--first-name"
                             required 
                             type="text"
@@ -54,7 +54,7 @@ function ContactForm()
                             Last Name
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--last-name"
                             required
                             type="text"
@@ -63,7 +63,7 @@ function ContactForm()
                             Account Name
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--account-name"
                             required
                             type="text"
@@ -72,7 +72,7 @@ function ContactForm()
                             Title
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--title"
                             type="text"
                         ></input>
@@ -80,7 +80,7 @@ function ContactForm()
                             Reports To
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--reports-to"
                             type="text"
                         ></input>
@@ -88,7 +88,7 @@ function ContactForm()
                             Description
                         </div>
                         <textarea
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--description"
                             rows={5}
                             type="text"
@@ -101,7 +101,7 @@ function ContactForm()
                             Phone
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--phone"
                             type="text"
                         ></input>
@@ -109,7 +109,7 @@ function ContactForm()
                             Email
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--email"
                             type="text"
                         ></input>
@@ -117,7 +117,7 @@ function ContactForm()
                             Email Opt Out
                         </div>
                         <input
-                            className="form--input-field-checkbox"
+                            className="form--input-field-checkbox contact-form--input"
                             id="contact-form--email-opt-out"
                             type="checkbox"
                         ></input>
@@ -128,7 +128,7 @@ function ContactForm()
                             Street
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--street"
                             type="text"
                         ></input>
@@ -136,7 +136,7 @@ function ContactForm()
                             City
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--city"
                             type="text"
                         ></input>
@@ -144,7 +144,7 @@ function ContactForm()
                             State/Province
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--state-province"
                             type="text"
                         ></input>
@@ -152,7 +152,7 @@ function ContactForm()
                             Zip/Postal Code
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--zip-postal"
                             type="text"
                         ></input>
@@ -160,7 +160,7 @@ function ContactForm()
                             Country
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field contact-form--input"
                             id="contact-form--country"
                             type="text"
                         ></input>

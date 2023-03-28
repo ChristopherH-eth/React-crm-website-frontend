@@ -1,4 +1,5 @@
 import { ENDPOINTS, URLS } from "../config"
+import { clearCurrentFields } from "../util"
 
 /**
  * @file leadFormUtil.js
@@ -6,14 +7,14 @@ import { ENDPOINTS, URLS } from "../config"
  * @brief This file contains functions used in the LeadForm component.
  */
 
-// Leads API endpoint
-const leadUrl = `${URLS}${ENDPOINTS.leads}`
-
 /**
  * @brief The addLeadUtil() function adds a new lead to the database.
  */
 function addLeadUtil()
 {
+    const leadUrl = `${URLS}${ENDPOINTS.leads}`                         // Leads API endpoint
+    const leadFormInputClass = "lead-form--input"                       // Form input fields class
+
     // Get form values
     const leadName = document.getElementById("lead-form--first-name").value
     const company = document.getElementById("lead-form--company").value
@@ -33,8 +34,12 @@ function addLeadUtil()
         body: JSON.stringify(leadBody)
     })
         .then((res) => res.json().then((data) => ({status: res.status, body: data})))
-        .then((res) => {
-            console.log(res)
+        .then((data) => {
+            console.log(data)
+
+            // Clear input fields on success
+            if (data.status === 201)
+                clearCurrentFields(leadFormInputClass)
         })
         .catch(console.error)
 }

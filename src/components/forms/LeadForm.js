@@ -37,7 +37,7 @@ function LeadForm()
                             Salutation
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--salutation"
                             type="text"
                         ></input>
@@ -45,7 +45,7 @@ function LeadForm()
                             First Name
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--first-name"
                             required 
                             type="text"
@@ -54,7 +54,7 @@ function LeadForm()
                             Last Name
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--last-name"
                             required
                             type="text"
@@ -63,7 +63,7 @@ function LeadForm()
                             Company
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--company"
                             required
                             type="text"
@@ -72,7 +72,7 @@ function LeadForm()
                             Title
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--title"
                             required
                             type="text"
@@ -81,7 +81,7 @@ function LeadForm()
                             Website
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--website" 
                             type="text"
                         ></input>
@@ -89,7 +89,7 @@ function LeadForm()
                             Description
                         </div>
                         <textarea
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--description"
                             rows={5}
                             type="text"
@@ -98,7 +98,7 @@ function LeadForm()
                             Lead Status
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--status"
                             required
                             type="text"
@@ -111,7 +111,7 @@ function LeadForm()
                             Phone
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--phone"
                             type="text"
                         ></input>
@@ -119,7 +119,7 @@ function LeadForm()
                             Email
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--email"
                             type="text"
                         ></input>
@@ -127,7 +127,7 @@ function LeadForm()
                             Email Opt Out
                         </div>
                         <input
-                            className="form--input-field-checkbox"
+                            className="form--input-field-checkbox lead-form--input"
                             id="lead-form--email-opt-out"
                             type="checkbox"
                         ></input>
@@ -138,7 +138,7 @@ function LeadForm()
                             Street
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--street"
                             type="text"
                         ></input>
@@ -146,7 +146,7 @@ function LeadForm()
                             City
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--city"
                             type="text"
                         ></input>
@@ -154,7 +154,7 @@ function LeadForm()
                             State/Province
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--state-province"
                             type="text"
                         ></input>
@@ -162,7 +162,7 @@ function LeadForm()
                             Zip/Postal Code
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--zip-postal"
                             type="text"
                         ></input>
@@ -170,7 +170,7 @@ function LeadForm()
                             Country
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--country"
                             type="text"
                         ></input>
@@ -181,7 +181,7 @@ function LeadForm()
                             No. of Employees
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--no-of-employees"
                             type="text"
                         ></input>
@@ -189,7 +189,7 @@ function LeadForm()
                             Annual Revenue
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--annual-revenue"
                             type="text"
                         ></input>
@@ -197,7 +197,7 @@ function LeadForm()
                             Lead Source
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--source"
                             type="text"
                         ></input>
@@ -205,7 +205,7 @@ function LeadForm()
                             Industry
                         </div>
                         <input
-                            className="form--input-field"
+                            className="form--input-field lead-form--input"
                             id="lead-form--industry"
                             type="text"
                         ></input>
