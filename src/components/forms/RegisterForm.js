@@ -1,3 +1,4 @@
+import React from "react"
 import { Form } from "react-router-dom"
 import { registerUserUtil } from "../../util/forms/registerFormUtil"
 
@@ -13,8 +14,10 @@ import { registerUserUtil } from "../../util/forms/registerFormUtil"
  */
 function RegisterForm()
 {
+    const [registerError, setRegisterError] = React.useState()
+
     // Component functions stored in registerFormUtil
-    const registerUser = () => registerUserUtil()
+    const registerUser = () => registerUserUtil(setRegisterError)
 
     return (
         <>
@@ -44,7 +47,6 @@ function RegisterForm()
                         <input
                             className="form--input-field register-form--input"
                             id="register-form--last-name"
-                            required
                             type="text"
                         ></input>
                         <div className="form--label">
@@ -90,6 +92,8 @@ function RegisterForm()
                                     Cancel
                                 </button>
                             </div>
+                            {/* Register Error */}
+                            {registerError && <div className="form--error">{registerError}</div>}
                         </div>
                     </Form>
                 </div>

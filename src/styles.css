@@ -286,6 +286,15 @@ html, body
     margin-right: 0.5rem;
 }
 
+.form--error
+{
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    color: red;
+}
+
 /************************************************************
  * 4. Header
  *
