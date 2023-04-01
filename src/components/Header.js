@@ -73,7 +73,6 @@ function Header(props)
                     <div className="header--logout-button-container">
                         <button
                             onClick={logoutUser}
-                            className="header--logout-button"
                             type="submit"
                         >
                             Logout

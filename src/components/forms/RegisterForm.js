@@ -76,25 +76,27 @@ function RegisterForm()
                             required
                             type="password"
                         ></input>
-                        <div className="form--footer">
-                            <div className="form--footer--button-container">
+                        <div className="form--footer-border" />
+                        <div className="form--footer-container">
+                            <div className="button--container">
                                 <button 
-                                    className="form--footer--button"
                                     id="register-user--button"
                                     type="submit"
                                     onClick={registerUser}>
                                     Register
                                 </button>
+                            </div>
+                            <div className="button--container">
                                 <button 
-                                    className="form--footer--button-end"
+                                    className="secondary-button"
                                     type="button"
                                     id="form--cancel">
                                     Cancel
                                 </button>
                             </div>
-                            {/* Register Error */}
-                            {registerError && <div className="form--error">{registerError}</div>}
                         </div>
+                        {/* Register Error */}
+                        {registerError && <div className="form--error">{registerError}</div>}
                     </Form>
                 </div>
             </section>

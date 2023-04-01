@@ -12,8 +12,9 @@
  * 4. Header
  * 5. Main
  * 6. Footer
- * 7. Scrollbar
- * 8. Toggle and Pseudo Class Styles
+ * 7. Buttons
+ * 8. Scrollbar
+ * 9. Toggle and Pseudo Class Styles
  */
 
 /************************************************************
@@ -268,22 +269,17 @@ html, body
     cursor: pointer;
 }
 
-.form--footer
+.form--footer-border
 {
     border-top: 0.0625rem solid #323942;
 }
 
-.form--footer--button-container
+.form--footer-container
 {
     display: flex;
     margin-top: 1rem;
     align-items: center;
     justify-content: center;
-}
-
-.form--footer--button
-{
-    margin-right: 0.5rem;
 }
 
 .form--error
@@ -338,11 +334,6 @@ html, body
 {
     margin-right: 0.5rem;
     font-weight: 700;
-}
-
-.header--logout-button
-{
-    margin-right: 0.5rem;
 }
 
 /************************************************************
@@ -476,7 +467,35 @@ html, body
 }
 
 /************************************************************
- * 7. Scrollbar
+ * 7. Buttons
+ *
+ *
+ ************************************************************/
+
+button
+{
+    padding: 0.25rem;
+    color: white;
+    background-color: #246bc8;
+    border: 0.0625rem solid #246bc8;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.secondary-button
+{
+    color: #246bc8;
+    background-color: white;
+}
+
+.button--container
+{
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+}
+
+/************************************************************
+ * 8. Scrollbar
  *
  *
  ************************************************************/
@@ -502,7 +521,7 @@ html, body
 }
 
 /************************************************************
- * 8. Toggle and Pseudo Class Styles
+ * 9. Toggle and Pseudo Class Styles
  *
  *
  ************************************************************/

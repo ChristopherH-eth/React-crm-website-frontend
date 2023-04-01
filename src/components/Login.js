@@ -53,14 +53,16 @@ function Login()
                         required
                         type="password"
                     ></input>
-                    <div className="form--footer--button-container">
-                        <button
-                            onClick={loginUser}
-                            className="form--footer--button-end"
-                            type="submit"
-                        >
-                            Login
-                        </button>
+                    <div className="form--footer-container">
+                        <div className="button--container">
+                            <button
+                                onClick={loginUser}
+                                className="form--footer--button-end"
+                                type="submit"
+                            >
+                                Login
+                            </button>
+                        </div>
                     </div>
                     <div className="form--text-centered" onClick={showRegisterForm}>
                         New User? Register Here!

@@ -173,17 +173,19 @@ function AccountForm()
                             id="account-form--shipping-country"
                             type="text"
                         ></input>
-                        <div className="form--footer">
-                            <div className="form--footer--button-container">
+                        <div className="form--footer-border" />
+                        <div className="form--footer-container">
+                            <div className="button--container">
                                 <button 
-                                    className="form--footer--button"
                                     id="add-account--button"
                                     type="submit" 
                                     onClick={addAccount}>
                                     Add Account
                                 </button>
+                            </div>
+                            <div className="button--container">
                                 <button 
-                                    className="form--footer--button-end"
+                                    className="secondary-button"
                                     type="button"
                                     id="form--cancel">
                                     Cancel

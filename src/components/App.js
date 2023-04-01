@@ -8,20 +8,21 @@ import { URLS, ENDPOINTS } from "../util/config"
 /**
  * @file App.js
  * @author 0xChristopher
- * @brief This file imports the main components of the page and returns them as the main 'App'
- *      component.
+ * @brief This file is responsible for the App component of the CRM website.
  */
 
 /**
  * @brief The App() function builds the page app component.
  * @return Returns the app component to be added to the page
  */
-function App()
+function App(props)
 {
-    const [isLoggedIn, setIsLoggedIn] = React.useState(false)
-    const [user, setUser] = React.useState([])
+    const {
+        setIsLoggedIn,
+        user,
+        setUser
+    } = props
 
-    const refreshUrl = `${URLS.api}${ENDPOINTS.jwtRefresh}`         // JWT Refresh API endpoint
     const userUrl = `${URLS.api}${ENDPOINTS.user}`                  // User session API endpoint
     const navigate = useNavigate()                                  // useNavigate hook to redirect browser
     let location = useLocation()                                    // Current URL path variable
@@ -44,30 +45,6 @@ function App()
         }
     }
 
-    // Set interval to refresh user access token every 3 minutes
-    React.useEffect(() => {
-        const refreshTokenInterval = setInterval(() => {
-            fetch(refreshUrl, {
-                method: "POST",
-                mode: "cors",
-                credentials: "include",
-                headers: {"Content-type": "application/json; charset=UTF-8"}
-            })
-                .then((res) => res.json().then((data) => ({status: res.status, body: data})))
-                .then((data) => {
-                    // If the user is not logged in, redirect them to the login page
-                    if (data.status === 401)
-                    {
-                        navigate("/login")
-                    }
-                })
-                .catch(console.error)
-        }, 180000)
-
-        // Clear interval on component dismount
-        return () => clearInterval(refreshTokenInterval)
-    }, [isLoggedIn, refreshUrl, navigate])
-
     // Retrieve current user's session
     React.useEffect(() => {
         fetch(userUrl, {
@@ -87,7 +64,7 @@ function App()
                 }
             })
             .catch(console.error)
-    }, [userUrl, location.pathname, navigate])
+    }, [userUrl, location.pathname, setUser, navigate])
 
     return (
         <div className="app-container">
