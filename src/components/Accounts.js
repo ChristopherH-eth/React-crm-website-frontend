@@ -30,9 +30,7 @@ function Accounts()
             method: "GET",
             mode: "cors",
             credentials: "include",
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
+            headers: {"Content-type": "application/json; charset=UTF-8"}
         })
             .then((res) => res.json().then((data) => ({status: res.status, body: data})))
             .then((data) => {
@@ -42,7 +40,7 @@ function Accounts()
                     setAccountData(data.body)
             })
             .catch(console.error)
-    }, [accountUrl])
+    }, [accountUrl, navigate])
 
     // Map contact data
     const accounts = accountData.map((account) => {

@@ -15,6 +15,7 @@
  * 7. Buttons
  * 8. Scrollbar
  * 9. Toggle and Pseudo Class Styles
+ * 10. Animations
  */
 
 /************************************************************
@@ -63,6 +64,9 @@ html, body
     right: 0;
     bottom: 0;
     top: 0;
+    animation: fadeInHalf 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .error-page
@@ -202,6 +206,9 @@ html, body
     right: 0;
     margin-left: auto;
     margin-right: auto;
+    animation: fadeInFull 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .form
@@ -534,4 +541,30 @@ button
 .show
 {
     display: block;
+}
+
+/************************************************************
+ * 10. Animations
+ *
+ *
+ ************************************************************/
+
+@keyframes fadeInFull
+{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInHalf
+{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.5;
+    }
 }

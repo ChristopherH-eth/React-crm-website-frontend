@@ -10,12 +10,14 @@ let URLS = {}
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development")
 {
     URLS = {
+        base: "http://localhost:3000",
         api: "http://localhost:8000/api/v1"
     }
 }
 else
 {
     URLS = {
+        base: "http://localhost",
         api: "http://localhost/api/v1"
     }
 }

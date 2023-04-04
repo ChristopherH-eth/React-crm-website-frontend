@@ -30,9 +30,7 @@ function Leads()
             method: "GET",
             mode: "cors",
             credentials: "include",
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
+            headers: {"Content-type": "application/json; charset=UTF-8"}
         })
             .then((res) => res.json().then((data) => ({status: res.status, body: data})))
             .then((data) => {
@@ -42,7 +40,7 @@ function Leads()
                     setLeadData(data.body)
             })
             .catch(console.error)
-    }, [leadUrl])
+    }, [leadUrl, navigate])
 
     // Map lead data
     const leads = leadData.map((lead) => {
