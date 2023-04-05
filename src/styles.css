@@ -308,7 +308,6 @@ html, body
 {
     display: flex;
     height: 10vh;
-    padding: 1rem;
     background-color: #f1f1ee;
     color: black;
     align-items: center;
@@ -317,30 +316,52 @@ html, body
 
 .header--title
 {
+    padding: 0.5rem;
     font-weight: 700;
 }
 
 .header--navigation
 {
     margin-right: auto;
+    margin-top: auto;
+    margin-bottom: 0;
 }
 
 .header--navigation--list
 {
     display: flex;
+    margin-top: auto;
+    margin-bottom: -0.1625rem;
     list-style-type: none;
 }
 
 .header--navigation--list--item
 {
-    margin-right: 1rem;
+    padding-top: 1vh;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-bottom: 2.5vh;
     font-weight: 300;
+    border-bottom: 0.1625rem solid #246bc8;
+}
+
+.header--navigation--list--item:hover
+{
+    margin-top: -0.1625rem;
+    background-color: #afcef6;
+    border-top: 0.1625rem solid #0047a5;
+    border-bottom: 0.1625rem solid #0047a5;
 }
 
 .header--welcome
 {
     margin-right: 0.5rem;
     font-weight: 700;
+}
+
+.header--logout-button-container
+{
+    padding: 0.5rem;
 }
 
 /************************************************************

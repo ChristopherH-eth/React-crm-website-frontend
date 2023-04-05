@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useOutletContext } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 /**
  * @file Main.js
@@ -13,9 +13,6 @@ import { Link, useOutletContext } from "react-router-dom"
  */
 function Main()
 {
-    // Set variables to context values
-    const user = useOutletContext()
-
     return (
         <main className="main">
             <div className="main--container">
@@ -61,6 +58,47 @@ function Main()
                                 </div>
                                 <div className="main--quick-look--item--caption">
                                     This is your pipeline. Track stages are your deals move forward.
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+                <div className="main--quick-look--container">
+                    <div className="main--quick-look--item--container">
+                        <Link className="main--quick-look--item" to={"/"}>
+                            <div className="main--quick-look--item--bar" />
+                            <div>
+                                <div className="main--quick-look--item--header">
+                                    Test
+                                </div>
+                                <div className="main--quick-look--item--caption">
+                                    Test
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="main--quick-look--item--container">
+                        <Link className="main--quick-look--item" to={"/"}>
+                            <div className="main--quick-look--item--bar" />
+                            <div>
+                                <div className="main--quick-look--item--header">
+                                    Test
+                                </div>
+                                <div className="main--quick-look--item--caption">
+                                    Test
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="main--quick-look--item--container">
+                        <Link className="main--quick-look--item" to={"/"}>
+                            <div className="main--quick-look--item--bar" />
+                            <div>
+                                <div className="main--quick-look--item--header">
+                                    Test
+                                </div>
+                                <div className="main--quick-look--item--caption">
+                                    Test
                                 </div>
                             </div>
                         </Link>

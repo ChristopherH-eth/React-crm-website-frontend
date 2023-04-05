@@ -22,6 +22,10 @@ else
     }
 }
 
+const PATHS = {
+    login: "/login/"
+}
+
 const ENDPOINTS = {
     contacts: "/contacts/",
     accounts: "/accounts/",
@@ -33,4 +37,4 @@ const ENDPOINTS = {
     user: "/users/"
 }
 
-export { URLS, ENDPOINTS }
+export { URLS, PATHS, ENDPOINTS }

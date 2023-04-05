@@ -1,7 +1,7 @@
 import React from "react"
 import { RouterProvider } from "react-router-dom"
 import { getRouter } from "../routes/routes"
-import { URLS, ENDPOINTS } from "../util/config"
+import { URLS, PATHS, ENDPOINTS } from "../util/config"
 
 /**
  * @file CRM.js
@@ -21,7 +21,7 @@ function CRM()
 
     const router = getRouter(setIsLoggedIn, user, setUser)          // Get routes
     const refreshUrl = `${URLS.api}${ENDPOINTS.jwtRefresh}`         // JWT Refresh API endpoint
-    const loginUrl = `${URLS.base}${ENDPOINTS.login}`               // Login URL
+    const loginUrl = `${URLS.base}${PATHS.login}`                   // Login URL
 
     // Set interval to refresh user access token every 3 minutes on component mount
     React.useEffect(() => {
