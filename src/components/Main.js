@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { URLS, ENDPOINTS } from "../util/config"
 
 /**
  * @file Main.js
@@ -13,6 +14,104 @@ import { Link } from "react-router-dom"
  */
 function Main()
 {
+    const [leadsData, setLeadsData] = React.useState([])
+    const [contactsData, setContactsData] = React.useState([])
+    const [accountsData, setAccountsData] = React.useState([])
+
+    const leadsUrl = `${URLS.api}${ENDPOINTS.leads}`                        // Leads API endpoint
+    const contactsUrl = `${URLS.api}${ENDPOINTS.contacts}`                  // Contacts API endpoint
+    const accountsUrl = `${URLS.api}${ENDPOINTS.accounts}`                  // Accounts API endpoint
+
+    React.useEffect(() => {
+        fetch(leadsUrl, {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+            .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+            .then((data) => {
+                setLeadsData(data.body)
+            })
+            .catch(console.error)
+    }, [leadsUrl])
+
+    React.useEffect(() => {
+        fetch(contactsUrl, {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+            .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+            .then((data) => {
+                setContactsData(data.body)
+            })
+            .catch(console.error)
+    }, [contactsUrl])
+
+    React.useEffect(() => {
+        fetch(accountsUrl, {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+            .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+            .then((data) => {
+                setAccountsData(data.body)
+            })
+            .catch(console.error)
+    }, [accountsUrl])
+
+    // Map leads data
+    const leads = leadsData.map((lead => {
+        return (
+            <table>
+                <tr>
+                    <td>
+                        {lead.id}
+                    </td>
+                    <td>
+                        {lead.first_name}
+                    </td>
+                </tr>
+            </table>
+        )
+    }))
+
+    // Map contacts data
+    const contacts = contactsData.map((contact => {
+        return (
+            <table>
+                <tr>
+                    <td>
+                        {contact.id}
+                    </td>
+                    <td>
+                        {contact.first_name}
+                    </td>
+                </tr>
+            </table>
+        )
+    }))
+
+    // Map accounts data
+    const accounts = accountsData.map((account => {
+        return (
+            <table>
+                <tr>
+                    <td>
+                        {account.id}
+                    </td>
+                    <td>
+                        {account.account_name}
+                    </td>
+                </tr>
+            </table>
+        )
+    }))
+
     return (
         <main className="main">
             <div className="main--container">
@@ -102,6 +201,58 @@ function Main()
                                 </div>
                             </div>
                         </Link>
+                    </div>
+                </div>
+            </div>
+            <div className="main--component--container">
+                <div className="main--component">
+                    <div className="main--component--header">
+                        Leads
+                    </div>
+                    <div className="main--component--content">
+                        {leads}
+                    </div>
+                </div>
+                <div className="main--component">
+                    <div className="main--component--header">
+                        Opportunities
+                    </div>
+                    <div className="main--component--content">
+                        Content
+                    </div>
+                </div>
+                <div className="main--component">
+                    <div className="main--component--header">
+                        Contacts
+                    </div>
+                    <div className="main--component--content">
+                        {contacts}
+                    </div>
+                </div>
+            </div>
+            <div className="main--component--container">
+                <div className="main--component">
+                    <div className="main--component--header">
+                        Accounts
+                    </div>
+                    <div className="main--component--content">
+                        {accounts}
+                    </div>
+                </div>
+                <div className="main--component">
+                    <div className="main--component--header">
+                        Component
+                    </div>
+                    <div className="main--component--content">
+                        Content
+                    </div>
+                </div>
+                <div className="main--component">
+                    <div className="main--component--header">
+                        Component
+                    </div>
+                    <div className="main--component--content">
+                        Content
                     </div>
                 </div>
             </div>

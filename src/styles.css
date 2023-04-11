@@ -373,7 +373,6 @@ html, body
 .main, .contacts, .accounts, .leads
 {
     display: flex;
-    padding: 1rem;
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
@@ -399,6 +398,7 @@ html, body
 {
     display: flex;
     flex-direction: column;
+    margin: 1rem;
     background-color: #f1f1ee;
     border: 0.0625rem solid #a7aeb7;
     border-radius: 0.25rem;
@@ -474,6 +474,38 @@ html, body
 {
     font-weight: 300;
     font-size: 0.8rem;
+}
+
+.main--component--container
+{
+    display: flex;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.main--component
+{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: #f1f1ee;
+    border: 0.0625rem solid #a7aeb7;
+    border-radius: 0.25rem;
+}
+
+.main--component--header
+{
+    padding: 0.5rem;
+}
+
+.main--component--content
+{
+    padding: 0.5rem;
+    background-color: white;
+    border: 0.0625rem solid #a7aeb7;
+    border-radius: 0.25rem;
 }
 
 /************************************************************

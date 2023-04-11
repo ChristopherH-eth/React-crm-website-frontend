@@ -38,33 +38,51 @@ function Header(props)
                     </div>
                     <nav className="header--navigation">
                         <ul className="header--navigation--list">
-                            <li className="header--navigation--list--item">
-                                <Link className="link" to={"/"}>Home</Link>
-                            </li>
-                            <li className="header--navigation--list--item">
-                                <Link className="link" to={"accounts/"}>Accounts</Link>
-                            </li>
-                            <li className="header--navigation--list--item">
-                                <Link className="link" to={"contacts/"}>Contacts</Link>
-                            </li>
-                            <li className="header--navigation--list--item">
-                                <Link className="link" to={"/"}>Sales</Link>
-                            </li>
-                            <li className="header--navigation--list--item">
-                                <Link className="link" to={"/"}>Outreach</Link>
-                            </li>
-                            <li className="header--navigation--list--item">
-                                <Link className="link" to={"/"}>Service</Link>
-                            </li>
-                            <li className="header--navigation--list--item">
-                                <Link className="link" to={"/"}>Calendar</Link>
-                            </li>
-                            <li className="header--navigation--list--item">
-                                <Link className="link" to={"/"}>Dashboards</Link>
-                            </li>
-                            <li className="header--navigation--list--item">
-                                <Link className="link" to={"/"}>Reports</Link>
-                            </li>
+                            <Link className="link" to={"/"}>
+                                <li className="header--navigation--list--item">
+                                    Home
+                                </li>
+                            </Link>
+                            <Link className="link" to={"accounts/"}>
+                                <li className="header--navigation--list--item">
+                                    Accounts
+                                </li>
+                            </Link>
+                            <Link className="link" to={"contacts/"}>
+                                <li className="header--navigation--list--item">
+                                    Contacts
+                                </li>
+                            </Link>
+                            <Link className="link" to={"/"}>
+                                <li className="header--navigation--list--item">
+                                    Sales
+                                </li>
+                            </Link>
+                            <Link className="link" to={"/"}>
+                                <li className="header--navigation--list--item">
+                                    Outreach
+                                </li>
+                            </Link>
+                            <Link className="link" to={"/"}>
+                                <li className="header--navigation--list--item">
+                                    Service
+                                </li>
+                            </Link>
+                            <Link className="link" to={"/"}>
+                                <li className="header--navigation--list--item">
+                                    Calendar
+                                </li>
+                            </Link>
+                            <Link className="link" to={"/"}>
+                                <li className="header--navigation--list--item">
+                                    Dashboards
+                                </li>
+                            </Link>
+                            <Link className="link" to={"/"}>
+                                <li className="header--navigation--list--item">
+                                    Reports
+                                </li>
+                            </Link>
                         </ul>
                     </nav>
                     <div className="header--welcome">
