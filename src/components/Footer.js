@@ -21,7 +21,7 @@ function Footer(props)
         <>
             {location.pathname !== loginPath ? (
                 <footer className="footer">
-                    &copy; 2022 Christopher Hardy. All rights reserved.
+                    &copy; 2023 Christopher Hardy. All rights reserved.
                 </footer>
             ) : (
                 <div></div>

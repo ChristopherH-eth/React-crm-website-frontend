@@ -7,6 +7,7 @@
 // Production and development urls
 let URLS = {}
 
+// Set base and API URLs based on current environment
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development")
 {
     URLS = {
@@ -22,10 +23,12 @@ else
     }
 }
 
+// URL paths
 const PATHS = {
     login: "/login/"
 }
 
+// API endpoints
 const ENDPOINTS = {
     contacts: "/contacts/",
     accounts: "/accounts/",

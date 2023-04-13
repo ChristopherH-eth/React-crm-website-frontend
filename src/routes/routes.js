@@ -41,15 +41,15 @@ function getRouter(setIsLoggedIn, user, setUser)
                 },
                 {
                     path: "contacts/",
-                    element: <><Contacts /><ContactForm /></>
+                    element: <><Contacts /><ContactForm user={user} /></>
                 },
                 {
                     path: "accounts/",
-                    element: <><Accounts /><AccountForm /></>
+                    element: <><Accounts /><AccountForm user={user} /></>
                 },
                 {
                     path: "leads/",
-                    element: <><Leads /><LeadForm /></>
+                    element: <><Leads /><LeadForm user={user} /></>
                 }
             ]
         }

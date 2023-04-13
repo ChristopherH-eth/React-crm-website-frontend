@@ -90,6 +90,7 @@ html, body
 .table-data--table
 {
     margin: 0;
+    width: 100%;
 }
 
 .table-data--heading, .table-data--headers, .table-data--items, .table-data--buttons
@@ -191,6 +192,11 @@ html, body
     width: 19.5%;
 }
 
+.table-data--fill
+{
+    flex: 1;
+}
+
 /************************************************************
  * 3. Forms
  *
@@ -230,6 +236,12 @@ html, body
     border-bottom: 0.0625rem solid #323942;
 }
 
+.form--text
+{
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
+
 .form--header-text
 {
     margin-bottom: 1rem;
@@ -260,6 +272,7 @@ html, body
 {
     width: 100%;
     margin-bottom: 1rem;
+    font-size: 0.85rem;
 }
 
 .form--input-field-checkbox
@@ -347,7 +360,14 @@ html, body
 
 .header--navigation--list--item:hover
 {
-    margin-top: -0.1625rem;
+    background-color: #afcef6;
+    border-bottom: 0.1625rem solid #0047a5;
+}
+
+.header--navigation--list--item-active
+{
+    margin-top: -0.325rem;
+    margin-bottom: -0.1625rem;
     background-color: #afcef6;
     border-top: 0.1625rem solid #0047a5;
     border-bottom: 0.1625rem solid #0047a5;
@@ -594,6 +614,13 @@ button
 .show
 {
     display: block;
+}
+
+.required
+{
+    padding-right: 0.15rem;
+    color: red;
+    cursor: help;
 }
 
 /************************************************************

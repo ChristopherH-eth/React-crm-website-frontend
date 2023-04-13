@@ -21,15 +21,15 @@ function addContactUtil()
 
     // Build request body
     const contactBody = {
-        firstName: firstName,
-        lastName: lastName
+        first_name: firstName,
+        last_name: lastName
     }
 
     // Send request to server
     fetch(contactUrl, {
         method: "POST",
         mode: "cors",
-        // credentials: "include",
+        credentials: "include",
         headers: {"Content-type": "application/json; charset=UTF-8"},
         body: JSON.stringify(contactBody)
     })

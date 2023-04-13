@@ -1,3 +1,4 @@
+import React from "react"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { logoutUserUtil } from "../util/loginUtil"
@@ -28,6 +29,35 @@ function Header(props)
 
     // Component functions stored in loginUtil
     const logoutUser = () => logoutUserUtil(navigate, setIsLoggedIn)
+
+    // Select nav bar button of current URL
+    React.useEffect(() => {
+        const currentUrl = window.location.href                         // URL of current page
+        const currentQueryString = window.location.search               // Query string of current URL
+        const navButtons = document.querySelectorAll(".link")           // All nav bar links
+
+        // Check URLs
+        navButtons.forEach(link => {
+            // Check the current URL
+            if (link.href === currentUrl)
+            {
+                const linkChild = link.querySelector(".header--navigation--list--item")
+                linkChild.classList.add("header--navigation--list--item-active")
+            }
+            // Check for non-empty query strings
+            else if (link.href.indexOf(currentQueryString) !== -1 && currentQueryString !== "")
+            {
+                const linkChild = link.querySelector(".header--navigation--list--item")
+                linkChild.classList.add("header--navigation--list--item-active")
+            }
+            // No match, so link is not active page
+            else
+            {
+                const linkChild = link.querySelector(".header--navigation--list--item")
+                linkChild.classList.remove("header--navigation--list--item-active")
+            }
+        })
+    }, [location])
 
     return (
         <>

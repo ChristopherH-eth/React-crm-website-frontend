@@ -67,48 +67,54 @@ function Main()
     // Map leads data
     const leads = leadsData.map((lead => {
         return (
-            <table>
-                <tr>
-                    <td>
+            <tr className="table-data--items" key={lead.id}>
+                <td className="table-data--borderless table-data--10p">
+                    <span className="table-data--content">
                         {lead.id}
-                    </td>
-                    <td>
+                    </span>
+                </td>
+                <td className="table-data--borderless table-data--fill">
+                    <span className="table-data--content">
                         {lead.first_name}
-                    </td>
-                </tr>
-            </table>
+                    </span>
+                </td>
+            </tr>
         )
     }))
 
     // Map contacts data
     const contacts = contactsData.map((contact => {
         return (
-            <table>
-                <tr>
-                    <td>
+            <tr className="table-data--items" key={contact.id}>
+                <td className="table-data--borderless table-data--10p">
+                    <span className="table-data--content">
                         {contact.id}
-                    </td>
-                    <td>
+                    </span>
+                </td>
+                <td className="table-data--borderless table-data--fill">
+                    <span className="table-data--content">
                         {contact.first_name}
-                    </td>
-                </tr>
-            </table>
+                    </span>
+                </td>
+            </tr>
         )
     }))
 
     // Map accounts data
     const accounts = accountsData.map((account => {
         return (
-            <table>
-                <tr>
-                    <td>
+            <tr className="table-data--items" key={account.id}>
+                <td className="table-data--borderless table-data--10p">
+                    <span className="table-data--content">
                         {account.id}
-                    </td>
-                    <td>
+                    </span>
+                </td>
+                <td className="table-data--borderless table-data--fill">
+                    <span className="table-data--content">
                         {account.account_name}
-                    </td>
-                </tr>
-            </table>
+                    </span>
+                </td>
+            </tr>
         )
     }))
 
@@ -210,7 +216,11 @@ function Main()
                         Leads
                     </div>
                     <div className="main--component--content">
-                        {leads}
+                        <table className="table-data--table">
+                            <tbody>
+                                {leads}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div className="main--component">
@@ -226,7 +236,11 @@ function Main()
                         Contacts
                     </div>
                     <div className="main--component--content">
-                        {contacts}
+                        <table className="table-data--table">
+                            <tbody>
+                                {contacts}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -236,7 +250,11 @@ function Main()
                         Accounts
                     </div>
                     <div className="main--component--content">
-                        {accounts}
+                        <table className="table-data--table">
+                            <tbody>
+                                {accounts}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div className="main--component">

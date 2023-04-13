@@ -33,7 +33,8 @@ function RegisterForm()
                     </div>
                     <Form>
                         <div className="form--label">
-                            First Name
+                            <span className="required" title="required">*</span>
+                            <span>First Name</span>
                         </div>
                         <input
                             className="form--input-field register-form--input"
@@ -50,7 +51,8 @@ function RegisterForm()
                             type="text"
                         ></input>
                         <div className="form--label">
-                            Email
+                            <span className="required" title="required">*</span>
+                            <span>Email</span>
                         </div>
                         <input
                             className="form--input-field register-form--input"
@@ -59,7 +61,8 @@ function RegisterForm()
                             type="text"
                         ></input>
                         <div className="form--label">
-                            Password
+                            <span className="required" title="required">*</span>
+                            <span>Password</span>
                         </div>
                         <input
                             className="form--input-field register-form--input"

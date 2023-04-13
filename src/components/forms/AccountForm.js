@@ -11,8 +11,12 @@ import { addAccountUtil } from "../../util/forms/accountFormUtil"
  * @brief The AccountForm() function builds the page account form component.
  * @return Returns the account form component to be added to the page
  */
-function AccountForm()
+function AccountForm(props)
 {
+    const {
+        user
+    } = props
+
     // Component functions stored in accountFormUtil
     const addAccount = () => addAccountUtil()
 
@@ -31,10 +35,17 @@ function AccountForm()
                     <Form className="form--form">
                         {/* General info section */}
                         <div className="form--subheader">
-                            About
+                            Account Information
                         </div>
                         <div className="form--label">
-                            Account Name
+                            Account Owner
+                        </div>
+                        <div className="form--text">
+                            {user}
+                        </div>
+                        <div className="form--label">
+                            <span className="required" title="required">*</span>
+                            <span>Account Name</span>
                         </div>
                         <input
                             className="form--input-field account-form--input"

@@ -16,12 +16,12 @@ function addAccountUtil()
     const accountFormInputClass = "account-form--input"                 // Form input fields class
 
     // Get form values
-    const accountName = document.getElementById("account-form--first-name").value
+    const accountName = document.getElementById("account-form--account-name").value
     const website = document.getElementById("account-form--website").value
 
     // Build request body
     const accountBody = {
-        accountName: accountName,
+        account_name: accountName,
         website: website
     }
 

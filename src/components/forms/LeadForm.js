@@ -11,8 +11,12 @@ import { addLeadUtil } from "../../util/forms/leadFormUtil"
  * @brief The LeadForm() function builds the page lead form component.
  * @return Returns the lead form component to be added to the page
  */
-function LeadForm()
+function LeadForm(props)
 {
+    const {
+        user
+    } = props
+
     // Component functions stored in leadFormUtil
     const addLead = () => addLeadUtil()
 
@@ -31,7 +35,13 @@ function LeadForm()
                     <Form className="form--form">
                         {/* General info section */}
                         <div className="form--subheader">
-                            About
+                            Lead Information
+                        </div>
+                        <div className="form--label">
+                            Lead Owner
+                        </div>
+                        <div className="form--text">
+                            {user}
                         </div>
                         <div className="form--label">
                             Salutation
@@ -42,7 +52,8 @@ function LeadForm()
                             type="text"
                         ></input>
                         <div className="form--label">
-                            First Name
+                            <span className="required" title="required">*</span>
+                            <span>First Name</span>
                         </div>
                         <input
                             className="form--input-field lead-form--input"
@@ -51,7 +62,8 @@ function LeadForm()
                             type="text"
                         ></input>
                         <div className="form--label">
-                            Last Name
+                            <span className="required" title="required">*</span>
+                            <span>Last Name</span>
                         </div>
                         <input
                             className="form--input-field lead-form--input"
@@ -60,7 +72,8 @@ function LeadForm()
                             type="text"
                         ></input>
                         <div className="form--label">
-                            Company
+                            <span className="required" title="required">*</span>
+                            <span>Company</span>
                         </div>
                         <input
                             className="form--input-field lead-form--input"
@@ -74,7 +87,6 @@ function LeadForm()
                         <input
                             className="form--input-field lead-form--input"
                             id="lead-form--title"
-                            required
                             type="text"
                         ></input>
                         <div className="form--label">
@@ -95,7 +107,8 @@ function LeadForm()
                             type="text"
                         ></textarea>
                         <div className="form--label">
-                            Lead Status
+                            <span className="required" title="required">*</span>
+                            <span>Lead Status</span>
                         </div>
                         <input
                             className="form--input-field lead-form--input"

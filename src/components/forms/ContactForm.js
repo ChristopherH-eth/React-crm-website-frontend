@@ -11,8 +11,12 @@ import { addContactUtil } from "../../util/forms/contactFormUtil"
  * @brief The ContactForm() function builds the page contact form component.
  * @return Returns the contact form component to be added to the page
  */
-function ContactForm()
+function ContactForm(props)
 {
+    const {
+        user
+    } = props
+
     // Component functions stored in contactFormUtil
     const addContact = () => addContactUtil()
 
@@ -31,7 +35,13 @@ function ContactForm()
                     <Form className="form--form">
                         {/* General info section */}
                         <div className="form--subheader">
-                            About
+                            Contact Information
+                        </div>
+                        <div className="form--label">
+                            Contact Owner
+                        </div>
+                        <div className="form--text">
+                            {user}
                         </div>
                         <div className="form--label">
                             Salutation
@@ -42,7 +52,8 @@ function ContactForm()
                             type="text"
                         ></input>
                         <div className="form--label">
-                            First Name
+                            <span className="required" title="required">*</span>
+                            <span>First Name</span>
                         </div>
                         <input
                             className="form--input-field contact-form--input"
@@ -51,7 +62,8 @@ function ContactForm()
                             type="text"
                         ></input>
                         <div className="form--label">
-                            Last Name
+                            <span className="required" title="required">*</span>
+                            <span>Last Name</span>
                         </div>
                         <input
                             className="form--input-field contact-form--input"
@@ -60,7 +72,8 @@ function ContactForm()
                             type="text"
                         ></input>
                         <div className="form--label">
-                            Account Name
+                            <span className="required" title="required">*</span>
+                            <span>Account Name</span>
                         </div>
                         <input
                             className="form--input-field contact-form--input"

@@ -21,7 +21,7 @@ function addLeadUtil()
 
     // Build request body
     const leadBody = {
-        leadName: leadName,
+        first_name: leadName,
         company: company
     }
 
