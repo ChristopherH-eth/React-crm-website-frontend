@@ -63,68 +63,80 @@ function Header(props)
         <>
             {location.pathname !== loginPath ? (
                 <header className="header">
-                    <div className="header--title">
-                        CRM Website
+                    <div className="header--title--container">
+                        <img 
+                            className="header--title--logo" 
+                            src="images/logos/crmlogo.png" 
+                            alt="crm logo"
+                        />
+                        <span>CRM Website</span>
                     </div>
-                    <nav className="header--navigation">
-                        <ul className="header--navigation--list">
-                            <Link className="link" to={"/"}>
-                                <li className="header--navigation--list--item">
-                                    Home
-                                </li>
-                            </Link>
-                            <Link className="link" to={"accounts/"}>
-                                <li className="header--navigation--list--item">
-                                    Accounts
-                                </li>
-                            </Link>
-                            <Link className="link" to={"contacts/"}>
-                                <li className="header--navigation--list--item">
-                                    Contacts
-                                </li>
-                            </Link>
-                            <Link className="link" to={"/"}>
-                                <li className="header--navigation--list--item">
-                                    Sales
-                                </li>
-                            </Link>
-                            <Link className="link" to={"/"}>
-                                <li className="header--navigation--list--item">
-                                    Outreach
-                                </li>
-                            </Link>
-                            <Link className="link" to={"/"}>
-                                <li className="header--navigation--list--item">
-                                    Service
-                                </li>
-                            </Link>
-                            <Link className="link" to={"/"}>
-                                <li className="header--navigation--list--item">
-                                    Calendar
-                                </li>
-                            </Link>
-                            <Link className="link" to={"/"}>
-                                <li className="header--navigation--list--item">
-                                    Dashboards
-                                </li>
-                            </Link>
-                            <Link className="link" to={"/"}>
-                                <li className="header--navigation--list--item">
-                                    Reports
-                                </li>
-                            </Link>
-                        </ul>
-                    </nav>
-                    <div className="header--welcome">
-                        Welcome, {user}!
-                    </div>
-                    <div className="header--logout-button-container">
-                        <button
-                            onClick={logoutUser}
-                            type="submit"
-                        >
-                            Logout
-                        </button>
+                    <div className="header--navigation--container">
+                        <div className="header--navigation--upper"></div>
+                        <div className="header--navigation--lower">
+                            <nav className="header--navigation">
+                                <ul className="header--navigation--list">
+                                    <Link className="link" to={"/"}>
+                                        <li className="header--navigation--list--item">
+                                            <span>Home</span>
+                                        </li>
+                                    </Link>
+                                    <Link className="link" to={"accounts/"}>
+                                        <li className="header--navigation--list--item">
+                                            <span>Accounts</span>
+                                        </li>
+                                    </Link>
+                                    <Link className="link" to={"contacts/"}>
+                                        <li className="header--navigation--list--item">
+                                            <span>Contacts</span>
+                                        </li>
+                                    </Link>
+                                    <Link className="link" to={"javascript:void(0)"}>
+                                        <li className="header--navigation--list--item">
+                                            <span>Sales</span>
+                                        </li>
+                                    </Link>
+                                    <Link className="link" to={"javascript:void(0)"}>
+                                        <li className="header--navigation--list--item">
+                                            <span>Outreach</span>
+                                        </li>
+                                    </Link>
+                                    <Link className="link" to={"javascript:void(0)"}>
+                                        <li className="header--navigation--list--item">
+                                            <span>Service</span>
+                                        </li>
+                                    </Link>
+                                    <Link className="link" to={"javascript:void(0)"}>
+                                        <li className="header--navigation--list--item">
+                                            <span>Calendar</span>
+                                        </li>
+                                    </Link>
+                                    <Link className="link" to={"javascript:void(0)"}>
+                                        <li className="header--navigation--list--item">
+                                            <span>Dashboards</span>
+                                        </li>
+                                    </Link>
+                                    <Link className="link" to={"javascript:void(0)"}>
+                                        <li className="header--navigation--list--item">
+                                            <span>Reports</span>
+                                        </li>
+                                    </Link>
+                                </ul>
+                            </nav>
+                            <div className="header--welcome--container">
+                                <div className="header--welcome">
+                                    <span>Welcome, {user}!</span>
+                                </div>
+                                <div className="header--logout-button-container">
+                                    <button
+                                        onClick={logoutUser}
+                                        type="submit"
+                                    >
+                                        Logout
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </header>
             ) : (

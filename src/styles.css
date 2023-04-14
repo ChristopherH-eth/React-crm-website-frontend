@@ -13,9 +13,10 @@
  * 5. Main
  * 6. Footer
  * 7. Buttons
- * 8. Scrollbar
- * 9. Toggle and Pseudo Class Styles
- * 10. Animations
+ * 8. Images
+ * 9. Scrollbar
+ * 10. Toggle and Pseudo Class Styles
+ * 11. Animations
  */
 
 /************************************************************
@@ -320,17 +321,31 @@ html, body
 .header
 {
     display: flex;
-    height: 10vh;
+    height: 15vh;
     background-color: #f1f1ee;
     color: black;
     align-items: center;
     border-bottom: 0.1625rem solid #246bc8;
 }
 
-.header--title
+.header--title--container
 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     padding: 0.5rem;
+    padding-bottom: 1rem;
     font-weight: 700;
+}
+
+.header--navigation--container
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
 }
 
 .header--navigation
@@ -338,6 +353,16 @@ html, body
     margin-right: auto;
     margin-top: auto;
     margin-bottom: 0;
+}
+
+.header--navigation--upper
+{
+    flex: 1;
+}
+
+.header--navigation--lower
+{
+    display: flex;
 }
 
 .header--navigation--list
@@ -379,6 +404,14 @@ html, body
     font-weight: 700;
 }
 
+.header--welcome--container
+{
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+    margin-left: auto;
+}
+
 .header--logout-button-container
 {
     padding: 0.5rem;
@@ -396,7 +429,7 @@ html, body
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
-    height: 80vh;
+    height: 85vh;
     overflow-y: scroll;
     background-image: linear-gradient(180deg, #4c74a9 0%, white 100%);
 }
@@ -473,6 +506,8 @@ html, body
 
 .main--quick-look--item--container
 {
+    display: flex;
+    flex-grow: 1;
     padding: 1rem;
     width: 33%;
 }
@@ -509,19 +544,21 @@ html, body
     flex-direction: column;
     flex: 1;
     margin: 0.5rem;
-    padding: 0.5rem;
+    padding: 1rem;
     background-color: #f1f1ee;
     border: 0.0625rem solid #a7aeb7;
     border-radius: 0.25rem;
 }
 
-.main--component--header
+.main--component--header, .main--quick-look--icon--container
 {
-    padding: 0.5rem;
+    display: flex;
+    align-items: center;
 }
 
 .main--component--content
 {
+    margin-top: 0.5rem;
     padding: 0.5rem;
     background-color: white;
     border: 0.0625rem solid #a7aeb7;
@@ -539,7 +576,6 @@ html, body
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    height: 10vh;
     background-color: #4c74a9;
     color: white;
     justify-content: center;
@@ -575,7 +611,32 @@ button
 }
 
 /************************************************************
- * 8. Scrollbar
+ * 8. Images
+ *
+ *
+ ************************************************************/
+
+.header--title--logo
+{
+    height: 5rem;
+    width: 5rem;
+}
+
+.quick-look--icon
+{
+    height: 3rem;
+    width: 3rem;
+}
+
+.quick-look--component--icon
+{
+    margin-right: 0.5rem;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/************************************************************
+ * 9. Scrollbar
  *
  *
  ************************************************************/
@@ -601,7 +662,7 @@ button
 }
 
 /************************************************************
- * 9. Toggle and Pseudo Class Styles
+ * 10. Toggle and Pseudo Class Styles
  *
  *
  ************************************************************/
@@ -624,7 +685,7 @@ button
 }
 
 /************************************************************
- * 10. Animations
+ * 11. Animations
  *
  *
  ************************************************************/

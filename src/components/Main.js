@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import Footer from "./Footer"
 import { URLS, ENDPOINTS } from "../util/config"
 
 /**
@@ -18,9 +19,9 @@ function Main()
     const [contactsData, setContactsData] = React.useState([])
     const [accountsData, setAccountsData] = React.useState([])
 
-    const leadsUrl = `${URLS.api}${ENDPOINTS.leads}`                        // Leads API endpoint
-    const contactsUrl = `${URLS.api}${ENDPOINTS.contacts}`                  // Contacts API endpoint
-    const accountsUrl = `${URLS.api}${ENDPOINTS.accounts}`                  // Accounts API endpoint
+    const leadsUrl = `${URLS.api}${ENDPOINTS.leads}quicklook/`                        // Leads API endpoint
+    const contactsUrl = `${URLS.api}${ENDPOINTS.contacts}quicklook/`                  // Contacts API endpoint
+    const accountsUrl = `${URLS.api}${ENDPOINTS.accounts}quicklook/`                  // Accounts API endpoint
 
     React.useEffect(() => {
         fetch(leadsUrl, {
@@ -130,6 +131,13 @@ function Main()
                 <div className="main--quick-look--container">
                     <div className="main--quick-look--item--container">
                         <Link className="main--quick-look--item" to={"leads/"}>
+                            <div className="main--quick-look--icon--container">
+                                <img 
+                                    className="quick-look--icon" 
+                                    src="images/icons/leadicon.png" 
+                                    alt="quick look leads icon"
+                                />
+                            </div>
                             <div className="main--quick-look--item--bar" />
                             <div>
                                 <div className="main--quick-look--item--header">
@@ -143,6 +151,13 @@ function Main()
                     </div>
                     <div className="main--quick-look--item--container">
                         <Link className="main--quick-look--item" to={"contacts/"}>
+                            <div className="main--quick-look--icon--container">
+                                <img 
+                                    className="quick-look--icon" 
+                                    src="images/icons/contacticon.png" 
+                                    alt="quick look leads icon"
+                                />
+                            </div>
                             <div className="main--quick-look--item--bar" />
                             <div>
                                 <div className="main--quick-look--item--header">
@@ -156,6 +171,13 @@ function Main()
                     </div>
                     <div className="main--quick-look--item--container">
                         <Link className="main--quick-look--item" to={"/"}>
+                            <div className="main--quick-look--icon--container">
+                                <img 
+                                    className="quick-look--icon" 
+                                    src="images/icons/opportunityicon.png" 
+                                    alt="quick look leads icon"
+                                />
+                            </div>
                             <div className="main--quick-look--item--bar" />
                             <div>
                                 <div className="main--quick-look--item--header">
@@ -177,7 +199,7 @@ function Main()
                                     Test
                                 </div>
                                 <div className="main--quick-look--item--caption">
-                                    Test
+                                    Test------------------------------------
                                 </div>
                             </div>
                         </Link>
@@ -190,7 +212,7 @@ function Main()
                                     Test
                                 </div>
                                 <div className="main--quick-look--item--caption">
-                                    Test
+                                    Test------------------------------------
                                 </div>
                             </div>
                         </Link>
@@ -203,7 +225,7 @@ function Main()
                                     Test
                                 </div>
                                 <div className="main--quick-look--item--caption">
-                                    Test
+                                    Test------------------------------------
                                 </div>
                             </div>
                         </Link>
@@ -213,7 +235,12 @@ function Main()
             <div className="main--component--container">
                 <div className="main--component">
                     <div className="main--component--header">
-                        Leads
+                        <img 
+                            className="quick-look--component--icon" 
+                            src="images/icons/leadicon.png" 
+                            alt="recent leads icon"
+                        />
+                        Recent Leads
                     </div>
                     <div className="main--component--content">
                         <table className="table-data--table">
@@ -225,7 +252,12 @@ function Main()
                 </div>
                 <div className="main--component">
                     <div className="main--component--header">
-                        Opportunities
+                        <img 
+                            className="quick-look--component--icon" 
+                            src="images/icons/opportunityicon.png" 
+                            alt="recent leads icon"
+                        />
+                        Recent Opportunities
                     </div>
                     <div className="main--component--content">
                         Content
@@ -233,7 +265,12 @@ function Main()
                 </div>
                 <div className="main--component">
                     <div className="main--component--header">
-                        Contacts
+                        <img 
+                            className="quick-look--component--icon" 
+                            src="images/icons/contacticon.png" 
+                            alt="recent leads icon"
+                        />
+                        Recent Contacts
                     </div>
                     <div className="main--component--content">
                         <table className="table-data--table">
@@ -247,7 +284,7 @@ function Main()
             <div className="main--component--container">
                 <div className="main--component">
                     <div className="main--component--header">
-                        Accounts
+                        Recent Accounts
                     </div>
                     <div className="main--component--content">
                         <table className="table-data--table">
@@ -274,6 +311,7 @@ function Main()
                     </div>
                 </div>
             </div>
+            <Footer />
         </main>
     )
 }

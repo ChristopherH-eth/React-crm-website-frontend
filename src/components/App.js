@@ -1,7 +1,6 @@
 import React from "react"
 import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import Header from "./Header"
-import Footer from "./Footer"
 import { selectWindow } from "../util/appUtil"
 import { URLS, ENDPOINTS } from "../util/config"
 
@@ -75,9 +74,6 @@ function App(props)
             />
             <Outlet 
                 context={useUrl()}
-            />
-            <Footer 
-                location={location}
             />
         </div>
     )

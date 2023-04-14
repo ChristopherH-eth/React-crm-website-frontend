@@ -1,5 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
+import Footer from "./Footer"
 import { URLS, ENDPOINTS } from "../util/config"
 import { showContactFormUtil } from "../util/contactsUtil"
 
@@ -135,6 +136,7 @@ function Contacts()
                     <button onClick={showContactForm}>New</button>
                 </div>
             </div>
+            <Footer />
         </section>
     )
 }

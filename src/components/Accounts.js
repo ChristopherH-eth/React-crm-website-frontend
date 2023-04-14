@@ -1,5 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
+import Footer from "./Footer"
 import { URLS, ENDPOINTS } from "../util/config"
 import { showAccountFormUtil } from "../util/accountsUtil"
 
@@ -135,6 +136,7 @@ function Accounts()
                     <button onClick={showAccountForm}>New</button>
                 </div>
             </div>
+            <Footer />
         </section>
     )
 }

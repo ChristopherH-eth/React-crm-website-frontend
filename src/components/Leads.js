@@ -1,5 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
+import Footer from "./Footer"
 import { URLS, ENDPOINTS } from "../util/config"
 import { showLeadFormUtil } from "../util/leadsUtil"
 
@@ -175,6 +176,7 @@ function Leads()
                     <button onClick={showLeadForm}>New</button>
                 </div>
             </div>
+            <Footer />
         </section>
     )
 }
