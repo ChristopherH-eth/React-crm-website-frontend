@@ -11,12 +11,13 @@
  * 3. Forms
  * 4. Header
  * 5. Main
- * 6. Footer
- * 7. Buttons
- * 8. Images
- * 9. Scrollbar
- * 10. Toggle and Pseudo Class Styles
- * 11. Animations
+ * 6. Dropdown Button
+ * 7. Footer
+ * 8. Buttons
+ * 9. Images
+ * 10. Scrollbar
+ * 11. Toggle and Pseudo Class Styles
+ * 12. Animations
  */
 
 /************************************************************
@@ -566,7 +567,58 @@ html, body
 }
 
 /************************************************************
- * 6. Footer
+ * 6. Dropdown Button
+ *
+ *
+ ************************************************************/
+
+.dropdown-button--container 
+{
+    text-align: left;
+    border: 0.0625rem solid #a7aeb7;
+    position: relative;
+    border-radius: 0.25rem;
+}
+  
+.dropdown-button--input 
+{
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    cursor: pointer;
+}
+
+.dropdown-button--menu
+{
+    position: absolute;
+    z-index: 9999;
+    top: 100%;
+    right: 0;
+    transform: translateY(0.25rem) translateX(0.25rem);
+    width: auto;
+    border: 0.0625rem solid #a7aeb7;
+    border-radius: 0.25rem;
+    overflow: auto;
+    white-space: nowrap;
+    max-height: 10rem;
+    background-color: white;
+}
+
+.dropdown-button--item
+{
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.dropdown-button--item:hover
+{
+    background-color: #98a6b8;
+}
+
+/************************************************************
+ * 7. Footer
  *
  *
  ************************************************************/
@@ -583,7 +635,7 @@ html, body
 }
 
 /************************************************************
- * 7. Buttons
+ * 8. Buttons
  *
  *
  ************************************************************/
@@ -611,7 +663,7 @@ button
 }
 
 /************************************************************
- * 8. Images
+ * 9. Images
  *
  *
  ************************************************************/
@@ -636,7 +688,7 @@ button
 }
 
 /************************************************************
- * 9. Scrollbar
+ * 10. Scrollbar
  *
  *
  ************************************************************/
@@ -662,7 +714,7 @@ button
 }
 
 /************************************************************
- * 10. Toggle and Pseudo Class Styles
+ * 11. Toggle and Pseudo Class Styles
  *
  *
  ************************************************************/
@@ -685,7 +737,7 @@ button
 }
 
 /************************************************************
- * 11. Animations
+ * 12. Animations
  *
  *
  ************************************************************/
