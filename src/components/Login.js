@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, useNavigate, useOutletContext } from "react-router-dom"
+import { Form, useNavigate } from "react-router-dom"
 import { loginUserUtil, showRegisterFormUtil } from "../util/loginUtil"
 import RegisterForm from "./forms/RegisterForm"
 
@@ -15,14 +15,11 @@ import RegisterForm from "./forms/RegisterForm"
  */
 function Login()
 {
-    // Set variables to context values
-    const setIsLoggedIn = useOutletContext()
-
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
     // Component functions stored in loginUtil
-    const loginUser = () => loginUserUtil(navigate, setIsLoggedIn)
+    const loginUser = () => loginUserUtil(navigate)
     const showRegisterForm = () => showRegisterFormUtil()
 
     return (

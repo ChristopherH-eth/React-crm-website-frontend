@@ -93,7 +93,10 @@ function Accounts()
                     </span>
                 </td>
                 <td className="table-data--borderless--centered table-data--5p">
-                    <DropdownButton placeholder={""} options={options} />
+                    <DropdownButton 
+                        placeholder={""} 
+                        options={options} 
+                    />
                 </td>
             </tr>
         )

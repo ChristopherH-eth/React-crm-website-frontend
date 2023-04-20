@@ -17,7 +17,6 @@ import { URLS, ENDPOINTS } from "../util/config"
 function App(props)
 {
     const {
-        setIsLoggedIn,
         user,
         setUser
     } = props
@@ -37,8 +36,6 @@ function App(props)
 
         switch(location.pathname)
         {
-            case "/login":
-                return (setIsLoggedIn)
             default:
                 return (user)
         }
@@ -70,7 +67,6 @@ function App(props)
             <Header 
                 location={location}
                 user={user}
-                setIsLoggedIn={setIsLoggedIn}
             />
             <Outlet 
                 context={useUrl()}

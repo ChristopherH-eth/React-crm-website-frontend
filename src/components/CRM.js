@@ -16,10 +16,9 @@ import { URLS, PATHS, ENDPOINTS } from "../util/config"
  */
 function CRM()
 {
-    const [isLoggedIn, setIsLoggedIn] = React.useState(false)
     const [user, setUser] = React.useState([])
 
-    const router = getRouter(setIsLoggedIn, user, setUser)          // Get routes
+    const router = getRouter(user, setUser)                         // Get routes
     const refreshUrl = `${URLS.api}${ENDPOINTS.jwtRefresh}`         // JWT Refresh API endpoint
     const loginUrl = `${URLS.base}${PATHS.login}`                   // Login URL
 
@@ -39,14 +38,14 @@ function CRM()
                         window.location.href = loginUrl
                 })
                 .catch(console.error)
-        }, 180000)
+        }, 120000)
 
         // Clear interval on component dismount if interval is still set
         return () => {
             if (refreshTokenInterval)
                 clearInterval(refreshTokenInterval)
         }
-    }, [isLoggedIn, refreshUrl, loginUrl])
+    }, [loginUrl, refreshUrl])
 
     return (
         <RouterProvider router = {router} />

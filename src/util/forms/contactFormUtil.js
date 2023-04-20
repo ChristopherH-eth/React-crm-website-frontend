@@ -10,7 +10,7 @@ import { clearCurrentFields } from "../util"
 /**
  * @brief The addContactUtil() function adds a new contact to the database.
  */
-function addContactUtil()
+function addContactUtil(accountName)
 {
     const contactUrl = `${URLS}${ENDPOINTS.contacts}`                   // Contacts API endpoint
     const contactFormInputClass = "contact-form--input"                 // Form input fields class
@@ -22,7 +22,8 @@ function addContactUtil()
     // Build request body
     const contactBody = {
         first_name: firstName,
-        last_name: lastName
+        last_name: lastName,
+        account_name: accountName
     }
 
     // Send request to server

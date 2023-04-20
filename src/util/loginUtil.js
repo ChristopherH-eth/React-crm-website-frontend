@@ -9,9 +9,8 @@ import { ENDPOINTS, URLS } from "./config"
 /**
  * @brief The loginUserUtil() function attempts to log in to the CRM server.
  * @param navigate The useNavigate hook to redirect browser
- * @param setIsLoggedIn React state function to track user login
  */
-function loginUserUtil(navigate, setIsLoggedIn)
+function loginUserUtil(navigate)
 {
     const loginUrl = `${URLS.api}${ENDPOINTS.login}`            // Login API endpoint
 
@@ -35,12 +34,9 @@ function loginUserUtil(navigate, setIsLoggedIn)
     })
         .then((res) => res.json().then((data) => ({status: res.status, body: data})))
         .then((data) => {
-            // On successful login set logged in status to 'true' and navigate to root url
+            // On successful login navigate to root url
             if (data.status === 200)
-            {
-                setIsLoggedIn(true)
                 navigate("/")
-            }
         })
         .catch(console.error)
 }
@@ -48,9 +44,8 @@ function loginUserUtil(navigate, setIsLoggedIn)
 /**
  * @brief The logoutUserUtil() function attempts to log out of the CRM server.
  * @param navigate The useNavigate hook to redirect browser
- * @param setIsLoggedIn React state function to track user login
  */
-function logoutUserUtil(navigate, setIsLoggedIn)
+function logoutUserUtil(navigate)
 {
     const logoutUrl = `${URLS.api}${ENDPOINTS.logout}`          // Logout API endpoint
 
@@ -62,12 +57,9 @@ function logoutUserUtil(navigate, setIsLoggedIn)
     })
         .then((res) => res.json().then((data) => ({status: res.status, body: data})))
         .then((data) => {
-            // On successful logout set logged in status to 'false' and navigate to login url
+            // On successful logout  navigate to login url
             if (data.status === 200)
-            {
-                setIsLoggedIn(false)
                 navigate("/login")
-            }
         })
         .catch(console.error)
 }

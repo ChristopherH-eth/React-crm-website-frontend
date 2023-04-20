@@ -1,5 +1,8 @@
+import React from "react"
+import DropdownSearch from "../elements/DropdownSearch"
 import { Form } from "react-router-dom"
 import { addContactUtil } from "../../util/forms/contactFormUtil"
+import { URLS, ENDPOINTS } from "../../util/config"
 
 /**
  * @file ContactForm.js
@@ -17,8 +20,13 @@ function ContactForm(props)
         user
     } = props
 
+    const [accountName, setAccountName] = React.useState("")
+
+    // Accounts API endpoint
+    const accountUrl = `${URLS.api}${ENDPOINTS.accounts}`
+
     // Component functions stored in contactFormUtil
-    const addContact = () => addContactUtil()
+    const addContact = () => addContactUtil(accountName)
 
     return (
         <>
@@ -75,12 +83,13 @@ function ContactForm(props)
                             <span className="required" title="required">*</span>
                             <span>Account Name</span>
                         </div>
-                        <input
-                            className="form--input-field contact-form--input"
-                            id="contact-form--account-name"
-                            required
-                            type="text"
-                        ></input>
+                        <DropdownSearch 
+                            placeholder={"Search..."}
+                            nameField={"account_name"}
+                            url={accountUrl}
+                            onChange={(value) => setAccountName(value)}
+                            isSearchable
+                        />
                         <div className="form--label">
                             Title
                         </div>

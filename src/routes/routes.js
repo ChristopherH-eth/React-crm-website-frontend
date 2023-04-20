@@ -12,19 +12,17 @@ import Login from "../components/Login"
 
 /**
  * @brief The getRouter() function establishes the internal routes for the CRM front end
- * @param setIsLoggedIn Sets the state of isLoggedIn
  * @param user The current user
  * @param setUser Sets the current user
  * @returns Returns the router object to be used with RouterProvider
  */
-function getRouter(setIsLoggedIn, user, setUser)
+function getRouter(user, setUser)
 {
     // Browser router for url based routing in React
     const router = createBrowserRouter([
         {
             path: "/",
             element: <App
-                setIsLoggedIn={setIsLoggedIn}
                 user={user}
                 setUser={setUser}
             />,

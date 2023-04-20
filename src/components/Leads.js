@@ -1,6 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import Footer from "./Footer"
+import DropdownButton from "./elements/DropdownButton"
 import { URLS, ENDPOINTS } from "../util/config"
 import { showLeadFormUtil } from "../util/leadsUtil"
 
@@ -22,6 +23,13 @@ function Leads()
 
     // Leads API endpoint
     const leadUrl = `${URLS.api}${ENDPOINTS.leads}`
+
+    // Options array for account entry dropdown button
+    const options = [
+        {value: "edit", label: "Edit"},
+        {value: "delete", label: "Delete"},
+        {value: "change_owner", label: "Change Owner"}
+    ]
 
     // Component functions stored in leadsUtil
     const showLeadForm = () => showLeadFormUtil()
@@ -105,7 +113,10 @@ function Leads()
                     </span>
                 </td>
                 <td className="table-data--borderless--centered table-data--5p">
-                    <button>...</button>
+                    <DropdownButton 
+                        placeholder={""} 
+                        options={options} 
+                    />
                 </td>
             </tr>
         )
