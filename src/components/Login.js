@@ -55,6 +55,7 @@ function Login()
                             <button
                                 onClick={loginUser}
                                 className="form--footer--button-end"
+                                id="login-form--login-button"
                                 type="submit"
                             >
                                 Login
