@@ -1,6 +1,7 @@
 const { expect } = require("chai")
 const { By } = require("selenium-webdriver")
-const { PATHS, TESTUSER } = require("../src/util/config")
+const { PATHS } = require("../src/util/config")
+require("dotenv").config()
 
 /**
  * @file 01_loginPage.test.js
@@ -11,11 +12,15 @@ const { PATHS, TESTUSER } = require("../src/util/config")
 
 class LoginPage 
 {
-    constructor(driver, baseUrl)
+    constructor(driver, timeout, baseUrl, loginUrl)
     {
         this.driver = driver
+        this.timeout = timeout
         this.baseUrl = baseUrl
+        this.loginUrl = loginUrl
         this.title = "CRM Website"
+        this.username = process.env.REACT_APP_USERNAME
+        this.password = process.env.REACT_APP_PASSWORD
         this.usernameId = By.id("login-form--email")
         this.passwordId = By.id("login-form--password")
         this.loginButton = By.id("login-form--login-button")
@@ -28,15 +33,15 @@ class LoginPage
     async navigateToLoginPage() 
     {
         // Navigate to login page
-        const loginUrl = `${this.baseUrl}${PATHS.login}`
-        await this.driver.get(loginUrl)
+        await this.driver.get(this.loginUrl)
+            .then(() => new Promise(resolve => setTimeout(resolve, this.timeout)))
 
         // Get web page title and url
         const title = await this.driver.getTitle()
         const currentUrl = await this.driver.getCurrentUrl()
 
         expect(title).to.equal(this.title)
-        expect(currentUrl).to.equal(loginUrl)
+        expect(currentUrl).to.equal(this.loginUrl)
     }
 
     /**
@@ -49,9 +54,15 @@ class LoginPage
         const passwordInput = await this.driver.findElement(this.passwordId)
 
         // Enter credentials and attempt login
-        await usernameInput.sendKeys(TESTUSER.username)
-        await passwordInput.sendKeys(TESTUSER.password)
+        await usernameInput.sendKeys(this.username)
+        await passwordInput.sendKeys(this.password)
         await this.driver.findElement(this.loginButton).click()
+            .then(() => new Promise(resolve => setTimeout(resolve, this.timeout)))
+
+        // Wait for next page to load
+        const currentUrl = await this.driver.getCurrentUrl()
+
+        expect(currentUrl).to.equal(this.baseUrl)
     }
 }
 

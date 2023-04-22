@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 /**
  * @file config.js
  * @author 0xChristopher
@@ -42,11 +40,5 @@ const ENDPOINTS = {
     user: "/users/"
 }
 
-// Test user credentials
-const TESTUSER = {
-    username: process.env.REACT_APP_USERNAME,
-    password: process.env.REACT_APP_PASSWORD
-}
-
-//export { URLS, PATHS, ENDPOINTS, TESTUSER }
-module.exports = { URLS, PATHS, ENDPOINTS, TESTUSER }
+//export { URLS, PATHS, ENDPOINTS }
+module.exports = { URLS, PATHS, ENDPOINTS }

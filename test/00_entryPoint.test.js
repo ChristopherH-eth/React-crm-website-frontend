@@ -14,7 +14,9 @@ const options = new chrome.Options()
 options.addArguments("--headless")
 
 describe("CRM Test Suite - Unit Testing", () => {
-    const baseUrl = "http://localhost:3000"
+    const baseUrl = "http://localhost:3000/"
+    const loginUrl = "http://localhost:3000/login"
+    const timeout = 3000
     let driver, loginPage, homePage
 
     // Build web driver and instantiate page classes
@@ -24,7 +26,7 @@ describe("CRM Test Suite - Unit Testing", () => {
             .setChromeOptions(options)
             .build()
         
-        loginPage = new LoginPage(driver, baseUrl)
+        loginPage = new LoginPage(driver, timeout, baseUrl, loginUrl)
         homePage = new HomePage(driver, baseUrl)
     })
 
