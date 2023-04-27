@@ -9,6 +9,7 @@ import AccountForm from "../components/forms/AccountForm"
 import ContactForm from "../components/forms/ContactForm"
 import LeadForm from "../components/forms/LeadForm"
 import Login from "../components/Login"
+import EntryDetails from "../components/containers/EntryDetails"
 
 /**
  * @brief The getRouter() function establishes the internal routes for the CRM front end
@@ -48,6 +49,10 @@ function getRouter(user, setUser)
                 {
                     path: "leads/",
                     element: <><Leads /><LeadForm user={user} /></>
+                },
+                {
+                    path: ":type/:id",
+                    element: <EntryDetails />
                 }
             ]
         }

@@ -19,9 +19,9 @@ function Main()
     const [contactsData, setContactsData] = React.useState([])
     const [accountsData, setAccountsData] = React.useState([])
 
-    const leadsUrl = `${URLS.api}${ENDPOINTS.leads}quicklook/`                        // Leads API endpoint
-    const contactsUrl = `${URLS.api}${ENDPOINTS.contacts}quicklook/`                  // Contacts API endpoint
-    const accountsUrl = `${URLS.api}${ENDPOINTS.accounts}quicklook/`                  // Accounts API endpoint
+    const leadsUrl = `${URLS.api}${ENDPOINTS.leadsQuicklook}`                   // Leads API endpoint
+    const contactsUrl = `${URLS.api}${ENDPOINTS.contactsQuicklook}`             // Contacts API endpoint
+    const accountsUrl = `${URLS.api}${ENDPOINTS.accountsQuicklook}`             // Accounts API endpoint
 
     React.useEffect(() => {
         fetch(leadsUrl, {
@@ -71,7 +71,7 @@ function Main()
             <tr className="table-data--items" key={lead.id}>
                 <td className="table-data--borderless table-data--10p">
                     <span className="table-data--content">
-                        {lead.id}
+                        <Link className="link" to={`leads/${lead.id}`}>{lead.id}</Link>
                     </span>
                 </td>
                 <td className="table-data--borderless table-data--fill">
@@ -89,7 +89,7 @@ function Main()
             <tr className="table-data--items" key={contact.id}>
                 <td className="table-data--borderless table-data--10p">
                     <span className="table-data--content">
-                        {contact.id}
+                        <Link className="link" to={`contacts/${contact.id}`}>{contact.id}</Link>
                     </span>
                 </td>
                 <td className="table-data--borderless table-data--fill">
@@ -107,7 +107,7 @@ function Main()
             <tr className="table-data--items" key={account.id}>
                 <td className="table-data--borderless table-data--10p">
                     <span className="table-data--content">
-                        {account.id}
+                        <Link className="link" to={`accounts/${account.id}`}>{account.id}</Link>
                     </span>
                 </td>
                 <td className="table-data--borderless table-data--fill">

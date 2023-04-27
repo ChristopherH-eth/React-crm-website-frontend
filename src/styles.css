@@ -11,13 +11,14 @@
  * 3. Forms
  * 4. Header
  * 5. Main
- * 6. Dropdowns
- * 7. Footer
- * 8. Buttons
- * 9. Images
- * 10. Scrollbar
- * 11. Toggle and Pseudo Class Styles
- * 12. Animations
+ * 6. Entry Details
+ * 7. Dropdowns
+ * 8. Footer
+ * 9. Buttons
+ * 10. Images
+ * 11. Scrollbar
+ * 12. Toggle and Pseudo Class Styles
+ * 13. Animations
  */
 
 /************************************************************
@@ -52,7 +53,7 @@ html, body
 {
     display: flex;
     align-items: center;
-    color: black;
+    color: #4c74a9;
     text-decoration: none;
 }
 
@@ -431,7 +432,7 @@ html, body
  *
  ************************************************************/
 
-.main, .contacts, .accounts, .leads
+.main, .contacts, .accounts, .leads, .entry-details
 {
     display: flex;
     flex-direction: column;
@@ -574,7 +575,142 @@ html, body
 }
 
 /************************************************************
- * 6. Dropdowns
+ * 6. Entry Details
+ *
+ *
+ ************************************************************/
+
+.entry-details--container
+{
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+}
+
+.entry-details--main
+{
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    background-color: #f1f1ee;
+    border: 0.0625rem solid #a7aeb7;
+    border-radius: 0.25rem;
+}
+
+.entry-details--main-upper
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+    background-color: #a7aeb7;
+}
+
+.entry-details--main-lower
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+}
+
+.entry-details--main-lower--element
+{
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+}
+
+.entry-details--main-graphic
+{
+    padding: 1rem;
+}
+
+.entry-details--panel-container
+{
+    display: flex;
+}
+
+.entry-details--left-panel
+{
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    padding: 1rem;
+    width: 65%;
+    background-color: #f1f1ee;
+    border: 0.0625rem solid #a7aeb7;
+    border-radius: 0.25rem;
+}
+
+.entry-details--left-panel--tabs
+{
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-bottom: 0.0625rem solid #a7aeb7;
+    border-radius: 0.25rem;
+}
+
+.entry-details--left-panel--info-container
+{
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem;
+    width: 100%;
+}
+
+.entry-details--left-panel--info-col
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    width: 50%;
+}
+
+.entry-details--left-panel--info
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.entry-details--right-panel
+{
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    padding: 1rem;
+    width: 35%;
+    background-color: #f1f1ee;
+    border: 0.0625rem solid #a7aeb7;
+    border-radius: 0.25rem;
+}
+
+.entry-details--header
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.entry-details--text
+{
+    font-size: 0.85rem;
+}
+
+.entry-details--value
+{
+    border-bottom: 0.0625rem solid #a7aeb7;
+    border-radius: 0.25rem;
+}
+
+.entry-details--action-bar
+{
+    margin-left: auto;
+}
+
+/************************************************************
+ * 7. Dropdowns
  *
  *
  ************************************************************/
@@ -672,7 +808,7 @@ html, body
 }
 
 /************************************************************
- * 7. Footer
+ * 8. Footer
  *
  *
  ************************************************************/
@@ -681,6 +817,7 @@ html, body
 {
     display: flex;
     flex-direction: column;
+    flex: 1;
     padding: 1rem;
     background-color: #4c74a9;
     color: white;
@@ -689,7 +826,7 @@ html, body
 }
 
 /************************************************************
- * 8. Buttons
+ * 9. Buttons
  *
  *
  ************************************************************/
@@ -717,7 +854,7 @@ button
 }
 
 /************************************************************
- * 9. Images
+ * 10. Images
  *
  *
  ************************************************************/
@@ -741,8 +878,15 @@ button
     width: 1.5rem;
 }
 
+.data-entry--icon
+{
+    margin-right: 0.25rem;
+    height: 3rem;
+    width: 3rem;
+}
+
 /************************************************************
- * 10. Scrollbar
+ * 11. Scrollbar
  *
  *
  ************************************************************/
@@ -768,7 +912,7 @@ button
 }
 
 /************************************************************
- * 11. Toggle and Pseudo Class Styles
+ * 12. Toggle and Pseudo Class Styles
  *
  *
  ************************************************************/
@@ -791,7 +935,7 @@ button
 }
 
 /************************************************************
- * 12. Animations
+ * 13. Animations
  *
  *
  ************************************************************/

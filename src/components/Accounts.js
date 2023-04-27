@@ -1,5 +1,5 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Footer from "./Footer"
 import DropdownButton from "./elements/DropdownButton"
 import { URLS, ENDPOINTS } from "../util/config"
@@ -57,7 +57,7 @@ function Accounts()
             <tr className="table-data--items" key={account.id}>
                 <td className="table-data--borderless--centered table-data--5p">
                     <span className="table-data--content">
-                        {account.id}
+                        <Link className="link" to={`${account.id}`}>{account.id}</Link>
                     </span>
                 </td>
                 <td className="table-data--borderless--centered table-data--2_5p">

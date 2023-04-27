@@ -38,7 +38,7 @@ function CRM()
                         window.location.href = loginUrl
                 })
                 .catch(console.error)
-        }, 120000)
+        }, 180000)
 
         // Clear interval on component dismount if interval is still set
         return () => {
