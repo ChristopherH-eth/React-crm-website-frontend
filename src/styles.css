@@ -602,7 +602,7 @@ html, body
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 1rem;
+    padding: 0.75rem;
     background-color: #a7aeb7;
 }
 
@@ -611,7 +611,7 @@ html, body
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 1rem;
+    padding: 0.75rem;
 }
 
 .entry-details--main-lower--element
@@ -623,7 +623,7 @@ html, body
 
 .entry-details--main-graphic
 {
-    padding: 1rem;
+    padding: 0.75rem;
 }
 
 .entry-details--panel-container
@@ -636,7 +636,7 @@ html, body
     display: flex;
     flex-direction: column;
     margin: 0.5rem;
-    padding: 1rem;
+    padding: 0.75rem;
     width: 65%;
     background-color: #f1f1ee;
     border: 0.0625rem solid #a7aeb7;
@@ -656,15 +656,14 @@ html, body
     display: flex;
     flex-direction: row;
     margin: 0.5rem;
-    width: 100%;
+    flex: 1;
 }
 
 .entry-details--left-panel--info-col
 {
     display: flex;
     flex-direction: column;
-    margin-top: 0.5rem;
-    width: 50%;
+    flex: 1;
 }
 
 .entry-details--left-panel--info
@@ -693,15 +692,40 @@ html, body
     flex-direction: column;
 }
 
+.entry-details--header-text
+{
+    display: block;
+    font-size: 0.8rem;
+}
+
+.entry-details--header-value
+{
+    display: block;
+    font-size: 0.9rem;
+}
+
 .entry-details--text
 {
-    font-size: 0.85rem;
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
 }
 
 .entry-details--value
 {
+    display: block;
+    height: 1.75rem;
+    font-size: 0.9rem;
     border-bottom: 0.0625rem solid #a7aeb7;
     border-radius: 0.25rem;
+}
+
+.entry-details--value-borderless
+{
+    display: block;
+    height: 1.75rem;
+    font-size: 0.9rem;
 }
 
 .entry-details--action-bar
@@ -817,6 +841,7 @@ html, body
 {
     display: flex;
     flex-direction: column;
+    margin-top: 0.5rem;
     flex: 1;
     padding: 1rem;
     background-color: #4c74a9;

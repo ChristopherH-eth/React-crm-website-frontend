@@ -37,8 +37,14 @@ function Header(props)
 
         // Check URLs
         navButtons.forEach(link => {
-            // Check the current URL
-            if (link.href === currentUrl)
+            // Check the home URL
+            if (currentUrl === link.href)
+            {
+                const linkChild = link.querySelector(".header--navigation--list--item")
+                linkChild.classList.add("header--navigation--list--item-active")
+            }
+            // Check the current URL if not on home page
+            else if (currentUrl.includes(link.href) && link.pathname !== "/")
             {
                 const linkChild = link.querySelector(".header--navigation--list--item")
                 linkChild.classList.add("header--navigation--list--item-active")
@@ -78,6 +84,11 @@ function Header(props)
                                     <Link className="link" to={"/"}>
                                         <li className="header--navigation--list--item">
                                             <span>Home</span>
+                                        </li>
+                                    </Link>
+                                    <Link className="link" to={"leads/"}>
+                                        <li className="header--navigation--list--item">
+                                            <span>Leads</span>
                                         </li>
                                     </Link>
                                     <Link className="link" to={"accounts/"}>

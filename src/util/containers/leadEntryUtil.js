@@ -5,8 +5,19 @@
  *      of type 'lead'. It's primary purpose is to return JSX to be rendered.
  */
 
-function leadDetails(dataEntry)
+/**
+ * @brief The leadDetails() function takes in a data entry (a lead in this case) as a JSON object and
+ *      returns JSX to display its attributes.
+ * @param data The data entry object to be displayed
+ * @return Returns JSX to be displayed on the page
+ */
+function leadDetails(data)
 {
+    const {
+        lead,
+        user
+    } = data
+
     return (
         <div className="entry-details--container">
             <div className="entry-details--main">
@@ -17,8 +28,10 @@ function leadDetails(dataEntry)
                         className="data-entry--icon" 
                     />
                     <div className="entry-details--header">
-                        <span className="entry-details--text">Lead</span>
-                        <span>{dataEntry.first_name} {dataEntry.last_name}</span>
+                        <span className="entry-details--header-text">Lead</span>
+                        <span className="entry-details--header-value">
+                            {lead.first_name} {lead.last_name}
+                        </span>
                     </div>
                     <div className="entry-details--action-bar">
                         Action Bar
@@ -27,23 +40,19 @@ function leadDetails(dataEntry)
                 <div className="entry-details--main-lower">
                     <div className="entry-details--main-lower--element">
                         <span className="entry-details--text">Title</span>
-                        <span>{dataEntry.title}</span>
+                        <span className="entry-details--value-borderless">{lead.title}</span>
                     </div>
                     <div className="entry-details--main-lower--element">
-                        <span className="entry-details--text">Account Name</span>
-                        <span>{dataEntry.account_id}</span>
+                        <span className="entry-details--text">Company</span>
+                        <span className="entry-details--value-borderless"></span>
                     </div>
                     <div className="entry-details--main-lower--element">
                         <span className="entry-details--text">Phone</span>
-                        <span>{dataEntry.phone}</span>
+                        <span className="entry-details--value-borderless">{lead.phone}</span>
                     </div>
                     <div className="entry-details--main-lower--element">
                         <span className="entry-details--text">Email</span>
-                        <span>{dataEntry.email}</span>
-                    </div>
-                    <div className="entry-details--main-lower--element">
-                        <span className="entry-details--text">Lead Owner</span>
-                        <span>{dataEntry.user_id}</span>
+                        <span className="entry-details--value-borderless">{lead.email}</span>
                     </div>
                 </div>
             </div>
@@ -53,8 +62,54 @@ function leadDetails(dataEntry)
                 </div>
             </div>
             <div className="entry-details--panel-container">
-                <div className="entry-details--left-panel">
-                    Details
+            <div className="entry-details--left-panel">
+                    <div className="entry-details--left-panel--tabs">
+                        Details
+                    </div>
+                    <div className="entry-details--left-panel--info-container">
+                        <div className="entry-details--left-panel--info-col">
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Lead Owner</span>
+                                <span className="entry-details--value">{lead.user_id}</span>
+                            </div>
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Name</span>
+                                <span className="entry-details--value">{lead.account_id}</span>
+                            </div>
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Company</span>
+                                <span className="entry-details--value"></span>
+                            </div>
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Title</span>
+                                <span className="entry-details--value"></span>
+                            </div>
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Follow Up?</span>
+                                <span className="entry-details--value">
+                                    <input type="checkbox" />
+                                </span>
+                            </div>
+                        </div>
+                        <div className="entry-details--left-panel--info-col">
+                        <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Lead Status</span>
+                                <span className="entry-details--value"></span>
+                            </div>
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Phone</span>
+                                <span className="entry-details--value">{lead.phone}</span>
+                            </div>
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Email</span>
+                                <span className="entry-details--value">{lead.email}</span>
+                            </div>
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Rating</span>
+                                <span className="entry-details--value"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="entry-details--right-panel">
                     Activity

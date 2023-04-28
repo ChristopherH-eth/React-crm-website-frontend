@@ -5,8 +5,19 @@
  *      of type 'account'. It's primary purpose is to return JSX to be rendered.
  */
 
-function accountDetails(dataEntry)
+/**
+ * @brief The accountDetails() function takes in a data entry (an account in this case) as a JSON object and
+ *      returns JSX to display its attributes.
+ * @param data The data entry object to be displayed
+ * @return Returns JSX to be displayed on the page
+ */
+function accountDetails(data)
 {
+    const {
+        account,
+        user
+    } = data
+
     return (
         <div className="entry-details--container">
             <div className="entry-details--main">
@@ -17,8 +28,10 @@ function accountDetails(dataEntry)
                         className="data-entry--icon" 
                     />
                     <div className="entry-details--header">
-                        <span className="entry-details--text">Account</span>
-                        <span>{dataEntry.first_name} {dataEntry.last_name}</span>
+                        <span className="entry-details--header-text">Account</span>
+                        <span className="entry-details--header-value">
+                            {account.account_name}
+                        </span>
                     </div>
                     <div className="entry-details--action-bar">
                         Action Bar
@@ -26,24 +39,28 @@ function accountDetails(dataEntry)
                 </div>
                 <div className="entry-details--main-lower">
                     <div className="entry-details--main-lower--element">
-                        <span className="entry-details--text">Title</span>
-                        <span>{dataEntry.title}</span>
-                    </div>
-                    <div className="entry-details--main-lower--element">
-                        <span className="entry-details--text">Account Name</span>
-                        <span>{dataEntry.account_id}</span>
+                        <span className="entry-details--text">Type</span>
+                        <span className="entry-details--value-borderless"></span>
                     </div>
                     <div className="entry-details--main-lower--element">
                         <span className="entry-details--text">Phone</span>
-                        <span>{dataEntry.phone}</span>
+                        <span className="entry-details--value-borderless">{account.phone}</span>
                     </div>
                     <div className="entry-details--main-lower--element">
-                        <span className="entry-details--text">Email</span>
-                        <span>{dataEntry.email}</span>
+                        <span className="entry-details--text">Website</span>
+                        <span className="entry-details--value-borderless">{account.website}</span>
                     </div>
                     <div className="entry-details--main-lower--element">
                         <span className="entry-details--text">Account Owner</span>
-                        <span>{dataEntry.user_id}</span>
+                        <span className="entry-details--value-borderless">{account.user_id}</span>
+                    </div>
+                    <div className="entry-details--main-lower--element">
+                        <span className="entry-details--text">Industry</span>
+                        <span className="entry-details--value-borderless"></span>
+                    </div>
+                    <div className="entry-details--main-lower--element">
+                        <span className="entry-details--text">Billing Address</span>
+                        <span className="entry-details--value-borderless"></span>
                     </div>
                 </div>
             </div>
@@ -54,7 +71,39 @@ function accountDetails(dataEntry)
             </div>
             <div className="entry-details--panel-container">
                 <div className="entry-details--left-panel">
-                    Details
+                    <div className="entry-details--left-panel--tabs">
+                        Details
+                    </div>
+                    <div className="entry-details--left-panel--info-container">
+                        <div className="entry-details--left-panel--info-col">
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Account Owner</span>
+                                <span className="entry-details--value">{account.user_id}</span>
+                            </div>
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Account Name</span>
+                                <span className="entry-details--value">{account.account_id}</span>
+                            </div>
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Parent Account</span>
+                                <span className="entry-details--value"></span>
+                            </div>
+                        </div>
+                        <div className="entry-details--left-panel--info-col">
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Phone</span>
+                                <span className="entry-details--value">{account.phone}</span>
+                            </div>
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Fax</span>
+                                <span className="entry-details--value"></span>
+                            </div>
+                            <div className="entry-details--left-panel--info">
+                                <span className="entry-details--text">Website</span>
+                                <span className="entry-details--value">{account.website}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="entry-details--right-panel">
                     Activity

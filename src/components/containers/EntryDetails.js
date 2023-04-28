@@ -13,6 +13,10 @@ import Footer from "../Footer"
  *      the relevant view from the corresponding utility file.
  */
 
+/**
+ * @brief The EntryDetails() function builds the page entry details component.
+ * @return Returns the entry details component to be added to the page
+ */
 function EntryDetails()
 {
     const {
@@ -21,6 +25,7 @@ function EntryDetails()
     } = useParams()
 
     const [dataEntry, setDataEntry] = React.useState({})
+    const [isLoading, setIsLoading] = React.useState(true)
 
     const navigate = useNavigate()
 
@@ -44,13 +49,27 @@ function EntryDetails()
                 if (data.status === 401)
                     navigate("/login")
                 else
-                    setDataEntry(data.body[fetchType])
+                {
+                    setDataEntry(data.body)
+                    setIsLoading(false)
+                }
             })
             .catch(console.error)
-    }, [url, navigate, fetchType])
+    }, [url, navigate])
+
+    // Don't render page content until server response received
+    if (isLoading)
+    {
+        return (
+            <section className="entry-details">
+                Loading...
+            </section>
+        )
+    }
 
     return (
         <section className="entry-details">
+            {/* Display JSX based on parameterized type */}
             {fetchType === "contact" && showContactDetails()}
             {fetchType === "account" && showAccountDetails()}
             {fetchType === "lead" && showLeadDetails()}
