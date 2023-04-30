@@ -4,6 +4,7 @@ import { URLS, ENDPOINTS } from "../util/config"
 import { mapLeads, mapContacts, mapAccounts } from "../util/mainUtil"
 import QuickLook from "./containers/QuickLook"
 import RecentEntries from "./containers/RecentEntries"
+import { useNavigate } from "react-router-dom"
 
 /**
  * @file Main.js
@@ -15,11 +16,17 @@ import RecentEntries from "./containers/RecentEntries"
  * @brief The Main() function builds the page main component.
  * @return Returns the main component to be added to the page
  */
-function Main()
+function Main(props)
 {
+    const {
+        setIsLoggedIn
+    } = props
+
     const [leadsData, setLeadsData] = React.useState([])
     const [contactsData, setContactsData] = React.useState([])
     const [accountsData, setAccountsData] = React.useState([])
+
+    const navigate = useNavigate()
 
     // Component functions stored in mainUtil
     const leads = () => mapLeads(leadsData)
@@ -40,10 +47,16 @@ function Main()
         })
             .then((res) => res.json().then((data) => ({status: res.status, body: data})))
             .then((data) => {
-                setLeadsData(data.body)
+                if (data.status !== 200)
+                {
+                    setIsLoggedIn(false)
+                    navigate("/login")
+                }
+                else
+                    setLeadsData(data.body)
             })
             .catch(console.error)
-    }, [leadsUrl])
+    }, [leadsUrl, navigate, setIsLoggedIn])
 
     // Get most recent contacts
     React.useEffect(() => {
@@ -55,10 +68,16 @@ function Main()
         })
             .then((res) => res.json().then((data) => ({status: res.status, body: data})))
             .then((data) => {
-                setContactsData(data.body)
+                if (data.status !== 200)
+                {
+                    setIsLoggedIn(false)
+                    navigate("/login")
+                }
+                else
+                    setContactsData(data.body)
             })
             .catch(console.error)
-    }, [contactsUrl])
+    }, [contactsUrl, navigate, setIsLoggedIn])
 
     // Get most recent accounts
     React.useEffect(() => {
@@ -70,10 +89,16 @@ function Main()
         })
             .then((res) => res.json().then((data) => ({status: res.status, body: data})))
             .then((data) => {
-                setAccountsData(data.body)
+                if (data.status !== 200)
+                {
+                    setIsLoggedIn(false)
+                    navigate("/login")
+                }
+                else
+                    setAccountsData(data.body)
             })
             .catch(console.error)
-    }, [accountsUrl])
+    }, [accountsUrl, navigate, setIsLoggedIn])
 
     return (
         <main className="main">

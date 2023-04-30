@@ -4,6 +4,7 @@ import { URLS, ENDPOINTS } from "../../util/config"
 import { contactDetails } from "../../util/containers/contactEntryUtil"
 import { accountDetails } from "../../util/containers/accountEntryUtil"
 import { leadDetails } from "../../util/containers/leadEntryUtil"
+import Loading from "../Loading"
 import Footer from "../Footer"
 
 /**
@@ -17,8 +18,12 @@ import Footer from "../Footer"
  * @brief The EntryDetails() function builds the page entry details component.
  * @return Returns the entry details component to be added to the page
  */
-function EntryDetails()
+function EntryDetails(props)
 {
+    const {
+        setIsLoggedIn
+    } = props
+
     const {
         type,
         id
@@ -37,6 +42,7 @@ function EntryDetails()
     const showAccountDetails = () => accountDetails(dataEntry)
     const showLeadDetails = () => leadDetails(dataEntry)
 
+    // Get database entry details
     React.useEffect(() => {
         fetch(url, {
             method: "GET",
@@ -47,7 +53,10 @@ function EntryDetails()
             .then((res) => res.json().then((data) => ({status: res.status, body: data})))
             .then((data) => {
                 if (data.status === 401)
+                {
+                    setIsLoggedIn(false)
                     navigate("/login")
+                }
                 else
                 {
                     setDataEntry(data.body)
@@ -55,15 +64,13 @@ function EntryDetails()
                 }
             })
             .catch(console.error)
-    }, [url, navigate])
+    }, [url, navigate, setIsLoggedIn])
 
     // Don't render page content until server response received
     if (isLoading)
     {
         return (
-            <section className="entry-details">
-                Loading...
-            </section>
+            <Loading />
         )
     }
 

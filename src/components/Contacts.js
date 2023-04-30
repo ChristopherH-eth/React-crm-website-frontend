@@ -15,8 +15,12 @@ import { showContactFormUtil } from "../util/contactsUtil"
  * @brief The Contacts() function builds the page contacts component.
  * @return Returns the contacts component to be added to the page
  */
-function Contacts()
+function Contacts(props)
 {
+    const {
+        setIsLoggedIn
+    } = props
+
     const [contactData, setContactData] = React.useState([])
 
     const navigate = useNavigate()
@@ -44,12 +48,15 @@ function Contacts()
             .then((res) => res.json().then((data) => ({status: res.status, body: data})))
             .then((data) => {
                 if (data.status === 401)
+                {
+                    setIsLoggedIn(false)
                     navigate("/login")
+                }
                 else
                     setContactData(data.body)
             })
             .catch(console.error)
-    }, [contactUrl, navigate])
+    }, [contactUrl, navigate, setIsLoggedIn])
 
     // Map contact data
     const contacts = contactData.map((contact) => {

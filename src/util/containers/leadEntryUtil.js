@@ -70,7 +70,9 @@ function leadDetails(data)
                         <div className="entry-details--left-panel--info-col">
                             <div className="entry-details--left-panel--info">
                                 <span className="entry-details--text">Lead Owner</span>
-                                <span className="entry-details--value">{lead.user_id}</span>
+                                <span className="entry-details--value">
+                                    {user.first_name} {user.last_name}
+                                </span>
                             </div>
                             <div className="entry-details--left-panel--info">
                                 <span className="entry-details--text">Name</span>

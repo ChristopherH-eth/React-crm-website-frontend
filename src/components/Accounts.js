@@ -15,8 +15,12 @@ import { showAccountFormUtil } from "../util/accountsUtil"
  * @brief The Accounts() function builds the page accounts component.
  * @return Returns the accounts component to be added to the page
  */
-function Accounts()
+function Accounts(props)
 {
+    const {
+        setIsLoggedIn
+    } = props
+
     const [accountData, setAccountData] = React.useState([])
 
     const navigate = useNavigate()
@@ -44,12 +48,15 @@ function Accounts()
             .then((res) => res.json().then((data) => ({status: res.status, body: data})))
             .then((data) => {
                 if (data.status === 401)
+                {
+                    setIsLoggedIn(false)
                     navigate("/login")
+                }
                 else
                     setAccountData(data.body)
             })
             .catch(console.error)
-    }, [accountUrl, navigate])
+    }, [accountUrl, navigate, setIsLoggedIn])
 
     // Map contact data
     const accounts = accountData.map((account) => {

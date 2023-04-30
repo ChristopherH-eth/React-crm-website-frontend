@@ -8,6 +8,9 @@ import { URLS, ENDPOINTS } from "../util/config"
  * @file App.js
  * @author 0xChristopher
  * @brief This file is responsible for the App component of the CRM website.
+ * 
+ * @dev The useEffect block may need extra testing if there are issues with no session being returned and
+ *      the user being incorrectly redirected.
  */
 
 /**
@@ -18,7 +21,8 @@ function App(props)
 {
     const {
         user,
-        setUser
+        setUser,
+        setIsLoggedIn
     } = props
 
     const userUrl = `${URLS.api}${ENDPOINTS.user}`                  // User session API endpoint
@@ -52,21 +56,25 @@ function App(props)
             .then((res) => res.json().then((data) => ({status: res.status, body: data})))
             .then((data) => {
                 if (data.status !== 200)
+                {
+                    setIsLoggedIn(false)
                     navigate("/login")
+                }
                 else
                 {
-                    console.log(data)
+                    console.log(data)               // For testing
                     setUser(data.body[0].user)
                 }
             })
             .catch(console.error)
-    }, [userUrl, location.pathname, setUser, navigate])
+    }, [userUrl, location.pathname, setUser, navigate, setIsLoggedIn])
 
     return (
         <div className="app-container">
             <Header 
                 location={location}
                 user={user}
+                setIsLoggedIn={setIsLoggedIn}
             />
             <Outlet 
                 context={useUrl()}

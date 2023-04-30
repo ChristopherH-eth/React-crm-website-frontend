@@ -19,7 +19,8 @@ function DropdownSearch(props)
         url,                                // URL to fetch data from API
         onChange,                           // Callback function to get selected value(s)
         isMulti,                            // True if this is a multi-select search
-        isSearchable                        // True if this field is searchable
+        isSearchable,                       // True if this field is searchable
+        setIsLoggedIn                       // State function to set logged in status
     } = props
 
     const [showMenu, setShowMenu] = React.useState(false)
@@ -190,7 +191,10 @@ function DropdownSearch(props)
             .then((res) => res.json().then((data) => ({status: res.status, body: data})))
             .then((data) => {
                 if (data.status === 401)
+                {
+                    setIsLoggedIn(false)
                     navigate("/login")
+                }
                 else
                     setOptions(data.body)
             })

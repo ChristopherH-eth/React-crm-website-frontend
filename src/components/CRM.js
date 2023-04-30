@@ -17,14 +17,17 @@ import { URLS, PATHS, ENDPOINTS } from "../util/config"
 function CRM()
 {
     const [user, setUser] = React.useState([])
+    const [isLoggedIn, setIsLoggedIn] = React.useState(false)
 
-    const router = getRouter(user, setUser)                         // Get routes
-    const refreshUrl = `${URLS.api}${ENDPOINTS.jwtRefresh}`         // JWT Refresh API endpoint
-    const loginUrl = `${URLS.base}${PATHS.login}`                   // Login URL
+    const router = getRouter(user, setUser, isLoggedIn, setIsLoggedIn)      // Get routes
+    const refreshUrl = `${URLS.api}${ENDPOINTS.jwtRefresh}`                 // JWT Refresh API endpoint
+    const loginUrl = `${URLS.base}${PATHS.login}`                           // Login URL
 
     // Set interval to refresh user access token every 3 minutes on component mount
     React.useEffect(() => {
-        const refreshTokenInterval = setInterval(() => {
+        // Refresh token on page reload
+        if (isLoggedIn)
+        {
             fetch(refreshUrl, {
                 method: "POST",
                 mode: "cors",
@@ -34,10 +37,36 @@ function CRM()
                 .then((res) => res.json().then((data) => ({status: res.status, body: data})))
                 .then((data) => {
                     // If the user is not logged in, redirect them to the login page
-                    if (data.status === 401 && window.location.pathname !== loginUrl)
+                    if (data.status === 401 && window.location.href !== loginUrl)
+                    {
+                        setIsLoggedIn(false)
                         window.location.href = loginUrl
+                    }
                 })
                 .catch(console.error)
+        }
+
+        // Set refresh token interval on component mount
+        const refreshTokenInterval = setInterval(() => {
+            if (isLoggedIn)
+            {
+                fetch(refreshUrl, {
+                    method: "POST",
+                    mode: "cors",
+                    credentials: "include",
+                    headers: {"Content-type": "application/json; charset=UTF-8"}
+                })
+                    .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+                    .then((data) => {
+                        // If the user is not logged in, redirect them to the login page
+                        if (data.status === 401 && window.location.pathname !== loginUrl)
+                        {
+                            setIsLoggedIn(false)
+                            window.location.href = loginUrl
+                        }
+                    })
+                    .catch(console.error)
+            }
         }, 180000)
 
         // Clear interval on component dismount if interval is still set
@@ -45,7 +74,7 @@ function CRM()
             if (refreshTokenInterval)
                 clearInterval(refreshTokenInterval)
         }
-    }, [loginUrl, refreshUrl])
+    }, [loginUrl, refreshUrl, isLoggedIn])
 
     return (
         <RouterProvider router = {router} />

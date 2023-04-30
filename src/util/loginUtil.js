@@ -9,8 +9,9 @@ import { ENDPOINTS, URLS } from "./config"
 /**
  * @brief The loginUserUtil() function attempts to log in to the CRM server.
  * @param navigate The useNavigate hook to redirect browser
+ * @param setIsLoggedIn React state function to set logged in status
  */
-function loginUserUtil(navigate)
+function loginUserUtil(navigate, setIsLoggedIn)
 {
     const loginUrl = `${URLS.api}${ENDPOINTS.login}`            // Login API endpoint
 
@@ -36,7 +37,10 @@ function loginUserUtil(navigate)
         .then((data) => {
             // On successful login navigate to root url
             if (data.status === 200)
-                navigate("/")
+            {
+                setIsLoggedIn(true)
+                navigate("/")               
+            }
         })
         .catch(console.error)
 }
@@ -44,8 +48,9 @@ function loginUserUtil(navigate)
 /**
  * @brief The logoutUserUtil() function attempts to log out of the CRM server.
  * @param navigate The useNavigate hook to redirect browser
+ * @param setIsLoggedIn React state function to set logged in status
  */
-function logoutUserUtil(navigate)
+function logoutUserUtil(navigate, setIsLoggedIn)
 {
     const logoutUrl = `${URLS.api}${ENDPOINTS.logout}`          // Logout API endpoint
 
@@ -59,7 +64,10 @@ function logoutUserUtil(navigate)
         .then((data) => {
             // On successful logout  navigate to login url
             if (data.status === 200)
+            {
+                setIsLoggedIn(false)
                 navigate("/login")
+            }
         })
         .catch(console.error)
 }

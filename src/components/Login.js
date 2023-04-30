@@ -13,13 +13,17 @@ import RegisterForm from "./forms/RegisterForm"
  * @brief The Login() function builds the page login component.
  * @return Returns the login component to be added to the page
  */
-function Login()
+function Login(props)
 {
+    const {
+        setIsLoggedIn
+    } = props
+
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
     // Component functions stored in loginUtil
-    const loginUser = () => loginUserUtil(navigate)
+    const loginUser = () => loginUserUtil(navigate, setIsLoggedIn)
     const showRegisterForm = () => showRegisterFormUtil()
 
     return (

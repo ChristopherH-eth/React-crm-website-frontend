@@ -17,7 +17,8 @@ function Header(props)
 {
     const {
         location,
-        user
+        user,
+        setIsLoggedIn
     } = props
 
     // Path to login page
@@ -27,7 +28,7 @@ function Header(props)
     const navigate = useNavigate()
 
     // Component functions stored in loginUtil
-    const logoutUser = () => logoutUserUtil(navigate)
+    const logoutUser = () => logoutUserUtil(navigate, setIsLoggedIn)
 
     // Select nav bar button of current URL
     React.useEffect(() => {

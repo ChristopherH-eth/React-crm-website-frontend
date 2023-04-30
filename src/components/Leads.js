@@ -15,8 +15,12 @@ import { showLeadFormUtil } from "../util/leadsUtil"
  * @brief The Leads() function builds the page leads component.
  * @return Returns the leads component to be added to the page
  */
-function Leads()
+function Leads(props)
 {
+    const {
+        setIsLoggedIn
+    } = props
+
     const [leadData, setLeadData] = React.useState([])
 
     const navigate = useNavigate()
@@ -44,12 +48,15 @@ function Leads()
             .then((res) => res.json().then((data) => ({status: res.status, body: data})))
             .then((data) => {
                 if (data.status === 401)
+                {
+                    setIsLoggedIn(false)
                     navigate("/login")
+                }
                 else
                     setLeadData(data.body)
             })
             .catch(console.error)
-    }, [leadUrl, navigate])
+    }, [leadUrl, navigate, setIsLoggedIn])
 
     // Map lead data
     const leads = leadData.map((lead) => {

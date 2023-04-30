@@ -52,7 +52,9 @@ function accountDetails(data)
                     </div>
                     <div className="entry-details--main-lower--element">
                         <span className="entry-details--text">Account Owner</span>
-                        <span className="entry-details--value-borderless">{account.user_id}</span>
+                        <span className="entry-details--value-borderless">
+                            {user.first_name} {user.last_name}
+                        </span>
                     </div>
                     <div className="entry-details--main-lower--element">
                         <span className="entry-details--text">Industry</span>
@@ -78,7 +80,9 @@ function accountDetails(data)
                         <div className="entry-details--left-panel--info-col">
                             <div className="entry-details--left-panel--info">
                                 <span className="entry-details--text">Account Owner</span>
-                                <span className="entry-details--value">{account.user_id}</span>
+                                <span className="entry-details--value">
+                                    {user.first_name} {user.last_name}
+                                </span>
                             </div>
                             <div className="entry-details--left-panel--info">
                                 <span className="entry-details--text">Account Name</span>
