@@ -14,6 +14,7 @@ import { registerUserUtil } from "../../util/forms/registerFormUtil"
  */
 function RegisterForm()
 {
+    // Current registration error (if any)
     const [registerError, setRegisterError] = React.useState()
 
     // Component functions stored in registerFormUtil

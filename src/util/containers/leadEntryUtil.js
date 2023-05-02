@@ -14,8 +14,8 @@
 function leadDetails(data)
 {
     const {
-        lead,
-        user
+        lead,                                               // Current lead entry
+        user                                                // Linked user entry
     } = data
 
     return (

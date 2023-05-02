@@ -72,7 +72,7 @@ function mapContacts(contactsData)
  */
 function mapAccounts(accountsData)
 {
-// Map accounts data
+    // Map accounts data
     const accounts = accountsData.map((account => {
         return (
             <tr className="table-data--items" key={account.id}>

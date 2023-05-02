@@ -18,11 +18,13 @@ import { showAccountFormUtil } from "../util/accountsUtil"
 function Accounts(props)
 {
     const {
-        setIsLoggedIn
+        setIsLoggedIn                                               // State function for isLoggedIn variable
     } = props
 
+    // Current accounts array
     const [accountData, setAccountData] = React.useState([])
 
+    // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
     // Accounts API endpoint
@@ -38,6 +40,7 @@ function Accounts(props)
     // Component functions stored in accountsUtil
     const showAccountForm = () => showAccountFormUtil()
 
+    // Request accounts data
     React.useEffect(() => {
         fetch(accountUrl, {
             method: "GET",

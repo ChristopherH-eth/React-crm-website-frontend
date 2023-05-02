@@ -4,6 +4,10 @@
  * @brief This file is responsible for the Loading component of the CRM website.
  */
 
+/**
+ * @brief The Loading() function builds the page loading component.
+ * @return Returns the loading component to be added to the page
+ */
 function Loading()
 {
     return (

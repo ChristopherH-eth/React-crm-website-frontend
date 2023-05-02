@@ -17,12 +17,12 @@ import { ENDPOINTS } from "../config"
 function contactDetails(data)
 {
     const {
-        contact,
-        user,
-        account
+        contact,                                                // Current contact entry
+        user,                                                   // Linked user entry
+        account                                                 // Linked account entry
     } = data
 
-    const accountUrl = `${ENDPOINTS.accounts}${account.id}`             // Link to corresponding account
+    const accountUrl = `${ENDPOINTS.accounts}${account.id}`     // Link to corresponding account
 
     return (
         <div className="entry-details--container">

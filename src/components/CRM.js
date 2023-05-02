@@ -16,8 +16,8 @@ import { URLS, PATHS, ENDPOINTS } from "../util/config"
  */
 function CRM()
 {
-    const [user, setUser] = React.useState([])
-    const [isLoggedIn, setIsLoggedIn] = React.useState(false)
+    const [user, setUser] = React.useState([])                              // Current user session
+    const [isLoggedIn, setIsLoggedIn] = React.useState(false)               // User logged in status
 
     const router = getRouter(user, setUser, isLoggedIn, setIsLoggedIn)      // Get routes
     const refreshUrl = `${URLS.api}${ENDPOINTS.jwtRefresh}`                 // JWT Refresh API endpoint

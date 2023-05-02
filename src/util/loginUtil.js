@@ -21,8 +21,8 @@ function loginUserUtil(navigate, setIsLoggedIn)
 
     // Build request body
     const loginBody = {
-        email: email,
-        password: password
+        email: email,                                           // User email
+        password: password                                      // User password
     }
 
     // Send request to server

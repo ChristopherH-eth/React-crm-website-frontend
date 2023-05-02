@@ -21,9 +21,9 @@ function addContactUtil(accountName)
 
     // Build request body
     const contactBody = {
-        first_name: firstName,
-        last_name: lastName,
-        account_name: accountName
+        first_name: firstName,                                          // Contact first name
+        last_name: lastName,                                            // Contact last name
+        account_name: accountName                                       // Name of contact account
     }
 
     // Send request to server

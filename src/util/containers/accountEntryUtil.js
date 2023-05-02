@@ -14,8 +14,8 @@
 function accountDetails(data)
 {
     const {
-        account,
-        user
+        account,                                            // Current account entry
+        user                                                // Linked user entry
     } = data
 
     return (

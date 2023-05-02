@@ -14,7 +14,7 @@ import { addAccountUtil } from "../../util/forms/accountFormUtil"
 function AccountForm(props)
 {
     const {
-        user
+        user                                                // Current user
     } = props
 
     // Component functions stored in accountFormUtil

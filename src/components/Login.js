@@ -16,7 +16,7 @@ import RegisterForm from "./forms/RegisterForm"
 function Login(props)
 {
     const {
-        setIsLoggedIn
+        setIsLoggedIn                                       // State function for isLoggedIn variable
     } = props
 
     // useNavigate hook to redirect browser

@@ -28,7 +28,7 @@ function DropdownSearch(props)
     const [selectedValue, setSelectedValue] = React.useState(isMulti ? [] : null)
     const [searchValue, setSearchValue] = React.useState("")
 
-    const navigate = useNavigate()
+    const navigate = useNavigate()          // useNavigate hook to redirect browser
     const searchRef = useRef()
     const inputRef = useRef()
 

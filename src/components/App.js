@@ -20,9 +20,9 @@ import { URLS, ENDPOINTS } from "../util/config"
 function App(props)
 {
     const {
-        user,
-        setUser,
-        setIsLoggedIn
+        user,                                                       // User state variable
+        setUser,                                                    // State function for user variable
+        setIsLoggedIn                                               // State function for isLoggedIn variable
     } = props
 
     const userUrl = `${URLS.api}${ENDPOINTS.user}`                  // User session API endpoint

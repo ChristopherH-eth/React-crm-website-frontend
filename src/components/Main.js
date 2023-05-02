@@ -1,15 +1,18 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import Footer from "./Footer"
 import { URLS, ENDPOINTS } from "../util/config"
 import { mapLeads, mapContacts, mapAccounts } from "../util/mainUtil"
 import QuickLook from "./containers/QuickLook"
 import RecentEntries from "./containers/RecentEntries"
-import { useNavigate } from "react-router-dom"
+import Loading from "./Loading"
 
 /**
  * @file Main.js
  * @author 0xChristopher
  * @brief This file is responsible for the Main component of the CRM website.
+ * 
+ * @dev Will need to implement a loading indicator for each component separately.
  */
 
 /**
@@ -19,13 +22,15 @@ import { useNavigate } from "react-router-dom"
 function Main(props)
 {
     const {
-        setIsLoggedIn
+        setIsLoggedIn                                                   // State function for isLoggedIn variable
     } = props
 
     const [leadsData, setLeadsData] = React.useState([])
     const [contactsData, setContactsData] = React.useState([])
     const [accountsData, setAccountsData] = React.useState([])
+    const [isLoading, setIsLoading] = React.useState(true)
 
+    // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
     // Component functions stored in mainUtil
@@ -33,9 +38,9 @@ function Main(props)
     const contacts = () => mapContacts(contactsData)
     const accounts = () => mapAccounts(accountsData)
 
-    const leadsUrl = `${URLS.api}${ENDPOINTS.leadsQuicklook}`                   // Leads API endpoint
-    const contactsUrl = `${URLS.api}${ENDPOINTS.contactsQuicklook}`             // Contacts API endpoint
-    const accountsUrl = `${URLS.api}${ENDPOINTS.accountsQuicklook}`             // Accounts API endpoint
+    const leadsUrl = `${URLS.api}${ENDPOINTS.leadsQuicklook}`           // Leads API endpoint
+    const contactsUrl = `${URLS.api}${ENDPOINTS.contactsQuicklook}`     // Contacts API endpoint
+    const accountsUrl = `${URLS.api}${ENDPOINTS.accountsQuicklook}`     // Accounts API endpoint
 
     // Get most recent leads
     React.useEffect(() => {
@@ -53,7 +58,10 @@ function Main(props)
                     navigate("/login")
                 }
                 else
+                {
                     setLeadsData(data.body)
+                    setIsLoading(false)
+                }
             })
             .catch(console.error)
     }, [leadsUrl, navigate, setIsLoggedIn])
@@ -74,7 +82,10 @@ function Main(props)
                     navigate("/login")
                 }
                 else
+                {
                     setContactsData(data.body)
+                    setIsLoading(false)
+                }
             })
             .catch(console.error)
     }, [contactsUrl, navigate, setIsLoggedIn])
@@ -95,10 +106,21 @@ function Main(props)
                     navigate("/login")
                 }
                 else
+                {
                     setAccountsData(data.body)
+                    setIsLoading(false)
+                }
             })
             .catch(console.error)
     }, [accountsUrl, navigate, setIsLoggedIn])
+
+    // Don't render page content until server response received
+    if (isLoading)
+    {
+        return (
+            <Loading />
+        )
+    }
 
     return (
         <main className="main">

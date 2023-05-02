@@ -21,8 +21,8 @@ function addLeadUtil()
 
     // Build request body
     const leadBody = {
-        first_name: leadName,
-        company: company
+        first_name: leadName,                                           // Lead first name
+        company: company                                                // Lead company name
     }
 
     // Send request to server

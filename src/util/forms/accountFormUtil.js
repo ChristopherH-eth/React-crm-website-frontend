@@ -21,8 +21,8 @@ function addAccountUtil()
 
     // Build request body
     const accountBody = {
-        account_name: accountName,
-        website: website
+        account_name: accountName,                                      // Account name
+        website: website                                                // Account website
     }
 
     // Send request to server

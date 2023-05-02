@@ -21,17 +21,18 @@ import Footer from "../Footer"
 function EntryDetails(props)
 {
     const {
-        setIsLoggedIn
+        setIsLoggedIn                                               // State function for isLoggedIn variable
     } = props
 
     const {
-        type,
-        id
+        type,                                                       // Data type to format for
+        id                                                          // Entry id
     } = useParams()
 
-    const [dataEntry, setDataEntry] = React.useState({})
-    const [isLoading, setIsLoading] = React.useState(true)
+    const [dataEntry, setDataEntry] = React.useState({})            // The current data entry
+    const [isLoading, setIsLoading] = React.useState(true)          // Flag if page is loading
 
+    // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
     const url = `${URLS.api}${ENDPOINTS[type]}${id}`                // API Endpoint

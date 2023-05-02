@@ -17,7 +17,9 @@ function QuickLook()
             <div className="main--quick-look">
                 Quick Look
             </div>
+            {/* Quick Look First Row */}
             <div className="main--quick-look--container">
+                {/* Quick Look Item */}
                 <div className="main--quick-look--item--container">
                     <Link className="main--quick-look--item" to={"leads/"}>
                         <div className="main--quick-look--icon--container">
@@ -38,6 +40,7 @@ function QuickLook()
                         </div>
                     </Link>
                 </div>
+                {/* Quick Look Item */}
                 <div className="main--quick-look--item--container">
                     <Link className="main--quick-look--item" to={"contacts/"}>
                         <div className="main--quick-look--icon--container">
@@ -58,6 +61,7 @@ function QuickLook()
                         </div>
                     </Link>
                 </div>
+                {/* Quick Look Item */}
                 <div className="main--quick-look--item--container">
                     <Link className="main--quick-look--item" to={"/"}>
                         <div className="main--quick-look--icon--container">
@@ -79,7 +83,9 @@ function QuickLook()
                     </Link>
                 </div>
             </div>
+            {/* Quick Look Second Row */}
             <div className="main--quick-look--container">
+                {/* Quick Look Item */}
                 <div className="main--quick-look--item--container">
                     <Link className="main--quick-look--item" to={"/"}>
                         <div className="main--quick-look--item--bar" />
@@ -93,6 +99,7 @@ function QuickLook()
                         </div>
                     </Link>
                 </div>
+                {/* Quick Look Item */}
                 <div className="main--quick-look--item--container">
                     <Link className="main--quick-look--item" to={"/"}>
                         <div className="main--quick-look--item--bar" />
@@ -106,6 +113,7 @@ function QuickLook()
                         </div>
                     </Link>
                 </div>
+                {/* Quick Look Item */}
                 <div className="main--quick-look--item--container">
                     <Link className="main--quick-look--item" to={"/"}>
                         <div className="main--quick-look--item--bar" />

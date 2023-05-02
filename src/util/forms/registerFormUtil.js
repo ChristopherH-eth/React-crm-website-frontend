@@ -27,10 +27,10 @@ function registerUserUtil(setRegisterError)
 
     // Build request body
     const registerBody = {
-        first_name: firstName,
-        last_name: lastName,
-        email: email,
-        password: password
+        first_name: firstName,                                          // New user first name
+        last_name: lastName,                                            // New user last name
+        email: email,                                                   // New user email
+        password: password                                              // New user password
     }
 
     // Send request to server
@@ -76,7 +76,7 @@ function registerUserUtil(setRegisterError)
  * @param lastName
  * @param email
  * @param password
- * @param confirmPassword
+ * @param confirmPassword Should match value in password field
  */
 function isValidInput(setRegisterError, firstName, lastName, email, password, confirmPassword)
 {

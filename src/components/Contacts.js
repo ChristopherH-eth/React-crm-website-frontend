@@ -18,11 +18,13 @@ import { showContactFormUtil } from "../util/contactsUtil"
 function Contacts(props)
 {
     const {
-        setIsLoggedIn
+        setIsLoggedIn                                               // State function for isLoggedIn variable
     } = props
 
+    // Current contacts array
     const [contactData, setContactData] = React.useState([])
 
+    // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
     // Contacts API endpoint
@@ -38,6 +40,7 @@ function Contacts(props)
     // Component functions stored in contactsUtil
     const showContactForm = () => showContactFormUtil()
 
+    // Request contacts data
     React.useEffect(() => {
         fetch(contactUrl, {
             method: "GET",

@@ -11,14 +11,16 @@
 function RecentEntries(props)
 {
     const {
-        leads,
-        contacts,
-        accounts
+        leads,                                          // mapLeads() function from mainUtil
+        contacts,                                       // mapContacts() function from mainUtil
+        accounts                                        // mapAccounts() function from mainUtil
     } = props
 
     return (
         <>
+            {/* Recent Components First Row */}
             <div className="main--component--container">
+                {/* Recent Leads Component */}
                 <div className="main--component">
                     <div className="main--component--header">
                         <img 
@@ -36,6 +38,7 @@ function RecentEntries(props)
                         </table>
                     </div>
                 </div>
+                {/* Recent Opportunities Component */}
                 <div className="main--component">
                     <div className="main--component--header">
                         <img 
@@ -49,6 +52,7 @@ function RecentEntries(props)
                         Content
                     </div>
                 </div>
+                {/* Recent Contacts Component */}
                 <div className="main--component">
                     <div className="main--component--header">
                         <img 
@@ -67,7 +71,9 @@ function RecentEntries(props)
                     </div>
                 </div>
             </div>
+            {/* Recent Components Second Row */}
             <div className="main--component--container">
+                {/* Recent Accounts Component */}
                 <div className="main--component">
                     <div className="main--component--header">
                         <img 
@@ -85,6 +91,7 @@ function RecentEntries(props)
                         </table>
                     </div>
                 </div>
+                {/* Recent *** Component */}
                 <div className="main--component">
                     <div className="main--component--header">
                         Component
@@ -93,6 +100,7 @@ function RecentEntries(props)
                         Content
                     </div>
                 </div>
+                {/* Recent *** Component */}
                 <div className="main--component">
                     <div className="main--component--header">
                         Component

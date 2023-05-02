@@ -14,7 +14,7 @@ import { addLeadUtil } from "../../util/forms/leadFormUtil"
 function LeadForm(props)
 {
     const {
-        user
+        user                                                // Current user
     } = props
 
     // Component functions stored in leadFormUtil

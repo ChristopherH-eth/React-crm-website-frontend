@@ -13,10 +13,11 @@ import React from "react"
 function DropdownButton(props)
 {
     const {
-        placeholder,
-        options
+        placeholder,                                                // Placeholder text
+        options                                                     // Dropdown Options array
     } = props
 
+    // State variable for whether to show the menu
     const [showMenu, setShowMenu] = React.useState(false)
 
     /**

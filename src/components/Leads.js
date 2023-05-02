@@ -18,11 +18,13 @@ import { showLeadFormUtil } from "../util/leadsUtil"
 function Leads(props)
 {
     const {
-        setIsLoggedIn
+        setIsLoggedIn                                               // State function for isLoggedIn variable
     } = props
 
+    // Current leads array
     const [leadData, setLeadData] = React.useState([])
 
+    // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
     // Leads API endpoint
@@ -38,6 +40,7 @@ function Leads(props)
     // Component functions stored in leadsUtil
     const showLeadForm = () => showLeadFormUtil()
 
+    // Request leads data
     React.useEffect(() => {
         fetch(leadUrl, {
             method: "GET",

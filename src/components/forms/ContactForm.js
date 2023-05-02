@@ -17,9 +17,10 @@ import { URLS, ENDPOINTS } from "../../util/config"
 function ContactForm(props)
 {
     const {
-        user
+        user                                                // Current user
     } = props
 
+    // Account variable for dropdown search
     const [accountName, setAccountName] = React.useState("")
 
     // Accounts API endpoint
