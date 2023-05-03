@@ -31,10 +31,13 @@ const PATHS = {
 // API endpoints
 const ENDPOINTS = {
     contacts: "/contacts/",
+    contactsPage: "/contacts/page/",
     contactsQuicklook: "/contacts/quicklook/",
     accounts: "/accounts/",
+    accountsPage: "/accounts/page/",
     accountsQuicklook: "/accounts/quicklook/",
     leads: "/leads/",
+    leadsPage: "/leads/page/",
     leadsQuicklook: "/leads/quicklook/",
     jwtRefresh: "/users/refresh/",
     login: "/users/login/",

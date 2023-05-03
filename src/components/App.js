@@ -61,10 +61,7 @@ function App(props)
                     navigate("/login")
                 }
                 else
-                {
-                    console.log(data)               // For testing
                     setUser(data.body[0].user)
-                }
             })
             .catch(console.error)
     }, [userUrl, location.pathname, setUser, navigate, setIsLoggedIn])

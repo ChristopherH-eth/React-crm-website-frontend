@@ -21,7 +21,7 @@ function QuickLook()
             <div className="main--quick-look--container">
                 {/* Quick Look Item */}
                 <div className="main--quick-look--item--container">
-                    <Link className="main--quick-look--item" to={"leads/"}>
+                    <Link className="main--quick-look--item" to={"leads/page/"}>
                         <div className="main--quick-look--icon--container">
                             <img 
                                 className="quick-look--icon" 
@@ -42,7 +42,7 @@ function QuickLook()
                 </div>
                 {/* Quick Look Item */}
                 <div className="main--quick-look--item--container">
-                    <Link className="main--quick-look--item" to={"contacts/"}>
+                    <Link className="main--quick-look--item" to={"contacts/page/"}>
                         <div className="main--quick-look--icon--container">
                             <img 
                                 className="quick-look--icon" 

@@ -36,6 +36,7 @@ html, body
 {
     margin: 0;
     font-family: "Inter", sans-serif;
+    font-size: 1rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #4c74a9;
@@ -124,15 +125,26 @@ html, body
     width: 100%;
 }
 
-.table-data--heading, .table-data--headers, .table-data--items, .table-data--buttons
+.table-data--headers, .table-data--items
 {
     display: flex;
     margin-left: auto;
     margin-right: auto;
 }
 
-.table-data--heading, .table-data--buttons
+.table-data--heading
 {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+    align-items: center;
+}
+
+.table-data--buttons
+{
+    display: flex;
+    margin-left: auto;
+    margin-right: 0;
     padding: 0.5rem;
 }
 
@@ -931,7 +943,7 @@ button
     width: 1.5rem;
 }
 
-.data-entry--icon
+.data-entry--icon, .table-data--heading-icon
 {
     margin-right: 0.25rem;
     height: 3rem;

@@ -1,9 +1,10 @@
 import React from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import Footer from "./Footer"
 import DropdownButton from "./elements/DropdownButton"
 import { URLS, ENDPOINTS } from "../util/config"
 import { showLeadFormUtil } from "../util/leadsUtil"
+import Loading from "./Loading"
 
 /**
  * @file Leads.js
@@ -21,14 +22,18 @@ function Leads(props)
         setIsLoggedIn                                               // State function for isLoggedIn variable
     } = props
 
-    // Current leads array
-    const [leadData, setLeadData] = React.useState([])
+    const {
+        page
+    } = useParams()
+
+    const [leadData, setLeadData] = React.useState([])              // Current leads array
+    const [isLoading, setIsLoading] = React.useState(true)          // Flag if page is loading
 
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
     // Leads API endpoint
-    const leadUrl = `${URLS.api}${ENDPOINTS.leads}`
+    const leadUrl = `${URLS.api}${ENDPOINTS.leadsPage}${page}`
 
     // Options array for account entry dropdown button
     const options = [
@@ -56,18 +61,24 @@ function Leads(props)
                     navigate("/login")
                 }
                 else
-                    setLeadData(data.body)
+                {
+                    setLeadData(data.body.leads)
+                    setIsLoading(false)
+                }
             })
             .catch(console.error)
     }, [leadUrl, navigate, setIsLoggedIn])
 
     // Map lead data
     const leads = leadData.map((lead) => {
+        // Lead entry url
+        const leadEntryUrl = `${URLS.base}${ENDPOINTS.leads}${lead.id}`
+
         return (
             <tr className="table-data--items" key={lead.id}>
                 <td className="table-data--borderless--centered table-data--5p">
                     <span className="table-data--content">
-                        <Link className="link" to={`${lead.id}`}>{lead.id}</Link>
+                        <Link className="link" to={leadEntryUrl}>{lead.id}</Link>
                     </span>
                 </td>
                 <td className="table-data--borderless--centered table-data--2_5p">
@@ -132,6 +143,15 @@ function Leads(props)
         )
     })
 
+    // Don't render page content until server response received
+    if (isLoading)
+    {
+        return (
+            <Loading />
+        )
+    }
+
+    // Otherwise render page data
     return (
         <section className="leads">
             <div className="table-data--container">

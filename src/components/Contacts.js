@@ -4,6 +4,7 @@ import Footer from "./Footer"
 import DropdownButton from "./elements/DropdownButton"
 import { URLS, ENDPOINTS } from "../util/config"
 import { showContactFormUtil } from "../util/contactsUtil"
+import Loading from "./Loading"
 
 /**
  * @file Contacts.js
@@ -21,8 +22,8 @@ function Contacts(props)
         setIsLoggedIn                                               // State function for isLoggedIn variable
     } = props
 
-    // Current contacts array
-    const [contactData, setContactData] = React.useState([])
+    const [contactData, setContactData] = React.useState([])        // Current contacts array
+    const [isLoading, setIsLoading] = React.useState(true)          // Flag if page is loading
 
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
@@ -56,18 +57,25 @@ function Contacts(props)
                     navigate("/login")
                 }
                 else
+                {
                     setContactData(data.body)
+                    console.log(contactData)
+                    setIsLoading(false)
+                }
             })
             .catch(console.error)
     }, [contactUrl, navigate, setIsLoggedIn])
 
     // Map contact data
     const contacts = contactData.map((contact) => {
+        // Contact entry url
+        const contactEntryUrl = `${URLS.base}${ENDPOINTS.contacts}${contact.id}`
+
         return (
             <tr className="table-data--items" key={contact.id}>
                 <td className="table-data--borderless--centered table-data--5p">
                     <span className="table-data--content">
-                        <Link className="link" to={`${contact.id}`}>{contact.id}</Link>
+                        <Link className="link" to={contactEntryUrl}>{contact.id}</Link>
                     </span>
                 </td>
                 <td className="table-data--borderless--centered table-data--2_5p">
@@ -84,7 +92,7 @@ function Contacts(props)
                 </td>
                 <td className="table-data--borderless table-data--17p">
                     <span className="table-data--content">
-                        {contact.account_id}
+                        {contact.account.account_name}
                     </span>
                 </td>
                 <td className="table-data--borderless table-data--17p">
@@ -99,7 +107,7 @@ function Contacts(props)
                 </td>
                 <td className="table-data--borderless table-data--17p">
                     <span className="table-data--content">
-                        {contact.contact_owner}
+                        {contact.user.first_name} {contact.user.last_name}
                     </span>
                 </td>
                 <td className="table-data--borderless--centered table-data--5p">
@@ -112,11 +120,28 @@ function Contacts(props)
         )
     })
 
+    // Don't render page content until server response received
+    if (isLoading)
+    {
+        return (
+            <Loading />
+        )
+    }
+
+    // Otherwise render page data
     return (
         <section className="contacts">
             <div className="table-data--container">
                 <div className="table-data--heading">
-                    Contacts
+                    <img 
+                        className="table-data--heading-icon" 
+                        src="images/icons/contacticon.png"
+                        alt="contacts" 
+                    />
+                    <span className="table-data--heading-text">Contacts</span>
+                    <div className="table-data--buttons">
+                        <button onClick={showContactForm}>New</button>
+                    </div>
                 </div>
                 <table className="table-data--table">
                     <tbody>
@@ -153,9 +178,6 @@ function Contacts(props)
                         {contacts}
                     </tbody>
                 </table>
-                <div className="table-data--buttons">
-                    <button onClick={showContactForm}>New</button>
-                </div>
             </div>
             <Footer />
         </section>

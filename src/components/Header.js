@@ -87,17 +87,17 @@ function Header(props)
                                             <span>Home</span>
                                         </li>
                                     </Link>
-                                    <Link className="link" to={"leads/"}>
+                                    <Link className="link" to={"leads/page/"}>
                                         <li className="header--navigation--list--item">
                                             <span>Leads</span>
                                         </li>
                                     </Link>
-                                    <Link className="link" to={"accounts/"}>
+                                    <Link className="link" to={"accounts/page/"}>
                                         <li className="header--navigation--list--item">
                                             <span>Accounts</span>
                                         </li>
                                     </Link>
-                                    <Link className="link" to={"contacts/"}>
+                                    <Link className="link" to={"contacts/page/"}>
                                         <li className="header--navigation--list--item">
                                             <span>Contacts</span>
                                         </li>

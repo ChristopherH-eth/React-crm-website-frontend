@@ -25,10 +25,10 @@ function Main(props)
         setIsLoggedIn                                                   // State function for isLoggedIn variable
     } = props
 
-    const [leadsData, setLeadsData] = React.useState([])
-    const [contactsData, setContactsData] = React.useState([])
-    const [accountsData, setAccountsData] = React.useState([])
-    const [isLoading, setIsLoading] = React.useState(true)
+    const [leadsData, setLeadsData] = React.useState([])                // Quicklook leads
+    const [contactsData, setContactsData] = React.useState([])          // Quicklook contacts
+    const [accountsData, setAccountsData] = React.useState([])          // Quicklook accounts
+    const [isLoading, setIsLoading] = React.useState(true)              // Flag if page is loading
 
     // useNavigate hook to redirect browser
     const navigate = useNavigate()

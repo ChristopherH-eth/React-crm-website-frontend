@@ -4,6 +4,7 @@ import Footer from "./Footer"
 import DropdownButton from "./elements/DropdownButton"
 import { URLS, ENDPOINTS } from "../util/config"
 import { showAccountFormUtil } from "../util/accountsUtil"
+import Loading from "./Loading"
 
 /**
  * @file Accounts.js
@@ -21,8 +22,8 @@ function Accounts(props)
         setIsLoggedIn                                               // State function for isLoggedIn variable
     } = props
 
-    // Current accounts array
-    const [accountData, setAccountData] = React.useState([])
+    const [accountData, setAccountData] = React.useState([])        // Current accounts array
+    const [isLoading, setIsLoading] = React.useState(true)          // Flag if page is loading
 
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
@@ -56,18 +57,24 @@ function Accounts(props)
                     navigate("/login")
                 }
                 else
+                {
                     setAccountData(data.body)
+                    setIsLoading(false)
+                }
             })
             .catch(console.error)
     }, [accountUrl, navigate, setIsLoggedIn])
 
     // Map contact data
     const accounts = accountData.map((account) => {
+        // Account entry url
+        const accountEntryUrl = `${URLS.base}${ENDPOINTS.accounts}${account.id}`
+
         return (
             <tr className="table-data--items" key={account.id}>
                 <td className="table-data--borderless--centered table-data--5p">
                     <span className="table-data--content">
-                        <Link className="link" to={`${account.id}`}>{account.id}</Link>
+                        <Link className="link" to={accountEntryUrl}>{account.id}</Link>
                     </span>
                 </td>
                 <td className="table-data--borderless--centered table-data--2_5p">
@@ -112,6 +119,15 @@ function Accounts(props)
         )
     })
 
+    // Don't render page content until server response received
+    if (isLoading)
+    {
+        return (
+            <Loading />
+        )
+    }
+
+    // Otherwise render page data
     return (
         <section className="accounts">
             <div className="table-data--container">
