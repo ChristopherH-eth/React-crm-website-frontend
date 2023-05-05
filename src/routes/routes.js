@@ -59,7 +59,7 @@ function getRouter(user, setUser, isLoggedIn, setIsLoggedIn)
                     element: <Redirect newUrl={"../accounts/page/1"} />
                 },
                 {
-                    path: "accounts/page/:page",
+                    path: ":type/page/:page",
                     element: <>
                         <Accounts setIsLoggedIn={setIsLoggedIn} />
                         <AccountForm user={user} />

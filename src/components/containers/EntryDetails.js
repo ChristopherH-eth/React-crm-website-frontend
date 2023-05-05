@@ -78,9 +78,9 @@ function EntryDetails(props)
     return (
         <section className="entry-details">
             {/* Display JSX based on parameterized type */}
-            {fetchType === "contact" && showContactDetails()}
-            {fetchType === "account" && showAccountDetails()}
-            {fetchType === "lead" && showLeadDetails()}
+            {fetchType === "contact" && showContactDetails(dataEntry)}
+            {fetchType === "account" && showAccountDetails(dataEntry)}
+            {fetchType === "lead" && showLeadDetails(dataEntry)}
             <Footer />
         </section>
     )
