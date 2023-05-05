@@ -23,7 +23,7 @@ function Leads(props)
     } = props
 
     const {
-        page
+        page                                                        // Current page
     } = useParams()
 
     const [leadData, setLeadData] = React.useState([])              // Current leads array
@@ -156,7 +156,15 @@ function Leads(props)
         <section className="leads">
             <div className="table-data--container">
                 <div className="table-data--heading">
-                    Leads
+                    <img 
+                        className="table-data--heading-icon" 
+                        src="images/icons/leadicon.png"
+                        alt="leads" 
+                    />
+                    <span className="table-data--heading-text">Leads</span>
+                    <div className="table-data--buttons">
+                        <button onClick={showLeadForm}>New</button>
+                    </div>
                 </div>
                 <table className="table-data--table">
                     <tbody>

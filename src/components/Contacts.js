@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import Footer from "./Footer"
 import DropdownButton from "./elements/DropdownButton"
 import { URLS, ENDPOINTS } from "../util/config"
@@ -22,6 +22,10 @@ function Contacts(props)
         setIsLoggedIn                                               // State function for isLoggedIn variable
     } = props
 
+    const {
+        page                                                        // Current page
+    } = useParams()
+
     const [contactData, setContactData] = React.useState([])        // Current contacts array
     const [isLoading, setIsLoading] = React.useState(true)          // Flag if page is loading
 
@@ -29,7 +33,7 @@ function Contacts(props)
     const navigate = useNavigate()
 
     // Contacts API endpoint
-    const contactUrl = `${URLS.api}${ENDPOINTS.contacts}`
+    const contactUrl = `${URLS.api}${ENDPOINTS.contactsPage}${page}`
 
     // Options array for account entry dropdown button
     const options = [
@@ -58,8 +62,7 @@ function Contacts(props)
                 }
                 else
                 {
-                    setContactData(data.body)
-                    console.log(contactData)
+                    setContactData(data.body.contacts)
                     setIsLoading(false)
                 }
             })

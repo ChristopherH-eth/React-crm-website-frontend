@@ -18,6 +18,7 @@ function registerUserUtil(setRegisterError)
     // Get form values
     const firstName = document.getElementById("register-form--first-name").value
     const lastName = document.getElementById("register-form--last-name").value
+    const fullName = firstName + " " + lastName
     const email = document.getElementById("register-form--email").value
     const password = document.getElementById("register-form--password").value
     const confirmPassword = document.getElementById("register-form--confirm-password").value
@@ -29,6 +30,7 @@ function registerUserUtil(setRegisterError)
     const registerBody = {
         first_name: firstName,                                          // New user first name
         last_name: lastName,                                            // New user last name
+        full_name: fullName,                                            // New user full name
         email: email,                                                   // New user email
         password: password                                              // New user password
     }
@@ -46,7 +48,7 @@ function registerUserUtil(setRegisterError)
             console.log(data)
 
             // Check for registration errors
-            if (data.status === 422)
+            if (data.status === 422 || data.status === 409)
             {
                 for (let prop in data.body)
                 {

@@ -44,6 +44,7 @@ function RegisterForm()
                             type="text"
                         ></input>
                         <div className="form--label">
+                            <span className="required" title="required">*</span>
                             Last Name
                         </div>
                         <input
