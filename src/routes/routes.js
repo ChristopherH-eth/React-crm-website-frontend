@@ -2,9 +2,7 @@ import { createBrowserRouter } from "react-router-dom"
 import App from "../components/App"
 import ErrorPage from "../components/ErrorPage"
 import Main from "../components/Main"
-import Contacts from "../components/Contacts"
-import Accounts from "../components/Accounts"
-import Leads from "../components/Leads"
+import Collections from "../components/Collections"
 import AccountForm from "../components/forms/AccountForm"
 import ContactForm from "../components/forms/ContactForm"
 import LeadForm from "../components/forms/LeadForm"
@@ -48,31 +46,19 @@ function getRouter(user, setUser, isLoggedIn, setIsLoggedIn)
                     element: <Redirect newUrl={"../contacts/page/1"} />
                 },
                 {
-                    path: "contacts/page/:page",
-                    element: <>
-                        <Contacts setIsLoggedIn={setIsLoggedIn} />
-                        <ContactForm user={user} />
-                    </>
-                },
-                {
                     path: "accounts/page/",
                     element: <Redirect newUrl={"../accounts/page/1"} />
-                },
-                {
-                    path: ":type/page/:page",
-                    element: <>
-                        <Accounts setIsLoggedIn={setIsLoggedIn} />
-                        <AccountForm user={user} />
-                    </>
                 },
                 {
                     path: "leads/page/",
                     element: <Redirect newUrl={"../leads/page/1"} />
                 },
                 {
-                    path: "leads/page/:page",
+                    path: ":type/page/:page",
                     element: <>
-                        <Leads setIsLoggedIn={setIsLoggedIn} />
+                        <Collections setIsLoggedIn={setIsLoggedIn} />
+                        <AccountForm user={user} />
+                        <ContactForm user={user} />
                         <LeadForm user={user} />
                     </>
                 },

@@ -2,21 +2,21 @@ import React from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Footer from "./Footer"
 import { URLS, ENDPOINTS } from "../util/config"
-import { showAccountFormUtil } from "../util/accountsUtil"
+import { accountHeadingUtil, contactHeadingUtil, leadHeadingUtil } from "../util/collectionsUtil"
 import Loading from "./Loading"
 import ResizableTable from "./containers/ResizableTable"
 
 /**
- * @file Accounts.js
+ * @file Collections.js
  * @author 0xChristopher
- * @brief This file is responsible for the Accounts component of the CRM website.
+ * @brief This file is responsible for the Collections component of the CRM website.
  */
 
 /**
- * @brief The Accounts() function builds the page accounts component.
- * @return Returns the accounts component to be added to the page
+ * @brief The Collections() function builds the page collections component.
+ * @return Returns the collections component to be added to the page
  */
-function Accounts(props)
+function Collections(props)
 {
     const {
         setIsLoggedIn                                               // State function for isLoggedIn variable
@@ -27,15 +27,35 @@ function Accounts(props)
         page                                                        // Current page
     } = useParams()
 
-    // Table columns and widths
-    const columns = [
+    // Table columns and widths for account entries
+    const accountColumns = [
         {id: 0, col: "account_name", text: "Account Name", width: 200},
         {id: 1, col: "title", text: "Title", width: 200},
         {id: 2, col: "phone", text: "Phone", width: 200},
         {id: 3, col: "user.full_name", text: "Account Owner", width: 200}
     ]
 
-    const [accountData, setAccountData] = React.useState([])        // Current accounts array
+    // Table columns and widths for contact entries
+    const contactColumns = [
+        {id: 0, col: "full_name", text: "Name", width: 150},
+        {id: 1, col: "account.account_name", text: "Account Name", width: 150},
+        {id: 2, col: "title", text: "Title", width: 150},
+        {id: 3, col: "phone", text: "Phone", width: 150},
+        {id: 4, col: "user.full_name", text: "Contact Owner", width: 150}
+    ]
+
+    // Table columns and widths for lead entries
+    const leadColumns = [
+        {id: 0, col: "full_name", text: "Name", width: 150},
+        {id: 1, col: "company", text: "Company", width: 150},
+        {id: 2, col: "state_province", text: "State/Province", width: 150},
+        {id: 3, col: "phone", text: "Phone", width: 150},
+        {id: 4, col: "email", text: "Email", width: 150},
+        {id: 5, col: "lead_status", text: "Lead Status", width: 150},
+        {id: 6, col: "user.full_name", text: "Lead Owner", width: 150}
+    ]
+
+    const [accountData, setAccountData] = React.useState([])        // Current collections array
     const [isLoading, setIsLoading] = React.useState(true)          // Flag if page is loading
 
     // useNavigate hook to redirect browser
@@ -51,10 +71,27 @@ function Accounts(props)
         {value: "change_owner", label: "Change Owner"}
     ]
 
-    // Component functions stored in accountsUtil
-    const showAccountForm = () => showAccountFormUtil()
+    // Callback function to get the correct table heading based on data type
+    const getHeading = () => {
+        if (type === "accounts")
+            return accountHeadingUtil()
+        else if (type === "contacts")
+            return contactHeadingUtil()
+        else if (type === "leads")
+            return leadHeadingUtil()
+    }
 
-    // Request accounts data
+    // Callback function to get the correct column set based on data type
+    const getColumns = () => {
+        if (type === "accounts")
+            return accountColumns
+        else if (type === "contacts")
+            return contactColumns
+        else if (type === "leads")
+            return leadColumns
+    }
+
+    // Request collections data
     React.useEffect(() => {
         fetch(accountUrl, {
             method: "GET",
@@ -88,22 +125,12 @@ function Accounts(props)
 
     // Otherwise render page data
     return (
-        <section className="accounts">
+        <section className="collections">
             <div className="table-data--container">
-                <div className="table-data--heading">
-                    <img 
-                        className="table-data--heading-icon" 
-                        src="images/icons/accounticon.png"
-                        alt="accounts" 
-                    />
-                    <span className="table-data--heading-text">Accounts</span>
-                    <div className="table-data--buttons">
-                        <button onClick={showAccountForm}>New</button>
-                    </div>
-                </div>
+                {getHeading()}
                 <ResizableTable 
                     type={type}
-                    columns={columns}
+                    columns={getColumns()}
                     dataEntries={accountData}
                     options={options}
                 />
@@ -113,4 +140,4 @@ function Accounts(props)
     )
 }
 
-export default Accounts
+export default Collections

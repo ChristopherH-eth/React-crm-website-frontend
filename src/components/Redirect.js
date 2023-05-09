@@ -2,9 +2,9 @@ import React from "react"
 import { useNavigate } from "react-router-dom"
 
 /**
- * @file Leads.js
+ * @file Redirect.js
  * @author 0xChristopher
- * @brief This file is responsible for the Leads component of the CRM website.
+ * @brief This file is responsible for the Redirect component of the CRM website.
  */
 
 /**
