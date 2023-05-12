@@ -2,7 +2,7 @@ import React from "react"
 import { useNavigate } from "react-router-dom"
 import Footer from "./Footer"
 import { URLS, ENDPOINTS } from "../util/config"
-import { mapLeads, mapContacts, mapAccounts } from "../util/mainUtil"
+import { mapLeads, mapOpps, mapContacts, mapAccounts } from "../util/mainUtil"
 import QuickLook from "./containers/QuickLook"
 import RecentEntries from "./containers/RecentEntries"
 import Loading from "./Loading"
@@ -26,6 +26,7 @@ function Main(props)
     } = props
 
     const [leadsData, setLeadsData] = React.useState([])                // Quicklook leads
+    const [oppsData, setOppsData] = React.useState([])                  // Quicklook opportunities
     const [contactsData, setContactsData] = React.useState([])          // Quicklook contacts
     const [accountsData, setAccountsData] = React.useState([])          // Quicklook accounts
     const [isLoading, setIsLoading] = React.useState(true)              // Flag if page is loading
@@ -35,10 +36,12 @@ function Main(props)
 
     // Component functions stored in mainUtil
     const leads = () => mapLeads(leadsData)
+    const opportunities = () => mapOpps(oppsData)
     const contacts = () => mapContacts(contactsData)
     const accounts = () => mapAccounts(accountsData)
 
     const leadsUrl = `${URLS.api}${ENDPOINTS.leadsQuicklook}`           // Leads API endpoint
+    const oppsUrl = `${URLS.api}${ENDPOINTS.oppsQuicklook}`             // Opportunity API endpoint
     const contactsUrl = `${URLS.api}${ENDPOINTS.contactsQuicklook}`     // Contacts API endpoint
     const accountsUrl = `${URLS.api}${ENDPOINTS.accountsQuicklook}`     // Accounts API endpoint
 
@@ -65,6 +68,30 @@ function Main(props)
             })
             .catch(console.error)
     }, [leadsUrl, navigate, setIsLoggedIn])
+
+    // Get most recent opportunities
+    React.useEffect(() => {
+        fetch(oppsUrl, {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+            .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+            .then((data) => {
+                if (data.status !== 200)
+                {
+                    setIsLoggedIn(false)
+                    navigate("/login")
+                }
+                else
+                {
+                    setOppsData(data.body)
+                    setIsLoading(false)
+                }
+            })
+            .catch(console.error)
+    }, [oppsUrl, navigate, setIsLoggedIn])
 
     // Get most recent contacts
     React.useEffect(() => {
@@ -132,8 +159,9 @@ function Main(props)
             </div>
             <RecentEntries 
                 leads={leads} 
+                opportunities={opportunities}
                 contacts={contacts}
-                accounts={accounts}           
+                accounts={accounts}
             />
             <Footer />
         </main>

@@ -30,7 +30,7 @@ function Collections(props)
     // Table columns and widths for account entries
     const accountColumns = [
         {id: 0, col: "account_name", text: "Account Name", width: 200},
-        {id: 1, col: "title", text: "Title", width: 200},
+        {id: 1, col: "state_province", text: "State/Province", width: 200},
         {id: 2, col: "phone", text: "Phone", width: 200},
         {id: 3, col: "user.full_name", text: "Account Owner", width: 200}
     ]
@@ -53,6 +53,11 @@ function Collections(props)
         {id: 4, col: "email", text: "Email", width: 150},
         {id: 5, col: "lead_status", text: "Lead Status", width: 150},
         {id: 6, col: "user.full_name", text: "Lead Owner", width: 150}
+    ]
+
+    // Table columns and widths for opportunity entries
+    const oppColumns = [
+        {id: 0, col: "opportunity_name", text: "Opportunity", width: 200}
     ]
 
     const [accountData, setAccountData] = React.useState([])        // Current collections array

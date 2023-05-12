@@ -12,6 +12,7 @@ function RecentEntries(props)
 {
     const {
         leads,                                          // mapLeads() function from mainUtil
+        opportunities,                                  // mapOpps() function from mainUtil
         contacts,                                       // mapContacts() function from mainUtil
         accounts                                        // mapAccounts() function from mainUtil
     } = props
@@ -49,7 +50,11 @@ function RecentEntries(props)
                         Recent Opportunities
                     </div>
                     <div className="main--component--content">
-                        Content
+                    <table className="table-data--table">
+                            <tbody>
+                                {opportunities()}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 {/* Recent Contacts Component */}

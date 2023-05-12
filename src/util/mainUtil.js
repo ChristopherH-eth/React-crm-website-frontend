@@ -38,6 +38,34 @@ function mapLeads(leadsData)
 }
 
 /**
+ * @brief The mapOpps() function maps an incoming data array for display.
+ * @param oppsData Array of opportunities data
+ * @return Returns JSX of the mapped array
+ */
+function mapOpps(oppsData)
+{
+    // Map opportunities data
+    const opps = oppsData.map((opp => {
+        return (
+            <tr className="table-data--items" key={opp.id}>
+                <td className="table-data--borderless table-data--10p">
+                    <span className="table-data--content">
+                        <Link className="link" to={`opportunities/${opp.id}`}>{opp.id}</Link>
+                    </span>
+                </td>
+                <td className="table-data--borderless table-data--fill">
+                    <span className="table-data--content">
+                        {opp.opportunity_name}
+                    </span>
+                </td>
+            </tr>
+        )
+    }))
+
+    return opps
+}
+
+/**
  * @brief The mapContacts() function maps an incoming data array for display.
  * @param contactsData Array of contacts data
  * @return Returns JSX of the mapped array
@@ -93,4 +121,4 @@ function mapAccounts(accountsData)
     return accounts
 }
 
-export { mapLeads, mapContacts, mapAccounts }
+export { mapLeads, mapOpps, mapContacts, mapAccounts }
