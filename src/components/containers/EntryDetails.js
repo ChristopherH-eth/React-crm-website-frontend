@@ -4,6 +4,7 @@ import { URLS, ENDPOINTS } from "../../util/config"
 import { contactDetails } from "../../util/containers/contactEntryUtil"
 import { accountDetails } from "../../util/containers/accountEntryUtil"
 import { leadDetails } from "../../util/containers/leadEntryUtil"
+import { opportunityDetails } from "../../util/containers/opportunityEntryUtil"
 import Loading from "../Loading"
 import Footer from "../Footer"
 
@@ -36,12 +37,12 @@ function EntryDetails(props)
     const navigate = useNavigate()
 
     const url = `${URLS.api}${ENDPOINTS[type]}${id}`                // API Endpoint
-    const fetchType = type.slice(0, -1)                             // Slice type to make singular
 
     // Component functions stored in util files
     const showContactDetails = () => contactDetails(dataEntry)
     const showAccountDetails = () => accountDetails(dataEntry)
     const showLeadDetails = () => leadDetails(dataEntry)
+    const showOpportunityDetails = () => opportunityDetails(dataEntry)
 
     // Get database entry details
     React.useEffect(() => {
@@ -78,9 +79,10 @@ function EntryDetails(props)
     return (
         <section className="entry-details">
             {/* Display JSX based on parameterized type */}
-            {fetchType === "contact" && showContactDetails(dataEntry)}
-            {fetchType === "account" && showAccountDetails(dataEntry)}
-            {fetchType === "lead" && showLeadDetails(dataEntry)}
+            {type === "contacts" && showContactDetails()}
+            {type === "accounts" && showAccountDetails()}
+            {type === "leads" && showLeadDetails()}
+            {type === "opportunities" && showOpportunityDetails()}
             <Footer />
         </section>
     )

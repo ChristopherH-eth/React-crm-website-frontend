@@ -41,7 +41,7 @@ function Main(props)
     const accounts = () => mapAccounts(accountsData)
 
     const leadsUrl = `${URLS.api}${ENDPOINTS.leadsQuicklook}`           // Leads API endpoint
-    const oppsUrl = `${URLS.api}${ENDPOINTS.oppsQuicklook}`             // Opportunity API endpoint
+    const oppsUrl = `${URLS.api}${ENDPOINTS.opportunitiesQuicklook}`    // Opportunity API endpoint
     const contactsUrl = `${URLS.api}${ENDPOINTS.contactsQuicklook}`     // Contacts API endpoint
     const accountsUrl = `${URLS.api}${ENDPOINTS.accountsQuicklook}`     // Accounts API endpoint
 

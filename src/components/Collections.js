@@ -2,7 +2,7 @@ import React from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Footer from "./Footer"
 import { URLS, ENDPOINTS } from "../util/config"
-import { accountHeadingUtil, contactHeadingUtil, leadHeadingUtil } from "../util/collectionsUtil"
+import { getHeadingUtil } from "../util/collectionsUtil"
 import Loading from "./Loading"
 import ResizableTable from "./containers/ResizableTable"
 
@@ -67,7 +67,7 @@ function Collections(props)
     const navigate = useNavigate()
 
     const typePage = `${type}Page`                                  // Endpoint object key based on type
-    const accountUrl = `${URLS.api}${ENDPOINTS[typePage]}${page}`   // API endpoint
+    const url = `${URLS.api}${ENDPOINTS[typePage]}${page}`          // API endpoint
 
     // Options array for account entry dropdown button
     const options = [
@@ -77,14 +77,7 @@ function Collections(props)
     ]
 
     // Callback function to get the correct table heading based on data type
-    const getHeading = () => {
-        if (type === "accounts")
-            return accountHeadingUtil()
-        else if (type === "contacts")
-            return contactHeadingUtil()
-        else if (type === "leads")
-            return leadHeadingUtil()
-    }
+    const getHeading = () => getHeadingUtil(type)
 
     // Callback function to get the correct column set based on data type
     const getColumns = () => {
@@ -94,11 +87,13 @@ function Collections(props)
             return contactColumns
         else if (type === "leads")
             return leadColumns
+        else if (type === "opportunities")
+            return oppColumns
     }
 
     // Request collections data
     React.useEffect(() => {
-        fetch(accountUrl, {
+        fetch(url, {
             method: "GET",
             mode: "cors",
             credentials: "include",
@@ -118,7 +113,7 @@ function Collections(props)
                 }
             })
             .catch(console.error)
-    }, [accountUrl, type, navigate, setIsLoggedIn])
+    }, [url, type, navigate, setIsLoggedIn])
 
     // Don't render page content until server response received
     if (isLoading)

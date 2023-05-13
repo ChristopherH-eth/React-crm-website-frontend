@@ -54,6 +54,10 @@ function getRouter(user, setUser, isLoggedIn, setIsLoggedIn)
                     element: <Redirect newUrl={"../leads/page/1"} />
                 },
                 {
+                    path: "opportunities/page/",
+                    element: <Redirect newUrl={"../opportunities/page/1"} />
+                },
+                {
                     path: ":type/page/:page",
                     element: <>
                         <Collections setIsLoggedIn={setIsLoggedIn} />

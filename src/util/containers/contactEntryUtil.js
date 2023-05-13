@@ -29,7 +29,7 @@ function contactDetails(data)
             <div className="entry-details--main">
                 <div className="entry-details--main-upper">
                     <img 
-                        src="images/icons/contacticon.png" 
+                        src="images/icons/contactsIcon.png" 
                         alt="contact icon" 
                         className="data-entry--icon" 
                     />

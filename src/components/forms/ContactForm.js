@@ -34,7 +34,7 @@ function ContactForm(props)
             {/* Page Mask (dimmed background) */}
             <div className="page-mask" id="page-mask" />
             {/* Contact Form */}
-            <section className="form-container" id="contact-form--container">
+            <section className="form-container" id="contacts-form--container">
                 <div className="form">
                     <div className="form--header">
                         <div className="form--header-text">

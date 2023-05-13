@@ -14,7 +14,7 @@ function Loading()
         <section className="loading">
             <div className="loading-contaier">
                 <div className="loading-block">
-                    <img className="loading-image" src="images/icons/loadingicon.png" alt="loading" />
+                    <img className="loading-image" src="images/icons/loadingIcon.png" alt="loading" />
                     <span className="loading-text">Loading...</span>
                 </div>
             </div>

@@ -5,96 +5,39 @@
  */
 
 /**
- * @brief The showAccountForm() function shows the new account form.
+ * @brief The showFormUtil() function shows the new form for the parameterized type.
+ * @param type Data type of the current collection
  */
-function showAccountForm()
+function showFormUtil(type)
 {
     document.body.classList.add("lock-scroll")
-    document.getElementById("account-form--container").classList.add("show")
-    document.getElementById("page-mask").classList.add("show")
-}
-
-/**
- * @brief The showContactForm() function shows the new contact form.
- */
-function showContactForm()
-{
-    document.body.classList.add("lock-scroll")
-    document.getElementById("contact-form--container").classList.add("show")
-    document.getElementById("page-mask").classList.add("show")
-}
-
-/**
- * @brief The showLeadForm() function shows the new lead form.
- */
-function showLeadForm()
-{
-    document.body.classList.add("lock-scroll")
-    document.getElementById("lead-form--container").classList.add("show")
+    document.getElementById(`${type}-form--container`).classList.add("show")
     document.getElementById("page-mask").classList.add("show")
 }
 
 /**
  * @brief The accountHeadingUtil() function sets the JSX for the Accounts table heading.
+ * @param type Data type of the current collection
  * @returns Returns the Accounts table heading
  */
-function accountHeadingUtil()
+function getHeadingUtil(type)
 {
+    const title = () => type.charAt(0).toUpperCase() + type.slice(1)    // Capitalize the first letter of type
+    const showForm = () => showFormUtil(type)                           // showFormUtil callback function
+
     return (
         <div className="table-data--heading">
             <img 
                 className="table-data--heading-icon" 
-                src="images/icons/accounticon.png"
-                alt="accounts" 
+                src={`images/icons/${type}Icon.png`}
+                alt={type} 
             />
-            <span className="table-data--heading-text">Accounts</span>
+            <span className="table-data--heading-text">{title()}</span>
             <div className="table-data--buttons">
-                <button onClick={showAccountForm}>New</button>
+                <button onClick={showForm}>New</button>
             </div>
         </div>
     )
 }
 
-/**
- * @brief The contactHeadingUtil() function sets the JSX for the Contacts table heading.
- * @returns Returns the Contacts table heading
- */
-function contactHeadingUtil()
-{
-    return (
-        <div className="table-data--heading">
-            <img 
-                className="table-data--heading-icon" 
-                src="images/icons/contacticon.png"
-                alt="contacts" 
-            />
-            <span className="table-data--heading-text">Contacts</span>
-            <div className="table-data--buttons">
-                <button onClick={showContactForm}>New</button>
-            </div>
-        </div>
-    )
-}
-
-/**
- * @brief The leadHeadingUtil() function sets the JSX for the Leads table heading.
- * @returns Returns Leads table heading
- */
-function leadHeadingUtil()
-{
-    return (
-        <div className="table-data--heading">
-            <img 
-                className="table-data--heading-icon" 
-                src="images/icons/leadicon.png"
-                alt="leads" 
-            />
-            <span className="table-data--heading-text">Leads</span>
-            <div className="table-data--buttons">
-                <button onClick={showLeadForm}>New</button>
-            </div>
-        </div>
-    )
-}
-
-export { accountHeadingUtil, contactHeadingUtil, leadHeadingUtil }
+export { getHeadingUtil }

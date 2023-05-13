@@ -25,7 +25,7 @@ function AccountForm(props)
             {/* Page Mask (dimmed background) */}
             <div className="page-mask" id="page-mask" />
             {/* Account Form */}
-            <section className="form-container" id="account-form--container">
+            <section className="form-container" id="accounts-form--container">
                 <div className="form">
                     <div className="form--header">
                         <div className="form--header-text">

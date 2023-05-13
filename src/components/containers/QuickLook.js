@@ -25,7 +25,7 @@ function QuickLook()
                         <div className="main--quick-look--icon--container">
                             <img 
                                 className="quick-look--icon" 
-                                src="images/icons/leadicon.png" 
+                                src="images/icons/leadsIcon.png" 
                                 alt="quick look leads icon"
                             />
                         </div>
@@ -46,8 +46,8 @@ function QuickLook()
                         <div className="main--quick-look--icon--container">
                             <img 
                                 className="quick-look--icon" 
-                                src="images/icons/contacticon.png" 
-                                alt="quick look leads icon"
+                                src="images/icons/contactsIcon.png" 
+                                alt="quick look contacts icon"
                             />
                         </div>
                         <div className="main--quick-look--item--bar" />
@@ -63,12 +63,12 @@ function QuickLook()
                 </div>
                 {/* Quick Look Item */}
                 <div className="main--quick-look--item--container">
-                    <Link className="main--quick-look--item" to={"/"}>
+                    <Link className="main--quick-look--item" to={"opportunities/page/"}>
                         <div className="main--quick-look--icon--container">
                             <img 
                                 className="quick-look--icon" 
-                                src="images/icons/opportunityicon.png" 
-                                alt="quick look leads icon"
+                                src="images/icons/opportunitiesIcon.png" 
+                                alt="quick look opportunities icon"
                             />
                         </div>
                         <div className="main--quick-look--item--bar" />
@@ -77,7 +77,7 @@ function QuickLook()
                                 Opportunities
                             </div>
                             <div className="main--quick-look--item--caption">
-                                This is your pipeline. Track stages are your deals move forward.
+                                This is your pipeline. Track stages as your deals move forward.
                             </div>
                         </div>
                     </Link>

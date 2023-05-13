@@ -25,7 +25,7 @@ function LeadForm(props)
             {/* Page Mask (dimmed background) */}
             <div className="page-mask" id="page-mask" />
             {/* Lead Form */}
-            <section className="form-container" id="lead-form--container">
+            <section className="form-container" id="leads-form--container">
                 <div className="form">
                     <div className="form--header">
                         <div className="form--header-text">

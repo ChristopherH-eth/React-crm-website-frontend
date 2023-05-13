@@ -26,7 +26,7 @@ function RecentEntries(props)
                     <div className="main--component--header">
                         <img 
                             className="quick-look--component--icon" 
-                            src="images/icons/leadicon.png" 
+                            src="images/icons/leadsIcon.png" 
                             alt="recent leads icon"
                         />
                         Recent Leads
@@ -44,8 +44,8 @@ function RecentEntries(props)
                     <div className="main--component--header">
                         <img 
                             className="quick-look--component--icon" 
-                            src="images/icons/opportunityicon.png" 
-                            alt="recent leads icon"
+                            src="images/icons/opportunitiesIcon.png" 
+                            alt="recent opportunities icon"
                         />
                         Recent Opportunities
                     </div>
@@ -62,8 +62,8 @@ function RecentEntries(props)
                     <div className="main--component--header">
                         <img 
                             className="quick-look--component--icon" 
-                            src="images/icons/contacticon.png" 
-                            alt="recent leads icon"
+                            src="images/icons/contactsIcon.png" 
+                            alt="recent contacts icon"
                         />
                         Recent Contacts
                     </div>
@@ -83,8 +83,8 @@ function RecentEntries(props)
                     <div className="main--component--header">
                         <img 
                             className="quick-look--component--icon" 
-                            src="images/icons/accounticon.png" 
-                            alt="recent leads icon"
+                            src="images/icons/accountsIcon.png" 
+                            alt="recent accounts icon"
                         />
                         Recent Accounts
                     </div>
