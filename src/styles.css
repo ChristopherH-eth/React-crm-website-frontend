@@ -130,13 +130,6 @@ html, body
     overflow-x: auto;
 }
 
-.table-data--headers, .table-data--items
-{
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .table-data--heading
 {
     display: flex;
@@ -145,12 +138,30 @@ html, body
     align-items: center;
 }
 
-.table-data--buttons
+.table-data--heading-container
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.table-data--heading-text
+{
+    font-size: 1rem;
+}
+
+.table-data--text
+{
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+}
+
+.table-data--headers, .table-data--items
 {
     display: flex;
     margin-left: auto;
-    margin-right: 0;
-    padding: 0.5rem;
+    margin-right: auto;
 }
 
 .table-data--headers, .table-data--items
@@ -908,10 +919,11 @@ html, body
 button
 {
     padding: 0.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     color: white;
     background-color: #246bc8;
-    border: 0.0625rem solid #246bc8;
-    border-radius: 0.5rem;
+    border: 0.03125rem solid #246bc8;
     cursor: pointer;
 }
 
@@ -923,8 +935,17 @@ button
 
 .button--container
 {
-    padding-right: 0.25rem;
-    padding-left: 0.25rem;
+    border: 0.03125rem solid #246bc8;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.action-bar
+{
+    display: flex;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 0.5rem;
 }
 
 /************************************************************

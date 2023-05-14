@@ -193,8 +193,6 @@ function AccountForm(props)
                                     onClick={addAccount}>
                                     Add Account
                                 </button>
-                            </div>
-                            <div className="button--container">
                                 <button 
                                     className="secondary-button"
                                     type="button"

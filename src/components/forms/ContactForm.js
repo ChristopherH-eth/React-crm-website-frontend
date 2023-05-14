@@ -196,8 +196,6 @@ function ContactForm(props)
                                     onClick={addContact}>
                                     Add Contact
                                 </button>
-                            </div>
-                            <div className="button--container">
                                 <button 
                                     className="secondary-button"
                                     type="button"

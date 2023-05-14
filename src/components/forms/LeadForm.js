@@ -231,8 +231,6 @@ function LeadForm(props)
                                     onClick={addLead}>
                                     Add Lead
                                 </button>
-                            </div>
-                            <div className="button--container">
                                 <button 
                                     className="secondary-button"
                                     type="button"

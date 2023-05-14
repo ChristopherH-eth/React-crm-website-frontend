@@ -1,3 +1,5 @@
+import ActionBar from "../components/elements/ActionBar"
+
 /**
  * @file collectionsUtil.js
  * @author 0xChristopher
@@ -20,22 +22,29 @@ function showFormUtil(type)
  * @param type Data type of the current collection
  * @returns Returns the Accounts table heading
  */
-function getHeadingUtil(type)
+function getHeadingUtil(type, collectionData)
 {
     const title = () => type.charAt(0).toUpperCase() + type.slice(1)    // Capitalize the first letter of type
     const showForm = () => showFormUtil(type)                           // showFormUtil callback function
 
     return (
         <div className="table-data--heading">
-            <img 
-                className="table-data--heading-icon" 
-                src={`images/icons/${type}Icon.png`}
-                alt={type} 
-            />
-            <span className="table-data--heading-text">{title()}</span>
-            <div className="table-data--buttons">
-                <button onClick={showForm}>New</button>
+            <div>
+                <div className="table-data--heading-container">
+                    <img 
+                        className="table-data--heading-icon" 
+                        src={`images/icons/${type}Icon.png`}
+                        alt={type} 
+                    />
+                    <span className="table-data--heading-text">{title()}</span>
+                </div>
+                <div>
+                    <span className="table-data--text">
+                        {collectionData.length} {collectionData.length === 1 ? "item" : "items"} selected
+                    </span>
+                </div>
             </div>
+            <ActionBar showForm={showForm} />
         </div>
     )
 }

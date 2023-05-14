@@ -90,8 +90,6 @@ function RegisterForm()
                                     onClick={registerUser}>
                                     Register
                                 </button>
-                            </div>
-                            <div className="button--container">
                                 <button 
                                     className="secondary-button"
                                     type="button"

@@ -60,7 +60,7 @@ function Collections(props)
         {id: 0, col: "opportunity_name", text: "Opportunity", width: 200}
     ]
 
-    const [accountData, setAccountData] = React.useState([])        // Current collections array
+    const [collectionData, setCollectionData] = React.useState([])  // Current collections array
     const [isLoading, setIsLoading] = React.useState(true)          // Flag if page is loading
 
     // useNavigate hook to redirect browser
@@ -77,7 +77,7 @@ function Collections(props)
     ]
 
     // Callback function to get the correct table heading based on data type
-    const getHeading = () => getHeadingUtil(type)
+    const getHeading = () => getHeadingUtil(type, collectionData)
 
     // Callback function to get the correct column set based on data type
     const getColumns = () => {
@@ -108,7 +108,7 @@ function Collections(props)
                 }
                 else
                 {
-                    setAccountData(data.body[type])
+                    setCollectionData(data.body[type])
                     setIsLoading(false)
                 }
             })
@@ -131,7 +131,7 @@ function Collections(props)
                 <ResizableTable 
                     type={type}
                     columns={getColumns()}
-                    dataEntries={accountData}
+                    dataEntries={collectionData}
                     options={options}
                 />
             </div>
