@@ -27,47 +27,17 @@ function Collections(props)
         page                                                        // Current page
     } = useParams()
 
-    // Table columns and widths for account entries
-    const accountColumns = [
-        {id: 0, col: "account_name", text: "Account Name", width: 200},
-        {id: 1, col: "state_province", text: "State/Province", width: 200},
-        {id: 2, col: "phone", text: "Phone", width: 200},
-        {id: 3, col: "user.full_name", text: "Account Owner", width: 200}
-    ]
-
-    // Table columns and widths for contact entries
-    const contactColumns = [
-        {id: 0, col: "full_name", text: "Name", width: 150},
-        {id: 1, col: "account.account_name", text: "Account Name", width: 150},
-        {id: 2, col: "title", text: "Title", width: 150},
-        {id: 3, col: "phone", text: "Phone", width: 150},
-        {id: 4, col: "user.full_name", text: "Contact Owner", width: 150}
-    ]
-
-    // Table columns and widths for lead entries
-    const leadColumns = [
-        {id: 0, col: "full_name", text: "Name", width: 150},
-        {id: 1, col: "company", text: "Company", width: 150},
-        {id: 2, col: "state_province", text: "State/Province", width: 150},
-        {id: 3, col: "phone", text: "Phone", width: 150},
-        {id: 4, col: "email", text: "Email", width: 150},
-        {id: 5, col: "lead_status", text: "Lead Status", width: 150},
-        {id: 6, col: "user.full_name", text: "Lead Owner", width: 150}
-    ]
-
-    // Table columns and widths for opportunity entries
-    const oppColumns = [
-        {id: 0, col: "opportunity_name", text: "Opportunity", width: 200}
-    ]
-
-    const [collectionData, setCollectionData] = React.useState([])  // Current collections array
-    const [isLoading, setIsLoading] = React.useState(true)          // Flag if page is loading
+    const [collectionData, setCollectionData] = React.useState([])          // Current collections array
+    const [isLoading, setIsLoading] = React.useState(true)                  // Flag if page is loading
+    const [viewName, setViewName] = React.useState("/default")              // Current table view name
+    const [view, setView] = React.useState([])                              // Current table view
 
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
-    const typePage = `${type}Page`                                  // Endpoint object key based on type
-    const url = `${URLS.api}${ENDPOINTS[typePage]}${page}`          // API endpoint
+    const typePage = `${type}Page`                                          // Endpoint object key based on type
+    const url = `${URLS.api}${ENDPOINTS[typePage]}${page}`                  // API endpoint
+    const viewUrl = `${URLS.api}${ENDPOINTS.tableView}${[type]}${viewName}` // Table View API endpoint
 
     // Options array for account entry dropdown button
     const options = [
@@ -79,17 +49,26 @@ function Collections(props)
     // Callback function to get the correct table heading based on data type
     const getHeading = () => getHeadingUtil(type, collectionData)
 
-    // Callback function to get the correct column set based on data type
-    const getColumns = () => {
-        if (type === "accounts")
-            return accountColumns
-        else if (type === "contacts")
-            return contactColumns
-        else if (type === "leads")
-            return leadColumns
-        else if (type === "opportunities")
-            return oppColumns
-    }
+    // Request the table view
+    React.useEffect(() => {
+        fetch(viewUrl, {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+            .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+            .then((data) => {
+                if (data.status === 401)
+                {
+                    setIsLoggedIn(false)
+                    navigate("/login")
+                }
+                else
+                    setView(data.body.view_data)
+            })
+            .catch(console.error)
+    }, [viewUrl, navigate, setIsLoggedIn])
 
     // Request collections data
     React.useEffect(() => {
@@ -130,7 +109,7 @@ function Collections(props)
                 {getHeading()}
                 <ResizableTable 
                     type={type}
-                    columns={getColumns()}
+                    columns={view}
                     dataEntries={collectionData}
                     options={options}
                 />
