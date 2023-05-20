@@ -89,16 +89,15 @@ function handleResizeStart(columnId, setResizingColumn)
  * @param type The data type of the dataEntries objects
  * @param dataEntries Objects to be mapped and returned to the table
  * @param columns The columns array to be mapped against
- * @param options Options object array for dropdown button component
  * @param columnWidths Array of column width objects
  * @param resizingColumn Marker for the currently resizing column
  * @returns Returns '<tr>' elements and their children that have been mapped
  */
-function mapTableDataUtil(type, columns, dataEntries, options, columnWidths, resizingColumn)
+function mapTableDataUtil(type, columns, dataEntries, columnWidths, resizingColumn)
 {
     // Map data entries
     const data = dataEntries.map((dataEntry) => {
-        // Account entry url
+        // Data entry url
         const dataUrl = `${URLS.base}${ENDPOINTS[type]}${dataEntry.id}`
 
         // Returns a table row with mapped table details
@@ -118,9 +117,9 @@ function mapTableDataUtil(type, columns, dataEntries, options, columnWidths, res
                 </td>
                 {mapColumns(columns, dataEntry, columnWidths, resizingColumn)}
                 <td className="table-data--borderless--centered table-data--5p">
-                    <DropdownButton 
-                        placeholder={""} 
-                        options={options} 
+                    <DropdownButton
+                        type={type}
+                        entryId={dataEntry.id}
                     />
                 </td>
             </tr>

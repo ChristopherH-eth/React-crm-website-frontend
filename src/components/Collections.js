@@ -39,13 +39,6 @@ function Collections(props)
     const url = `${URLS.api}${ENDPOINTS[typePage]}${page}`                  // API endpoint
     const viewUrl = `${URLS.api}${ENDPOINTS.tableView}${[type]}${viewName}` // Table View API endpoint
 
-    // Options array for account entry dropdown button
-    const options = [
-        {value: "edit", label: "Edit"},
-        {value: "delete", label: "Delete"},
-        {value: "change_owner", label: "Change Owner"}
-    ]
-
     // Callback function to get the correct table heading based on data type
     const getHeading = () => getHeadingUtil(type, collectionData)
 
@@ -111,7 +104,6 @@ function Collections(props)
                     type={type}
                     columns={view}
                     dataEntries={collectionData}
-                    options={options}
                 />
             </div>
             <Footer />

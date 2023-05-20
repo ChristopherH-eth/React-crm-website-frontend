@@ -12,8 +12,7 @@ function ResizableTable(props)
     const {
         type,                                                       // dataEntries data type
         columns,                                                    // Column objects to help with mapping
-        dataEntries,                                                // Objects to be mapped to table
-        options                                                     // Options array for dropdown button
+        dataEntries                                                 // Objects to be mapped to table
     } = props
 
     const [columnWidths, setColumnWidths] = React.useState(() =>
@@ -23,7 +22,7 @@ function ResizableTable(props)
 
     // Component functions stored in tableUtil
     const mapTableData = () => mapTableDataUtil(
-        type, columns, dataEntries, options, columnWidths, resizingColumn
+        type, columns, dataEntries, columnWidths, resizingColumn
     )
     const mapTableHeaders = () => mapTableHeadersUtil(
         columns, columnWidths, resizingColumn, setResizingColumn, setColumnWidths, resizeTimeoutRef

@@ -1,4 +1,5 @@
 import React from "react"
+import { editEntryUtil, deleteEntryUtil, changeOwnerUtil } from "../../util/elements/dropdownButtonUtil"
 
 /**
  * @file DropdownButton.js
@@ -13,12 +14,22 @@ import React from "react"
 function DropdownButton(props)
 {
     const {
-        placeholder,                                                // Placeholder text
-        options                                                     // Dropdown Options array
+        type,                                               // Data type to format for
+        entryId                                             // Current row data entry
     } = props
 
     // State variable for whether to show the menu
     const [showMenu, setShowMenu] = React.useState(false)
+
+    // Options array for entry dropdown button
+    const options = [
+        {value: "edit", label: "Edit", function: () => editEntryUtil(type, entryId)},
+        {value: "delete", label: "Delete", function: () => deleteEntryUtil(type, entryId)},
+        {value: "change_owner", label: "Change Owner", function: () => changeOwnerUtil(type, entryId)}
+    ]
+
+    // Placeholder text
+    const placeholder = ""
 
     /**
      * @brief The Icon() function uses an SVG element to draw the dropdown button icon.
@@ -55,7 +66,11 @@ function DropdownButton(props)
                 </div>
                 {showMenu && <div className="dropdown-button--menu">
                     {options.map((option) => (
-                        <div className="dropdown-button--item" key={option.value}>
+                        <div 
+                            className="dropdown-button--item" 
+                            key={option.value}
+                            onClick={option.function}
+                        >
                             {option.label}
                         </div>
                     ))}
