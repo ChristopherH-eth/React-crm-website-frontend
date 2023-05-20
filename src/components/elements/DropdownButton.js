@@ -14,8 +14,13 @@ import { editEntryUtil, deleteEntryUtil, changeOwnerUtil } from "../../util/elem
 function DropdownButton(props)
 {
     const {
-        type,                                               // Data type to format for
-        entryId                                             // Current row data entry
+        type,                                               // Data type to interact with
+        entryId,                                            // Current row data entry
+        setIsLoggedIn,                                      // State function for isLoggedIn variable
+        navigate,                                           // useNavigate hook to redirect browser
+        pageUrl,                                            // Page fetch url
+        setCollectionData,                                  // State function for collectionData variable
+        setIsLoading                                        // State function for isLoading variable
     } = props
 
     // State variable for whether to show the menu
@@ -24,7 +29,9 @@ function DropdownButton(props)
     // Options array for entry dropdown button
     const options = [
         {value: "edit", label: "Edit", function: () => editEntryUtil(type, entryId)},
-        {value: "delete", label: "Delete", function: () => deleteEntryUtil(type, entryId)},
+        {value: "delete", label: "Delete", function: () => deleteEntryUtil(
+            type, entryId, setIsLoggedIn, navigate, pageUrl, setCollectionData, setIsLoading
+        )},
         {value: "change_owner", label: "Change Owner", function: () => changeOwnerUtil(type, entryId)}
     ]
 

@@ -19,15 +19,15 @@ import ResizableTable from "./containers/ResizableTable"
 function Collections(props)
 {
     const {
-        setIsLoggedIn                                               // State function for isLoggedIn variable
+        setIsLoggedIn                                                       // State function for isLoggedIn variable
     } = props
 
     const {
-        type,                                                       // Data type to format for
-        page                                                        // Current page
+        type,                                                               // Data type to format for
+        page                                                                // Current page
     } = useParams()
 
-    const [collectionData, setCollectionData] = React.useState([])          // Current collections array
+    const [collectionData, setCollectionData] = React.useState([])          // Current collection array
     const [isLoading, setIsLoading] = React.useState(true)                  // Flag if page is loading
     const [viewName, setViewName] = React.useState("/default")              // Current table view name
     const [view, setView] = React.useState([])                              // Current table view
@@ -36,7 +36,7 @@ function Collections(props)
     const navigate = useNavigate()
 
     const typePage = `${type}Page`                                          // Endpoint object key based on type
-    const url = `${URLS.api}${ENDPOINTS[typePage]}${page}`                  // API endpoint
+    const pageUrl = `${URLS.api}${ENDPOINTS[typePage]}${page}`              // Data Type Page API endpoint
     const viewUrl = `${URLS.api}${ENDPOINTS.tableView}${[type]}${viewName}` // Table View API endpoint
 
     // Callback function to get the correct table heading based on data type
@@ -65,7 +65,7 @@ function Collections(props)
 
     // Request collections data
     React.useEffect(() => {
-        fetch(url, {
+        fetch(pageUrl, {
             method: "GET",
             mode: "cors",
             credentials: "include",
@@ -85,7 +85,7 @@ function Collections(props)
                 }
             })
             .catch(console.error)
-    }, [url, type, navigate, setIsLoggedIn])
+    }, [pageUrl, type, navigate, setIsLoggedIn])
 
     // Don't render page content until server response received
     if (isLoading)
@@ -104,6 +104,11 @@ function Collections(props)
                     type={type}
                     columns={view}
                     dataEntries={collectionData}
+                    setIsLoggedIn={setIsLoggedIn}
+                    navigate={navigate}
+                    pageUrl={pageUrl}
+                    setCollectionData={setCollectionData}
+                    setIsLoading={setIsLoading}
                 />
             </div>
             <Footer />

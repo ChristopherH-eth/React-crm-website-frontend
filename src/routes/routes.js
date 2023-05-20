@@ -38,8 +38,7 @@ function getRouter(user, setUser, isLoggedIn, setIsLoggedIn)
                 },
                 {
                     path: "login/",
-                    element: <Login setIsLoggedIn={setIsLoggedIn} />,
-                    errorElement: <ErrorPage />
+                    element: <Login setIsLoggedIn={setIsLoggedIn} />
                 },
                 {
                     path: "contacts/page/",

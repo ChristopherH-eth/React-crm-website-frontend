@@ -91,9 +91,22 @@ function handleResizeStart(columnId, setResizingColumn)
  * @param columns The columns array to be mapped against
  * @param columnWidths Array of column width objects
  * @param resizingColumn Marker for the currently resizing column
+ * @param pageUrl Page fetch url
+ * @param setCollectionData State function for collectionData variable
+ * @param setIsLoading State function for isLoading variable
  * @returns Returns '<tr>' elements and their children that have been mapped
  */
-function mapTableDataUtil(type, columns, dataEntries, columnWidths, resizingColumn)
+function mapTableDataUtil(
+    type, 
+    columns, 
+    dataEntries, 
+    columnWidths, 
+    resizingColumn, 
+    setIsLoggedIn, 
+    navigate,
+    pageUrl,
+    setCollectionData,
+    setIsLoading)
 {
     // Map data entries
     const data = dataEntries.map((dataEntry) => {
@@ -120,6 +133,11 @@ function mapTableDataUtil(type, columns, dataEntries, columnWidths, resizingColu
                     <DropdownButton
                         type={type}
                         entryId={dataEntry.id}
+                        setIsLoggedIn={setIsLoggedIn}
+                        navigate={navigate}
+                        pageUrl={pageUrl}
+                        setCollectionData={setCollectionData}
+                        setIsLoading={setIsLoading}
                     />
                 </td>
             </tr>

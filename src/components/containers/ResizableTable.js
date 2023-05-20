@@ -12,7 +12,12 @@ function ResizableTable(props)
     const {
         type,                                                       // dataEntries data type
         columns,                                                    // Column objects to help with mapping
-        dataEntries                                                 // Objects to be mapped to table
+        dataEntries,                                                // Objects to be mapped to table
+        setIsLoggedIn,                                              // State function for isLoggedIn variable
+        navigate,                                                   // useNavigate hook to redirect browser
+        pageUrl,                                                    // Page fetch url
+        setCollectionData,                                          // State function for collectionData variable
+        setIsLoading                                                // State function for isLoading variable
     } = props
 
     const [columnWidths, setColumnWidths] = React.useState(() =>
@@ -22,10 +27,24 @@ function ResizableTable(props)
 
     // Component functions stored in tableUtil
     const mapTableData = () => mapTableDataUtil(
-        type, columns, dataEntries, columnWidths, resizingColumn
+        type, 
+        columns, 
+        dataEntries, 
+        columnWidths, 
+        resizingColumn, 
+        setIsLoggedIn, 
+        navigate, 
+        pageUrl,
+        setCollectionData,
+        setIsLoading
     )
     const mapTableHeaders = () => mapTableHeadersUtil(
-        columns, columnWidths, resizingColumn, setResizingColumn, setColumnWidths, resizeTimeoutRef
+        columns, 
+        columnWidths, 
+        resizingColumn, 
+        setResizingColumn, 
+        setColumnWidths, 
+        resizeTimeoutRef
     )
 
     // Timeout reference for column resize animation
