@@ -184,7 +184,7 @@ function isSelectedUtil(isMulti, option, selectedValue, nameField)
  */
 function fillSearch(url, setOptions, setIsLoggedIn, navigate)
 {
-    fetch(url, {
+    fetch(url + "page/1", {
         method: "GET",
         mode: "cors",
         credentials: "include",
@@ -198,7 +198,7 @@ function fillSearch(url, setOptions, setIsLoggedIn, navigate)
                 navigate("/login")
             }
             else
-                setOptions(data.body)
+                setOptions(data.body.accounts)
         })
         .catch(console.error)
 }
