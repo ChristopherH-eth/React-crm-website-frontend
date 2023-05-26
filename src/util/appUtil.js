@@ -13,7 +13,7 @@ function selectWindow(event)
     // Dropdown menus
     if (!event.target.matches(".dropbutton")) 
     {
-        const dropdowns = document.getElementsByClassName("dropbutton--content")
+        const dropdowns = document.getElementsByClassName("dropdown-button--menu")
 
         for (let i = 0; i < dropdowns.length; i++) 
         {

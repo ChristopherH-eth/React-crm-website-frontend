@@ -31,14 +31,14 @@ function DropdownSearch(props)
         setIsLoggedIn                       // State function to set logged in status
     } = props
 
-    const [showMenu, setShowMenu] = React.useState(false)
-    const [options, setOptions] = React.useState([])
-    const [selectedValue, setSelectedValue] = React.useState(isMulti ? [] : null)
-    const [searchValue, setSearchValue] = React.useState("")
+    const [showMenu, setShowMenu] = React.useState(false)                           // True is menu is not hidden
+    const [options, setOptions] = React.useState([])                                // List of dropdown options
+    const [selectedValue, setSelectedValue] = React.useState(isMulti ? [] : null)   // Selected dropdown value
+    const [searchValue, setSearchValue] = React.useState("")                        // Current value of the search field
 
     const navigate = useNavigate()          // useNavigate hook to redirect browser
-    const searchRef = useRef()
-    const inputRef = useRef()
+    const searchRef = useRef()              // useRef hook to focus search bar
+    const inputRef = useRef()               // useRef hook for dropdown bar
 
     /**
      * @brief The Icon() function uses an SVG element to draw the dropdown button icon.
@@ -62,7 +62,7 @@ function DropdownSearch(props)
     const onSearch = (event) => onSearchUtil(event, setSearchValue)
     const getOptions = () => getOptionsUtil(searchValue, options, nameField)
     const onItemClick = (option) => onItemClickUtil(
-        option, selectedValue, setSelectedValue, nameField, onChange
+        isMulti, option, selectedValue, setSelectedValue, nameField, onChange
     )
     const isSelected = (option) => isSelectedUtil(isMulti, option, selectedValue, nameField)
 

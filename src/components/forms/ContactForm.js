@@ -17,14 +17,14 @@ import { URLS, ENDPOINTS } from "../../util/config"
 function ContactForm(props)
 {
     const {
-        user                                                // Current user
+        user                                                            // Current user
     } = props
 
     // Account variable for dropdown search
     const [accountName, setAccountName] = React.useState("")
 
-    // Accounts API endpoint
-    const accountUrl = `${URLS.api}${ENDPOINTS.accounts}`
+    const accountUrl = `${URLS.api}${ENDPOINTS.accountsPage}1`          // Accounts API endpoint
+    const accountNameField = "account_name"                             // Account object name field label
 
     // Component functions stored in contactFormUtil
     const addContact = () => addContactUtil(accountName)
@@ -86,7 +86,7 @@ function ContactForm(props)
                         </div>
                         <DropdownSearch 
                             placeholder={"Search..."}
-                            nameField={"account_name"}
+                            nameField={accountNameField}
                             url={accountUrl}
                             onChange={(value) => setAccountName(value)}
                             isSearchable

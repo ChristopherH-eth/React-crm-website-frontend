@@ -19,11 +19,11 @@ const CloseIcon = () => {
 /**
  * @brief The handleInputClickUtil() function hides the dropdown menu when the dropdown input itself or
  *      an option is selected.
- * @param showMenu
- * @param url
- * @param setOptions
- * @param setIsLoggedIn
- * @param navigate
+ * @param showMenu True is menu is not hidden
+ * @param url URL to fetch data from API
+ * @param setOptions State function for list of dropdown options
+ * @param setIsLoggedIn State function to set logged in status
+ * @param navigateuseNavigate hook to redirect browser
  */
 function handleInputClickUtil(showMenu, setShowMenu, url, setOptions, setIsLoggedIn, navigate)
 {
@@ -34,12 +34,12 @@ function handleInputClickUtil(showMenu, setShowMenu, url, setOptions, setIsLogge
 /**
  * @brief The getDisplayUtil() function retrieves the selected value(s) to display or else is displays
  *      a placeholder value.
- * @param selectedValue
- * @param setSelectedValue
- * @param placeholder
- * @param isMulti
- * @param nameField
- * @param onChange
+ * @param selectedValue Selected dropdown value
+ * @param setSelectedValue State function for selected dropdown value
+ * @param placeholder Placeholder values
+ * @param isMulti True if this is a multi-select search
+ * @param nameField The name field of the datatype being searched
+ * @param onChange Callback function to get selected value(s)
  * @return Returns the currently selected value in a single search; multiple values for a multi-search;
  *      and the placeholder value when no items are selected
  */
@@ -73,7 +73,7 @@ function getDisplayUtil(selectedValue, setSelectedValue, placeholder, isMulti, n
 /**
  * @brief The onSearchUtil() function handles user input in search box.
  * @param event The event to be handled
- * @param setSearchValue
+ * @param setSearchValue State function for current value of the search field
  */
 function onSearchUtil(event, setSearchValue) 
 {
@@ -83,9 +83,9 @@ function onSearchUtil(event, setSearchValue)
 /**
  * @brief The getOptionsUtil() function renders menu options based on search input. If search input is empty,
  *      we default to the full list of options.
- * @param searchValue
- * @param options
- * @param nameField
+ * @param searchValue Current value of the search field
+ * @param options List of dropdown options
+ * @param nameField The name field of the datatype being searched
  */
 function getOptionsUtil(searchValue, options, nameField)
 {
@@ -98,9 +98,9 @@ function getOptionsUtil(searchValue, options, nameField)
 
 /**
  * @brief The removeOption() function removes a given option by filtering it out.
- * @param selectedValue
+ * @param selectedValue Selected dropdown value
  * @param option The option being filtered
- * @param nameField
+ * @param nameField The name field of the datatype being searched
  */
 function removeOption(selectedValue, option, nameField)
 {
@@ -110,8 +110,8 @@ function removeOption(selectedValue, option, nameField)
 /**
  * @brief The onTagRemoveUtil() function removes the selected option.
  * @param option The option to be removed
- * @param setSelectedValue
- * @param onChange
+ * @param setSelectedValue State function for selected dropdown value
+ * @param onChange Callback function to get selected value(s)
  */
 function onTagRemove(option, setSelectedValue, onChange)
 {
@@ -125,12 +125,12 @@ function onTagRemove(option, setSelectedValue, onChange)
  * @brief The onItemClickUtil() function sets the current selected option as the selected option. When 
  *      dealing with multi-select, selecting a value adds it to the selected array, while selected
  *      an item that has already been selected deselects it and removes it.
- * @param isMulti
+ * @param isMulti True if this is a multi-select search
  * @param option The option being selected
- * @param selectedValue
- * @param setSelectedValue
- * @param nameField
- * @param onChange
+ * @param selectedValue Selected dropdown value
+ * @param setSelectedValue State function for selected dropdown value
+ * @param nameField The name field of the datatype being searched
+ * @param onChange Callback function to get selected value(s)
  */
 function onItemClickUtil(isMulti, option, selectedValue, setSelectedValue, nameField, onChange)
 {
@@ -157,10 +157,10 @@ function onItemClickUtil(isMulti, option, selectedValue, setSelectedValue, nameF
 /**
  * @brief The isSelectedUtil() function returns true if the selected value matches the current option, or
  *      else it returns false. It also returns false if there are no selected values.
- * @param isMulti
+ * @param isMulti True if this is a multi-select search
  * @param option The option being selected
- * @param selectedValue
- * @param nameField
+ * @param selectedValue Selected dropdown value
+ * @param nameField The name field of the datatype being searched
  * @return Returns true if the option value matches the currently selected option
  */
 function isSelectedUtil(isMulti, option, selectedValue, nameField)
@@ -177,14 +177,14 @@ function isSelectedUtil(isMulti, option, selectedValue, nameField)
 /**
  * @brief The fillSearch() function fills the DropdownSearch component with relevant values to
  *      choose from.
- * @param url
- * @param setOptions
- * @param setIsLoggedIn
- * @param navigate
+ * @param url URL to fetch data from API
+ * @param setOptions State function for list of dropdown options
+ * @param setIsLoggedIn State function to set logged in status
+ * @param navigate useNavigate hook to redirect browser
  */
 function fillSearch(url, setOptions, setIsLoggedIn, navigate)
 {
-    fetch(url + "page/1", {
+    fetch(url, {
         method: "GET",
         mode: "cors",
         credentials: "include",
