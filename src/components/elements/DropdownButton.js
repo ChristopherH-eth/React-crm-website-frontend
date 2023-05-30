@@ -1,5 +1,11 @@
-import React from "react"
-import { editEntryUtil, deleteEntryUtil, changeOwnerUtil } from "../../util/elements/dropdownButtonUtil"
+import React, { useRef } from "react"
+import { 
+    editEntryUtil, 
+    deleteEntryUtil, 
+    changeOwnerUtil, 
+    handleInputClickUtil 
+} from "../../util/elements/dropdownButtonUtil"
+import DropdownIcon from "./DropdownIcon"
 
 /**
  * @file DropdownButton.js
@@ -26,6 +32,12 @@ function DropdownButton(props)
     // State variable for whether to show the menu
     const [showMenu, setShowMenu] = React.useState(false)
 
+    // useRef hook for dropdown menu
+    const inputRef = useRef()
+
+    // Component functions stored in dropdownButtonUtil file
+    const handleInputClick = () => handleInputClickUtil(showMenu, setShowMenu)
+
     // Options array for entry dropdown button
     const options = [
         {value: "edit", label: "Edit", function: () => editEntryUtil(type, entryId)},
@@ -38,37 +50,31 @@ function DropdownButton(props)
     // Placeholder text
     const placeholder = ""
 
-    /**
-     * @brief The Icon() function uses an SVG element to draw the dropdown button icon.
-     * @returns Returns the drawn icon
-     */
-    const Icon = () => {
-        return (
-            <svg height="20" width="20" viewBox="0 0 20 20">
-                <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z" />
-            </svg>
-        )
-    }
+    // Window event listener to close the dropdown menu if the user selects elsewhere on the page
+    React.useEffect(() => {
+        const handler = (event) => {
+            if (inputRef.current && !inputRef.current.contains(event.target))
+                setShowMenu(false)
+        }
 
-    /**
-     * @brief The handleInputClick() function hides the dropdown menu when the dropdown input itself or
-     *      an option is selected.
-     * @param event The click event that is listened for to close the menu
-     */
-    const handleInputClick = (event) => {
-        event.stopPropagation()
-        setShowMenu(!showMenu)
-    }
+        window.addEventListener("click", handler)
+
+        return () => window.removeEventListener("click", handler)
+    })
 
     return (
         <div className="dropdown-button--container">
-            <div className="dropdown-button--input" onClick={handleInputClick}>
+            <div 
+                className="dropdown-button--input" 
+                onClick={handleInputClick}
+                ref={inputRef}
+            >
                 <div className="dropdown-button--selected-value">
                     {placeholder}
                 </div>
                 <div className="dropdown-button--tools">
                     <div className="dropdown-button--tool">
-                        {Icon()}
+                        <DropdownIcon />
                     </div>
                 </div>
                 {showMenu && <div className="dropdown-button--menu">

@@ -7,7 +7,8 @@ import { URLS, ENDPOINTS } from "../config"
  */
 
 /**
- * @brief 
+ * @brief The editEntryUtil() function prepares an object entry form with the current objects available
+ *      information to be edited.
  * @param type Data type to interact with
  * @param entryId Object id
  */
@@ -82,7 +83,7 @@ async function deleteEntryUtil(
 }
 
 /**
- * @brief
+ * @brief The changeOwnerUtil() function allows for the assignment of the current object to another user.
  * @param type Data type to interact with
  * @param entryId Object id
  */
@@ -93,4 +94,15 @@ function changeOwnerUtil(type, entryId)
     console.log("Change Owner " + url)
 }
 
-export { editEntryUtil, deleteEntryUtil, changeOwnerUtil }
+/**
+ * @brief The handleInputClickUtil() function hides the dropdown menu when the dropdown input itself or
+ *      an option is selected.
+ * @param showMenu True if the dropdown menu is being shown
+ * @param setShowMenu State function for setting wether to show the dropdown menu
+ */
+function handleInputClickUtil(showMenu, setShowMenu)
+{
+    setShowMenu(!showMenu)
+}
+
+export { editEntryUtil, deleteEntryUtil, changeOwnerUtil, handleInputClickUtil }
