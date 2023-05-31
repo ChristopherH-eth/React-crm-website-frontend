@@ -14,8 +14,10 @@ function ActionBar(props)
         <div className="action-bar">
             <div className="button--container">
                 <button onClick={showForm}>New</button>
+                <button className="secondary-button">View</button>
                 <button className="secondary-button">Import</button>
-                <button className="secondary-button">Change Owner</button>
+                <button className="secondary-button">Export</button>
+                <button className="secondary-button">More</button>
             </div>
         </div>
     )

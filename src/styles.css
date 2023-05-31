@@ -531,7 +531,7 @@ html, body
     display: flex;
     padding: 1rem;
     flex-direction: column;
-    width: 50vw;
+    width: 35vw;
     background-color: #f1f1ee;
     border: 0.0625rem solid #a7aeb7;
     border-radius: 0.25rem;
