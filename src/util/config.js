@@ -47,7 +47,8 @@ const ENDPOINTS = {
     logout: "/users/logout/",
     register: "/users/register/",
     user: "/users/",
-    tableView: "/tableview/"
+    tableView: "/tableview/",
+    actionBar: "/actionbar/"
 }
 
 //export { URLS, PATHS, ENDPOINTS }

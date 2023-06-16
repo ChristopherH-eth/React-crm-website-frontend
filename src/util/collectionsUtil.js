@@ -20,9 +20,11 @@ function showFormUtil(type)
 /**
  * @brief The accountHeadingUtil() function sets the JSX for the Accounts table heading.
  * @param type Data type of the current collection
+ * @param collectionData Current collection of entries
+ * @param actionBar Current action bar JSON object
  * @returns Returns the Accounts table heading
  */
-function getHeadingUtil(type, collectionData)
+function getHeadingUtil(type, collectionData, actionBar)
 {
     const title = () => type.charAt(0).toUpperCase() + type.slice(1)    // Capitalize the first letter of type
     const showForm = () => showFormUtil(type)                           // showFormUtil callback function
@@ -44,7 +46,10 @@ function getHeadingUtil(type, collectionData)
                     </span>
                 </div>
             </div>
-            <ActionBar showForm={showForm} />
+            <ActionBar 
+                showForm={showForm} 
+                actionBar={actionBar}
+            />
         </div>
     )
 }

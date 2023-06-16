@@ -30,7 +30,9 @@ function Collections(props)
     const [collectionData, setCollectionData] = React.useState([])          // Current collection array
     const [isLoading, setIsLoading] = React.useState(true)                  // Flag if page is loading
     const [viewName, setViewName] = React.useState("/default")              // Current table view name
+    const [actionBarName, setActionBarName] = React.useState("/default")    // Current action bar name
     const [view, setView] = React.useState([])                              // Current table view
+    const [actionBar, setActionBar] = React.useState([])                    // Current action bar
 
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
@@ -38,9 +40,11 @@ function Collections(props)
     const typePage = `${type}Page`                                          // Endpoint object key based on type
     const pageUrl = `${URLS.api}${ENDPOINTS[typePage]}${page}`              // Data Type Page API endpoint
     const viewUrl = `${URLS.api}${ENDPOINTS.tableView}${[type]}${viewName}` // Table View API endpoint
+    const actionBarUrl = 
+        `${URLS.api}${ENDPOINTS.actionBar}${[type]}${actionBarName}`        // Action Bar API endpoint
 
     // Callback function to get the correct table heading based on data type
-    const getHeading = () => getHeadingUtil(type, collectionData)
+    const getHeading = () => getHeadingUtil(type, collectionData, actionBar)
 
     // Request the table view
     React.useEffect(() => {
@@ -62,6 +66,27 @@ function Collections(props)
             })
             .catch(console.error)
     }, [viewUrl, navigate, setIsLoggedIn])
+
+    // Request the action bar
+    React.useEffect(() => {
+        fetch(actionBarUrl, {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+            .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+            .then((data) => {
+                if (data.status === 401)
+                {
+                    setIsLoggedIn(false)
+                    navigate("/login")
+                }
+                else
+                    setActionBar(data.body.action_bar_data)
+            })
+            .catch(console.error)
+    }, [actionBarUrl, navigate, setIsLoggedIn])
 
     // Request collections data
     React.useEffect(() => {

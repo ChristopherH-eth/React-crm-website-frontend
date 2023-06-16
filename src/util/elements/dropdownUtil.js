@@ -1,9 +1,9 @@
 import { URLS, ENDPOINTS } from "../config"
 
 /**
- * @file dropdownButtonUtil.js
+ * @file dropdownUtil.js
  * @author 0xChristopher
- * @brief This file contains functions used in DropdownButton component manipulation.
+ * @brief This file contains functions used in DropdownButton and DropdownMenu component manipulation.
  */
 
 /**
