@@ -33,7 +33,7 @@ function leadDetails(data)
                             {lead.first_name} {lead.last_name}
                         </span>
                     </div>
-                    <div className="entry-details--action-bar">
+                    <div className="action-bar">
                         Action Bar
                     </div>
                 </div>

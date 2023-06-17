@@ -39,7 +39,7 @@ function contactDetails(data)
                             {contact.first_name} {contact.last_name}
                         </span>
                     </div>
-                    <div className="entry-details--action-bar">
+                    <div className="action-bar">
                         Action Bar
                     </div>
                 </div>

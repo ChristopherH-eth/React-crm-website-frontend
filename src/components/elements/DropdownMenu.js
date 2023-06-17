@@ -41,12 +41,22 @@ function DropdownMenu(props)
     return (
         <button className="secondary-button">
             <div 
+                className="dropdown-menu--container"
                 onClick={handleInputClick}
                 ref={inputRef}
             >
                 {action.text}
-                {show && <div>
-                    Test
+                {show && <div className="dropdown-menu">
+                    {/* Section will be replaced by mapped menu */}
+                    <div className="dropdown-button--item">
+                        New
+                    </div>
+                    <div className="dropdown-button--item">
+                        Edit
+                    </div>
+                    <div className="dropdown-button--item">
+                        Manage
+                    </div>
                 </div>}
             </div>
         </button>

@@ -788,11 +788,6 @@ html, body
     font-size: 0.9rem;
 }
 
-.entry-details--action-bar
-{
-    margin-left: auto;
-}
-
 /************************************************************
  * 7. Dropdowns
  *
@@ -805,6 +800,12 @@ html, body
     border: 0.0625rem solid #a7aeb7;
     position: relative;
     border-radius: 0.25rem;
+}
+
+.dropdown-menu--container 
+{
+    text-align: left;
+    position: relative;
 }
   
 .dropdown-button--input 
@@ -821,7 +822,27 @@ html, body
 .dropdown-button--menu
 {
     position: absolute;
-    z-index: 9999;
+    z-index: 2;
+    top: 100%;
+    right: 0;
+    transform: translateY(0.25rem) translateX(0.25rem);
+    width: auto;
+    border: 0.0625rem solid #a7aeb7;
+    border-radius: 0.25rem;
+    overflow: auto;
+    white-space: nowrap;
+    max-height: 10rem;
+    background-color: white;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+    animation: fadeInFull 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.dropdown-menu
+{
+    position: absolute;
+    z-index: 2;
     top: 100%;
     right: 0;
     transform: translateY(0.25rem) translateX(0.25rem);
@@ -937,7 +958,6 @@ button
 {
     border: 0.03125rem solid #246bc8;
     border-radius: 0.25rem;
-    overflow: hidden;
 }
 
 .action-bar

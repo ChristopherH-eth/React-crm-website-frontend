@@ -33,7 +33,7 @@ function opportunityDetails(data)
                             {opportunity.opportunity_name}
                         </span>
                     </div>
-                    <div className="entry-details--action-bar">
+                    <div className="action-bar">
                         Action Bar
                     </div>
                 </div>
