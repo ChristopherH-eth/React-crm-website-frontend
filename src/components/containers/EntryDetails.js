@@ -22,27 +22,52 @@ import Footer from "../Footer"
 function EntryDetails(props)
 {
     const {
-        setIsLoggedIn                                               // State function for isLoggedIn variable
+        setIsLoggedIn                                                           // State function for isLoggedIn variable
     } = props
 
     const {
-        type,                                                       // Data type to format for
-        id                                                          // Entry id
+        type,                                                                   // Data type to format for
+        id                                                                      // Entry id
     } = useParams()
 
-    const [dataEntry, setDataEntry] = React.useState({})            // The current data entry
-    const [isLoading, setIsLoading] = React.useState(true)          // Flag if page is loading
+    const [dataEntry, setDataEntry] = React.useState({})                        // The current data entry
+    const [isLoading, setIsLoading] = React.useState(true)                      // Flag if page is loading
+    const [actionBarName, setActionBarName] = React.useState("/entry_default")  // Current action bar name
+    const [actionBar, setActionBar] = React.useState([])                        // Current action bar
 
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
-    const url = `${URLS.api}${ENDPOINTS[type]}${id}`                // API Endpoint
+    const url = `${URLS.api}${ENDPOINTS[type]}${id}`                            // API Endpoint
+    const actionBarUrl = 
+        `${URLS.api}${ENDPOINTS.actionBar}${[type]}${actionBarName}`            // Action Bar API endpoint
 
     // Component functions stored in util files
-    const showContactDetails = () => contactDetails(dataEntry)
-    const showAccountDetails = () => accountDetails(dataEntry)
-    const showLeadDetails = () => leadDetails(dataEntry)
-    const showOpportunityDetails = () => opportunityDetails(dataEntry)
+    const showContactDetails = () => contactDetails(dataEntry, actionBar)
+    const showAccountDetails = () => accountDetails(dataEntry, actionBar)
+    const showLeadDetails = () => leadDetails(dataEntry, actionBar)
+    const showOpportunityDetails = () => opportunityDetails(dataEntry, actionBar)
+
+    // Request the action bar
+    React.useEffect(() => {
+        fetch(actionBarUrl, {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+            .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+            .then((data) => {
+                if (data.status === 401)
+                {
+                    setIsLoggedIn(false)
+                    navigate("/login")
+                }
+                else
+                    setActionBar(data.body.action_bar_data)
+            })
+            .catch(console.error)
+    }, [actionBarUrl, navigate, setIsLoggedIn])
 
     // Get database entry details
     React.useEffect(() => {

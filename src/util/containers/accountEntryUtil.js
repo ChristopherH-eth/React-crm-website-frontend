@@ -5,13 +5,16 @@
  *      of type 'account'. It's primary purpose is to return JSX to be rendered.
  */
 
+import ActionBar from "../../components/elements/ActionBar"
+
 /**
  * @brief The accountDetails() function takes in a data entry (an account in this case) as a JSON object and
  *      returns JSX to display its attributes.
  * @param data The data entry object to be displayed
+ * @param actionBar The entry action bar
  * @return Returns JSX to be displayed on the page
  */
-function accountDetails(data)
+function accountDetails(data, actionBar)
 {
     const {
         account,                                            // Current account entry
@@ -34,7 +37,9 @@ function accountDetails(data)
                         </span>
                     </div>
                     <div className="action-bar">
-                        Action Bar
+                        <ActionBar 
+                            actionBar={actionBar}
+                        />
                     </div>
                 </div>
                 <div className="entry-details--main-lower">

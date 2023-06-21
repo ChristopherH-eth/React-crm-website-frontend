@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-import { handleInputClickUtil } from "../../util/elements/dropdownUtil"
+import { handleInputClickUtil } from "../../util/elements/dropdownButtonUtil"
 
 /**
  * @file DropdownMenu.js
@@ -23,7 +23,7 @@ function DropdownMenu(props)
     // useRef hook for dropdown menu
     const inputRef = useRef()
 
-    // Component functions stored in dropdownUtil file
+    // Component functions stored in dropdownButtonUtil file
     const handleInputClick = () => handleInputClickUtil(show, setShow)
 
     // Window event listener to close the dropdown menu if the user selects elsewhere on the page
@@ -39,24 +39,23 @@ function DropdownMenu(props)
     })
 
     return (
-        <button className="secondary-button">
-            <div 
-                className="dropdown-menu--container"
-                onClick={handleInputClick}
-                ref={inputRef}
-            >
+        <button 
+            className="secondary-button"
+            onClick={handleInputClick}
+            ref={inputRef}
+        >
+            <div className="dropdown-menu--container">
                 {action.text}
                 {show && <div className="dropdown-menu">
-                    {/* Section will be replaced by mapped menu */}
-                    <div className="dropdown-button--item">
-                        New
-                    </div>
-                    <div className="dropdown-button--item">
-                        Edit
-                    </div>
-                    <div className="dropdown-button--item">
-                        Manage
-                    </div>
+                    {/* Map Dropdown Menu */}
+                    {action.menu.map((menuItem) =>
+                        <div 
+                            className="dropdown-menu--item"
+                            key={menuItem.id}
+                        >
+                            {menuItem.text}
+                        </div>
+                    )}
                 </div>}
             </div>
         </button>

@@ -10,8 +10,9 @@ import { ENDPOINTS, URLS } from "./config"
  * @brief The loginUserUtil() function attempts to log in to the CRM server.
  * @param navigate The useNavigate hook to redirect browser
  * @param setIsLoggedIn React state function to set logged in status
+ * @param setError React state function to set most recent error
  */
-function loginUserUtil(navigate, setIsLoggedIn)
+function loginUserUtil(navigate, setIsLoggedIn, setError)
 {
     const loginUrl = `${URLS.api}${ENDPOINTS.login}`            // Login API endpoint
 
@@ -39,8 +40,15 @@ function loginUserUtil(navigate, setIsLoggedIn)
             if (data.status === 200)
             {
                 setIsLoggedIn(true)
+                setError("")
                 navigate("/")               
             }
+            else if (data.status === 500)
+                setError("Internal server error, please contact support")
+            else if (data.status === 401)
+                setError("Invalid login credentials")
+            else
+                setError("Unexpected error, please contact support")
         })
         .catch(console.error)
 }

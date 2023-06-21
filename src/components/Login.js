@@ -19,11 +19,13 @@ function Login(props)
         setIsLoggedIn                                       // State function for isLoggedIn variable
     } = props
 
+    const [error, setError] = React.useState("")            // Most recent error code
+
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
     // Component functions stored in loginUtil
-    const loginUser = () => loginUserUtil(navigate, setIsLoggedIn)
+    const loginUser = () => loginUserUtil(navigate, setIsLoggedIn, setError)
     const showRegisterForm = () => showRegisterFormUtil()
 
     return (
@@ -65,6 +67,9 @@ function Login(props)
                                 Login
                             </button>
                         </div>
+                    </div>
+                    <div className="form--error">
+                        {error}
                     </div>
                     <div className="form--text-centered" onClick={showRegisterForm}>
                         New User? Register Here!

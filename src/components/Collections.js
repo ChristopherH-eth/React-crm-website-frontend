@@ -19,29 +19,29 @@ import ResizableTable from "./containers/ResizableTable"
 function Collections(props)
 {
     const {
-        setIsLoggedIn                                                       // State function for isLoggedIn variable
+        setIsLoggedIn                                                                   // State function for isLoggedIn variable
     } = props
 
     const {
-        type,                                                               // Data type to format for
-        page                                                                // Current page
+        type,                                                                           // Data type to format for
+        page                                                                            // Current page
     } = useParams()
 
-    const [collectionData, setCollectionData] = React.useState([])          // Current collection array
-    const [isLoading, setIsLoading] = React.useState(true)                  // Flag if page is loading
-    const [viewName, setViewName] = React.useState("/default")              // Current table view name
-    const [actionBarName, setActionBarName] = React.useState("/default")    // Current action bar name
-    const [view, setView] = React.useState([])                              // Current table view
-    const [actionBar, setActionBar] = React.useState([])                    // Current action bar
+    const [collectionData, setCollectionData] = React.useState([])                      // Current collection array
+    const [isLoading, setIsLoading] = React.useState(true)                              // Flag if page is loading
+    const [viewName, setViewName] = React.useState("/default")                          // Current table view name
+    const [actionBarName, setActionBarName] = React.useState("/collection_default")     // Current action bar name
+    const [view, setView] = React.useState([])                                          // Current table view
+    const [actionBar, setActionBar] = React.useState([])                                // Current action bar
 
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
-    const typePage = `${type}Page`                                          // Endpoint object key based on type
-    const pageUrl = `${URLS.api}${ENDPOINTS[typePage]}${page}`              // Data Type Page API endpoint
-    const viewUrl = `${URLS.api}${ENDPOINTS.tableView}${[type]}${viewName}` // Table View API endpoint
+    const typePage = `${type}Page`                                                      // Endpoint object key based on type
+    const pageUrl = `${URLS.api}${ENDPOINTS[typePage]}${page}`                          // Data Type Page API endpoint
+    const viewUrl = `${URLS.api}${ENDPOINTS.tableView}${[type]}${viewName}`             // Table View API endpoint
     const actionBarUrl = 
-        `${URLS.api}${ENDPOINTS.actionBar}${[type]}${actionBarName}`        // Action Bar API endpoint
+        `${URLS.api}${ENDPOINTS.actionBar}${[type]}${actionBarName}`                    // Action Bar API endpoint
 
     // Callback function to get the correct table heading based on data type
     const getHeading = () => getHeadingUtil(type, collectionData, actionBar)

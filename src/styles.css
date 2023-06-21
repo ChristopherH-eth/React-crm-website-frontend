@@ -865,13 +865,20 @@ html, body
     cursor: pointer;
 }
 
+.dropdown-menu--item
+{
+    padding: 0.5rem;
+    cursor: pointer;
+    color: black;
+}
+
 .dropdown-button--item.selected
 {
     color: white;
     background-color: #246bc8;
 }
 
-.dropdown-button--item:hover
+.dropdown-button--item:hover, .dropdown-menu--item:hover
 {
     background-color: #98a6b8;
 }

@@ -4,7 +4,7 @@ import {
     deleteEntryUtil, 
     changeOwnerUtil, 
     handleInputClickUtil 
-} from "../../util/elements/dropdownUtil"
+} from "../../util/elements/dropdownButtonUtil"
 import DropdownIcon from "./DropdownIcon"
 
 /**
@@ -35,7 +35,7 @@ function DropdownButton(props)
     // useRef hook for dropdown menu
     const inputRef = useRef()
 
-    // Component functions stored in dropdownUtil file
+    // Component functions stored in dropdownButtonUtil file
     const handleInputClick = () => handleInputClickUtil(showMenu, setShowMenu)
 
     // Options array for entry dropdown button

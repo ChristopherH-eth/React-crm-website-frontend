@@ -1,3 +1,5 @@
+import ActionBar from "../../components/elements/ActionBar"
+
 /**
  * @file opportunityEntryUtil.js
  * @author 0xChristopher
@@ -9,9 +11,10 @@
  * @brief The opportunityDetails() function takes in a data entry (an opportunity in this case) as a JSON object and
  *      returns JSX to display its attributes.
  * @param data The data entry object to be displayed
+ * @param actionBar The entry action bar
  * @return Returns JSX to be displayed on the page
  */
-function opportunityDetails(data)
+function opportunityDetails(data, actionBar)
 {
     const {
         opportunity,                                        // Current opportunity entry
@@ -34,7 +37,9 @@ function opportunityDetails(data)
                         </span>
                     </div>
                     <div className="action-bar">
-                        Action Bar
+                        <ActionBar 
+                            actionBar={actionBar}
+                        />
                     </div>
                 </div>
                 <div className="entry-details--main-lower">
