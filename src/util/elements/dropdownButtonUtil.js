@@ -14,11 +14,12 @@ import { showFormUtil } from "../collectionsUtil"
  * @param entryId Object id
  * @param setIsLoggedIn State function for isLoggedIn variable
  * @param navigate useNavigate hook to redirect browser
+ * @param setIsNew State function for isNew variable
  */
-function editEntryUtil(type, entryId, setIsLoggedIn, navigate)
+function editEntryUtil(type, entryId, setIsLoggedIn, navigate, setIsNew)
 {
+    const editFormFlag = false                                              // Flag to set the value of isNew form status
     const entryUrl = `${URLS.api}${ENDPOINTS[type]}${entryId}`              // Entry API endpoint
-    const isNew = false
 
     // Request the entry
     fetch(entryUrl,  {
@@ -35,7 +36,10 @@ function editEntryUtil(type, entryId, setIsLoggedIn, navigate)
                 navigate("/login")
             }
             else
+            {
                 showFormUtil(type)
+                setIsNew(editFormFlag)
+            }
         })
 }
 

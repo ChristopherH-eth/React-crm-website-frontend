@@ -25,8 +25,6 @@ function App(props)
         setIsLoggedIn                                               // State function for isLoggedIn variable
     } = props
 
-    const [isNew, setIsNew] = React.useState(true)                  // Track if forms are new
-
     const userUrl = `${URLS.api}${ENDPOINTS.user}`                  // User session API endpoint
     const navigate = useNavigate()                                  // useNavigate hook to redirect browser
     let location = useLocation()                                    // Current URL path variable
@@ -43,10 +41,7 @@ function App(props)
         switch(location.pathname)
         {
             default:
-                return {
-                    isNew,                                          //
-                    setIsNew                                        //
-                }
+                return (user)
         }
     }
 

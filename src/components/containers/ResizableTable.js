@@ -17,7 +17,8 @@ function ResizableTable(props)
         navigate,                                                   // useNavigate hook to redirect browser
         pageUrl,                                                    // Page fetch url
         setCollectionData,                                          // State function for collectionData variable
-        setIsLoading                                                // State function for isLoading variable
+        setIsLoading,                                               // State function for isLoading variable
+        setIsNew                                                    // State function for isNew variable
     } = props
 
     const [columnWidths, setColumnWidths] = React.useState(() =>
@@ -36,7 +37,8 @@ function ResizableTable(props)
         navigate, 
         pageUrl,
         setCollectionData,
-        setIsLoading
+        setIsLoading,
+        setIsNew
     )
     const mapTableHeaders = () => mapTableHeadersUtil(
         columns, 

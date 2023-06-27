@@ -135,6 +135,7 @@ function Collections(props)
                     pageUrl={pageUrl}
                     setCollectionData={setCollectionData}
                     setIsLoading={setIsLoading}
+                    setIsNew={setIsNew}
                 />
             </div>
             <Footer />
