@@ -6,15 +6,20 @@ import ActionBar from "../components/elements/ActionBar"
  * @brief This file contains functions used in the Collections component.
  */
 
+// TODO: Add callback function to handle showForm
+
 /**
  * @brief The showFormUtil() function shows the new form for the parameterized type.
  * @param type Data type of the current collection
+ * @param setIsNew
  */
-function showFormUtil(type)
+function showFormUtil(type, setIsNew)
 {
     document.body.classList.add("lock-scroll")
     document.getElementById(`${type}-form--container`).classList.add("show")
     document.getElementById("page-mask").classList.add("show")
+
+    setIsNew()
 }
 
 /**
@@ -24,10 +29,10 @@ function showFormUtil(type)
  * @param actionBar Current action bar JSON object
  * @returns Returns the Accounts table heading
  */
-function getHeadingUtil(type, collectionData, actionBar)
+function getHeadingUtil(type, collectionData, actionBar, setIsNew)
 {
     const title = () => type.charAt(0).toUpperCase() + type.slice(1)    // Capitalize the first letter of type
-    const showForm = () => showFormUtil(type)                           // showFormUtil callback function
+    const showForm = () => showFormUtil(type, setIsNew)                 // showFormUtil callback function
 
     return (
         <div className="table-data--heading">
@@ -54,4 +59,4 @@ function getHeadingUtil(type, collectionData, actionBar)
     )
 }
 
-export { getHeadingUtil }
+export { getHeadingUtil, showFormUtil }

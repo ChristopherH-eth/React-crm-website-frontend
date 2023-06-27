@@ -40,7 +40,9 @@ function DropdownButton(props)
 
     // Options array for entry dropdown button
     const options = [
-        {value: "edit", label: "Edit", function: () => editEntryUtil(type, entryId)},
+        {value: "edit", label: "Edit", function: () => editEntryUtil(
+            type, entryId, setIsLoggedIn, navigate
+        )},
         {value: "delete", label: "Delete", function: () => deleteEntryUtil(
             type, entryId, setIsLoggedIn, navigate, pageUrl, setCollectionData, setIsLoading
         )},

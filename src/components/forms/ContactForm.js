@@ -17,7 +17,8 @@ import { URLS, ENDPOINTS } from "../../util/config"
 function ContactForm(props)
 {
     const {
-        user                                                            // Current user
+        user,                                                           // Current user
+        isNew                                                           // True if the form is for a new contact
     } = props
 
     // Account variable for dropdown search
@@ -38,7 +39,12 @@ function ContactForm(props)
                 <div className="form">
                     <div className="form--header">
                         <div className="form--header-text">
-                            New Contact
+                            {isNew
+                                ? 
+                                    "New Contact"
+                                : 
+                                    "Edit Contact"
+                            }
                         </div>
                     </div>
                     <Form className="form--form">

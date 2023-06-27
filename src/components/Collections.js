@@ -19,7 +19,8 @@ import ResizableTable from "./containers/ResizableTable"
 function Collections(props)
 {
     const {
-        setIsLoggedIn                                                                   // State function for isLoggedIn variable
+        setIsLoggedIn,                                                                  // State function for isLoggedIn variable
+        setIsNew                                                                        // State function for isNew variable
     } = props
 
     const {
@@ -44,7 +45,7 @@ function Collections(props)
         `${URLS.api}${ENDPOINTS.actionBar}${[type]}${actionBarName}`                    // Action Bar API endpoint
 
     // Callback function to get the correct table heading based on data type
-    const getHeading = () => getHeadingUtil(type, collectionData, actionBar)
+    const getHeading = () => getHeadingUtil(type, collectionData, actionBar, setIsNew)
 
     // Request the table view
     React.useEffect(() => {

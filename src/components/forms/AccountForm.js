@@ -1,3 +1,4 @@
+import React from "react"
 import { Form } from "react-router-dom"
 import { addAccountUtil } from "../../util/forms/accountFormUtil"
 
@@ -14,7 +15,8 @@ import { addAccountUtil } from "../../util/forms/accountFormUtil"
 function AccountForm(props)
 {
     const {
-        user                                                // Current user
+        user,                                               // Current user
+        isNew                                               // True if the form is for a new account
     } = props
 
     // Component functions stored in accountFormUtil
@@ -29,7 +31,12 @@ function AccountForm(props)
                 <div className="form">
                     <div className="form--header">
                         <div className="form--header-text">
-                            New Account
+                            {isNew
+                                ? 
+                                    "New Account"
+                                : 
+                                    "Edit Account"
+                            }
                         </div>
                     </div>
                     <Form className="form--form">

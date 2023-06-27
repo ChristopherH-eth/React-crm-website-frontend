@@ -14,7 +14,8 @@ import { addLeadUtil } from "../../util/forms/leadFormUtil"
 function LeadForm(props)
 {
     const {
-        user                                                // Current user
+        user,                                               // Current user
+        isNew                                               // True if the form is for a new account
     } = props
 
     // Component functions stored in leadFormUtil
@@ -29,7 +30,12 @@ function LeadForm(props)
                 <div className="form">
                     <div className="form--header">
                         <div className="form--header-text">
-                            New Lead
+                            {isNew
+                                ? 
+                                    "New Account"
+                                : 
+                                    "Edit Account"
+                            }
                         </div>
                     </div>
                     <Form className="form--form">

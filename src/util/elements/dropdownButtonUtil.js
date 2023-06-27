@@ -1,4 +1,5 @@
 import { URLS, ENDPOINTS } from "../config"
+import { showFormUtil } from "../collectionsUtil"
 
 /**
  * @file dropdownButtonUtil.js
@@ -11,12 +12,31 @@ import { URLS, ENDPOINTS } from "../config"
  *      information to be edited.
  * @param type Data type to interact with
  * @param entryId Object id
+ * @param setIsLoggedIn State function for isLoggedIn variable
+ * @param navigate useNavigate hook to redirect browser
  */
-function editEntryUtil(type, entryId)
+function editEntryUtil(type, entryId, setIsLoggedIn, navigate)
 {
-    const url = `${URLS.api}${ENDPOINTS[type]}${entryId}`
+    const entryUrl = `${URLS.api}${ENDPOINTS[type]}${entryId}`              // Entry API endpoint
+    const isNew = false
 
-    console.log("Edit " + url)
+    // Request the entry
+    fetch(entryUrl,  {
+        method: "GET",
+        mode: "cors",
+        credentials: "include",
+        headers: {"Content-type": "application/json; charset=UTF-8"}
+    })
+        .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+        .then((data) => {
+            if (data.status === 401)
+            {
+                setIsLoggedIn(false)
+                navigate("/login")
+            }
+            else
+                showFormUtil(type)
+        })
 }
 
 /**
