@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CRM App",
+  "name": "CRM Web Application",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,17 +8,31 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "/images/icons/accountsIcon.png",
+      "type": "image/png"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "/images/icons/contactsIcon.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icons/leadsIcon.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icons/loadingIcon.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icons/opportunitiesIcon.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logos/crmlogo.png",
+      "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "/login",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

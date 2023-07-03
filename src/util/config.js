@@ -7,6 +7,7 @@
 // Production and development urls
 let URLS = {}
 
+// TODO: Reconfigure dev and prod urls
 // Set base and API URLs based on current environment
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development")
 {
@@ -18,8 +19,8 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === "development")
 else
 {
     URLS = {
-        base: "http://localhost",
-        api: "http://localhost/api/v1"
+        base: "http://localhost:3000",
+        api: "http://localhost:8000/api/v1"
     }
 }
 

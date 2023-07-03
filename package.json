@@ -2,7 +2,7 @@
   "name": "crm-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://localhost/login/",
+  "homepage": "/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -16,6 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "serve-production": "npx serve -s build -l 3000",
     "test": "mocha test/** --exit --timeout 30000",
     "test-react": "react-scripts test",
     "eject": "react-scripts eject"
