@@ -72,7 +72,7 @@ function Header(props)
                     <div className="header--title--container">
                         <img 
                             className="header--title--logo" 
-                            src="images/logos/crmlogo.png" 
+                            src="/images/logos/crmlogo.png" 
                             alt="crm logo"
                         />
                         <span>CRM Website</span>

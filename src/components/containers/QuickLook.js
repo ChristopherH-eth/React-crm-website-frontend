@@ -25,7 +25,7 @@ function QuickLook()
                         <div className="main--quick-look--icon--container">
                             <img 
                                 className="quick-look--icon" 
-                                src="images/icons/leadsIcon.png" 
+                                src="/images/icons/leadsIcon.png" 
                                 alt="quick look leads icon"
                             />
                         </div>
@@ -46,7 +46,7 @@ function QuickLook()
                         <div className="main--quick-look--icon--container">
                             <img 
                                 className="quick-look--icon" 
-                                src="images/icons/contactsIcon.png" 
+                                src="/images/icons/contactsIcon.png" 
                                 alt="quick look contacts icon"
                             />
                         </div>
@@ -67,7 +67,7 @@ function QuickLook()
                         <div className="main--quick-look--icon--container">
                             <img 
                                 className="quick-look--icon" 
-                                src="images/icons/opportunitiesIcon.png" 
+                                src="/images/icons/opportunitiesIcon.png" 
                                 alt="quick look opportunities icon"
                             />
                         </div>

@@ -26,7 +26,7 @@ function RecentEntries(props)
                     <div className="main--component--header">
                         <img 
                             className="quick-look--component--icon" 
-                            src="images/icons/leadsIcon.png" 
+                            src="/images/icons/leadsIcon.png" 
                             alt="recent leads icon"
                         />
                         Recent Leads
@@ -44,7 +44,7 @@ function RecentEntries(props)
                     <div className="main--component--header">
                         <img 
                             className="quick-look--component--icon" 
-                            src="images/icons/opportunitiesIcon.png" 
+                            src="/images/icons/opportunitiesIcon.png" 
                             alt="recent opportunities icon"
                         />
                         Recent Opportunities
@@ -62,7 +62,7 @@ function RecentEntries(props)
                     <div className="main--component--header">
                         <img 
                             className="quick-look--component--icon" 
-                            src="images/icons/contactsIcon.png" 
+                            src="/images/icons/contactsIcon.png" 
                             alt="recent contacts icon"
                         />
                         Recent Contacts
@@ -83,7 +83,7 @@ function RecentEntries(props)
                     <div className="main--component--header">
                         <img 
                             className="quick-look--component--icon" 
-                            src="images/icons/accountsIcon.png" 
+                            src="/images/icons/accountsIcon.png" 
                             alt="recent accounts icon"
                         />
                         Recent Accounts

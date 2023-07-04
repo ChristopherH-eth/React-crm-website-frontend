@@ -26,7 +26,7 @@ function opportunityDetails(data, actionBar)
             <div className="entry-details--main">
                 <div className="entry-details--main-upper">
                     <img 
-                        src="images/icons/opportunitiesIcon.png" 
+                        src="/images/icons/opportunitiesIcon.png" 
                         alt="opportunity icon" 
                         className="data-entry--icon" 
                     />

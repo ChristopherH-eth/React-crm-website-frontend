@@ -26,7 +26,7 @@ function accountDetails(data, actionBar)
             <div className="entry-details--main">
                 <div className="entry-details--main-upper">
                     <img 
-                        src="images/icons/accountsIcon.png" 
+                        src="/images/icons/accountsIcon.png" 
                         alt="account icon" 
                         className="data-entry--icon" 
                     />

@@ -6,30 +6,6 @@
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
-    },
-    {
-      "src": "/images/icons/accountsIcon.png",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/icons/contactsIcon.png",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/icons/leadsIcon.png",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/icons/loadingIcon.png",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/icons/opportunitiesIcon.png",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/logos/crmlogo.png",
-      "type": "image/png"
     }
   ],
   "start_url": "/login",

@@ -41,7 +41,7 @@ function getHeadingUtil(type, collectionData, actionBar, setIsNew)
                 <div className="table-data--heading-container">
                     <img 
                         className="table-data--heading-icon" 
-                        src={`images/icons/${type}Icon.png`}
+                        src={`/images/icons/${type}Icon.png`}
                         alt={type} 
                     />
                     <span className="table-data--heading-text">{title()}</span>

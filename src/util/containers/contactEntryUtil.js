@@ -31,7 +31,7 @@ function contactDetails(data, actionBar)
             <div className="entry-details--main">
                 <div className="entry-details--main-upper">
                     <img 
-                        src="images/icons/contactsIcon.png" 
+                        src="/images/icons/contactsIcon.png" 
                         alt="contact icon" 
                         className="data-entry--icon" 
                     />

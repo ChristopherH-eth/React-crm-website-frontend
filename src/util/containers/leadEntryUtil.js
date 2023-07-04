@@ -26,7 +26,7 @@ function leadDetails(data, actionBar)
             <div className="entry-details--main">
                 <div className="entry-details--main-upper">
                     <img 
-                        src="images/icons/leadsIcon.png" 
+                        src="/images/icons/leadsIcon.png" 
                         alt="lead icon" 
                         className="data-entry--icon" 
                     />
