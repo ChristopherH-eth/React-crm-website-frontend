@@ -4,24 +4,10 @@
  * @brief This file handles variables that regularly occur throughout the website.
  */
 
-// Production and development urls
-let URLS = {}
-
-// TODO: Reconfigure dev and prod urls
-// Set base and API URLs based on current environment
-if (!process.env.NODE_ENV || process.env.NODE_ENV === "development")
-{
-    URLS = {
-        base: "http://localhost:3000",
-        api: "http://localhost:8000/api/v1"
-    }
-}
-else
-{
-    URLS = {
-        base: "http://localhost:3000",
-        api: "http://localhost:8000/api/v1"
-    }
+// Web Application and API base URLs
+const URLS = {
+    base: "http://localhost:3000",
+    api: "http://localhost:8000/api/v1"
 }
 
 // URL paths
