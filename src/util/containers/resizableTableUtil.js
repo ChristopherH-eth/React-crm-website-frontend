@@ -113,7 +113,7 @@ function mapTableDataUtil(
     // Map data entries
     const data = dataEntries.map((dataEntry) => {
         // Data entry url
-        const dataUrl = `${URLS.base}${ENDPOINTS[type]}${dataEntry.id}`
+        const dataUrl = `${URLS.base}${ENDPOINTS[type]}/${dataEntry.id}`
 
         // Returns a table row with mapped table details
         return (

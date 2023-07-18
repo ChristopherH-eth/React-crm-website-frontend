@@ -17,26 +17,25 @@ const PATHS = {
 
 // API endpoints
 const ENDPOINTS = {
-    contacts: "/contacts/",
-    contactsPage: "/contacts/page/",
-    contactsQuicklook: "/contacts/quicklook/",
-    accounts: "/accounts/",
-    accountsPage: "/accounts/page/",
-    accountsQuicklook: "/accounts/quicklook/",
-    leads: "/leads/",
-    leadsPage: "/leads/page/",
-    leadsQuicklook: "/leads/quicklook/",
-    opportunities: "/opportunities/",
-    opportunitiesPage: "/opportunities/page/",
-    opportunitiesQuicklook: "/opportunities/quicklook/",
-    jwtRefresh: "/users/refresh/",
-    login: "/users/login/",
-    logout: "/users/logout/",
-    register: "/users/register/",
-    user: "/users/",
-    tableView: "/tableview/",
-    actionBar: "/actionbar/"
+    contacts: "/contacts",
+    contactsPage: "/contacts/page",
+    contactsQuicklook: "/contacts/quicklook",
+    accounts: "/accounts",
+    accountsPage: "/accounts/page",
+    accountsQuicklook: "/accounts/quicklook",
+    leads: "/leads",
+    leadsPage: "/leads/page",
+    leadsQuicklook: "/leads/quicklook",
+    opportunities: "/opportunities",
+    opportunitiesPage: "/opportunities/page",
+    opportunitiesQuicklook: "/opportunities/quicklook",
+    jwtRefresh: "/users/refresh",
+    login: "/users/login",
+    logout: "/users/logout",
+    register: "/users/register",
+    user: "/users",
+    tableView: "/tableview",
+    actionBar: "/actionbar"
 }
 
-//export { URLS, PATHS, ENDPOINTS }
 module.exports = { URLS, PATHS, ENDPOINTS }

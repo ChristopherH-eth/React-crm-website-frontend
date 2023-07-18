@@ -38,9 +38,9 @@ function EntryDetails(props)
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
-    const url = `${URLS.api}${ENDPOINTS[type]}${id}`                            // API Endpoint
+    const url = `${URLS.api}${ENDPOINTS[type]}/${id}`                           // API Endpoint
     const actionBarUrl = 
-        `${URLS.api}${ENDPOINTS.actionBar}${[type]}${actionBarName}`            // Action Bar API endpoint
+        `${URLS.api}${ENDPOINTS.actionBar}/${[type]}${actionBarName}`           // Action Bar API endpoint
 
     // Component functions stored in util files
     const showContactDetails = () => contactDetails(dataEntry, actionBar)

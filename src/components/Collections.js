@@ -39,10 +39,10 @@ function Collections(props)
     const navigate = useNavigate()
 
     const typePage = `${type}Page`                                                      // Endpoint object key based on type
-    const pageUrl = `${URLS.api}${ENDPOINTS[typePage]}${page}`                          // Data Type Page API endpoint
-    const viewUrl = `${URLS.api}${ENDPOINTS.tableView}${[type]}${viewName}`             // Table View API endpoint
+    const pageUrl = `${URLS.api}${ENDPOINTS[typePage]}/${page}`                         // Data Type Page API endpoint
+    const viewUrl = `${URLS.api}${ENDPOINTS.tableView}/${[type]}${viewName}`            // Table View API endpoint
     const actionBarUrl = 
-        `${URLS.api}${ENDPOINTS.actionBar}${[type]}${actionBarName}`                    // Action Bar API endpoint
+        `${URLS.api}${ENDPOINTS.actionBar}/${[type]}${actionBarName}`                   // Action Bar API endpoint
 
     // Callback function to get the correct table heading based on data type
     const getHeading = () => getHeadingUtil(type, collectionData, actionBar, setIsNew)
