@@ -24,7 +24,7 @@ function ContactForm(props)
     // Account variable for dropdown search
     const [accountName, setAccountName] = React.useState("")
 
-    const accountUrl = `${URLS.api}${ENDPOINTS.accountsPage}1`          // Accounts API endpoint
+    const accountUrl = `${URLS.api}${ENDPOINTS.accountsPage}/1`         // Accounts API endpoint
     const accountNameField = "account_name"                             // Account object name field label
 
     // Component functions stored in contactFormUtil
@@ -199,7 +199,8 @@ function ContactForm(props)
                                 <button 
                                     id="add-contact--button"
                                     type="submit" 
-                                    onClick={addContact}>
+                                    onClick={addContact}
+                                >
                                     Add Contact
                                 </button>
                                 <button 

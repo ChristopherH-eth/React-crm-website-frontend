@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   # React CRM App Service
-  crm-app:
+  react:
     ports:
       - "3000:3000"
     build: .

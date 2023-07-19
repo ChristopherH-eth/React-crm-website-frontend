@@ -19,7 +19,7 @@ import { showFormUtil } from "../collectionsUtil"
 function editEntryUtil(type, entryId, setIsLoggedIn, navigate, setIsNew)
 {
     const editFormFlag = false                                              // Flag to set the value of isNew form status
-    const entryUrl = `${URLS.api}${ENDPOINTS[type]}${entryId}`              // Entry API endpoint
+    const entryUrl = `${URLS.api}${ENDPOINTS[type]}/${entryId}`             // Entry API endpoint
 
     // Request the entry
     fetch(entryUrl,  {
@@ -62,7 +62,7 @@ async function deleteEntryUtil(
     setCollectionData, 
     setIsLoading)
 {
-    const deleteUrl = `${URLS.api}${ENDPOINTS[type]}${entryId}`         // Delete Entry API endpoint
+    const deleteUrl = `${URLS.api}${ENDPOINTS[type]}/${entryId}`        // Delete Entry API endpoint
 
     await setIsLoading(true)
 
@@ -113,7 +113,7 @@ async function deleteEntryUtil(
  */
 function changeOwnerUtil(type, entryId)
 {
-    const url = `${URLS.api}${ENDPOINTS[type]}${entryId}`
+    const url = `${URLS.api}${ENDPOINTS[type]}/${entryId}`
 
     console.log("Change Owner " + url)
 }

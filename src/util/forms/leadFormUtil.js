@@ -12,7 +12,7 @@ import { clearCurrentFields } from "../util"
  */
 function addLeadUtil()
 {
-    const leadUrl = `${URLS}${ENDPOINTS.leads}`                         // Leads API endpoint
+    const leadUrl = `${URLS.api}${ENDPOINTS.leads}`                     // Leads API endpoint
     const leadFormInputClass = "lead-form--input"                       // Form input fields class
 
     // Get form values

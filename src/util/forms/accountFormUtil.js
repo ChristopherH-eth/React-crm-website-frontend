@@ -12,7 +12,7 @@ import { clearCurrentFields } from "../util"
  */
 function addAccountUtil()
 {
-    const accountUrl = `${URLS}${ENDPOINTS.accounts}`                   // Accounts API endpoint
+    const accountUrl = `${URLS.api}${ENDPOINTS.accounts}`               // Accounts API endpoint
     const accountFormInputClass = "account-form--input"                 // Form input fields class
 
     // Get form values

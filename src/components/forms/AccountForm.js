@@ -197,7 +197,8 @@ function AccountForm(props)
                                 <button 
                                     id="add-account--button"
                                     type="submit" 
-                                    onClick={addAccount}>
+                                    onClick={addAccount}
+                                >
                                     Add Account
                                 </button>
                                 <button 

@@ -12,7 +12,7 @@ import { clearCurrentFields } from "../util"
  */
 function addContactUtil(accountName)
 {
-    const contactUrl = `${URLS}${ENDPOINTS.contacts}`                   // Contacts API endpoint
+    const contactUrl = `${URLS.api}${ENDPOINTS.contacts}`               // Contacts API endpoint
     const contactFormInputClass = "contact-form--input"                 // Form input fields class
 
     // Get form values

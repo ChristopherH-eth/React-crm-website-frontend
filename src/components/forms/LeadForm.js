@@ -234,7 +234,8 @@ function LeadForm(props)
                                 <button 
                                     id="add-lead--button"
                                     type="submit" 
-                                    onClick={addLead}>
+                                    onClick={addLead}
+                                >
                                     Add Lead
                                 </button>
                                 <button 

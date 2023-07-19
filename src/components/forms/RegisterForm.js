@@ -87,7 +87,8 @@ function RegisterForm()
                                 <button 
                                     id="register-user--button"
                                     type="submit"
-                                    onClick={registerUser}>
+                                    onClick={registerUser}
+                                >
                                     Register
                                 </button>
                                 <button 
