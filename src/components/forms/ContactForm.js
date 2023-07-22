@@ -1,6 +1,5 @@
 import React from "react"
 import DropdownSearch from "../elements/DropdownSearch"
-import { Form } from "react-router-dom"
 import { addContactUtil } from "../../util/forms/contactFormUtil"
 import { URLS, ENDPOINTS } from "../../util/config"
 
@@ -47,7 +46,7 @@ function ContactForm(props)
                             }
                         </div>
                     </div>
-                    <Form className="form--form">
+                    <form className="form--form">
                         {/* General info section */}
                         <div className="form--subheader">
                             Contact Information
@@ -56,7 +55,7 @@ function ContactForm(props)
                             Contact Owner
                         </div>
                         <div className="form--text">
-                            {user}
+                            {user.full_name}
                         </div>
                         <div className="form--label">
                             Salutation
@@ -198,7 +197,7 @@ function ContactForm(props)
                             <div className="button--container">
                                 <button 
                                     id="add-contact--button"
-                                    type="submit" 
+                                    type="button" 
                                     onClick={addContact}
                                 >
                                     Add Contact
@@ -211,7 +210,7 @@ function ContactForm(props)
                                 </button>
                             </div>
                         </div>
-                    </Form>
+                    </form>
                 </div>
             </section>
         </>

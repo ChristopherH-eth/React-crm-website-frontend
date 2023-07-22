@@ -18,11 +18,13 @@ function addAccountUtil()
     // Get form values
     const accountName = document.getElementById("account-form--account-name").value
     const website = document.getElementById("account-form--website").value
+    const userId = 1
 
     // Build request body
     const accountBody = {
         account_name: accountName,                                      // Account name
-        website: website                                                // Account website
+        website: website,                                               // Account website
+        user_id: userId
     }
 
     // Send request to server

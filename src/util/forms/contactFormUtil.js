@@ -18,12 +18,17 @@ function addContactUtil(accountName)
     // Get form values
     const firstName = document.getElementById("contact-form--first-name").value
     const lastName = document.getElementById("contact-form--last-name").value
+    const emailOption = document.getElementById("contact-form--email-opt-out").value
+    const userId = 1
 
     // Build request body
     const contactBody = {
-        first_name: firstName,                                          // Contact first name
-        last_name: lastName,                                            // Contact last name
-        account_name: accountName                                       // Name of contact account
+        first_name: firstName,                                          // First Name
+        last_name: lastName,                                            // Last Name
+        full_name: firstName + " " + lastName,                          // Full Name
+        account_name: accountName,                                      // Name of Contact Account
+        email_opt_out: emailOption,                                     // Email Opt Out
+        user_id: userId                                                 // Contact Creator
     }
 
     // Send request to server

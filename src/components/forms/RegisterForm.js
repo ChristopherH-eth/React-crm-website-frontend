@@ -1,5 +1,4 @@
 import React from "react"
-import { Form } from "react-router-dom"
 import { registerUserUtil } from "../../util/forms/registerFormUtil"
 
 /**
@@ -32,7 +31,7 @@ function RegisterForm()
                             Register
                         </div>
                     </div>
-                    <Form>
+                    <form>
                         <div className="form--label">
                             <span className="required" title="required">*</span>
                             <span>First Name</span>
@@ -86,7 +85,7 @@ function RegisterForm()
                             <div className="button--container">
                                 <button 
                                     id="register-user--button"
-                                    type="submit"
+                                    type="button"
                                     onClick={registerUser}
                                 >
                                     Register
@@ -101,7 +100,7 @@ function RegisterForm()
                         </div>
                         {/* Register Error */}
                         {registerError && <div className="form--error">{registerError}</div>}
-                    </Form>
+                    </form>
                 </div>
             </section>
         </>

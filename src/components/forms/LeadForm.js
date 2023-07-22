@@ -1,4 +1,3 @@
-import { Form } from "react-router-dom"
 import { addLeadUtil } from "../../util/forms/leadFormUtil"
 
 /**
@@ -38,7 +37,7 @@ function LeadForm(props)
                             }
                         </div>
                     </div>
-                    <Form className="form--form">
+                    <form className="form--form">
                         {/* General info section */}
                         <div className="form--subheader">
                             Lead Information
@@ -47,7 +46,7 @@ function LeadForm(props)
                             Lead Owner
                         </div>
                         <div className="form--text">
-                            {user}
+                            {user.full_name}
                         </div>
                         <div className="form--label">
                             Salutation
@@ -143,7 +142,8 @@ function LeadForm(props)
                             type="text"
                         ></input>
                         <div className="form--label">
-                            Email Opt Out
+                            <span className="required" title="required">*</span>
+                            <span>Email Opt Out</span>
                         </div>
                         <input
                             className="form--input-field-checkbox lead-form--input"
@@ -233,7 +233,7 @@ function LeadForm(props)
                             <div className="button--container">
                                 <button 
                                     id="add-lead--button"
-                                    type="submit" 
+                                    type="button" 
                                     onClick={addLead}
                                 >
                                     Add Lead
@@ -246,7 +246,7 @@ function LeadForm(props)
                                 </button>
                             </div>
                         </div>
-                    </Form>
+                    </form>
                 </div>
             </section>
         </>

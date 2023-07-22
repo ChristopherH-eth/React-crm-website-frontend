@@ -8,6 +8,10 @@ The CRM Frontend is responsible for maintaining relationships with clients and p
 
 The CRM Frontend is the main way users interact with the CRM Backend found [here](https://github.com/ChristopherH-eth/Lumen-crm-website-backend), and is built using ReactJS. It represents the 'view' of the MVC architecture that this application is designed around, and handles the sending of client requests to the CRM Backend, as well as the display of relevant responses to the user.
 
+## Authentication
+
+This application uses JWT as the primary authentication method. When a user successfully logs in, they are issued a JWT token in the form of a cookie only accessable by the browser. This token expires after a certain period of time, prior to which (if the user is still logged in) the application will automatically initiate a silent refresh. This allows the user to stay secure by having their token refresh in the background, and obtaining a new token in case their current token becomes compromised.
+
 ## Data Objects
 
 The CRM handles a variety objects including Accounts, Contacts, Leads, Opportunities, etc. Each objects has its own layout, and its own set of fields. These fields can be edited, saved, and stored in the database, or the objects themselves can be deleted completely.

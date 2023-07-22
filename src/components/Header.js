@@ -136,7 +136,7 @@ function Header(props)
                             </nav>
                             <div className="header--welcome--container">
                                 <div className="header--welcome">
-                                    <span>Welcome, {user}!</span>
+                                    <span>Welcome, {user.first_name}!</span>
                                 </div>
                                 <div className="header--logout-button-container">
                                     <button

@@ -1,5 +1,4 @@
 import React from "react"
-import { Form } from "react-router-dom"
 import { addAccountUtil } from "../../util/forms/accountFormUtil"
 
 /**
@@ -39,7 +38,7 @@ function AccountForm(props)
                             }
                         </div>
                     </div>
-                    <Form className="form--form">
+                    <form className="form--form">
                         {/* General info section */}
                         <div className="form--subheader">
                             Account Information
@@ -48,7 +47,7 @@ function AccountForm(props)
                             Account Owner
                         </div>
                         <div className="form--text">
-                            {user}
+                            {user.full_name}
                         </div>
                         <div className="form--label">
                             <span className="required" title="required">*</span>
@@ -196,7 +195,7 @@ function AccountForm(props)
                             <div className="button--container">
                                 <button 
                                     id="add-account--button"
-                                    type="submit" 
+                                    type="button" 
                                     onClick={addAccount}
                                 >
                                     Add Account
@@ -209,7 +208,7 @@ function AccountForm(props)
                                 </button>
                             </div>
                         </div>
-                    </Form>
+                    </form>
                 </div>
             </section>
         </>

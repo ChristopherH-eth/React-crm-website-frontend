@@ -16,7 +16,7 @@ import { URLS, PATHS, ENDPOINTS } from "../util/config"
  */
 function CRM()
 {
-    const [user, setUser] = React.useState([])                              // Current user session
+    const [user, setUser] = React.useState({})                              // Current user session
     const [isLoggedIn, setIsLoggedIn] = React.useState(false)               // User logged in status
     const [isNew, setIsNew] = React.useState(true)                          // Track if forms are new or edit
 

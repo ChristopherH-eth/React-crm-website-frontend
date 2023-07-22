@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { loginUserUtil, showRegisterFormUtil } from "../util/loginUtil"
 import RegisterForm from "./forms/RegisterForm"
 
@@ -31,7 +31,7 @@ function Login(props)
     return (
         <section className="login">
             <div className="login--container">
-                <Form className="form--form">
+                <form className="form--form">
                     <div className="form--header-text">
                         Welcome to CRM Website!
                     </div>
@@ -62,7 +62,7 @@ function Login(props)
                                 onClick={loginUser}
                                 className="form--footer--button-end"
                                 id="login-form--login-button"
-                                type="submit"
+                                type="button"
                             >
                                 Login
                             </button>
@@ -74,7 +74,7 @@ function Login(props)
                     <div className="form--text-centered" onClick={showRegisterForm}>
                         New User? Register Here!
                     </div>
-                </Form>
+                </form>
                 {/* Register Form component */}
                 <RegisterForm />
             </div>

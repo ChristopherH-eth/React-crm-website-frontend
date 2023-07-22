@@ -61,10 +61,14 @@ function App(props)
                     navigate("/login")
                 }
                 else
-                    setUser(data.body[0].user)
+                {
+                    // Compare incoming session data against stored session data
+                    if (JSON.stringify(user) !== JSON.stringify(data.body[0].user))
+                        setUser(data.body[0].user)
+                }
             })
             .catch(console.error)
-    }, [userUrl, location.pathname, setUser, navigate, setIsLoggedIn])
+    }, [user, userUrl, location.pathname, setUser, navigate, setIsLoggedIn])
 
     return (
         <div className="app-container">
