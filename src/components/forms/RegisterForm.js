@@ -1,5 +1,6 @@
 import React from "react"
 import { registerUserUtil } from "../../util/forms/registerFormUtil"
+import { destroyFormUtil } from "../../util/util"
 
 /**
  * @file RegisterForm.js
@@ -17,7 +18,13 @@ function RegisterForm()
     const [registerError, setRegisterError] = React.useState()
 
     // Component functions stored in registerFormUtil
-    const registerUser = () => registerUserUtil(setRegisterError)
+    const registerUser = () => registerUserUtil(setRegisterError, registerFormInputClass)
+
+    // Component functions stored in util
+    const destroyForm = () => destroyFormUtil(registerFormInputClass)
+
+    // Register Form input fields class
+    const registerFormInputClass = "register-form--input"
 
     return (
         <>
@@ -93,7 +100,9 @@ function RegisterForm()
                                 <button 
                                     className="secondary-button"
                                     type="button"
-                                    id="form--cancel">
+                                    id="form--cancel"
+                                    onClick={destroyForm}
+                                >
                                     Cancel
                                 </button>
                             </div>

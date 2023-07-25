@@ -10,11 +10,52 @@
  */
 function clearCurrentFields(classToClear) 
 {
-    const formInputs = document.getElementsByClassName(classToClear)            // Form input field array
+    // Form input field array
+    const formInputs = document.getElementsByClassName(classToClear)
 
-        // Clear input fields
-        for (let i = 0; i < formInputs.length; i++) 
-            formInputs[i].value = ""
+    // Clear input fields
+    for (let i = 0; i < formInputs.length; i++) 
+        formInputs[i].value = ""
 }
 
-export { clearCurrentFields }
+/**
+ * @brief The hideForm() function hides the current form and page mask.
+ */
+function hideForm()
+{
+    const pageMask = document.getElementsByClassName("page-mask")
+    const form = document.getElementsByClassName("form-container")
+
+    // Check for active page mask
+    for (let i = 0; i < pageMask.length; i++) 
+    {
+        let openPageMask = pageMask[i]
+
+        if (openPageMask.classList.contains("show"))
+            openPageMask.classList.remove("show")
+    }
+
+    // Check for active form
+    for (let i = 0; i < form.length; i++) 
+    {
+        let openForm = form[i]
+
+        if (openForm.classList.contains("show"))
+            openForm.classList.remove("show")
+    }
+
+    // Make body scrollable
+    document.body.classList.remove("lock-scroll")
+}
+
+/**
+ * @brief The destroyForm() function clears the fields of the current form and hides it.
+ * @param classToClear The class of the form name to clear
+ */
+function destroyFormUtil(classToClear)
+{
+    clearCurrentFields(classToClear)
+    hideForm()
+}
+
+export { clearCurrentFields, hideForm, destroyFormUtil }

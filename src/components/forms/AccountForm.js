@@ -1,5 +1,6 @@
 import React from "react"
 import { addAccountUtil } from "../../util/forms/accountFormUtil"
+import { destroyFormUtil } from "../../util/util"
 
 /**
  * @file AccountForm.js
@@ -20,6 +21,12 @@ function AccountForm(props)
 
     // Component functions stored in accountFormUtil
     const addAccount = () => addAccountUtil()
+
+    // Component functions stored in util
+    const destroyForm = () => destroyFormUtil(accountFormInputClass)
+
+    // Form input fields class
+    const accountFormInputClass = "account-form--input"
 
     return (
         <>
@@ -203,7 +210,9 @@ function AccountForm(props)
                                 <button 
                                     className="secondary-button"
                                     type="button"
-                                    id="form--cancel">
+                                    id="form--cancel"
+                                    onClick={destroyForm}
+                                >
                                     Cancel
                                 </button>
                             </div>

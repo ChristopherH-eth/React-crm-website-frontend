@@ -2,6 +2,7 @@ import React from "react"
 import DropdownSearch from "../elements/DropdownSearch"
 import { addContactUtil } from "../../util/forms/contactFormUtil"
 import { URLS, ENDPOINTS } from "../../util/config"
+import { destroyFormUtil } from "../../util/util"
 
 /**
  * @file ContactForm.js
@@ -23,11 +24,15 @@ function ContactForm(props)
     // Account variable for dropdown search
     const [accountName, setAccountName] = React.useState("")
 
-    const accountUrl = `${URLS.api}${ENDPOINTS.accountsPage}/1`         // Accounts API endpoint
-    const accountNameField = "account_name"                             // Account object name field label
-
     // Component functions stored in contactFormUtil
-    const addContact = () => addContactUtil(accountName)
+    const addContact = () => addContactUtil(accountName, contactFormInputClass)
+
+    // Component functions stored in util
+    const destroyForm = () => destroyFormUtil(contactFormInputClass)
+
+    const accountUrl = `${URLS.api}${ENDPOINTS.accountsPage}/1`         // Accounts API endpoint
+    const accountNameField = "account_name"                             // Account object logical name
+    const contactFormInputClass = "contact-form--input"                 // Form input fields class
 
     return (
         <>
@@ -205,7 +210,9 @@ function ContactForm(props)
                                 <button 
                                     className="secondary-button"
                                     type="button"
-                                    id="form--cancel">
+                                    id="form--cancel"
+                                    onClick={destroyForm}
+                                >
                                     Cancel
                                 </button>
                             </div>

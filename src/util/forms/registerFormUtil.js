@@ -1,5 +1,5 @@
 import { ENDPOINTS, URLS } from "../config"
-import { clearCurrentFields } from "../util"
+import { destroyFormUtil } from "../util"
 
 /**
  * @file registerFormUtil.js
@@ -8,12 +8,14 @@ import { clearCurrentFields } from "../util"
  */
 
 /**
- * @brief The registerUserUtil() attempts to register a new user
+ * @brief The registerUserUtil() attempts to register a new user.
+ * @param setRegisterError Sets the registerError state variable
+ * @param registerFormInputClass Class value of the user registration form
  */
-function registerUserUtil(setRegisterError)
+function registerUserUtil(setRegisterError, registerFormInputClass)
 {
-    const registerUrl = `${URLS.api}${ENDPOINTS.register}`              // Register API endpoint
-    const registerFormInputClass = "register-form--input"               // Form input fields class
+    // Register API endpoint
+    const registerUrl = `${URLS.api}${ENDPOINTS.register}`
 
     // Get form values
     const firstName = document.getElementById("register-form--first-name").value
@@ -45,8 +47,6 @@ function registerUserUtil(setRegisterError)
     })
         .then((res) => res.json().then((data) => ({status: res.status, body: data})))
         .then((data) => {
-            console.log(data)
-
             // Check for registration errors
             if (data.status === 422 || data.status === 409)
             {
@@ -60,13 +60,14 @@ function registerUserUtil(setRegisterError)
                     }
                 }
             }
-
-            // Clear input fields on success
-            if (data.status === 201)
+            // Clear input fields/error, and hide form on success
+            else if (data.status === 201)
             {
-                clearCurrentFields(registerFormInputClass)
-                setRegisterError("")
+                destroyFormUtil(registerFormInputClass)
+                setRegisterError("Registration Successful!")
             }
+            else
+                setRegisterError("")
         })
         .catch(console.error)
 }

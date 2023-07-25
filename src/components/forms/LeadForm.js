@@ -1,4 +1,5 @@
 import { addLeadUtil } from "../../util/forms/leadFormUtil"
+import { destroyFormUtil } from "../../util/util"
 
 /**
  * @file LeadForm.js
@@ -19,6 +20,12 @@ function LeadForm(props)
 
     // Component functions stored in leadFormUtil
     const addLead = () => addLeadUtil()
+
+    // Component functions stored in util
+    const destroyForm = () => destroyFormUtil(leadFormInputClass)
+
+    // Form input fields class
+    const leadFormInputClass = "lead-form--input"
 
     return (
         <>
@@ -241,7 +248,9 @@ function LeadForm(props)
                                 <button 
                                     className="secondary-button"
                                     type="button"
-                                    id="form--cancel">
+                                    id="form--cancel"
+                                    onClick={destroyForm}
+                                >
                                     Cancel
                                 </button>
                             </div>

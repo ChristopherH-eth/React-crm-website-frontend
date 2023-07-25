@@ -9,11 +9,12 @@ import { clearCurrentFields } from "../util"
 
 /**
  * @brief The addAccountUtil() function adds a new account to the database.
+ * @param accountFormInputClass Class value of the account form
  */
-function addAccountUtil()
+function addAccountUtil(accountFormInputClass)
 {
-    const accountUrl = `${URLS.api}${ENDPOINTS.accounts}`               // Accounts API endpoint
-    const accountFormInputClass = "account-form--input"                 // Form input fields class
+    // Accounts API endpoint
+    const accountUrl = `${URLS.api}${ENDPOINTS.accounts}`
 
     // Get form values
     const accountName = document.getElementById("account-form--account-name").value
@@ -24,7 +25,7 @@ function addAccountUtil()
     const accountBody = {
         account_name: accountName,                                      // Account name
         website: website,                                               // Account website
-        user_id: userId
+        user_id: userId                                                 // Account owner
     }
 
     // Send request to server

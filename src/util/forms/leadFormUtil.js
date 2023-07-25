@@ -9,11 +9,12 @@ import { clearCurrentFields } from "../util"
 
 /**
  * @brief The addLeadUtil() function adds a new lead to the database.
+ * @param leadFormInputClass Class value of the account form
  */
-function addLeadUtil()
+function addLeadUtil(leadFormInputClass)
 {
-    const leadUrl = `${URLS.api}${ENDPOINTS.leads}`                     // Leads API endpoint
-    const leadFormInputClass = "lead-form--input"                       // Form input fields class
+    // Leads API endpoint
+    const leadUrl = `${URLS.api}${ENDPOINTS.leads}`
 
     // Get form values
     const firstName = document.getElementById("lead-form--first-name").value
