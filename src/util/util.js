@@ -58,4 +58,17 @@ function destroyFormUtil(classToClear)
     hideForm()
 }
 
-export { clearCurrentFields, hideForm, destroyFormUtil }
+/**
+ * @brief The handleSubmitUtil() function is used to listen for events when form input fields are selected, 
+ *      check if the event was triggered by the user pressing the "Enter" key, and if so, submit the 
+ *      selected form.
+ * @param event An event picked up by the event listener
+ * @param submitForm A reference to the form submission logic
+ */
+function handleSubmitUtil(event, submitForm)
+{
+    if (event.key === "Enter")
+        submitForm()
+}
+
+export { clearCurrentFields, hideForm, destroyFormUtil, handleSubmitUtil }

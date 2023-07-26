@@ -2,6 +2,7 @@ import React from "react"
 import { useNavigate } from "react-router-dom"
 import { loginUserUtil, showRegisterFormUtil } from "../util/loginUtil"
 import RegisterForm from "./forms/RegisterForm"
+import { handleSubmitUtil } from "../util/util"
 
 /**
  * @file Login.js
@@ -28,6 +29,9 @@ function Login(props)
     const loginUser = () => loginUserUtil(navigate, setIsLoggedIn, setError)
     const showRegisterForm = () => showRegisterFormUtil()
 
+    // Component functions stored in util
+    const handleSubmit = (event) => handleSubmitUtil(event, loginUser)
+
     return (
         <section className="login">
             <div className="login--container">
@@ -46,6 +50,7 @@ function Login(props)
                         id="login-form--email"
                         required
                         type="text"
+                        onKeyDown={handleSubmit}
                     ></input>
                     <div className="form--label">
                         Password
@@ -55,6 +60,7 @@ function Login(props)
                         id="login-form--password"
                         required
                         type="password"
+                        onKeyDown={handleSubmit}
                     ></input>
                     <div className="form--footer-container">
                         <div className="button--container">
