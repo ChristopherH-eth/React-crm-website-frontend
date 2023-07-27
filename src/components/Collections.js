@@ -20,7 +20,8 @@ function Collections(props)
 {
     const {
         setIsLoggedIn,                                                                  // State function for isLoggedIn variable
-        setIsNew                                                                        // State function for isNew variable
+        setIsNew,                                                                       // State function for isNew variable
+        setSelectedEntry                                                                // State function for selectedEntry
     } = props
 
     const {
@@ -38,14 +39,14 @@ function Collections(props)
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
 
+    // Component functions stored in collectionsUtil
+    const getHeading = () => getHeadingUtil(type, collectionData, actionBar, setIsNew)
+
     const typePage = `${type}Page`                                                      // Endpoint object key based on type
     const pageUrl = `${URLS.api}${ENDPOINTS[typePage]}/${page}`                         // Data Type Page API endpoint
     const viewUrl = `${URLS.api}${ENDPOINTS.tableView}/${[type]}${viewName}`            // Table View API endpoint
     const actionBarUrl = 
         `${URLS.api}${ENDPOINTS.actionBar}/${[type]}${actionBarName}`                   // Action Bar API endpoint
-
-    // Callback function to get the correct table heading based on data type
-    const getHeading = () => getHeadingUtil(type, collectionData, actionBar, setIsNew)
 
     // Request the table view
     React.useEffect(() => {
@@ -136,6 +137,7 @@ function Collections(props)
                     setCollectionData={setCollectionData}
                     setIsLoading={setIsLoading}
                     setIsNew={setIsNew}
+                    setSelectedEntry={setSelectedEntry}
                 />
             </div>
             <Footer />

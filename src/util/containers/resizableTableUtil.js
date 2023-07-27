@@ -95,6 +95,7 @@ function handleResizeStart(columnId, setResizingColumn)
  * @param setCollectionData State function for collectionData variable
  * @param setIsLoading State function for isLoading variable
  * @param setIsNew State function for isNew variable
+ * @param setSelectedEntry State function for selectedEntry variable
  * @returns Returns '<tr>' elements and their children that have been mapped
  */
 function mapTableDataUtil(
@@ -108,7 +109,8 @@ function mapTableDataUtil(
     pageUrl,
     setCollectionData,
     setIsLoading,
-    setIsNew)
+    setIsNew,
+    setSelectedEntry)
 {
     // Map data entries
     const data = dataEntries.map((dataEntry) => {
@@ -141,6 +143,7 @@ function mapTableDataUtil(
                         setCollectionData={setCollectionData}
                         setIsLoading={setIsLoading}
                         setIsNew={setIsNew}
+                        setSelectedEntry={setSelectedEntry}
                     />
                 </td>
             </tr>

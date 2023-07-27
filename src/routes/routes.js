@@ -18,9 +18,19 @@ import Redirect from "../components/Redirect"
  * @param setIsLoggedIn React state function to set logged in status
  * @param isNew Form status where true is new and false is edit
  * @param setIsNew React state function to set form status
+ * @param selectedEntry The currently selected entry for use in forms
+ * @param setSelectedEntry React state function to set the selected entry
  * @returns Returns the router object to be used with RouterProvider
  */
-function getRouter(user, setUser, isLoggedIn, setIsLoggedIn, isNew, setIsNew)
+function getRouter(
+    user, 
+    setUser, 
+    isLoggedIn, 
+    setIsLoggedIn, 
+    isNew, 
+    setIsNew, 
+    selectedEntry, 
+    setSelectedEntry)
 {
     // Browser router for url based routing in React
     const router = createBrowserRouter([
@@ -64,18 +74,22 @@ function getRouter(user, setUser, isLoggedIn, setIsLoggedIn, isNew, setIsNew)
                         <Collections 
                             setIsLoggedIn={setIsLoggedIn} 
                             setIsNew={setIsNew}
+                            setSelectedEntry={setSelectedEntry}
                         />
                         <AccountForm 
                             user={user}
                             isNew={isNew}
+                            selectedEntry={selectedEntry}
                         />
                         <ContactForm 
                             user={user}
                             isNew={isNew} 
+                            selectedEntry={selectedEntry}
                         />
                         <LeadForm 
                             user={user}
                             isNew={isNew}
+                            selectedEntry={selectedEntry}
                         />
                     </>
                 },

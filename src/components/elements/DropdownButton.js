@@ -27,7 +27,8 @@ function DropdownButton(props)
         pageUrl,                                            // Page fetch url
         setCollectionData,                                  // State function for collectionData variable
         setIsLoading,                                       // State function for isLoading variable
-        setIsNew                                            // State function for isNew variable
+        setIsNew,                                           // State function for isNew variable
+        setSelectedEntry                                    // State function for selectedEntry variable
     } = props
 
     // State variable for whether to show the menu
@@ -42,7 +43,7 @@ function DropdownButton(props)
     // Options array for entry dropdown button
     const options = [
         {value: "edit", label: "Edit", function: () => editEntryUtil(
-            type, entryId, setIsLoggedIn, navigate, setIsNew
+            type, entryId, setIsLoggedIn, navigate, setIsNew, setSelectedEntry
         )},
         {value: "delete", label: "Delete", function: () => deleteEntryUtil(
             type, entryId, setIsLoggedIn, navigate, pageUrl, setCollectionData, setIsLoading

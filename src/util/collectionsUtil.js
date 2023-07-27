@@ -22,7 +22,7 @@ function showFormUtil(type)
  * @param type Data type of the current collection
  * @param collectionData Current collection of entries
  * @param actionBar Current action bar JSON object
- * @param setIsNew
+ * @param setIsNew State function for isNew variable
  * @returns Returns the Accounts table heading
  */
 function getHeadingUtil(type, collectionData, actionBar, setIsNew)

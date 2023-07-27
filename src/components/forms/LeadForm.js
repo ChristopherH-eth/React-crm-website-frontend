@@ -17,7 +17,8 @@ function LeadForm(props)
 {
     const {
         user,                                               // Current user
-        isNew                                               // True if the form is for a new account
+        isNew,                                              // True if the form is for a new account
+        selectedEntry                                       // Entry currently selected
     } = props
 
     // Component functions stored in leadFormUtil
@@ -28,6 +29,8 @@ function LeadForm(props)
 
     const leadFormInputClass = "lead-form--input"           // Form input fields class
     const leadFormRef = React.useRef(null)                  // Reference to the Lead Form
+    const isEditable = true                                 // Make a field editable
+    const isRequired = true                                 // Make a field required
 
     return (
         <div>
@@ -40,9 +43,9 @@ function LeadForm(props)
                         <div className="form--header-text">
                             {isNew
                                 ? 
-                                    "New Account"
+                                    "New Lead"
                                 : 
-                                    "Edit Account"
+                                    "Edit Lead"
                             }
                         </div>
                     </div>
@@ -53,16 +56,15 @@ function LeadForm(props)
                         </div>
                         <TextField
                             label={"Lead Owner"}
-                            value={user.full_name}
+                            value={isNew ? user.full_name : (selectedEntry ? selectedEntry.user.full_name : "")}
                         />
-                        <div className="form--label">
-                            Salutation
-                        </div>
-                        <input
-                            className="form--input-field lead-form--input"
-                            id="lead-form--salutation"
-                            type="text"
-                        ></input>
+                        <TextField
+                            id={"lead-form--salutation"}
+                            label={"Salutation"}
+                            value={isNew ? "" : selectedEntry.lead.salutation}
+                            isEditable={isEditable}
+                            isRequired={isRequired}
+                        />
                         <div className="form--label">
                             <span className="required" title="required">*</span>
                             <span>First Name</span>

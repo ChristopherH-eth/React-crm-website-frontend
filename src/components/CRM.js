@@ -19,9 +19,17 @@ function CRM()
     const [user, setUser] = React.useState({})                              // Current user session
     const [isLoggedIn, setIsLoggedIn] = React.useState(false)               // User logged in status
     const [isNew, setIsNew] = React.useState(true)                          // Track if forms are new or edit
+    const [selectedEntry, setSelectedEntry] = React.useState()              // Entry currently selected
 
     const router = getRouter(
-        user, setUser, isLoggedIn, setIsLoggedIn, isNew, setIsNew
+        user, 
+        setUser, 
+        isLoggedIn, 
+        setIsLoggedIn, 
+        isNew, 
+        setIsNew, 
+        selectedEntry, 
+        setSelectedEntry
     )                                                                       // Get routes
     const refreshUrl = `${URLS.api}${ENDPOINTS.jwtRefresh}`                 // JWT Refresh API endpoint
     const loginUrl = `${URLS.base}${PATHS.login}`                           // Login URL
