@@ -21,18 +21,18 @@ function RegisterForm()
     const registerUser = () => registerUserUtil(setRegisterError, registerFormInputClass)
 
     // Component functions stored in util
-    const destroyForm = () => destroyFormUtil(registerFormInputClass)
+    const destroyForm = () => destroyFormUtil(registerFormInputClass, registerFormRef)
 
-    // Register Form input fields class
-    const registerFormInputClass = "register-form--input"
+    const registerFormInputClass = "register-form--input"               // Register Form input fields class
+    const registerFormRef = React.useRef(null)                          // Reference to the Register Form
 
     return (
-        <>
+        <div>
             {/* Page Mask (dimmed background) */}
             <div className="page-mask" id="page-mask" />
             {/* Register Form */}
             <section className="form-container" id="register-form--container">
-                <div className="form">
+                <div className="form" ref={registerFormRef}>
                     <div className="form--header">
                         <div className="form--header-text">
                             Register
@@ -112,7 +112,7 @@ function RegisterForm()
                     </form>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 

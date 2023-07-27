@@ -18,7 +18,7 @@ function RecentEntries(props)
     } = props
 
     return (
-        <>
+        <div>
             {/* Recent Components First Row */}
             <div className="main--component--container">
                 {/* Recent Leads Component */}
@@ -115,7 +115,7 @@ function RecentEntries(props)
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

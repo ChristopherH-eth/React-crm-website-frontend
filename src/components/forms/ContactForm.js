@@ -28,19 +28,20 @@ function ContactForm(props)
     const addContact = () => addContactUtil(accountName, contactFormInputClass)
 
     // Component functions stored in util
-    const destroyForm = () => destroyFormUtil(contactFormInputClass)
+    const destroyForm = () => destroyFormUtil(contactFormInputClass, contactFormRef)
 
     const accountUrl = `${URLS.api}${ENDPOINTS.accountsPage}/1`         // Accounts API endpoint
     const accountNameField = "account_name"                             // Account object logical name
     const contactFormInputClass = "contact-form--input"                 // Form input fields class
+    const contactFormRef = React.useRef(null)                           // Reference to the Contact Form
 
     return (
-        <>
+        <div>
             {/* Page Mask (dimmed background) */}
             <div className="page-mask" id="page-mask" />
             {/* Contact Form */}
             <section className="form-container" id="contacts-form--container">
-                <div className="form">
+                <div className="form" ref={contactFormRef}>
                     <div className="form--header">
                         <div className="form--header-text">
                             {isNew
@@ -220,7 +221,7 @@ function ContactForm(props)
                     </form>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 

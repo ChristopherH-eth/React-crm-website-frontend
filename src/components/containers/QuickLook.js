@@ -13,7 +13,7 @@ import { Link } from "react-router-dom"
 function QuickLook()
 {
     return (
-        <>
+        <div>
             <div className="main--quick-look">
                 Quick Look
             </div>
@@ -128,7 +128,7 @@ function QuickLook()
                     </Link>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

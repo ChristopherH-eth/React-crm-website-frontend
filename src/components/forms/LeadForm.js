@@ -1,5 +1,7 @@
+import React from "react"
 import { addLeadUtil } from "../../util/forms/leadFormUtil"
 import { destroyFormUtil } from "../../util/util"
+import TextField from "../fields/TextField"
 
 /**
  * @file LeadForm.js
@@ -22,18 +24,18 @@ function LeadForm(props)
     const addLead = () => addLeadUtil()
 
     // Component functions stored in util
-    const destroyForm = () => destroyFormUtil(leadFormInputClass)
+    const destroyForm = () => destroyFormUtil(leadFormInputClass, leadFormRef)
 
-    // Form input fields class
-    const leadFormInputClass = "lead-form--input"
+    const leadFormInputClass = "lead-form--input"           // Form input fields class
+    const leadFormRef = React.useRef(null)                  // Reference to the Lead Form
 
     return (
-        <>
+        <div>
             {/* Page Mask (dimmed background) */}
             <div className="page-mask" id="page-mask" />
             {/* Lead Form */}
             <section className="form-container" id="leads-form--container">
-                <div className="form">
+                <div className="form" ref={leadFormRef}>
                     <div className="form--header">
                         <div className="form--header-text">
                             {isNew
@@ -49,12 +51,10 @@ function LeadForm(props)
                         <div className="form--subheader">
                             Lead Information
                         </div>
-                        <div className="form--label">
-                            Lead Owner
-                        </div>
-                        <div className="form--text">
-                            {user.full_name}
-                        </div>
+                        <TextField
+                            label={"Lead Owner"}
+                            value={user.full_name}
+                        />
                         <div className="form--label">
                             Salutation
                         </div>
@@ -258,7 +258,7 @@ function LeadForm(props)
                     </form>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 

@@ -23,18 +23,18 @@ function AccountForm(props)
     const addAccount = () => addAccountUtil()
 
     // Component functions stored in util
-    const destroyForm = () => destroyFormUtil(accountFormInputClass)
+    const destroyForm = () => destroyFormUtil(accountFormInputClass, accountFormRef)
 
-    // Form input fields class
-    const accountFormInputClass = "account-form--input"
+    const accountFormInputClass = "account-form--input"     // Form input fields class
+    const accountFormRef = React.useRef(null)               // Reference to the Account Form
 
     return (
-        <>
+        <div>
             {/* Page Mask (dimmed background) */}
             <div className="page-mask" id="page-mask" />
             {/* Account Form */}
             <section className="form-container" id="accounts-form--container">
-                <div className="form">
+                <div className="form" ref={accountFormRef}>
                     <div className="form--header">
                         <div className="form--header-text">
                             {isNew
@@ -220,7 +220,7 @@ function AccountForm(props)
                     </form>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 

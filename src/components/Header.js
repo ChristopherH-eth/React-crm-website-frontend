@@ -34,7 +34,7 @@ function Header(props)
     React.useEffect(() => {
         const currentUrl = window.location.href                         // URL of current page
         const currentQueryString = window.location.search               // Query string of current URL
-        const navButtons = document.querySelectorAll(".link")           // All nav bar links
+        const navButtons = document.querySelectorAll("#header-link")    // All nav bar links
 
         // Check URLs
         navButtons.forEach(link => {
@@ -66,7 +66,7 @@ function Header(props)
     }, [location])
 
     return (
-        <>
+        <div>
             {location.pathname !== loginPath ? (
                 <header className="header">
                     <div className="header--title--container">
@@ -82,52 +82,52 @@ function Header(props)
                         <div className="header--navigation--lower">
                             <nav className="header--navigation">
                                 <ul className="header--navigation--list">
-                                    <Link className="link" to={"/"}>
+                                    <Link className="link" id="header-link" to={"/"}>
                                         <li className="header--navigation--list--item">
                                             <span>Home</span>
                                         </li>
                                     </Link>
-                                    <Link className="link" to={"leads/page/"}>
+                                    <Link className="link" id="header-link" to={"leads/page/"}>
                                         <li className="header--navigation--list--item">
                                             <span>Leads</span>
                                         </li>
                                     </Link>
-                                    <Link className="link" to={"accounts/page/"}>
+                                    <Link className="link" id="header-link" to={"accounts/page/"}>
                                         <li className="header--navigation--list--item">
                                             <span>Accounts</span>
                                         </li>
                                     </Link>
-                                    <Link className="link" to={"contacts/page/"}>
+                                    <Link className="link" id="header-link" to={"contacts/page/"}>
                                         <li className="header--navigation--list--item">
                                             <span>Contacts</span>
                                         </li>
                                     </Link>
-                                    <Link className="link" to={"javascript:void(0)"}>
+                                    <Link className="link" id="header-link" to={"javascript:void(0)"}>
                                         <li className="header--navigation--list--item">
                                             <span>Sales</span>
                                         </li>
                                     </Link>
-                                    <Link className="link" to={"javascript:void(0)"}>
+                                    <Link className="link" id="header-link" to={"javascript:void(0)"}>
                                         <li className="header--navigation--list--item">
                                             <span>Outreach</span>
                                         </li>
                                     </Link>
-                                    <Link className="link" to={"javascript:void(0)"}>
+                                    <Link className="link" id="header-link" to={"javascript:void(0)"}>
                                         <li className="header--navigation--list--item">
                                             <span>Service</span>
                                         </li>
                                     </Link>
-                                    <Link className="link" to={"javascript:void(0)"}>
+                                    <Link className="link" id="header-link" to={"javascript:void(0)"}>
                                         <li className="header--navigation--list--item">
                                             <span>Calendar</span>
                                         </li>
                                     </Link>
-                                    <Link className="link" to={"javascript:void(0)"}>
+                                    <Link className="link" id="header-link" to={"javascript:void(0)"}>
                                         <li className="header--navigation--list--item">
                                             <span>Dashboards</span>
                                         </li>
                                     </Link>
-                                    <Link className="link" to={"javascript:void(0)"}>
+                                    <Link className="link" id="header-link" to={"javascript:void(0)"}>
                                         <li className="header--navigation--list--item">
                                             <span>Reports</span>
                                         </li>
@@ -153,7 +153,7 @@ function Header(props)
             ) : (
                 <header></header>
             )}
-        </>
+        </div>
     )
 }
 

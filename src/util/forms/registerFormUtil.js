@@ -75,10 +75,10 @@ function registerUserUtil(setRegisterError, registerFormInputClass)
 /**
  * @brief The isValidInput() function checks the validates Register Form input
  * @param setRegisterError Sets the state variable registerError
- * @param firstName
- * @param lastName
- * @param email
- * @param password
+ * @param firstName New user first name
+ * @param lastName New user last name
+ * @param email New User email address
+ * @param password New user password
  * @param confirmPassword Should match value in password field
  */
 function isValidInput(setRegisterError, firstName, lastName, email, password, confirmPassword)

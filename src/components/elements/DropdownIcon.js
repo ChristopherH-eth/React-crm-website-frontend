@@ -19,9 +19,9 @@ function DropdownIcon()
     }
 
     return (
-        <>
+        <div>
             {Icon()}
-        </>
+        </div>
     )
 }
 

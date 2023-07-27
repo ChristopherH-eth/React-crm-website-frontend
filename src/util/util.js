@@ -19,6 +19,17 @@ function clearCurrentFields(classToClear)
 }
 
 /**
+ * @brief The resetScrollBar() function resets the position of the vertical scroll bar of a form.
+ * @param formRef Reference to the form being destroyed
+ */
+function resetScrollBar(formRef)
+{
+    // If the form reference is the current reference reset the scroll bar position
+    if (formRef.current)
+        formRef.current.scrollTop = 0
+}
+
+/**
  * @brief The hideForm() function hides the current form and page mask.
  */
 function hideForm()
@@ -51,10 +62,12 @@ function hideForm()
 /**
  * @brief The destroyForm() function clears the fields of the current form and hides it.
  * @param classToClear The class of the form name to clear
+ * @param formRef Reference to the form being destroyed
  */
-function destroyFormUtil(classToClear)
+function destroyFormUtil(classToClear, formRef)
 {
     clearCurrentFields(classToClear)
+    resetScrollBar(formRef)
     hideForm()
 }
 
@@ -63,10 +76,11 @@ function destroyFormUtil(classToClear)
  *      check if the event was triggered by the user pressing the "Enter" key, and if so, submit the 
  *      selected form.
  * @param event An event picked up by the event listener
- * @param submitForm A reference to the form submission logic
+ * @param submitForm A reference to the form submission function
  */
 function handleSubmitUtil(event, submitForm)
 {
+    // If the key pressed is the "Enter" key then submit the form
     if (event.key === "Enter")
         submitForm()
 }
