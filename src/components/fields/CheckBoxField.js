@@ -1,14 +1,14 @@
 /**
- * @file TextField.js
+ * @file CheckBoxField.js
  * @author 0xChristopher
- * @brief This file is responsible for the TextField component of the CRM website.
+ * @brief This file is responsible for the CheckBoxField component of the CRM website.
  */
 
 /**
- * @brief The TextField() function builds a text field component.
- * @return Returns the text field component to be added to the page
+ * @brief The CheckBoxField() function builds a check box field component.
+ * @return Returns the check box field component to be added to the page
  */
-function TextField(props)
+function CheckBoxField(props)
 {
     const {
         id,                                         // Input element ID
@@ -19,25 +19,25 @@ function TextField(props)
     } = props
 
     // Check if the field is currently editable
-    if(isEditable)
+    if (isEditable)
     {
-        return(
+        return (
             <div>
                 <div className="form--label">
                     {isRequired && <span className="required" title="required">*</span>}
                     <span>{label}</span>
                 </div>
                 <input
-                    className="form--input-field lead-form--input"
+                    className="form--input-field-checkbox lead-form--input"
                     id={id}
-                    type="text"
+                    type="checkbox"
                 ></input>
             </div>
         )
     }
-    else if (!isEditable)
+    if (!isEditable)
     {
-        return(
+        return (
             <div>
                 <div className="form--label">
                     {label}
@@ -47,7 +47,7 @@ function TextField(props)
                 </div>
             </div>
         )
-    } 
+    }
 }
 
-export default TextField
+export default CheckBoxField
