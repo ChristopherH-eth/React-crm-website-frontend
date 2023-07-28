@@ -27,11 +27,21 @@ function TextField(props)
                     {isRequired && <span className="required" title="required">*</span>}
                     <span>{label}</span>
                 </div>
-                <input
-                    className="form--input-field lead-form--input"
-                    id={id}
-                    type="text"
-                ></input>
+                {isRequired 
+                    ?
+                        <input
+                            className="form--input-field lead-form--input"
+                            id={id}
+                            type="text"
+                            required
+                        ></input>
+                    :
+                        <input
+                            className="form--input-field lead-form--input"
+                            id={id}
+                            type="text"
+                        ></input>
+                }
             </div>
         )
     }

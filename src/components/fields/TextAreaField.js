@@ -1,19 +1,20 @@
 /**
- * @file CheckBoxField.js
+ * @file TextAreaField.js
  * @author 0xChristopher
- * @brief This file is responsible for the CheckBoxField component of the CRM website.
+ * @brief This file is responsible for the TextAreaField component of the CRM website.
  */
 
 /**
- * @brief The CheckBoxField() function builds a check box field component.
- * @return Returns the check box field component to be added to the page
+ * @brief The TextAreaField() function builds a text area field component.
+ * @return Returns the text area field component to be added to the page
  */
-function CheckBoxField(props)
+function TextAreaField(props)
 {
     const {
         id,                                         // Input element ID
         label,                                      // Name of field to display
         value,                                      // Current field value
+        rows,                                       // Number of rows to display
         isEditable,                                 // True if field can be edited
         isRequired                                  // True if field is required
     } = props
@@ -29,35 +30,42 @@ function CheckBoxField(props)
                 </div>
                 {isRequired
                     ?
-                        <input
-                            className="form--input-field-checkbox lead-form--input"
+                        <textarea
+                            className="form--input-field lead-form--input"
                             id={id}
-                            type="checkbox"
+                            rows={rows}
+                            type="text"
                             required
-                        ></input>
+                        ></textarea>
                     :
-                        <input
-                            className="form--input-field-checkbox lead-form--input"
+                        <textarea
+                            className="form--input-field lead-form--input"
                             id={id}
-                            type="checkbox"
-                        ></input>
-                }   
+                            rows={rows}
+                            type="text"
+                        ></textarea>
+                }
             </div>
         )
     }
-    else if (!isEditable)
+    else if(!isEditable)
     {
         return (
             <div>
                 <div className="form--label">
                     {label}
                 </div>
-                <div className="form--text">
+                <textarea
+                    className="form--text"
+                    rows={rows}
+                    type="text"
+                    readOnly
+                >
                     {value}
-                </div>
+                </textarea>
             </div>
         )
     }
 }
 
-export default CheckBoxField
+export default TextAreaField
