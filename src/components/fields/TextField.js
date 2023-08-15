@@ -18,6 +18,15 @@ function TextField(props)
         isRequired                                  // True if field is required
     } = props
 
+    // TODO: Add comments and move to field util file
+    function preventNullInput(inputValue)
+    {
+        if (inputValue === null)
+            return ""
+        else
+            return inputValue
+    }
+
     // Check if the field is currently editable
     if(isEditable)
     {
@@ -34,12 +43,14 @@ function TextField(props)
                             id={id}
                             type="text"
                             required
+                            defaultValue={preventNullInput(value)}
                         ></input>
                     :
                         <input
                             className="form--input-field lead-form--input"
                             id={id}
                             type="text"
+                            defaultValue={value}
                         ></input>
                 }
             </div>

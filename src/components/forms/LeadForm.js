@@ -1,6 +1,7 @@
 import React from "react"
 import { addLeadUtil } from "../../util/forms/leadFormUtil"
 import { destroyFormUtil } from "../../util/util"
+import Layout from "../layouts/Layout"
 import TextField from "../fields/TextField"
 
 /**
@@ -16,8 +17,9 @@ import TextField from "../fields/TextField"
 function LeadForm(props)
 {
     const {
+        setIsLoggedIn,                                      // State function for isLoggedIn variable
         user,                                               // Current user
-        isNew,                                              // True if the form is for a new account
+        isNew,                                              // True if the form is for a new lead
         selectedEntry                                       // Entry currently selected
     } = props
 
@@ -28,6 +30,7 @@ function LeadForm(props)
     const destroyForm = () => destroyFormUtil(leadFormInputClass, leadFormRef)
 
     const leadFormInputClass = "lead-form--input"           // Form input fields class
+    const layoutName = "leads"                              // Name of the layout to request
     const leadFormRef = React.useRef(null)                  // Reference to the Lead Form
     const isEditable = true                                 // Make a field editable
     const isRequired = true                                 // Make a field required
@@ -51,7 +54,7 @@ function LeadForm(props)
                     </div>
                     <form className="form--form">
                         {/* General info section */}
-                        <div className="form--subheader">
+                        {/*<div className="form--subheader">
                             Lead Information
                         </div>
                         <TextField
@@ -129,9 +132,9 @@ function LeadForm(props)
                             id="lead-form--status"
                             required
                             type="text"
-                        ></input>
+                        ></input>/*}
                         {/* Lead info section */}
-                        <div className="form--subheader">
+                        {/* <div className="form--subheader">
                             Get In Touch
                         </div>
                         <div className="form--label">
@@ -236,7 +239,14 @@ function LeadForm(props)
                             className="form--input-field lead-form--input"
                             id="lead-form--industry"
                             type="text"
-                        ></input>
+                        ></input> */}
+                        <Layout
+                            setIsLoggedIn={setIsLoggedIn}
+                            layoutName={layoutName}
+                            user={user}
+                            selectedEntry={selectedEntry}
+                            isEditable={isEditable}
+                        />
                         <div className="form--footer-border" />
                         <div className="form--footer-container">
                             <div className="button--container">
