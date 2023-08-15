@@ -77,16 +77,19 @@ function getRouter(
                             setSelectedEntry={setSelectedEntry}
                         />
                         <AccountForm 
+                            setIsLoggedIn={setIsLoggedIn}
                             user={user}
                             isNew={isNew}
                             selectedEntry={selectedEntry}
                         />
                         <ContactForm 
+                            setIsLoggedIn={setIsLoggedIn}
                             user={user}
                             isNew={isNew} 
                             selectedEntry={selectedEntry}
                         />
                         <LeadForm 
+                            setIsLoggedIn={setIsLoggedIn}
                             user={user}
                             isNew={isNew}
                             selectedEntry={selectedEntry}

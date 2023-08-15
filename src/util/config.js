@@ -35,7 +35,8 @@ const ENDPOINTS = {
     register: "/users/register",
     user: "/users",
     tableView: "/tableview",
-    actionBar: "/actionbar"
+    actionBar: "/actionbar",
+    layout: "/layout"
 }
 
 module.exports = { URLS, PATHS, ENDPOINTS }
