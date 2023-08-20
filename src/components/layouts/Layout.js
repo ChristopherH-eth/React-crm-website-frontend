@@ -12,6 +12,8 @@ import Subheader from "../fields/Subheader"
  * @brief This file is responsible for the Layout component of the CRM website.
  */
 
+// TODO: When a entry is selected for editing, those fields are getting cleared on cancel. If the fields don't reredner with new values, they still appear cleared.
+
 /**
  * @brief The Layout() function builds a layout component.
  * @return Returns the layout component to be added to the page

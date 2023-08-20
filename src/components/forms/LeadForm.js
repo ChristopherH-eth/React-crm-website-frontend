@@ -245,6 +245,7 @@ function LeadForm(props)
                             layoutName={layoutName}
                             user={user}
                             selectedEntry={selectedEntry}
+                            isNew={isNew}
                             isEditable={isEditable}
                         />
                         <div className="form--footer-border" />
