@@ -55,8 +55,8 @@ function ResizableTable(props)
     const resizeTimeoutRef = useRef(null)
 
     return (
-        <div className="table-data--table-container">
-            <table className="table-data--table">
+        <div className="table-container">
+            <table className="table">
                 <tbody>
                     {mapTableHeaders()}
                     {mapTableData()}

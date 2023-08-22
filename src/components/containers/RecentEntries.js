@@ -32,7 +32,7 @@ function RecentEntries(props)
                         Recent Leads
                     </div>
                     <div className="main--component--content">
-                        <table className="table-data--table">
+                        <table className="table">
                             <tbody>
                                 {leads()}
                             </tbody>
@@ -50,7 +50,7 @@ function RecentEntries(props)
                         Recent Opportunities
                     </div>
                     <div className="main--component--content">
-                    <table className="table-data--table">
+                    <table className="table">
                             <tbody>
                                 {opportunities()}
                             </tbody>
@@ -68,7 +68,7 @@ function RecentEntries(props)
                         Recent Contacts
                     </div>
                     <div className="main--component--content">
-                        <table className="table-data--table">
+                        <table className="table">
                             <tbody>
                                 {contacts()}
                             </tbody>
@@ -89,7 +89,7 @@ function RecentEntries(props)
                         Recent Accounts
                     </div>
                     <div className="main--component--content">
-                        <table className="table-data--table">
+                        <table className="table">
                             <tbody>
                                 {accounts()}
                             </tbody>

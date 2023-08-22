@@ -119,21 +119,21 @@ function mapTableDataUtil(
 
         // Returns a table row with mapped table details
         return (
-            <tr className="table-data--items" key={dataEntry.id}>
-                <td className="table-data--borderless--centered table-data--5p">
-                    <span className="table-data--content">
+            <tr className="items" key={dataEntry.id}>
+                <td className="borderless--centered table-data--5p">
+                    <span className="content">
                         <Link className="link" to={dataUrl}>{dataEntry.id}</Link>
                     </span>
                 </td>
-                <td className="table-data--borderless--centered table-data--2_5p">
+                <td className="borderless--centered table-data--2_5p">
                     <input
-                        className="table-data--input"
+                        className="input"
                         id="accounts--account-selector"
                         type="checkbox"
                     ></input>
                 </td>
                 {mapColumns(columns, dataEntry, columnWidths, resizingColumn)}
-                <td className="table-data--borderless--centered table-data--5p">
+                <td className="borderless--centered table-data--5p">
                     <DropdownButton
                         type={type}
                         entryId={dataEntry.id}
@@ -191,7 +191,7 @@ function mapTableHeadersUtil(
                     }
                 }
             >
-                <span className="table-data--content">
+                <span className="content">
                     {column.text}
                 </span>
                 {/* Resizer element to handle Mouse Down events and column resizing */}
@@ -214,11 +214,11 @@ function mapTableHeadersUtil(
 
     // Returns a table row
     return (
-        <tr className="table-data--headers">
-            <th className="table-data--end table-data--5p" />
-            <th className="table-data--end table-data--2_5p" />
+        <tr className="headers">
+            <th className="end table-data--5p" />
+            <th className="end table-data--2_5p" />
             {tableHeaders}
-            <th className="table-data--end table-data--5p" />
+            <th className="end table-data--5p" />
         </tr>
     )
 }
@@ -243,7 +243,7 @@ function mapColumns(columns, dataEntry, columnWidths, resizingColumn)
         return (
             <td 
                 key={column.id}
-                className="table-data--borderless"
+                className="borderless"
                 style={
                     {
                         width: columnWidths[column.id], 
@@ -251,7 +251,7 @@ function mapColumns(columns, dataEntry, columnWidths, resizingColumn)
                     }
                 }
             >
-                <span className="table-data--content">
+                <span className="content">
                     {nestedPropertyValue}
                 </span>
             </td>
