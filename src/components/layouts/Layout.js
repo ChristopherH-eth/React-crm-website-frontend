@@ -1,12 +1,18 @@
+import React from "react"
+import { useNavigate } from "react-router-dom"
+import { URLS, ENDPOINTS } from "../../util/config"
 import TextField from "../fields/TextField"
 import CheckBoxField from "../fields/CheckBoxField"
 import TextAreaField from "../fields/TextAreaField"
+import Subheader from "../fields/Subheader"
 
 /**
  * @file Layout.js
  * @author 0xChristopher
  * @brief This file is responsible for the Layout component of the CRM website.
  */
+
+// TODO: When a entry is selected for editing, those fields are getting cleared on cancel. If the fields don't reredner with new values, they still appear cleared.
 
 /**
  * @brief The Layout() function builds a layout component.
@@ -15,67 +21,41 @@ import TextAreaField from "../fields/TextAreaField"
 function Layout(props)
 {
     const {
-        customLayout
+        setIsLoggedIn,                                                              // State function for isLoggedIn variable
+        layoutName,                                                                 // Name of the layout to request
+        user,                                                                       // Current user
+        selectedEntry,                                                              // Entry currently selected
+        isNew,                                                                      // True if the form is for a new entry
+        isEditable                                                                  // True if the field is editable
     } = props
 
-    // A test layout for the RegisterForm component
-    const layout = {
-        fields: [
-            {
-                id: "register-form--first-name",
-                logical_name: "first_name",
-                type: "text",
-                dataType: "text",
-                label: "First Name",
-                col: 1,
-                row: 1,
-                required: true
-            }, 
-            {
-                id: "register-form--last-name",
-                logical_name: "last_name",
-                type: "text",
-                dataType: "text",
-                label: "Last Name",
-                col: 1,
-                row: 1,
-                required: true
-            }, 
-            {
-                id: "register-form--email",
-                logical_name: "email",
-                type: "email",
-                dataType: "email",
-                label: "Email",
-                col: 1,
-                row: 1,
-                required: true
-            }, 
-            {
-                id: "register-form--password",
-                logical_name: "password",
-                type: "password",
-                dataType: "password",
-                label: "Password",
-                col: 1,
-                row: 1,
-                required: true
-            }, 
-            {
-                id: "register-form--confirm-password",
-                logical_name: "confirm_password",
-                type: "password",
-                dataType: "password",
-                label: "Confirm Password",
-                col: 1,
-                row: 1,
-                required: true
-            }
-        ]
-    }
+    const [layoutData, setLayoutData] = React.useState()                            // Current layout array
 
-    // True if the field is editable
-    const isEditable = true
+    // useNavigate hook to redirect browser
+    const navigate = useNavigate()
+
+    const layoutUrl = `${URLS.api}${ENDPOINTS.layout}/${layoutName}`                // Layout API endpoint
+
+    // Request the current layout
+    React.useEffect(() => {
+        fetch(layoutUrl, {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+            .then((res) => res.json().then((data) => ({status: res.status, body: data})))
+            .then((data) => {
+                if (data.status === 401)
+                {
+                    setIsLoggedIn(false)
+                    navigate("/login")
+                }
+                else
+                    setLayoutData(JSON.parse(data.body.layout_data))
+            })
+            .catch(console.error)
+    }, [layoutUrl, navigate, setIsLoggedIn])
 
     /**
      * @brief The fieldType() function builds a field for display on the layout based on its type and
@@ -84,10 +64,16 @@ function Layout(props)
      * @param field The values of the field attributes
      * @returns A field to be placed on the layout
      */
-    function fieldType(dataType, field)
+    function fieldType(dataType, field, value)
     {
         switch(dataType)
         {
+            case "subheader":
+                return (
+                    <Subheader
+                        label={field.label}
+                    />
+                )
             case "text":
             case "email":
             case "password":
@@ -95,6 +81,7 @@ function Layout(props)
                     <TextField 
                         id={field.id}
                         label={field.label}
+                        value={value}
                         isEditable={isEditable}
                         isRequired={field.required}
                     />
@@ -124,11 +111,27 @@ function Layout(props)
 
     return (
         <div>
-            {layout.fields.map((field) => (
-                <div key={field.name}>
-                    {fieldType(field.type, field)}
+            {layoutData && 
+                <div>
+                    {layoutData.fields.map((field) => (
+                        <div key={field.label}>
+                            {/* Pre-fill field values when editing an existing record */}
+                            {isNew
+                                ?
+                                    <div>
+                                        {fieldType(field.type, field)}
+                                    </div>
+                                :
+                                    <div>
+                                        {selectedEntry && <div>
+                                            {fieldType(field.type, field, selectedEntry.lead[field.logical_name])}
+                                        </div>}
+                                    </div>
+                            }
+                        </div>
+                    ))}
                 </div>
-            ))}
+            }
         </div>
     )
 }

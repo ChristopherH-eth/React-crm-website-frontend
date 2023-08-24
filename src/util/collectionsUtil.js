@@ -36,18 +36,18 @@ function getHeadingUtil(type, collectionData, actionBar, setIsNew)
     }                                                                   // showFormUtil callback function
 
     return (
-        <div className="table-data--heading">
+        <div className="heading">
             <div>
-                <div className="table-data--heading-container">
+                <div className="heading-container">
                     <img 
-                        className="table-data--heading-icon" 
+                        className="heading-icon" 
                         src={`/images/icons/${type}Icon.png`}
                         alt={type} 
                     />
-                    <span className="table-data--heading-text">{title()}</span>
+                    <span className="heading-text">{title()}</span>
                 </div>
                 <div>
-                    <span className="table-data--text">
+                    <span className="text">
                         {collectionData.length} {collectionData.length === 1 ? "item" : "items"} selected
                     </span>
                 </div>

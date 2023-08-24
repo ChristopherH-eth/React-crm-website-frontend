@@ -1,7 +1,6 @@
 import React from "react"
 import { registerUserUtil } from "../../util/forms/registerFormUtil"
 import { destroyFormUtil } from "../../util/util"
-import Layout from "../layouts/Layout"
 
 /**
  * @file RegisterForm.js
@@ -40,7 +39,7 @@ function RegisterForm()
                         </div>
                     </div>
                     <form>
-                        {/* <div className="form--label">
+                        <div className="form--label">
                             <span className="required" title="required">*</span>
                             <span>First Name</span>
                         </div>
@@ -87,8 +86,7 @@ function RegisterForm()
                             id="register-form--confirm-password"
                             required
                             type="password"
-                        ></input> */}
-                        <Layout />
+                        ></input>
                         <div className="form--footer-border" />
                         <div className="form--footer-container">
                             <div className="button--container">

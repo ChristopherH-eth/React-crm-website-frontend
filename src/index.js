@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 import reportWebVitals from "./reportWebVitals"
-import "./styles.css"
+import "./css/main.css"
 import CRM from "./components/CRM"
 
 /**

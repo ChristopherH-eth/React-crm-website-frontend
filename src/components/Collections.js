@@ -125,7 +125,7 @@ function Collections(props)
     // Otherwise render page data
     return (
         <section className="collections">
-            <div className="table-data--container">
+            <div className="table-data-container">
                 {getHeading()}
                 <ResizableTable 
                     type={type}
