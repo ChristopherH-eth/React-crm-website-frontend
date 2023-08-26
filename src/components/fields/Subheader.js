@@ -15,7 +15,7 @@ function Subheader(props)
     } = props
 
     return (
-        <div className="form--subheader">
+        <div className="subheader">
             {label}
         </div>
     )

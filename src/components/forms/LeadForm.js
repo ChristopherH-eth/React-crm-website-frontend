@@ -40,8 +40,8 @@ function LeadForm(props)
             {/* Lead Form */}
             <section className="form-container" id="leads-form--container">
                 <div className="form" ref={leadFormRef}>
-                    <div className="form--header">
-                        <div className="form--header-text">
+                    <div className="form-header">
+                        <div className="header-text">
                             {isNew
                                 ? 
                                     "New Lead"
@@ -50,7 +50,7 @@ function LeadForm(props)
                             }
                         </div>
                     </div>
-                    <form className="form--form">
+                    <form>
                         <Layout
                             setIsLoggedIn={setIsLoggedIn}
                             layoutName={layoutName}
@@ -59,8 +59,8 @@ function LeadForm(props)
                             isNew={isNew}
                             isEditable={isEditable}
                         />
-                        <div className="form--footer-border" />
-                        <div className="form--footer-container">
+                        <div className="footer-border" />
+                        <div className="footer-container">
                             <div className="button--container">
                                 <button 
                                     id="add-lead--button"

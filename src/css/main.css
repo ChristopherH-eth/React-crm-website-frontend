@@ -100,7 +100,7 @@ html, body {
 *
 *
 ************************************************************/
-.table-data-container {
+.table-data-container, .main--component--content {
   display: flex;
   flex-direction: column;
   margin: 1rem;
@@ -108,39 +108,39 @@ html, body {
   border: 0.0625rem solid #a7aeb7;
   border-radius: 0.25rem;
 }
-.table-data-container .table {
+.table-data-container .table, .main--component--content .table {
   margin: 0;
   width: 100%;
 }
-.table-data-container .table-container {
+.table-data-container .table-container, .main--component--content .table-container {
   overflow-x: auto;
 }
-.table-data-container .heading {
+.table-data-container .heading, .main--component--content .heading {
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
   align-items: center;
 }
-.table-data-container .heading-container {
+.table-data-container .heading-container, .main--component--content .heading-container {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.table-data-container .heading-text {
+.table-data-container .heading-text, .main--component--content .heading-text {
   font-size: 1rem;
 }
-.table-data-container .text {
+.table-data-container .text, .main--component--content .text {
   margin-top: 1rem;
   margin-bottom: 0.4rem;
   font-size: 0.8rem;
 }
-.table-data-container .headers, .table-data-container .items {
+.table-data-container .headers, .table-data-container .items, .main--component--content .headers, .main--component--content .items {
   display: flex;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
-.table-data-container .table-data {
+.table-data-container .table-data, .main--component--content .table-data {
   position: relative;
   display: flex;
   padding: 0.25rem;
@@ -151,7 +151,7 @@ html, body {
   border-right: 0.0625rem solid #323942;
   border-bottom: 0.0625rem solid #a7aeb7;
 }
-.table-data-container .end {
+.table-data-container .end, .main--component--content .end {
   display: flex;
   padding: 0.25rem;
   font-weight: 700;
@@ -160,7 +160,7 @@ html, body {
   border-top: 0.0625rem solid #323942;
   border-bottom: 0.0625rem solid #a7aeb7;
 }
-.table-data-container .borderless {
+.table-data-container .borderless, .main--component--content .borderless {
   display: flex;
   padding: 0.25rem;
   font-size: 0.8rem;
@@ -168,7 +168,7 @@ html, body {
   background-color: white;
   border-bottom: 0.0625rem solid #a7aeb7;
 }
-.table-data-container .borderless--centered {
+.table-data-container .borderless--centered, .main--component--content .borderless--centered {
   display: flex;
   padding: 0.25rem;
   font-size: 0.8rem;
@@ -177,22 +177,22 @@ html, body {
   background-color: white;
   border-bottom: 0.0625rem solid #a7aeb7;
 }
-.table-data-container .content {
+.table-data-container .content, .main--component--content .content {
   display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.table-data-container .table-data--2_5p {
+.table-data-container .table-data--2_5p, .main--component--content .table-data--2_5p {
   width: 2.5rem;
 }
-.table-data-container .table-data--5p {
+.table-data-container .table-data--5p, .main--component--content .table-data--5p {
   width: 5rem;
 }
-.table-data-container .table-data--fill {
+.table-data-container .table-data--fill, .main--component--content .table-data--fill {
   flex: 1;
 }
-.table-data-container .heading-icon {
+.table-data-container .heading-icon, .main--component--content .heading-icon {
   margin-right: 0.25rem;
   height: 3rem;
   width: 3rem;
@@ -239,8 +239,7 @@ html, body {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
-
-.form {
+.form-container .form {
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -251,69 +250,66 @@ html, body {
   margin-right: auto;
   overflow-y: scroll;
 }
-
-.form--header {
+.form-container .form .form-header {
   margin-bottom: 1rem;
   border-bottom: 0.0625rem solid #323942;
 }
-
-.form--text {
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
-}
-
-.form--header-text {
+.form-container .form .form-header .header-text {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   text-align: center;
 }
-
-.form--subheader {
+.form-container .header {
+  margin-bottom: 1rem;
+  border-bottom: 0.0625rem solid #323942;
+}
+.form-container .text {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+.form-container .header-text {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+.form-container .subheader {
   margin-bottom: 0.75rem;
   padding: 0.25rem;
   background-color: #98a6b8;
   border-radius: 0.625rem;
 }
-
-.form--form {
+.form-container .form {
   width: 100%;
 }
-
-.form--label {
+.form-container .label {
   font-size: 0.75rem;
   margin-bottom: 0.25rem;
 }
-
-.form--input-field {
+.form-container .input-field {
   width: 100%;
   margin-bottom: 1rem;
   font-size: 0.85rem;
 }
-
-.form--input-field-checkbox {
+.form-container .input-field-checkbox {
   margin-bottom: 1rem;
 }
-
-.form--text-centered {
+.form-container .text-centered {
   font-size: 0.75rem;
   margin-top: 1rem;
   text-align: center;
   text-decoration: underline;
   cursor: pointer;
 }
-
-.form--footer-border {
+.form-container .footer-border {
   border-top: 0.0625rem solid #323942;
 }
-
-.form--footer-container {
+.form-container .footer-container {
   display: flex;
   margin-top: 1rem;
   align-items: center;
   justify-content: center;
 }
-
-.form--error {
+.form-container .error {
   display: flex;
   margin-top: 2rem;
   align-items: center;
@@ -463,6 +459,46 @@ html, body {
   border: 0.0625rem solid #a7aeb7;
   border-radius: 0.25rem;
 }
+.login--container .form {
+  width: 100%;
+}
+.login--container .label {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+.login--container .input-field {
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+.login--container .text-centered {
+  font-size: 0.75rem;
+  margin-top: 1rem;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.login--container .header-text {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+.login--container .footer-border {
+  border-top: 0.0625rem solid #323942;
+}
+.login--container .footer-container {
+  display: flex;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.login--container .error {
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  color: red;
+}
 
 .main--get-started {
   padding: 1rem;
@@ -539,14 +575,6 @@ html, body {
 .main--component--header, .main--quick-look--icon--container {
   display: flex;
   align-items: center;
-}
-
-.main--component--content {
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  background-color: white;
-  border: 0.0625rem solid #a7aeb7;
-  border-radius: 0.25rem;
 }
 
 /************************************************************

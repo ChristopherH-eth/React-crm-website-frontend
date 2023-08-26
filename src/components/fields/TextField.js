@@ -48,14 +48,14 @@ function TextField(props)
     {
         return(
             <div>
-                <div className="form--label">
+                <div className="label">
                     {isRequired && <span className="required" title="required">*</span>}
                     <span>{label}</span>
                 </div>
                 {isRequired 
                     ?
                         <input
-                            className="form--input-field lead-form--input"
+                            className="input-field lead-form--input"
                             id={id}
                             type="text"
                             required
@@ -64,7 +64,7 @@ function TextField(props)
                         ></input>
                     :
                         <input
-                            className="form--input-field lead-form--input"
+                            className="input-field lead-form--input"
                             id={id}
                             type="text"
                             value={inputValue}
@@ -78,10 +78,10 @@ function TextField(props)
     {
         return(
             <div>
-                <div className="form--label">
+                <div className="label">
                     {label}
                 </div>
-                <div className="form--text">
+                <div className="text">
                     {value}
                 </div>
             </div>

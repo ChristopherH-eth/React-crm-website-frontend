@@ -35,38 +35,38 @@ function Login(props)
     return (
         <section className="login">
             <div className="login--container">
-                <form className="form--form">
-                    <div className="form--header-text">
+                <form className="form">
+                    <div className="header-text">
                         Welcome to CRM Website!
                     </div>
-                    <div className="form--header-text">
+                    <div className="header-text">
                         Login
                     </div>
-                    <div className="form--label">
+                    <div className="label">
                         Email
                     </div>
                     <input
-                        className="form--input-field"
+                        className="input-field"
                         id="login-form--email"
                         required
                         type="text"
                         onKeyDown={handleSubmit}
                     ></input>
-                    <div className="form--label">
+                    <div className="label">
                         Password
                     </div>
                     <input
-                        className="form--input-field"
+                        className="input-field"
                         id="login-form--password"
                         required
                         type="password"
                         onKeyDown={handleSubmit}
                     ></input>
-                    <div className="form--footer-container">
+                    <div className="footer-container">
                         <div className="button--container">
                             <button
                                 onClick={loginUser}
-                                className="form--footer--button-end"
+                                className="footer--button-end"
                                 id="login-form--login-button"
                                 type="button"
                             >
@@ -74,10 +74,10 @@ function Login(props)
                             </button>
                         </div>
                     </div>
-                    <div className="form--error">
+                    <div className="error">
                         {error}
                     </div>
-                    <div className="form--text-centered" onClick={showRegisterForm}>
+                    <div className="text-centered" onClick={showRegisterForm}>
                         New User? Register Here!
                     </div>
                 </form>

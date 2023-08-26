@@ -105,7 +105,7 @@ html, body {
 *
 ************************************************************/
 
-.table-data-container {
+.table-data-container, .main--component--content {
     display: flex;
     flex-direction: column;
     margin: 1rem;
@@ -260,100 +260,113 @@ html, body {
     animation: fadeInFull 0.5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-}
 
-.form
-{
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    max-width: 70vw;
-    height: 70vh;
-    background-color: white;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-y: scroll;
-}
+    .form
+    {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        max-width: 70vw;
+        height: 70vh;
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-y: scroll;
 
-.form--header
-{
-    margin-bottom: 1rem;
-    border-bottom: 0.0625rem solid #323942;
-}
+        .form-header
+        {
+            margin-bottom: 1rem;
+            border-bottom: 0.0625rem solid #323942;
 
-.form--text
-{
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-}
+            .header-text
+            {
+                margin-bottom: 1rem;
+                font-size: 1.25rem;
+                text-align: center;
+            }
+        }
+    }
 
-.form--header-text
-{
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-    text-align: center;
-}
+    .header
+    {
+        margin-bottom: 1rem;
+        border-bottom: 0.0625rem solid #323942;
+    }
 
-.form--subheader
-{
-    margin-bottom: 0.75rem;
-    padding: 0.25rem;
-    background-color: #98a6b8;
-    border-radius: 0.625rem;
-}
+    .text
+    {
+        margin-bottom: 1rem;
+        font-size: 0.85rem;
+    }
 
-.form--form
-{
-    width: 100%;
-}
+    .header-text
+    {
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+        text-align: center;
+    }
 
-.form--label
-{
-    font-size: 0.75rem;
-    margin-bottom: 0.25rem;
-}
+    .subheader
+    {
+        margin-bottom: 0.75rem;
+        padding: 0.25rem;
+        background-color: #98a6b8;
+        border-radius: 0.625rem;
+    }
 
-.form--input-field
-{
-    width: 100%;
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-}
+    .form
+    {
+        width: 100%;
+    }
 
-.form--input-field-checkbox
-{
-    margin-bottom: 1rem;
-}
+    .label
+    {
+        font-size: 0.75rem;
+        margin-bottom: 0.25rem;
+    }
 
-.form--text-centered
-{
-    font-size: 0.75rem;
-    margin-top: 1rem;
-    text-align: center;
-    text-decoration: underline;
-    cursor: pointer;
-}
+    .input-field
+    {
+        width: 100%;
+        margin-bottom: 1rem;
+        font-size: 0.85rem;
+    }
 
-.form--footer-border
-{
-    border-top: 0.0625rem solid #323942;
-}
+    .input-field-checkbox
+    {
+        margin-bottom: 1rem;
+    }
 
-.form--footer-container
-{
-    display: flex;
-    margin-top: 1rem;
-    align-items: center;
-    justify-content: center;
-}
+    .text-centered
+    {
+        font-size: 0.75rem;
+        margin-top: 1rem;
+        text-align: center;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 
-.form--error
-{
-    display: flex;
-    margin-top: 2rem;
-    align-items: center;
-    justify-content: center;
-    color: red;
+    .footer-border
+    {
+        border-top: 0.0625rem solid #323942;
+    }
+
+    .footer-container
+    {
+        display: flex;
+        margin-top: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .error
+    {
+        display: flex;
+        margin-top: 2rem;
+        align-items: center;
+        justify-content: center;
+        color: red;
+    }
 }
 
 /************************************************************
@@ -517,6 +530,62 @@ html, body {
     background-color: #f1f1ee;
     border: 0.0625rem solid #a7aeb7;
     border-radius: 0.25rem;
+
+    .form
+    {
+        width: 100%;
+    }
+
+    .label
+    {
+        font-size: 0.75rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .input-field
+    {
+        width: 100%;
+        margin-bottom: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .text-centered
+    {
+        font-size: 0.75rem;
+        margin-top: 1rem;
+        text-align: center;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .header-text
+    {
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    .footer-border
+    {
+        border-top: 0.0625rem solid #323942;
+    }
+
+    .footer-container
+    {
+        display: flex;
+        margin-top: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .error
+    {
+        display: flex;
+        margin-top: 2rem;
+        align-items: center;
+        justify-content: center;
+        color: red;
+    }
 }
 
 .main--get-started
@@ -607,14 +676,14 @@ html, body {
     align-items: center;
 }
 
-.main--component--content
-{
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    background-color: white;
-    border: 0.0625rem solid #a7aeb7;
-    border-radius: 0.25rem;
-}
+// .main--component--content
+// {
+//     margin-top: 0.5rem;
+//     padding: 0.5rem;
+//     background-color: white;
+//     border: 0.0625rem solid #a7aeb7;
+//     border-radius: 0.25rem;
+// }
 
 /************************************************************
 * 6. Entry Details
