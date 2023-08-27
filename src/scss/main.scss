@@ -23,6 +23,22 @@ $border-color-light: #a7aeb7;
 $border-color-dark: #323942;
 $scrollbar-track: #21222A;
 $scrollbar-hover: #282D35;
+$subheader-and-dropdown: #98a6b8;
+
+// Fonts
+$primary-font: 0.8rem;
+
+// Mixins
+@mixin tableCell($justify-content: center, $bg-color: none, $border-top: none) {
+    display: flex;
+    padding: 0.25rem;
+    font-size: $primary-font;
+    align-items: center;
+    justify-content: $justify-content;
+    background-color: $bg-color;
+    border-top: $border-top;
+    border-bottom: 0.0625rem solid $border-color-light;
+}
 
 /************************************************************
  * 1. General
@@ -123,11 +139,6 @@ html, body {
     .table {
         margin: 0;
         width: 100%;
-        background-color: white;
-    }
-
-    .table-container {
-        overflow-x: auto;
     }
 
     .heading {
@@ -150,7 +161,7 @@ html, body {
     .text {
         margin-top: 1rem;
         margin-bottom: 0.4rem;
-        font-size: 0.8rem;
+        font-size: $primary-font;
     }
 
     .headers, .items {
@@ -165,7 +176,7 @@ html, body {
         display: flex;
         padding: 0.25rem;
         font-weight: 700;
-        font-size: 0.8rem;
+        font-size: $primary-font;
         align-items: center;
         border-top: 0.0625rem solid $border-color-dark;
         border-right: 0.0625rem solid $border-color-dark;
@@ -173,32 +184,15 @@ html, body {
     }
 
     .end {
-        display: flex;
-        padding: 0.25rem;
-        font-weight: 700;
-        font-size: 0.8rem;
-        align-items: center;
-        border-top: 0.0625rem solid $border-color-dark;
-        border-bottom: 0.0625rem solid $border-color-light;
+        @include tableCell(center, none, 0.0625rem solid $border-color-dark)
     }
 
     .borderless {
-        display: flex;
-        padding: 0.25rem;
-        font-size: 0.8rem;
-        align-items: center;
-        background-color: white;
-        border-bottom: 0.0625rem solid $border-color-light;
+        @include tableCell(none, white, none)
     }
 
     .borderless--centered {
-        display: flex;
-        padding: 0.25rem;
-        font-size: 0.8rem;
-        align-items: center;
-        justify-content: center;
-        background-color: white;
-        border-bottom: 0.0625rem solid $border-color-light;
+        @include tableCell(center, white,);
     }
 
     .content {
@@ -225,6 +219,10 @@ html, body {
         height: 3rem;
         width: 3rem;
     }
+}
+
+.table-container {
+    overflow-x: auto;
 }
 
 .resizer 
@@ -318,13 +316,8 @@ html, body {
     {
         margin-bottom: 0.75rem;
         padding: 0.25rem;
-        background-color: #98a6b8;
+        background-color: $subheader-and-dropdown;
         border-radius: 0.625rem;
-    }
-
-    .form
-    {
-        width: 100%;
     }
 
     .label
@@ -383,7 +376,7 @@ html, body {
 *
 ************************************************************/
 
-.header
+header
 {
     display: flex;
     height: 15vh;
@@ -523,6 +516,73 @@ html, body {
     margin-right: auto;
     height: 100vh;
     background-image: linear-gradient(180deg, $primary-color 0%, white 100%);
+
+    .login--container
+    {
+        display: flex;
+        padding: 1rem;
+        flex-direction: column;
+        width: 35vw;
+        background-color: $background-color;
+        border: 0.0625rem solid $border-color-light;
+        border-radius: 0.25rem;
+
+        .form
+        {
+            width: 100%;
+        }
+
+        .label
+        {
+            font-size: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .input-field
+        {
+            width: 100%;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .text-centered
+        {
+            font-size: 0.75rem;
+            margin-top: 1rem;
+            text-align: center;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .header-text
+        {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            text-align: center;
+        }
+
+        .footer-border
+        {
+            border-top: 0.0625rem solid $border-color-dark;
+        }
+
+        .footer-container
+        {
+            display: flex;
+            margin-top: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error
+        {
+            display: flex;
+            margin-top: 2rem;
+            align-items: center;
+            justify-content: center;
+            color: red;
+        }
+    }
 }
 
 .main--container
@@ -533,73 +593,6 @@ html, body {
     background-color: $background-color;
     border: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
-}
-
-.login--container
-{
-    display: flex;
-    padding: 1rem;
-    flex-direction: column;
-    width: 35vw;
-    background-color: $background-color;
-    border: 0.0625rem solid $border-color-light;
-    border-radius: 0.25rem;
-
-    .form
-    {
-        width: 100%;
-    }
-
-    .label
-    {
-        font-size: 0.75rem;
-        margin-bottom: 0.25rem;
-    }
-
-    .input-field
-    {
-        width: 100%;
-        margin-bottom: 1rem;
-        font-size: 0.85rem;
-    }
-
-    .text-centered
-    {
-        font-size: 0.75rem;
-        margin-top: 1rem;
-        text-align: center;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-
-    .header-text
-    {
-        margin-bottom: 1rem;
-        font-size: 1.25rem;
-        text-align: center;
-    }
-
-    .footer-border
-    {
-        border-top: 0.0625rem solid $border-color-dark;
-    }
-
-    .footer-container
-    {
-        display: flex;
-        margin-top: 1rem;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .error
-    {
-        display: flex;
-        margin-top: 2rem;
-        align-items: center;
-        justify-content: center;
-        color: red;
-    }
 }
 
 .main--get-started
@@ -662,7 +655,7 @@ html, body {
 .main--quick-look--item--caption
 {
     font-weight: 300;
-    font-size: 0.8rem;
+    font-size: $primary-font;
 }
 
 .main--component--container
@@ -820,7 +813,7 @@ html, body {
 .entry-details--header-text
 {
     display: block;
-    font-size: 0.8rem;
+    font-size: $primary-font;
 }
 
 .entry-details--header-value
@@ -834,7 +827,7 @@ html, body {
     display: block;
     margin-top: 1rem;
     margin-bottom: 0.4rem;
-    font-size: 0.8rem;
+    font-size: $primary-font;
 }
 
 .entry-details--value
@@ -945,7 +938,7 @@ html, body {
 
 .dropdown-button--item:hover, .dropdown-menu--item:hover
 {
-    background-color: #98a6b8;
+    background-color: $subheader-and-dropdown;
 }
 
 .dropdown-multi--tags
@@ -973,7 +966,7 @@ html, body {
 .dropdown-search--box
 {
     padding: 0.25rem;
-    background-color: #98a6b8;
+    background-color: $subheader-and-dropdown;
 }
 
 .dropdown-search--box--input
@@ -990,8 +983,7 @@ html, body {
 *
 ************************************************************/
 
-.footer
-{
+footer {
     display: flex;
     flex-direction: column;
     margin-top: 0.5rem;

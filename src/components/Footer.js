@@ -11,7 +11,7 @@
 function Footer()
 {
     return (
-        <footer className="footer">
+        <footer>
             &copy; 2023 Christopher Hardy. All rights reserved.
         </footer>
     )
