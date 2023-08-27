@@ -15,7 +15,14 @@
  * 13. Animations
  */
 
+// Global Colors
 $primary-color: #4c74a9;
+$secondary-color: #246bc8;
+$background-color: #f1f1ee;
+$border-color-light: #a7aeb7;
+$border-color-dark: #323942;
+$scrollbar-track: #21222A;
+$scrollbar-hover: #282D35;
 
 /************************************************************
  * 1. General
@@ -109,13 +116,14 @@ html, body {
     display: flex;
     flex-direction: column;
     margin: 1rem;
-    background-color: #f1f1ee;
-    border: 0.0625rem solid #a7aeb7;
+    background-color: $background-color;
+    border: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
     
     .table {
         margin: 0;
         width: 100%;
+        background-color: white;
     }
 
     .table-container {
@@ -159,9 +167,9 @@ html, body {
         font-weight: 700;
         font-size: 0.8rem;
         align-items: center;
-        border-top: 0.0625rem solid #323942;
-        border-right: 0.0625rem solid #323942;
-        border-bottom: 0.0625rem solid #a7aeb7;
+        border-top: 0.0625rem solid $border-color-dark;
+        border-right: 0.0625rem solid $border-color-dark;
+        border-bottom: 0.0625rem solid $border-color-light;
     }
 
     .end {
@@ -170,8 +178,8 @@ html, body {
         font-weight: 700;
         font-size: 0.8rem;
         align-items: center;
-        border-top: 0.0625rem solid #323942;
-        border-bottom: 0.0625rem solid #a7aeb7;
+        border-top: 0.0625rem solid $border-color-dark;
+        border-bottom: 0.0625rem solid $border-color-light;
     }
 
     .borderless {
@@ -180,7 +188,7 @@ html, body {
         font-size: 0.8rem;
         align-items: center;
         background-color: white;
-        border-bottom: 0.0625rem solid #a7aeb7;
+        border-bottom: 0.0625rem solid $border-color-light;
     }
 
     .borderless--centered {
@@ -190,7 +198,7 @@ html, body {
         align-items: center;
         justify-content: center;
         background-color: white;
-        border-bottom: 0.0625rem solid #a7aeb7;
+        border-bottom: 0.0625rem solid $border-color-light;
     }
 
     .content {
@@ -276,7 +284,7 @@ html, body {
         .form-header
         {
             margin-bottom: 1rem;
-            border-bottom: 0.0625rem solid #323942;
+            border-bottom: 0.0625rem solid $border-color-dark;
 
             .header-text
             {
@@ -290,7 +298,7 @@ html, body {
     .header
     {
         margin-bottom: 1rem;
-        border-bottom: 0.0625rem solid #323942;
+        border-bottom: 0.0625rem solid $border-color-dark;
     }
 
     .text
@@ -348,7 +356,7 @@ html, body {
 
     .footer-border
     {
-        border-top: 0.0625rem solid #323942;
+        border-top: 0.0625rem solid $border-color-dark;
     }
 
     .footer-container
@@ -379,106 +387,112 @@ html, body {
 {
     display: flex;
     height: 15vh;
-    background-color: #f1f1ee;
+    background-color: $background-color;
     color: black;
     align-items: center;
-    border-bottom: 0.1625rem solid #246bc8;
-}
+    border-bottom: 0.1625rem solid $secondary-color;
 
-.header--title--container
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0.5rem;
-    padding-bottom: 1rem;
-    font-weight: 700;
-}
+    .title--container
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0.5rem;
+        padding-bottom: 1rem;
+        font-weight: 700;
+    }
 
-.header--navigation--container
-{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-}
+    .navigation--container
+    {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
 
-.header--navigation
-{
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: 0;
-}
+    .navigation
+    {
+        margin-right: auto;
+        margin-top: auto;
+        margin-bottom: 0;
+    }
 
-.header--navigation--upper
-{
-    flex: 1;
-}
+    .navigation--upper
+    {
+        flex: 1;
+    }
 
-.header--navigation--lower
-{
-    display: flex;
-}
+    .navigation--lower
+    {
+        display: flex;
+    }
 
-.header--navigation--list
-{
-    display: flex;
-    margin-top: auto;
-    margin-bottom: -0.1625rem;
-    list-style-type: none;
-}
+    .navigation--list
+    {
+        display: flex;
+        margin-top: auto;
+        margin-bottom: -0.1625rem;
+        list-style-type: none;
+    }
 
-.header--navigation--list--item
-{
-    padding-top: 1vh;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-    padding-bottom: 2.5vh;
-    font-weight: 300;
-    border-top: 0.1625rem solid #f1f1ee;
-    border-bottom: 0.1625rem solid #246bc8;
-    transition: background-color 0.5s, border-top 0.5s, border-bottom 0.5s;
-}
+    .navigation--list--item
+    {
+        padding-top: 1vh;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        padding-bottom: 2.5vh;
+        font-weight: 300;
+        border-top: 0.1625rem solid $background-color;
+        border-bottom: 0.1625rem solid $secondary-color;
+        transition: background-color 0.5s, border-top 0.5s, border-bottom 0.5s;
+    }
 
-.header--navigation--list--item:hover
-{
-    background-color: #afcef6;
-    border-top: 0.1625rem solid #afcef6;
-    border-bottom: 0.1625rem solid #0047a5;
-}
+    .navigation--list--item:hover
+    {
+        background-color: #afcef6;
+        border-top: 0.1625rem solid #afcef6;
+        border-bottom: 0.1625rem solid #0047a5;
+    }
 
-.header--navigation--list--item-active
-{
-    background-color: #afcef6;
-    border-top: 0.1625rem solid #0047a5;
-    transition: border-top 0.5s, border-bottom 0.5s;
-}
+    .navigation--list--item-active
+    {
+        background-color: #afcef6;
+        border-top: 0.1625rem solid #0047a5;
+        transition: border-top 0.5s, border-bottom 0.5s;
+    }
 
-.header--navigation--list--item-active:hover
-{
-    background-color: #afcef6;
-    border-top: 0.1625rem solid #0047a5;
-}
+    .navigation--list--item-active:hover
+    {
+        background-color: #afcef6;
+        border-top: 0.1625rem solid #0047a5;
+    }
 
-.header--welcome
-{
-    margin-right: 0.5rem;
-    font-weight: 700;
-}
+    .welcome
+    {
+        margin-right: 0.5rem;
+        font-weight: 700;
+    }
 
-.header--welcome--container
-{
-    display: flex;
-    align-items: center;
-    margin-right: 0;
-    margin-left: auto;
-}
+    .welcome--container
+    {
+        display: flex;
+        align-items: center;
+        margin-right: 0;
+        margin-left: auto;
+    }
 
-.header--logout-button-container
-{
-    padding: 0.5rem;
+    .logout-button-container
+    {
+        padding: 0.5rem;
+    }
+
+    .title--logo
+    {
+        height: 5rem;
+        width: 5rem;
+    }
 }
 
 /************************************************************
@@ -516,8 +530,8 @@ html, body {
     display: flex;
     flex-direction: column;
     margin: 1rem;
-    background-color: #f1f1ee;
-    border: 0.0625rem solid #a7aeb7;
+    background-color: $background-color;
+    border: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
 }
 
@@ -527,8 +541,8 @@ html, body {
     padding: 1rem;
     flex-direction: column;
     width: 35vw;
-    background-color: #f1f1ee;
-    border: 0.0625rem solid #a7aeb7;
+    background-color: $background-color;
+    border: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
 
     .form
@@ -567,7 +581,7 @@ html, body {
 
     .footer-border
     {
-        border-top: 0.0625rem solid #323942;
+        border-top: 0.0625rem solid $border-color-dark;
     }
 
     .footer-container
@@ -636,7 +650,7 @@ html, body {
 {
     margin-right: 1rem;
     padding: 0.5rem;
-    border-right: 0.0625rem solid #a7aeb7;
+    border-right: 0.0625rem solid $border-color-light;
 }
 
 .main--quick-look--item--header
@@ -665,8 +679,8 @@ html, body {
     flex: 1;
     margin: 0.5rem;
     padding: 1rem;
-    background-color: #f1f1ee;
-    border: 0.0625rem solid #a7aeb7;
+    background-color: $background-color;
+    border: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
 }
 
@@ -681,7 +695,7 @@ html, body {
 //     margin-top: 0.5rem;
 //     padding: 0.5rem;
 //     background-color: white;
-//     border: 0.0625rem solid #a7aeb7;
+//     border: 0.0625rem solid $border-color-light;
 //     border-radius: 0.25rem;
 // }
 
@@ -703,8 +717,8 @@ html, body {
     display: flex;
     flex-direction: column;
     margin: 0.5rem;
-    background-color: #f1f1ee;
-    border: 0.0625rem solid #a7aeb7;
+    background-color: $background-color;
+    border: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
 }
 
@@ -714,7 +728,7 @@ html, body {
     flex-direction: row;
     align-items: center;
     padding: 0.75rem;
-    background-color: #a7aeb7;
+    background-color: $border-color-light;
 }
 
 .entry-details--main-lower
@@ -749,8 +763,8 @@ html, body {
     margin: 0.5rem;
     padding: 0.75rem;
     width: 65%;
-    background-color: #f1f1ee;
-    border: 0.0625rem solid #a7aeb7;
+    background-color: $background-color;
+    border: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
 }
 
@@ -758,7 +772,7 @@ html, body {
 {
     margin-bottom: 0.5rem;
     padding: 0.5rem;
-    border-bottom: 0.0625rem solid #a7aeb7;
+    border-bottom: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
 }
 
@@ -792,8 +806,8 @@ html, body {
     margin: 0.5rem;
     padding: 1rem;
     width: 35%;
-    background-color: #f1f1ee;
-    border: 0.0625rem solid #a7aeb7;
+    background-color: $background-color;
+    border: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
 }
 
@@ -828,7 +842,7 @@ html, body {
     display: block;
     height: 1.75rem;
     font-size: 0.9rem;
-    border-bottom: 0.0625rem solid #a7aeb7;
+    border-bottom: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
 }
 
@@ -848,7 +862,7 @@ html, body {
 .dropdown-button--container 
 {
     text-align: left;
-    border: 0.0625rem solid #a7aeb7;
+    border: 0.0625rem solid $border-color-light;
     position: relative;
     border-radius: 0.25rem;
 }
@@ -878,7 +892,7 @@ html, body {
     right: 0;
     transform: translateY(0.25rem) translateX(0.25rem);
     width: auto;
-    border: 0.0625rem solid #a7aeb7;
+    border: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
     overflow: auto;
     white-space: nowrap;
@@ -898,7 +912,7 @@ html, body {
     right: 0;
     transform: translateY(0.25rem) translateX(0.25rem);
     width: auto;
-    border: 0.0625rem solid #a7aeb7;
+    border: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
     overflow: auto;
     white-space: nowrap;
@@ -926,7 +940,7 @@ html, body {
 .dropdown-button--item.selected
 {
     color: white;
-    background-color: #246bc8;
+    background-color: $secondary-color;
 }
 
 .dropdown-button--item:hover, .dropdown-menu--item:hover
@@ -946,7 +960,7 @@ html, body {
     display: flex;
     align-items: center;
     padding: 0.25rem;
-    border: 0.0625rem solid #a7aeb7;
+    border: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
 }
 
@@ -966,7 +980,7 @@ html, body {
 {
     width: 100%;
     padding: 0.25rem;
-    border: 0.0625rem solid #a7aeb7;
+    border: 0.0625rem solid $border-color-light;
     border-radius: 0.25rem;
 }
 
@@ -1001,20 +1015,20 @@ button
     padding-left: 1rem;
     padding-right: 1rem;
     color: white;
-    background-color: #246bc8;
-    border: 0.03125rem solid #246bc8;
+    background-color: $secondary-color;
+    border: 0.03125rem solid $secondary-color;
     cursor: pointer;
 }
 
 .secondary-button
 {
-    color: #246bc8;
+    color: $secondary-color;
     background-color: white;
 }
 
 .button--container
 {
-    border: 0.03125rem solid #246bc8;
+    border: 0.03125rem solid $secondary-color;
     border-radius: 0.25rem;
 }
 
@@ -1031,12 +1045,6 @@ button
 *
 *
 ************************************************************/
-
-.header--title--logo
-{
-    height: 5rem;
-    width: 5rem;
-}
 
 .quick-look--icon
 {
@@ -1071,17 +1079,17 @@ button
 
 ::-webkit-scrollbar-track 
 {
-    background: #21222A;
+    background: $scrollbar-track;
 }
 
 ::-webkit-scrollbar-thumb 
 {
-    background: #323942;
+    background: $border-color-dark;
 }
 
 ::-webkit-scrollbar-thumb:hover 
 {
-    background: #282D35;
+    background: $scrollbar-hover;
 }
 
 /************************************************************

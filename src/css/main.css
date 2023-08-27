@@ -111,6 +111,7 @@ html, body {
 .table-data-container .table, .main--component--content .table {
   margin: 0;
   width: 100%;
+  background-color: white;
 }
 .table-data-container .table-container, .main--component--content .table-container {
   overflow-x: auto;
@@ -330,8 +331,7 @@ html, body {
   align-items: center;
   border-bottom: 0.1625rem solid #246bc8;
 }
-
-.header--title--container {
+.header .title--container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -341,36 +341,30 @@ html, body {
   padding-bottom: 1rem;
   font-weight: 700;
 }
-
-.header--navigation--container {
+.header .navigation--container {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
 }
-
-.header--navigation {
+.header .navigation {
   margin-right: auto;
   margin-top: auto;
   margin-bottom: 0;
 }
-
-.header--navigation--upper {
+.header .navigation--upper {
   flex: 1;
 }
-
-.header--navigation--lower {
+.header .navigation--lower {
   display: flex;
 }
-
-.header--navigation--list {
+.header .navigation--list {
   display: flex;
   margin-top: auto;
   margin-bottom: -0.1625rem;
   list-style-type: none;
 }
-
-.header--navigation--list--item {
+.header .navigation--list--item {
   padding-top: 1vh;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -380,38 +374,36 @@ html, body {
   border-bottom: 0.1625rem solid #246bc8;
   transition: background-color 0.5s, border-top 0.5s, border-bottom 0.5s;
 }
-
-.header--navigation--list--item:hover {
+.header .navigation--list--item:hover {
   background-color: #afcef6;
   border-top: 0.1625rem solid #afcef6;
   border-bottom: 0.1625rem solid #0047a5;
 }
-
-.header--navigation--list--item-active {
+.header .navigation--list--item-active {
   background-color: #afcef6;
   border-top: 0.1625rem solid #0047a5;
   transition: border-top 0.5s, border-bottom 0.5s;
 }
-
-.header--navigation--list--item-active:hover {
+.header .navigation--list--item-active:hover {
   background-color: #afcef6;
   border-top: 0.1625rem solid #0047a5;
 }
-
-.header--welcome {
+.header .welcome {
   margin-right: 0.5rem;
   font-weight: 700;
 }
-
-.header--welcome--container {
+.header .welcome--container {
   display: flex;
   align-items: center;
   margin-right: 0;
   margin-left: auto;
 }
-
-.header--logout-button-container {
+.header .logout-button-container {
   padding: 0.5rem;
+}
+.header .title--logo {
+  height: 5rem;
+  width: 5rem;
 }
 
 /************************************************************
@@ -883,11 +875,6 @@ button {
 *
 *
 ************************************************************/
-.header--title--logo {
-  height: 5rem;
-  width: 5rem;
-}
-
 .quick-look--icon {
   height: 3rem;
   width: 3rem;

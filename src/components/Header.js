@@ -41,26 +41,26 @@ function Header(props)
             // Check the home URL
             if (currentUrl === link.href)
             {
-                const linkChild = link.querySelector(".header--navigation--list--item")
-                linkChild.classList.add("header--navigation--list--item-active")
+                const linkChild = link.querySelector(".navigation--list--item")
+                linkChild.classList.add("navigation--list--item-active")
             }
             // Check the current URL if not on home page
             else if (currentUrl.includes(link.href) && link.pathname !== "/")
             {
-                const linkChild = link.querySelector(".header--navigation--list--item")
-                linkChild.classList.add("header--navigation--list--item-active")
+                const linkChild = link.querySelector(".navigation--list--item")
+                linkChild.classList.add("navigation--list--item-active")
             }
             // Check for non-empty query strings
             else if (link.href.indexOf(currentQueryString) !== -1 && currentQueryString !== "")
             {
-                const linkChild = link.querySelector(".header--navigation--list--item")
-                linkChild.classList.add("header--navigation--list--item-active")
+                const linkChild = link.querySelector(".navigation--list--item")
+                linkChild.classList.add("navigation--list--item-active")
             }
             // No match, so link is not active page
             else
             {
-                const linkChild = link.querySelector(".header--navigation--list--item")
-                linkChild.classList.remove("header--navigation--list--item-active")
+                const linkChild = link.querySelector(".navigation--list--item")
+                linkChild.classList.remove("navigation--list--item-active")
             }
         })
     }, [location])
@@ -69,76 +69,76 @@ function Header(props)
         <div>
             {location.pathname !== loginPath ? (
                 <header className="header">
-                    <div className="header--title--container">
+                    <div className="title--container">
                         <img 
-                            className="header--title--logo" 
+                            className="title--logo" 
                             src="/images/logos/crmlogo.png" 
                             alt="crm logo"
                         />
                         <span>CRM Website</span>
                     </div>
-                    <div className="header--navigation--container">
-                        <div className="header--navigation--upper"></div>
-                        <div className="header--navigation--lower">
-                            <nav className="header--navigation">
-                                <ul className="header--navigation--list">
+                    <div className="navigation--container">
+                        <div className="navigation--upper"></div>
+                        <div className="navigation--lower">
+                            <nav className="navigation">
+                                <ul className="navigation--list">
                                     <Link className="link" id="header-link" to={"/"}>
-                                        <li className="header--navigation--list--item">
+                                        <li className="navigation--list--item">
                                             <span>Home</span>
                                         </li>
                                     </Link>
                                     <Link className="link" id="header-link" to={"leads/page/"}>
-                                        <li className="header--navigation--list--item">
+                                        <li className="navigation--list--item">
                                             <span>Leads</span>
                                         </li>
                                     </Link>
                                     <Link className="link" id="header-link" to={"accounts/page/"}>
-                                        <li className="header--navigation--list--item">
+                                        <li className="navigation--list--item">
                                             <span>Accounts</span>
                                         </li>
                                     </Link>
                                     <Link className="link" id="header-link" to={"contacts/page/"}>
-                                        <li className="header--navigation--list--item">
+                                        <li className="navigation--list--item">
                                             <span>Contacts</span>
                                         </li>
                                     </Link>
                                     <Link className="link" id="header-link" to={"javascript:void(0)"}>
-                                        <li className="header--navigation--list--item">
+                                        <li className="navigation--list--item">
                                             <span>Sales</span>
                                         </li>
                                     </Link>
                                     <Link className="link" id="header-link" to={"javascript:void(0)"}>
-                                        <li className="header--navigation--list--item">
+                                        <li className="navigation--list--item">
                                             <span>Outreach</span>
                                         </li>
                                     </Link>
                                     <Link className="link" id="header-link" to={"javascript:void(0)"}>
-                                        <li className="header--navigation--list--item">
+                                        <li className="navigation--list--item">
                                             <span>Service</span>
                                         </li>
                                     </Link>
                                     <Link className="link" id="header-link" to={"javascript:void(0)"}>
-                                        <li className="header--navigation--list--item">
+                                        <li className="navigation--list--item">
                                             <span>Calendar</span>
                                         </li>
                                     </Link>
                                     <Link className="link" id="header-link" to={"javascript:void(0)"}>
-                                        <li className="header--navigation--list--item">
+                                        <li className="navigation--list--item">
                                             <span>Dashboards</span>
                                         </li>
                                     </Link>
                                     <Link className="link" id="header-link" to={"javascript:void(0)"}>
-                                        <li className="header--navigation--list--item">
+                                        <li className="navigation--list--item">
                                             <span>Reports</span>
                                         </li>
                                     </Link>
                                 </ul>
                             </nav>
-                            <div className="header--welcome--container">
-                                <div className="header--welcome">
+                            <div className="welcome--container">
+                                <div className="welcome">
                                     {user && <span>Welcome, {user.first_name}!</span>}
                                 </div>
-                                <div className="header--logout-button-container">
+                                <div className="logout-button-container">
                                     <button
                                         onClick={logoutUser}
                                         type="submit"
