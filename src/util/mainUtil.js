@@ -20,13 +20,13 @@ function mapLeads(leadsData)
     const leads = leadsData.map((lead => {
         return (
             <tr className="items" key={lead.id}>
-                <td className="borderless table-data--10p">
-                    <span className="content">
+                <td className="borderless table-cell-2_5p">
+                    <span className="table-cell-content">
                         <Link className="link" to={`leads/${lead.id}`}>{lead.id}</Link>
                     </span>
                 </td>
-                <td className="borderless table-data--fill">
-                    <span className="content">
+                <td className="borderless table-cell-fill">
+                    <span className="table-cell-content">
                         {lead.first_name}
                     </span>
                 </td>
@@ -48,13 +48,13 @@ function mapOpps(oppsData)
     const opps = oppsData.map((opp => {
         return (
             <tr className="items" key={opp.id}>
-                <td className="borderless table-data--10p">
-                    <span className="content">
+                <td className="borderless table-cell-2_5p">
+                    <span className="table-cell-content">
                         <Link className="link" to={`opportunities/${opp.id}`}>{opp.id}</Link>
                     </span>
                 </td>
-                <td className="borderless table-data--fill">
-                    <span className="content">
+                <td className="borderless table-cell-fill">
+                    <span className="table-cell-content">
                         {opp.opportunity_name}
                     </span>
                 </td>
@@ -76,13 +76,13 @@ function mapContacts(contactsData)
     const contacts = contactsData.map((contact => {
         return (
             <tr className="items" key={contact.id}>
-                <td className="borderless table-data--10p">
-                    <span className="content">
+                <td className="borderless table-cell-2_5p">
+                    <span className="table-cell-content">
                         <Link className="link" to={`contacts/${contact.id}`}>{contact.id}</Link>
                     </span>
                 </td>
-                <td className="borderless table-data--fill">
-                    <span className="content">
+                <td className="borderless table-cell-fill">
+                    <span className="table-cell-content">
                         {contact.first_name}
                     </span>
                 </td>
@@ -104,13 +104,13 @@ function mapAccounts(accountsData)
     const accounts = accountsData.map((account => {
         return (
             <tr className="items" key={account.id}>
-                <td className="borderless table-data--10p">
-                    <span className="content">
+                <td className="borderless table-cell-2_5p">
+                    <span className="table-cell-content">
                         <Link className="link" to={`accounts/${account.id}`}>{account.id}</Link>
                     </span>
                 </td>
-                <td className="borderless table-data--fill">
-                    <span className="content">
+                <td className="borderless table-cell-fill">
+                    <span className="table-cell-content">
                         {account.account_name}
                     </span>
                 </td>

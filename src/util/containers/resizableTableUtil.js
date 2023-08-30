@@ -120,12 +120,12 @@ function mapTableDataUtil(
         // Returns a table row with mapped table details
         return (
             <tr className="items" key={dataEntry.id}>
-                <td className="borderless--centered table-data--5p">
-                    <span className="content">
+                <td className="borderless--centered table-cell-5p">
+                    <span className="table-cell-content">
                         <Link className="link" to={dataUrl}>{dataEntry.id}</Link>
                     </span>
                 </td>
-                <td className="borderless--centered table-data--2_5p">
+                <td className="borderless--centered table-cell-2_5p">
                     <input
                         className="input"
                         id="accounts--account-selector"
@@ -133,7 +133,7 @@ function mapTableDataUtil(
                     ></input>
                 </td>
                 {mapColumns(columns, dataEntry, columnWidths, resizingColumn)}
-                <td className="borderless--centered table-data--5p">
+                <td className="borderless--centered table-cell-5p">
                     <DropdownButton
                         type={type}
                         entryId={dataEntry.id}
@@ -191,7 +191,7 @@ function mapTableHeadersUtil(
                     }
                 }
             >
-                <span className="content">
+                <span className="table-cell-content">
                     {column.text}
                 </span>
                 {/* Resizer element to handle Mouse Down events and column resizing */}
@@ -215,10 +215,10 @@ function mapTableHeadersUtil(
     // Returns a table row
     return (
         <tr className="headers">
-            <th className="end table-data--5p" />
-            <th className="end table-data--2_5p" />
+            <th className="end table-cell-5p" />
+            <th className="end table-cell-2_5p" />
             {tableHeaders}
-            <th className="end table-data--5p" />
+            <th className="end table-cell-5p" />
         </tr>
     )
 }
@@ -251,7 +251,7 @@ function mapColumns(columns, dataEntry, columnWidths, resizingColumn)
                     }
                 }
             >
-                <span className="content">
+                <span className="table-cell-content">
                     {nestedPropertyValue}
                 </span>
             </td>

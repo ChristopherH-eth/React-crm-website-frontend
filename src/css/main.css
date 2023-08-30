@@ -26,7 +26,6 @@
 html, body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #4c74a9;
@@ -100,7 +99,7 @@ html, body {
 *
 *
 ************************************************************/
-.table-data-container, .main--component--content {
+.table-container, .main--component--content {
   display: flex;
   flex-direction: column;
   margin: 1rem;
@@ -108,36 +107,36 @@ html, body {
   border: 0.0625rem solid #a7aeb7;
   border-radius: 0.25rem;
 }
-.table-data-container .table, .main--component--content .table {
+.table-container .table, .main--component--content .table {
   margin: 0;
   width: 100%;
 }
-.table-data-container .heading, .main--component--content .heading {
+.table-container .table-heading, .main--component--content .table-heading {
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
   align-items: center;
 }
-.table-data-container .heading-container, .main--component--content .heading-container {
+.table-container .table-heading-container, .main--component--content .table-heading-container {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.table-data-container .heading-text, .main--component--content .heading-text {
+.table-container .table-heading-text, .main--component--content .table-heading-text {
   font-size: 1rem;
 }
-.table-data-container .text, .main--component--content .text {
+.table-container .text, .main--component--content .text {
   margin-top: 1rem;
   margin-bottom: 0.4rem;
   font-size: 0.8rem;
 }
-.table-data-container .headers, .table-data-container .items, .main--component--content .headers, .main--component--content .items {
+.table-container .headers, .table-container .items, .main--component--content .headers, .main--component--content .items {
   display: flex;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
-.table-data-container .table-data, .main--component--content .table-data {
+.table-container .table-data, .main--component--content .table-data {
   position: relative;
   display: flex;
   padding: 0.25rem;
@@ -148,58 +147,71 @@ html, body {
   border-right: 0.0625rem solid #323942;
   border-bottom: 0.0625rem solid #a7aeb7;
 }
-.table-data-container .end, .main--component--content .end {
+.table-container .end, .main--component--content .end {
   display: flex;
   padding: 0.25rem;
-  font-size: 0.8rem;
   align-items: center;
   justify-content: center;
+  width: none;
+  font-size: 0.8rem;
   background-color: none;
   border-top: 0.0625rem solid #323942;
   border-bottom: 0.0625rem solid #a7aeb7;
 }
-.table-data-container .borderless, .main--component--content .borderless {
+.table-container .end.table-cell-2_5p, .main--component--content .end.table-cell-2_5p {
+  width: 2.5rem;
+}
+.table-container .end.table-cell-5p, .main--component--content .end.table-cell-5p {
+  width: 5rem;
+}
+.table-container .borderless, .main--component--content .borderless {
   display: flex;
   padding: 0.25rem;
-  font-size: 0.8rem;
   align-items: center;
   justify-content: none;
+  font-size: 0.8rem;
   background-color: white;
   border-top: none;
   border-bottom: 0.0625rem solid #a7aeb7;
 }
-.table-data-container .borderless--centered, .main--component--content .borderless--centered {
+.table-container .borderless.table-cell-2_5p, .main--component--content .borderless.table-cell-2_5p {
+  width: 2.5rem;
+}
+.table-container .borderless.table-cell-5p, .main--component--content .borderless.table-cell-5p {
+  width: 5rem;
+}
+.table-container .borderless.table-cell-fill, .main--component--content .borderless.table-cell-fill {
+  flex: 1;
+}
+.table-container .borderless--centered, .main--component--content .borderless--centered {
   display: flex;
   padding: 0.25rem;
-  font-size: 0.8rem;
   align-items: center;
   justify-content: center;
+  font-size: 0.8rem;
   background-color: white;
   border-top: none;
   border-bottom: 0.0625rem solid #a7aeb7;
 }
-.table-data-container .content, .main--component--content .content {
+.table-container .borderless--centered.table-cell-2_5p, .main--component--content .borderless--centered.table-cell-2_5p {
+  width: 2.5rem;
+}
+.table-container .borderless--centered.table-cell-5p, .main--component--content .borderless--centered.table-cell-5p {
+  width: 5rem;
+}
+.table-container .table-cell-content, .main--component--content .table-cell-content {
   display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.table-data-container .table-data--2_5p, .main--component--content .table-data--2_5p {
-  width: 2.5rem;
-}
-.table-data-container .table-data--5p, .main--component--content .table-data--5p {
-  width: 5rem;
-}
-.table-data-container .table-data--fill, .main--component--content .table-data--fill {
-  flex: 1;
-}
-.table-data-container .heading-icon, .main--component--content .heading-icon {
+.table-container .table-heading-icon, .main--component--content .table-heading-icon {
   margin-right: 0.25rem;
   height: 3rem;
   width: 3rem;
 }
 
-.table-container {
+.table-overflow-container {
   overflow-x: auto;
 }
 
@@ -324,7 +336,7 @@ html, body {
 *
 *
 ************************************************************/
-header {
+.header {
   display: flex;
   height: 15vh;
   background-color: #f1f1ee;
@@ -332,7 +344,7 @@ header {
   align-items: center;
   border-bottom: 0.1625rem solid #246bc8;
 }
-header .title--container {
+.header .title--container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -342,30 +354,30 @@ header .title--container {
   padding-bottom: 1rem;
   font-weight: 700;
 }
-header .navigation--container {
+.header .navigation--container {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
 }
-header .navigation {
+.header .navigation {
   margin-right: auto;
   margin-top: auto;
   margin-bottom: 0;
 }
-header .navigation--upper {
+.header .navigation--upper {
   flex: 1;
 }
-header .navigation--lower {
+.header .navigation--lower {
   display: flex;
 }
-header .navigation--list {
+.header .navigation--list {
   display: flex;
   margin-top: auto;
   margin-bottom: -0.1625rem;
   list-style-type: none;
 }
-header .navigation--list--item {
+.header .navigation--list--item {
   padding-top: 1vh;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -375,34 +387,34 @@ header .navigation--list--item {
   border-bottom: 0.1625rem solid #246bc8;
   transition: background-color 0.5s, border-top 0.5s, border-bottom 0.5s;
 }
-header .navigation--list--item:hover {
+.header .navigation--list--item:hover {
   background-color: #afcef6;
   border-top: 0.1625rem solid #afcef6;
   border-bottom: 0.1625rem solid #0047a5;
 }
-header .navigation--list--item-active {
+.header .navigation--list--item-active {
   background-color: #afcef6;
   border-top: 0.1625rem solid #0047a5;
   transition: border-top 0.5s, border-bottom 0.5s;
 }
-header .navigation--list--item-active:hover {
+.header .navigation--list--item-active:hover {
   background-color: #afcef6;
   border-top: 0.1625rem solid #0047a5;
 }
-header .welcome {
+.header .welcome {
   margin-right: 0.5rem;
   font-weight: 700;
 }
-header .welcome--container {
+.header .welcome--container {
   display: flex;
   align-items: center;
   margin-right: 0;
   margin-left: auto;
 }
-header .logout-button-container {
+.header .logout-button-container {
   padding: 0.5rem;
 }
-header .title--logo {
+.header .title--logo {
   height: 5rem;
   width: 5rem;
 }
@@ -826,7 +838,7 @@ header .title--logo {
 *
 *
 ************************************************************/
-footer {
+.footer {
   display: flex;
   flex-direction: column;
   margin-top: 0.5rem;

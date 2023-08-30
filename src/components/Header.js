@@ -68,7 +68,7 @@ function Header(props)
     return (
         <div>
             {location.pathname !== loginPath ? (
-                <header>
+                <header className="header">
                     <div className="title--container">
                         <img 
                             className="title--logo" 
