@@ -42,8 +42,8 @@ function ContactForm(props)
             {/* Contact Form */}
             <section className="form-container" id="contacts-form--container">
                 <div className="form" ref={contactFormRef}>
-                    <div className="form--header">
-                        <div className="form--header-text">
+                    <div className="form-header">
+                        <div className="header-text">
                             {isNew
                                 ? 
                                     "New Contact"
@@ -52,46 +52,46 @@ function ContactForm(props)
                             }
                         </div>
                     </div>
-                    <form className="form--form">
+                    <form>
                         {/* General info section */}
-                        <div className="form--subheader">
+                        <div className="subheader">
                             Contact Information
                         </div>
-                        <div className="form--label">
+                        <div className="label">
                             Contact Owner
                         </div>
-                        <div className="form--text">
+                        <div className="text">
                             {user.full_name}
                         </div>
-                        <div className="form--label">
+                        <div className="label">
                             Salutation
                         </div>
                         <input
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--salutation"
                             type="text"
                         ></input>
-                        <div className="form--label">
+                        <div className="label">
                             <span className="required" title="required">*</span>
                             <span>First Name</span>
                         </div>
                         <input
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--first-name"
                             required 
                             type="text"
                         ></input>
-                        <div className="form--label">
+                        <div className="label">
                             <span className="required" title="required">*</span>
                             <span>Last Name</span>
                         </div>
                         <input
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--last-name"
                             required
                             type="text"
                         ></input>
-                        <div className="form--label">
+                        <div className="label">
                             <span className="required" title="required">*</span>
                             <span>Account Name</span>
                         </div>
@@ -102,104 +102,104 @@ function ContactForm(props)
                             onChange={(value) => setAccountName(value)}
                             isSearchable
                         />
-                        <div className="form--label">
+                        <div className="label">
                             Title
                         </div>
                         <input
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--title"
                             type="text"
                         ></input>
-                        <div className="form--label">
+                        <div className="label">
                             Reports To
                         </div>
                         <input
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--reports-to"
                             type="text"
                         ></input>
-                        <div className="form--label">
+                        <div className="label">
                             Description
                         </div>
                         <textarea
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--description"
                             rows={5}
                             type="text"
                         ></textarea>
                         {/* Contact info section */}
-                        <div className="form--subheader">
+                        <div className="subheader">
                             Get In Touch
                         </div>
-                        <div className="form--label">
+                        <div className="label">
                             Phone
                         </div>
                         <input
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--phone"
                             type="text"
                         ></input>
-                        <div className="form--label">
+                        <div className="label">
                             Email
                         </div>
                         <input
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--email"
                             type="text"
                         ></input>
-                        <div className="form--label">
+                        <div className="label">
                             Email Opt Out
                         </div>
                         <input
-                            className="form--input-field-checkbox contact-form--input"
+                            className="input-field-checkbox contact-form--input"
                             id="contact-form--email-opt-out"
                             type="checkbox"
                         ></input>
-                        <div className="form--subheader">
+                        <div className="subheader">
                             Mailing Address
                         </div>
-                        <div className="form--label">
+                        <div className="label">
                             Street
                         </div>
                         <input
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--street"
                             type="text"
                         ></input>
-                        <div className="form--label">
+                        <div className="label">
                             City
                         </div>
                         <input
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--city"
                             type="text"
                         ></input>
-                        <div className="form--label">
+                        <div className="label">
                             State/Province
                         </div>
                         <input
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--state-province"
                             type="text"
                         ></input>
-                        <div className="form--label">
+                        <div className="label">
                             Zip/Postal Code
                         </div>
                         <input
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--zip-postal"
                             type="text"
                         ></input>
-                        <div className="form--label">
+                        <div className="label">
                             Country
                         </div>
                         <input
-                            className="form--input-field contact-form--input"
+                            className="input-field contact-form--input"
                             id="contact-form--country"
                             type="text"
                         ></input>
-                        <div className="form--footer-border" />
-                        <div className="form--footer-container">
+                        <div className="footer-border" />
+                        <div className="footer-container">
                             <div className="button--container">
                                 <button 
                                     id="add-contact--button"

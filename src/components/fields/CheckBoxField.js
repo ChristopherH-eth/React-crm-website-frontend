@@ -23,21 +23,21 @@ function CheckBoxField(props)
     {
         return (
             <div>
-                <div className="form--label">
+                <div className="label">
                     {isRequired && <span className="required" title="required">*</span>}
                     <span>{label}</span>
                 </div>
                 {isRequired
                     ?
                         <input
-                            className="form--input-field-checkbox lead-form--input"
+                            className="input-field-checkbox lead-form--input"
                             id={id}
                             type="checkbox"
                             required
                         ></input>
                     :
                         <input
-                            className="form--input-field-checkbox lead-form--input"
+                            className="input-field-checkbox lead-form--input"
                             id={id}
                             type="checkbox"
                         ></input>
@@ -49,10 +49,10 @@ function CheckBoxField(props)
     {
         return (
             <div>
-                <div className="form--label">
+                <div className="label">
                     {label}
                 </div>
-                <div className="form--text">
+                <div className="text">
                     {value}
                 </div>
             </div>

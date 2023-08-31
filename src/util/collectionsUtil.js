@@ -36,15 +36,15 @@ function getHeadingUtil(type, collectionData, actionBar, setIsNew)
     }                                                                   // showFormUtil callback function
 
     return (
-        <div className="heading">
+        <div className="table-heading">
             <div>
-                <div className="heading-container">
+                <div className="table-heading-container">
                     <img 
-                        className="heading-icon" 
+                        className="table-heading-icon" 
                         src={`/images/icons/${type}Icon.png`}
                         alt={type} 
                     />
-                    <span className="heading-text">{title()}</span>
+                    <span className="table-heading-text">{title()}</span>
                 </div>
                 <div>
                     <span className="text">

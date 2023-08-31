@@ -26,7 +26,6 @@
 html, body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #4c74a9;
@@ -100,7 +99,7 @@ html, body {
 *
 *
 ************************************************************/
-.table-data-container {
+.table-container, .main--component--content {
   display: flex;
   flex-direction: column;
   margin: 1rem;
@@ -108,39 +107,36 @@ html, body {
   border: 0.0625rem solid #a7aeb7;
   border-radius: 0.25rem;
 }
-.table-data-container .table {
+.table-container .table, .main--component--content .table {
   margin: 0;
   width: 100%;
 }
-.table-data-container .table-container {
-  overflow-x: auto;
-}
-.table-data-container .heading {
+.table-container .table-heading, .main--component--content .table-heading {
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
   align-items: center;
 }
-.table-data-container .heading-container {
+.table-container .table-heading-container, .main--component--content .table-heading-container {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.table-data-container .heading-text {
+.table-container .table-heading-text, .main--component--content .table-heading-text {
   font-size: 1rem;
 }
-.table-data-container .text {
+.table-container .text, .main--component--content .text {
   margin-top: 1rem;
   margin-bottom: 0.4rem;
   font-size: 0.8rem;
 }
-.table-data-container .headers, .table-data-container .items {
+.table-container .headers, .table-container .items, .main--component--content .headers, .main--component--content .items {
   display: flex;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
-.table-data-container .table-data {
+.table-container .table-data, .main--component--content .table-data {
   position: relative;
   display: flex;
   padding: 0.25rem;
@@ -151,51 +147,72 @@ html, body {
   border-right: 0.0625rem solid #323942;
   border-bottom: 0.0625rem solid #a7aeb7;
 }
-.table-data-container .end {
+.table-container .end, .main--component--content .end {
   display: flex;
   padding: 0.25rem;
-  font-weight: 700;
-  font-size: 0.8rem;
   align-items: center;
+  justify-content: center;
+  width: none;
+  font-size: 0.8rem;
+  background-color: none;
   border-top: 0.0625rem solid #323942;
   border-bottom: 0.0625rem solid #a7aeb7;
 }
-.table-data-container .borderless {
+.table-container .end.table-cell-2_5p, .main--component--content .end.table-cell-2_5p {
+  width: 2.5rem;
+}
+.table-container .end.table-cell-5p, .main--component--content .end.table-cell-5p {
+  width: 5rem;
+}
+.table-container .borderless, .main--component--content .borderless {
   display: flex;
   padding: 0.25rem;
-  font-size: 0.8rem;
   align-items: center;
+  justify-content: none;
+  font-size: 0.8rem;
   background-color: white;
+  border-top: none;
   border-bottom: 0.0625rem solid #a7aeb7;
 }
-.table-data-container .borderless--centered {
+.table-container .borderless.table-cell-2_5p, .main--component--content .borderless.table-cell-2_5p {
+  width: 2.5rem;
+}
+.table-container .borderless.table-cell-5p, .main--component--content .borderless.table-cell-5p {
+  width: 5rem;
+}
+.table-container .borderless.table-cell-fill, .main--component--content .borderless.table-cell-fill {
+  flex: 1;
+}
+.table-container .borderless--centered, .main--component--content .borderless--centered {
   display: flex;
   padding: 0.25rem;
-  font-size: 0.8rem;
   align-items: center;
   justify-content: center;
+  font-size: 0.8rem;
   background-color: white;
+  border-top: none;
   border-bottom: 0.0625rem solid #a7aeb7;
 }
-.table-data-container .content {
+.table-container .borderless--centered.table-cell-2_5p, .main--component--content .borderless--centered.table-cell-2_5p {
+  width: 2.5rem;
+}
+.table-container .borderless--centered.table-cell-5p, .main--component--content .borderless--centered.table-cell-5p {
+  width: 5rem;
+}
+.table-container .table-cell-content, .main--component--content .table-cell-content {
   display: block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.table-data-container .table-data--2_5p {
-  width: 2.5rem;
-}
-.table-data-container .table-data--5p {
-  width: 5rem;
-}
-.table-data-container .table-data--fill {
-  flex: 1;
-}
-.table-data-container .heading-icon {
+.table-container .table-heading-icon, .main--component--content .table-heading-icon {
   margin-right: 0.25rem;
   height: 3rem;
   width: 3rem;
+}
+
+.table-overflow-container {
+  overflow-x: auto;
 }
 
 .resizer {
@@ -239,8 +256,7 @@ html, body {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
-
-.form {
+.form-container .form {
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -251,69 +267,63 @@ html, body {
   margin-right: auto;
   overflow-y: scroll;
 }
-
-.form--header {
+.form-container .form .form-header {
   margin-bottom: 1rem;
   border-bottom: 0.0625rem solid #323942;
 }
-
-.form--text {
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
-}
-
-.form--header-text {
+.form-container .form .form-header .header-text {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   text-align: center;
 }
-
-.form--subheader {
+.form-container .header {
+  margin-bottom: 1rem;
+  border-bottom: 0.0625rem solid #323942;
+}
+.form-container .text {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+.form-container .header-text {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+.form-container .subheader {
   margin-bottom: 0.75rem;
   padding: 0.25rem;
   background-color: #98a6b8;
   border-radius: 0.625rem;
 }
-
-.form--form {
-  width: 100%;
-}
-
-.form--label {
+.form-container .label {
   font-size: 0.75rem;
   margin-bottom: 0.25rem;
 }
-
-.form--input-field {
+.form-container .input-field {
   width: 100%;
   margin-bottom: 1rem;
   font-size: 0.85rem;
 }
-
-.form--input-field-checkbox {
+.form-container .input-field-checkbox {
   margin-bottom: 1rem;
 }
-
-.form--text-centered {
+.form-container .text-centered {
   font-size: 0.75rem;
   margin-top: 1rem;
   text-align: center;
   text-decoration: underline;
   cursor: pointer;
 }
-
-.form--footer-border {
+.form-container .footer-border {
   border-top: 0.0625rem solid #323942;
 }
-
-.form--footer-container {
+.form-container .footer-container {
   display: flex;
   margin-top: 1rem;
   align-items: center;
   justify-content: center;
 }
-
-.form--error {
+.form-container .error {
   display: flex;
   margin-top: 2rem;
   align-items: center;
@@ -334,8 +344,7 @@ html, body {
   align-items: center;
   border-bottom: 0.1625rem solid #246bc8;
 }
-
-.header--title--container {
+.header .title--container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -345,36 +354,30 @@ html, body {
   padding-bottom: 1rem;
   font-weight: 700;
 }
-
-.header--navigation--container {
+.header .navigation--container {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
 }
-
-.header--navigation {
+.header .navigation {
   margin-right: auto;
   margin-top: auto;
   margin-bottom: 0;
 }
-
-.header--navigation--upper {
+.header .navigation--upper {
   flex: 1;
 }
-
-.header--navigation--lower {
+.header .navigation--lower {
   display: flex;
 }
-
-.header--navigation--list {
+.header .navigation--list {
   display: flex;
   margin-top: auto;
   margin-bottom: -0.1625rem;
   list-style-type: none;
 }
-
-.header--navigation--list--item {
+.header .navigation--list--item {
   padding-top: 1vh;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -384,38 +387,36 @@ html, body {
   border-bottom: 0.1625rem solid #246bc8;
   transition: background-color 0.5s, border-top 0.5s, border-bottom 0.5s;
 }
-
-.header--navigation--list--item:hover {
+.header .navigation--list--item:hover {
   background-color: #afcef6;
   border-top: 0.1625rem solid #afcef6;
   border-bottom: 0.1625rem solid #0047a5;
 }
-
-.header--navigation--list--item-active {
+.header .navigation--list--item-active {
   background-color: #afcef6;
   border-top: 0.1625rem solid #0047a5;
   transition: border-top 0.5s, border-bottom 0.5s;
 }
-
-.header--navigation--list--item-active:hover {
+.header .navigation--list--item-active:hover {
   background-color: #afcef6;
   border-top: 0.1625rem solid #0047a5;
 }
-
-.header--welcome {
+.header .welcome {
   margin-right: 0.5rem;
   font-weight: 700;
 }
-
-.header--welcome--container {
+.header .welcome--container {
   display: flex;
   align-items: center;
   margin-right: 0;
   margin-left: auto;
 }
-
-.header--logout-button-container {
+.header .logout-button-container {
   padding: 0.5rem;
+}
+.header .title--logo {
+  height: 5rem;
+  width: 5rem;
 }
 
 /************************************************************
@@ -444,21 +445,60 @@ html, body {
   height: 100vh;
   background-image: linear-gradient(180deg, #4c74a9 0%, white 100%);
 }
+.login .login--container {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  width: 35vw;
+  background-color: #f1f1ee;
+  border: 0.0625rem solid #a7aeb7;
+  border-radius: 0.25rem;
+}
+.login .login--container .form {
+  width: 100%;
+}
+.login .login--container .label {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+.login .login--container .input-field {
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+.login .login--container .text-centered {
+  font-size: 0.75rem;
+  margin-top: 1rem;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.login .login--container .header-text {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+.login .login--container .footer-border {
+  border-top: 0.0625rem solid #323942;
+}
+.login .login--container .footer-container {
+  display: flex;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.login .login--container .error {
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  color: red;
+}
 
 .main--container {
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  background-color: #f1f1ee;
-  border: 0.0625rem solid #a7aeb7;
-  border-radius: 0.25rem;
-}
-
-.login--container {
-  display: flex;
-  padding: 1rem;
-  flex-direction: column;
-  width: 35vw;
   background-color: #f1f1ee;
   border: 0.0625rem solid #a7aeb7;
   border-radius: 0.25rem;
@@ -539,14 +579,6 @@ html, body {
 .main--component--header, .main--quick-look--icon--container {
   display: flex;
   align-items: center;
-}
-
-.main--component--content {
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  background-color: white;
-  border: 0.0625rem solid #a7aeb7;
-  border-radius: 0.25rem;
 }
 
 /************************************************************
@@ -855,11 +887,6 @@ button {
 *
 *
 ************************************************************/
-.header--title--logo {
-  height: 5rem;
-  width: 5rem;
-}
-
 .quick-look--icon {
   height: 3rem;
   width: 3rem;

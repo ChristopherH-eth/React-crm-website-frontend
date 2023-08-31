@@ -24,14 +24,14 @@ function TextAreaField(props)
     {
         return (
             <div>
-                <div className="form--label">
+                <div className="label">
                     {isRequired && <span className="required" title="required">*</span>}
                     <span>{label}</span>
                 </div>
                 {isRequired
                     ?
                         <textarea
-                            className="form--input-field lead-form--input"
+                            className="input-field lead-form--input"
                             id={id}
                             rows={rows}
                             type="text"
@@ -39,7 +39,7 @@ function TextAreaField(props)
                         ></textarea>
                     :
                         <textarea
-                            className="form--input-field lead-form--input"
+                            className="input-field lead-form--input"
                             id={id}
                             rows={rows}
                             type="text"
@@ -52,11 +52,11 @@ function TextAreaField(props)
     {
         return (
             <div>
-                <div className="form--label">
+                <div className="label">
                     {label}
                 </div>
                 <textarea
-                    className="form--text"
+                    className="text"
                     rows={rows}
                     type="text"
                     readOnly
