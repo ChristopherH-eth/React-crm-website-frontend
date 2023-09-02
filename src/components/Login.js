@@ -35,7 +35,7 @@ function Login(props)
     return (
         <section className="login">
             <div className="login--container">
-                <form className="form">
+                <form className="login-form">
                     <div className="header-text">
                         Welcome to CRM Website!
                     </div>

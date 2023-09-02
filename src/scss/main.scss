@@ -26,21 +26,35 @@ $scrollbar-hover: #282D35;
 $subheader-and-dropdown: #98a6b8;
 
 // Fonts
-$primary-font: 0.8rem;
+$primary-font-size: 0.8rem;
 
 // Borders
 $primary-border-width: 0.0625rem;
 $primary-border-radius: 0.25rem;
 $secondary-border-radius: 0.625rem;
 
+// Placeholders
+%header-text {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
 // Mixins
+@mixin text($margin-top: 0, $margin-bottom: 0, $font-size: $primary-font-size, $text-align: left) {
+    margin-top: $margin-top;
+    margin-bottom: $margin-bottom;
+    font-size: $font-size;
+    text-align: $text-align;
+}
+
 @mixin tableCell($justify-content: center, $cell-width: auto, $bg-color: none, $border-top: none) {
     display: flex;
     padding: 0.25rem;
     align-items: center;
     justify-content: $justify-content;
     width: $cell-width;
-    font-size: $primary-font;
+    font-size: $primary-font-size;
     background-color: $bg-color;
     border-top: $border-top;
     border-bottom: $primary-border-width solid $border-color-light;
@@ -140,107 +154,106 @@ html, body {
     background-color: $background-color;
     border: $primary-border-width solid $border-color-light;
     border-radius: $primary-border-radius;
+}
     
-    .table {
-        margin: 0;
-        width: 100%;
+.table {
+    margin: 0;
+    width: 100%;
+}
+
+.table-heading {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+    align-items: center;
+}
+
+.table-heading-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.table-heading-text {
+    @include text(null, null, 1rem, null);
+}
+
+.table-text {
+    @include text(1rem, 0.4rem, $primary-font-size, null)
+}
+
+.table-headers, .table-items {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.table-data {
+    position: relative;
+    display: flex;
+    padding: 0.25rem;
+    font-weight: 700;
+    font-size: $primary-font-size;
+    align-items: center;
+    border-top: $primary-border-width solid $border-color-dark;
+    border-right: $primary-border-width solid $border-color-dark;
+    border-bottom: $primary-border-width solid $border-color-light;
+}
+
+.table-cell-end {
+    @include tableCell(center, none, none, $primary-border-width solid $border-color-dark);
+
+    &.table-cell-2_5p {
+        width: 2.5rem;
     }
 
-    .table-heading {
-        display: flex;
-        flex-direction: row;
-        padding: 0.5rem;
-        align-items: center;
-    }
-
-    .table-heading-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .table-heading-text {
-        font-size: 1rem;
-    }
-
-    .text {
-        margin-top: 1rem;
-        margin-bottom: 0.4rem;
-        font-size: $primary-font;
-    }
-
-    .headers, .items {
-        display: flex;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-    }
-
-    .table-data {
-        position: relative;
-        display: flex;
-        padding: 0.25rem;
-        font-weight: 700;
-        font-size: $primary-font;
-        align-items: center;
-        border-top: $primary-border-width solid $border-color-dark;
-        border-right: $primary-border-width solid $border-color-dark;
-        border-bottom: $primary-border-width solid $border-color-light;
-    }
-
-    .end {
-        @include tableCell(center, none, none, $primary-border-width solid $border-color-dark);
-
-        &.table-cell-2_5p {
-            width: 2.5rem;
-        }
-
-        &.table-cell-5p {
-            width: 5rem;
-        }
-    }
-
-    .borderless {
-        @include tableCell(none, null, white, none);
-
-        &.table-cell-2_5p {
-            width: 2.5rem;
-        }
-
-        &.table-cell-5p {
-            width: 5rem;
-        }
-
-        &.table-cell-fill {
-            flex: 1;
-        }
-    }
-
-    .borderless--centered {
-        @include tableCell(center, null, white, none);
-
-        &.table-cell-2_5p {
-            width: 2.5rem;
-        }
-
-        &.table-cell-5p {
-            width: 5rem;
-        }
-    }
-
-    .table-cell-content {
-        display: block;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
-
-    .table-heading-icon {
-        margin-right: 0.25rem;
-        height: 3rem;
-        width: 3rem;
+    &.table-cell-5p {
+        width: 5rem;
     }
 }
+
+.table-cell-borderless {
+    @include tableCell(none, null, white, none);
+
+    &.table-cell-2_5p {
+        width: 2.5rem;
+    }
+
+    &.table-cell-5p {
+        width: 5rem;
+    }
+
+    &.table-cell-fill {
+        flex: 1;
+    }
+}
+
+.table-cell-borderless-centered {
+    @include tableCell(center, null, white, none);
+
+    &.table-cell-2_5p {
+        width: 2.5rem;
+    }
+
+    &.table-cell-5p {
+        width: 5rem;
+    }
+}
+
+.table-cell-content {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.table-heading-icon {
+    margin-right: 0.25rem;
+    height: 3rem;
+    width: 3rem;
+}
+
 
 .table-overflow-container {
     overflow-x: auto;
@@ -287,108 +300,89 @@ html, body {
     animation: fadeInFull 0.5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+}
 
-    .form
-    {
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
-        max-width: 70vw;
-        height: 70vh;
-        background-color: white;
-        margin-left: auto;
-        margin-right: auto;
-        overflow-y: scroll;
+.form
+{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    max-width: 70vw;
+    height: 70vh;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+}
 
-        .form-header
-        {
-            margin-bottom: 1rem;
-            border-bottom: $primary-border-width solid $border-color-dark;
+.form-header
+{
+    margin-bottom: 1rem;
+    border-bottom: $primary-border-width solid $border-color-dark;
+}
 
-            .header-text
-            {
-                margin-bottom: 1rem;
-                font-size: 1.25rem;
-                text-align: center;
-            }
-        }
-    }
+.header-text
+{
+    @extend %header-text;
+}
 
-    .header
-    {
-        margin-bottom: 1rem;
-        border-bottom: $primary-border-width solid $border-color-dark;
-    }
+.form-text {
+    @include text(null, 1rem, 0.85rem, null);
+}
 
-    .text
-    {
-        margin-bottom: 1rem;
-        font-size: 0.85rem;
-    }
+.subheader
+{
+    margin-bottom: 0.75rem;
+    padding: 0.25rem;
+    background-color: $subheader-and-dropdown;
+    border-radius: $secondary-border-radius;
+}
 
-    .header-text
-    {
-        margin-bottom: 1rem;
-        font-size: 1.25rem;
-        text-align: center;
-    }
+.label
+{
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+}
 
-    .subheader
-    {
-        margin-bottom: 0.75rem;
-        padding: 0.25rem;
-        background-color: $subheader-and-dropdown;
-        border-radius: $secondary-border-radius;
-    }
+.input-field {
+    @include text(null, 1rem, 0.85rem, null);
+    width: 100%;
+}
 
-    .label
-    {
-        font-size: 0.75rem;
-        margin-bottom: 0.25rem;
-    }
+.input-field-checkbox
+{
+    margin-bottom: 1rem;
+}
 
-    .input-field
-    {
-        width: 100%;
-        margin-bottom: 1rem;
-        font-size: 0.85rem;
-    }
+.text-centered
+{
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+}
 
-    .input-field-checkbox
-    {
-        margin-bottom: 1rem;
-    }
+.footer-border
+{
+    border-top: $primary-border-width solid $border-color-dark;
+}
 
-    .text-centered
-    {
-        font-size: 0.75rem;
-        margin-top: 1rem;
-        text-align: center;
-        text-decoration: underline;
-        cursor: pointer;
-    }
+.footer-container
+{
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+}
 
-    .footer-border
-    {
-        border-top: $primary-border-width solid $border-color-dark;
-    }
-
-    .footer-container
-    {
-        display: flex;
-        margin-top: 1rem;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .error
-    {
-        display: flex;
-        margin-top: 2rem;
-        align-items: center;
-        justify-content: center;
-        color: red;
-    }
+.error
+{
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    color: red;
 }
 
 /************************************************************
@@ -405,108 +399,108 @@ html, body {
     color: black;
     align-items: center;
     border-bottom: 0.1625rem solid $secondary-color;
+}
 
-    .title--container
-    {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 0.5rem;
-        padding-bottom: 1rem;
-        font-weight: 700;
-    }
+.title--container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+    padding-bottom: 1rem;
+    font-weight: 700;
+}
 
-    .navigation--container
-    {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-    }
+.navigation--container
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
 
-    .navigation
-    {
-        margin-right: auto;
-        margin-top: auto;
-        margin-bottom: 0;
-    }
+.navigation
+{
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: 0;
+}
 
-    .navigation--upper
-    {
-        flex: 1;
-    }
+.navigation--upper
+{
+    flex: 1;
+}
 
-    .navigation--lower
-    {
-        display: flex;
-    }
+.navigation--lower
+{
+    display: flex;
+}
 
-    .navigation--list
-    {
-        display: flex;
-        margin-top: auto;
-        margin-bottom: -0.1625rem;
-        list-style-type: none;
-    }
+.navigation--list
+{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: -0.1625rem;
+    list-style-type: none;
+}
 
-    .navigation--list--item
-    {
-        padding-top: 1vh;
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
-        padding-bottom: 2.5vh;
-        font-weight: 300;
-        border-top: 0.1625rem solid $background-color;
-        border-bottom: 0.1625rem solid $secondary-color;
-        transition: background-color 0.5s, border-top 0.5s, border-bottom 0.5s;
-    }
+.navigation--list--item
+{
+    padding-top: 1vh;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-bottom: 2.5vh;
+    font-weight: 300;
+    border-top: 0.1625rem solid $background-color;
+    border-bottom: 0.1625rem solid $secondary-color;
+    transition: background-color 0.5s, border-top 0.5s, border-bottom 0.5s;
+}
 
-    .navigation--list--item:hover
-    {
-        background-color: #afcef6;
-        border-top: 0.1625rem solid #afcef6;
-        border-bottom: 0.1625rem solid #0047a5;
-    }
+.navigation--list--item:hover
+{
+    background-color: #afcef6;
+    border-top: 0.1625rem solid #afcef6;
+    border-bottom: 0.1625rem solid #0047a5;
+}
 
-    .navigation--list--item-active
-    {
-        background-color: #afcef6;
-        border-top: 0.1625rem solid #0047a5;
-        transition: border-top 0.5s, border-bottom 0.5s;
-    }
+.navigation--list--item-active
+{
+    background-color: #afcef6;
+    border-top: 0.1625rem solid #0047a5;
+    transition: border-top 0.5s, border-bottom 0.5s;
+}
 
-    .navigation--list--item-active:hover
-    {
-        background-color: #afcef6;
-        border-top: 0.1625rem solid #0047a5;
-    }
+.navigation--list--item-active:hover
+{
+    background-color: #afcef6;
+    border-top: 0.1625rem solid #0047a5;
+}
 
-    .welcome
-    {
-        margin-right: 0.5rem;
-        font-weight: 700;
-    }
+.welcome
+{
+    margin-right: 0.5rem;
+    font-weight: 700;
+}
 
-    .welcome--container
-    {
-        display: flex;
-        align-items: center;
-        margin-right: 0;
-        margin-left: auto;
-    }
+.welcome--container
+{
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+    margin-left: auto;
+}
 
-    .logout-button-container
-    {
-        padding: 0.5rem;
-    }
+.logout-button-container
+{
+    padding: 0.5rem;
+}
 
-    .title--logo
-    {
-        height: 5rem;
-        width: 5rem;
-    }
+.title--logo
+{
+    height: 5rem;
+    width: 5rem;
 }
 
 /************************************************************
@@ -537,73 +531,70 @@ html, body {
     margin-right: auto;
     height: 100vh;
     background-image: linear-gradient(180deg, $primary-color 0%, white 100%);
+}
 
-    .login--container
-    {
-        display: flex;
-        padding: 1rem;
-        flex-direction: column;
-        width: 35vw;
-        background-color: $background-color;
-        border: $primary-border-width solid $border-color-light;
-        border-radius: $primary-border-radius;
+.login--container
+{
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    width: 35vw;
+    background-color: $background-color;
+    border: $primary-border-width solid $border-color-light;
+    border-radius: $primary-border-radius;
+}
 
-        .form
-        {
-            width: 100%;
-        }
+.login-form
+{
+    width: 100%;
+}
 
-        .label
-        {
-            font-size: 0.75rem;
-            margin-bottom: 0.25rem;
-        }
+.label
+{
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+}
 
-        .input-field
-        {
-            width: 100%;
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-        }
+.input-field
+{
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
 
-        .text-centered
-        {
-            font-size: 0.75rem;
-            margin-top: 1rem;
-            text-align: center;
-            text-decoration: underline;
-            cursor: pointer;
-        }
+.text-centered
+{
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+}
 
-        .header-text
-        {
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-            text-align: center;
-        }
+.header-text {
+    @extend %header-text;
+}
 
-        .footer-border
-        {
-            border-top: $primary-border-width solid $border-color-dark;
-        }
+.footer-border
+{
+    border-top: $primary-border-width solid $border-color-dark;
+}
 
-        .footer-container
-        {
-            display: flex;
-            margin-top: 1rem;
-            align-items: center;
-            justify-content: center;
-        }
+.footer-container
+{
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+}
 
-        .error
-        {
-            display: flex;
-            margin-top: 2rem;
-            align-items: center;
-            justify-content: center;
-            color: red;
-        }
-    }
+.error
+{
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    color: red;
 }
 
 .main--container
@@ -676,7 +667,7 @@ html, body {
 .main--quick-look--item--caption
 {
     font-weight: 300;
-    font-size: $primary-font;
+    font-size: $primary-font-size;
 }
 
 .main--component--container
@@ -834,7 +825,7 @@ html, body {
 .entry-details--header-text
 {
     display: block;
-    font-size: $primary-font;
+    font-size: $primary-font-size;
 }
 
 .entry-details--header-value
@@ -848,7 +839,7 @@ html, body {
     display: block;
     margin-top: 1rem;
     margin-bottom: 0.4rem;
-    font-size: $primary-font;
+    font-size: $primary-font-size;
 }
 
 .entry-details--value

@@ -53,7 +53,7 @@ function AccountForm(props)
                         <div className="label">
                             Account Owner
                         </div>
-                        <div className="text">
+                        <div className="form-text">
                             {user.full_name}
                         </div>
                         <div className="label">

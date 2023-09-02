@@ -60,7 +60,7 @@ function ContactForm(props)
                         <div className="label">
                             Contact Owner
                         </div>
-                        <div className="text">
+                        <div className="form-text">
                             {user.full_name}
                         </div>
                         <div className="label">
