@@ -14,12 +14,51 @@
  * 12. Toggle and Pseudo Class Styles
  * 13. Animations
  */
-.header-text {
+/************************************************************
+ * Variables
+ *
+ *
+ ************************************************************/
+/************************************************************
+ * Placeholders
+ *
+ *
+ ************************************************************/
+.login-header-text, .form-header-text {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   text-align: center;
 }
 
+.login, .main, .collections, .entry-details, .loading {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(180deg, #4c74a9 0%, white 100%);
+}
+
+.main-component-content, .table-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  background-color: #f1f1ee;
+  border: 0.0625rem solid #a7aeb7;
+  border-radius: 0.25rem;
+}
+
+.entry-details--main-lower, .entry-details--main-upper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.75rem;
+}
+
+/************************************************************
+ * Mixins
+ *
+ *
+ ************************************************************/
 /************************************************************
  * 1. General
  *
@@ -90,14 +129,17 @@ html, body {
   transform: translate(-50%, -50%);
 }
 
-.loading-image {
-  height: 3rem;
-  width: 3rem;
-  animation: rotate 2s linear infinite;
-}
-
 .loading-text {
   margin-top: 0.5rem;
+  margin-bottom: none;
+  font-size: none;
+  text-align: none;
+}
+
+.input-field {
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
 }
 
 /************************************************************
@@ -105,15 +147,6 @@ html, body {
 *
 *
 ************************************************************/
-.table-container, .main--component--content {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem;
-  background-color: #f1f1ee;
-  border: 0.0625rem solid #a7aeb7;
-  border-radius: 0.25rem;
-}
-
 .table {
   margin: 0;
   width: 100%;
@@ -221,12 +254,6 @@ html, body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.table-heading-icon {
-  margin-right: 0.25rem;
-  height: 3rem;
-  width: 3rem;
 }
 
 .table-overflow-container {
@@ -360,7 +387,7 @@ html, body {
   border-bottom: 0.1625rem solid #246bc8;
 }
 
-.title--container {
+.header-title-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -371,35 +398,35 @@ html, body {
   font-weight: 700;
 }
 
-.navigation--container {
+.header-navigation-container {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
 }
 
-.navigation {
+.header-navigation-bar {
   margin-right: auto;
   margin-top: auto;
   margin-bottom: 0;
 }
 
-.navigation--upper {
+.header-navigation-upper {
   flex: 1;
 }
 
-.navigation--lower {
+.header-navigation-lower {
   display: flex;
 }
 
-.navigation--list {
+.header-navigation-list {
   display: flex;
   margin-top: auto;
   margin-bottom: -0.1625rem;
   list-style-type: none;
 }
 
-.navigation--list--item {
+.header-navigation-list-item {
   padding-top: 1vh;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -410,42 +437,37 @@ html, body {
   transition: background-color 0.5s, border-top 0.5s, border-bottom 0.5s;
 }
 
-.navigation--list--item:hover {
+.header-navigation-list-item:hover {
   background-color: #afcef6;
   border-top: 0.1625rem solid #afcef6;
   border-bottom: 0.1625rem solid #0047a5;
 }
 
-.navigation--list--item-active {
+.header-navigation-list-item-active {
   background-color: #afcef6;
   border-top: 0.1625rem solid #0047a5;
   transition: border-top 0.5s, border-bottom 0.5s;
 }
 
-.navigation--list--item-active:hover {
+.header-navigation-list-item-active:hover {
   background-color: #afcef6;
   border-top: 0.1625rem solid #0047a5;
 }
 
-.welcome {
+.header-welcome {
   margin-right: 0.5rem;
   font-weight: 700;
 }
 
-.welcome--container {
+.header-welcome-container {
   display: flex;
   align-items: center;
   margin-right: 0;
   margin-left: auto;
 }
 
-.logout-button-container {
+.header-logout-button-container {
   padding: 0.5rem;
-}
-
-.title--logo {
-  height: 5rem;
-  width: 5rem;
 }
 
 /************************************************************
@@ -454,28 +476,18 @@ html, body {
 *
 ************************************************************/
 .main, .collections, .entry-details, .loading {
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
   height: 85vh;
   overflow-y: scroll;
-  background-image: linear-gradient(180deg, #4c74a9 0%, white 100%);
 }
 
 .login {
-  display: flex;
   padding: 1rem;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
   height: 100vh;
-  background-image: linear-gradient(180deg, #4c74a9 0%, white 100%);
 }
 
-.login--container {
+.login-container {
   display: flex;
   padding: 1rem;
   flex-direction: column;
@@ -489,37 +501,30 @@ html, body {
   width: 100%;
 }
 
-.label {
-  font-size: 0.75rem;
+.login-label {
+  margin-top: none;
   margin-bottom: 0.25rem;
-}
-
-.input-field {
-  width: 100%;
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
-}
-
-.text-centered {
   font-size: 0.75rem;
+  text-align: none;
+}
+
+.login-text-centered {
   margin-top: 1rem;
+  margin-bottom: none;
+  font-size: 0.75rem;
   text-align: center;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.footer-border {
-  border-top: 0.0625rem solid #323942;
-}
-
-.footer-container {
+.login-footer-container {
   display: flex;
   margin-top: 1rem;
   align-items: center;
   justify-content: center;
 }
 
-.error {
+.login-error {
   display: flex;
   margin-top: 2rem;
   align-items: center;
@@ -634,18 +639,7 @@ html, body {
 }
 
 .entry-details--main-upper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0.75rem;
   background-color: #a7aeb7;
-}
-
-.entry-details--main-lower {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0.75rem;
 }
 
 .entry-details--main-lower--element {
@@ -776,26 +770,7 @@ html, body {
   cursor: pointer;
 }
 
-.dropdown-button--menu {
-  position: absolute;
-  z-index: 2;
-  top: 100%;
-  right: 0;
-  transform: translateY(0.25rem) translateX(0.25rem);
-  width: auto;
-  border: 0.0625rem solid #a7aeb7;
-  border-radius: 0.25rem;
-  overflow: auto;
-  white-space: nowrap;
-  max-height: 10rem;
-  background-color: white;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
-  animation: fadeInFull 0.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
-.dropdown-menu {
+.dropdown-button--menu, .dropdown-menu {
   position: absolute;
   z-index: 2;
   top: 100%;
@@ -919,7 +894,15 @@ button {
 *
 *
 ************************************************************/
+.loading-image {
+  margin-right: none;
+  height: 3rem;
+  width: 3rem;
+  animation: rotate 2s linear infinite;
+}
+
 .quick-look--icon {
+  margin-right: none;
   height: 3rem;
   width: 3rem;
 }
@@ -930,10 +913,16 @@ button {
   width: 1.5rem;
 }
 
-.data-entry--icon, .heading-icon {
+.table-heading-icon, .data-entry--icon, .heading-icon {
   margin-right: 0.25rem;
   height: 3rem;
   width: 3rem;
+}
+
+.title--logo {
+  margin-right: none;
+  height: 5rem;
+  width: 5rem;
 }
 
 /************************************************************

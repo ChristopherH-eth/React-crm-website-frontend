@@ -15,15 +15,26 @@
  * 13. Animations
  */
 
+/************************************************************
+ * Variables
+ *
+ *
+ ************************************************************/
+
 // Global Colors
 $primary-color: #4c74a9;
 $secondary-color: #246bc8;
 $background-color: #f1f1ee;
+$background-color-navigation: #afcef6;
 $border-color-light: #a7aeb7;
 $border-color-dark: #323942;
+$border-color-blue: #0047a5;
 $scrollbar-track: #21222A;
 $scrollbar-hover: #282D35;
 $subheader-and-dropdown: #98a6b8;
+$white: white;
+$black: black;
+$red: red;
 
 // Fonts
 $primary-font-size: 0.8rem;
@@ -32,15 +43,50 @@ $primary-font-size: 0.8rem;
 $primary-border-width: 0.0625rem;
 $primary-border-radius: 0.25rem;
 $secondary-border-radius: 0.625rem;
+$header-border: 0.1625rem;
 
-// Placeholders
+/************************************************************
+ * Placeholders
+ *
+ *
+ ************************************************************/
+
 %header-text {
     margin-bottom: 1rem;
     font-size: 1.25rem;
     text-align: center;
 }
 
-// Mixins
+%container {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(180deg, $primary-color 0%, $white 100%);
+}
+
+%container-content {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    background-color: $background-color;
+    border: $primary-border-width solid $border-color-light;
+    border-radius: $primary-border-radius;
+}
+
+%horizontal-format {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.75rem;
+}
+
+/************************************************************
+ * Mixins
+ *
+ *
+ ************************************************************/
+
 @mixin text($margin-top: 0, $margin-bottom: 0, $font-size: $primary-font-size, $text-align: left) {
     margin-top: $margin-top;
     margin-bottom: $margin-bottom;
@@ -58,6 +104,12 @@ $secondary-border-radius: 0.625rem;
     background-color: $bg-color;
     border-top: $border-top;
     border-bottom: $primary-border-width solid $border-color-light;
+}
+
+@mixin image($margin-right: 0.25rem, $height: 3rem, $width: 3rem) {
+    margin-right: $margin-right;
+    height: $height;
+    width: $width;
 }
 
 /************************************************************
@@ -94,7 +146,7 @@ html, body {
 
 .page-mask {
     display: none;
-    background-color: black;
+    background-color: $black;
     opacity: 0.5;
     position: fixed;
     left: 0;
@@ -113,8 +165,8 @@ html, body {
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-color: white;
-    color: black;
+    background-color: $white;
+    color: $black;
 }
 
 .loading-container {
@@ -131,14 +183,14 @@ html, body {
     transform: translate(-50%, -50%);
 }
 
-.loading-image {
-    height: 3rem;
-    width: 3rem;
-    animation: rotate 2s linear infinite
+.loading-text {
+    @include text(0.5rem, none, none, none);
 }
 
-.loading-text {
-    margin-top: 0.5rem;
+.input-field {
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
 }
 
 /************************************************************
@@ -147,13 +199,8 @@ html, body {
 *
 ************************************************************/
 
-.table-container, .main--component--content {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    background-color: $background-color;
-    border: $primary-border-width solid $border-color-light;
-    border-radius: $primary-border-radius;
+.table-container {
+    @extend %container-content;
 }
     
 .table {
@@ -214,7 +261,7 @@ html, body {
 }
 
 .table-cell-borderless {
-    @include tableCell(none, null, white, none);
+    @include tableCell(none, null, $white, none);
 
     &.table-cell-2_5p {
         width: 2.5rem;
@@ -230,7 +277,7 @@ html, body {
 }
 
 .table-cell-borderless-centered {
-    @include tableCell(center, null, white, none);
+    @include tableCell(center, null, $white, none);
 
     &.table-cell-2_5p {
         width: 2.5rem;
@@ -248,19 +295,11 @@ html, body {
     text-overflow: ellipsis;
 }
 
-.table-heading-icon {
-    margin-right: 0.25rem;
-    height: 3rem;
-    width: 3rem;
-}
-
-
 .table-overflow-container {
     overflow-x: auto;
 }
 
-.resizer 
-{
+.resizer {
     position: absolute;
     top: 0;
     right: -0.25rem;
@@ -271,13 +310,11 @@ html, body {
     z-index: 1;
 }
 
-.resizer:hover 
-{
+.resizer:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.resizing 
-{
+.resizing {
     cursor: col-resize;
     user-select: none;
 }
@@ -288,8 +325,7 @@ html, body {
 *
 ************************************************************/
 
-.form-container
-{
+.form-container {
     display: none;
     position: absolute;
     top: 7rem;
@@ -302,27 +338,24 @@ html, body {
     animation-fill-mode: forwards;
 }
 
-.form
-{
+.form {
     display: flex;
     flex-direction: column;
     padding: 1rem;
     max-width: 70vw;
     height: 70vh;
-    background-color: white;
+    background-color: $white;
     margin-left: auto;
     margin-right: auto;
     overflow-y: scroll;
 }
 
-.form-header
-{
+.form-header {
     margin-bottom: 1rem;
     border-bottom: $primary-border-width solid $border-color-dark;
 }
 
-.header-text
-{
+.form-header-text {
     @extend %header-text;
 }
 
@@ -330,16 +363,14 @@ html, body {
     @include text(null, 1rem, 0.85rem, null);
 }
 
-.subheader
-{
+.subheader {
     margin-bottom: 0.75rem;
     padding: 0.25rem;
     background-color: $subheader-and-dropdown;
     border-radius: $secondary-border-radius;
 }
 
-.label
-{
+.label {
     font-size: 0.75rem;
     margin-bottom: 0.25rem;
 }
@@ -349,13 +380,11 @@ html, body {
     width: 100%;
 }
 
-.input-field-checkbox
-{
+.input-field-checkbox {
     margin-bottom: 1rem;
 }
 
-.text-centered
-{
+.text-centered {
     font-size: 0.75rem;
     margin-top: 1rem;
     text-align: center;
@@ -363,26 +392,23 @@ html, body {
     cursor: pointer;
 }
 
-.footer-border
-{
+.footer-border {
     border-top: $primary-border-width solid $border-color-dark;
 }
 
-.footer-container
-{
+.footer-container {
     display: flex;
     margin-top: 1rem;
     align-items: center;
     justify-content: center;
 }
 
-.error
-{
+.error {
     display: flex;
     margin-top: 2rem;
     align-items: center;
     justify-content: center;
-    color: red;
+    color: $red;
 }
 
 /************************************************************
@@ -391,18 +417,16 @@ html, body {
 *
 ************************************************************/
 
-.header
-{
+.header {
     display: flex;
     height: 15vh;
     background-color: $background-color;
-    color: black;
+    color: $black;
     align-items: center;
-    border-bottom: 0.1625rem solid $secondary-color;
+    border-bottom: $header-border solid $secondary-color;
 }
 
-.title--container
-{
+.header-title-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -413,94 +437,76 @@ html, body {
     font-weight: 700;
 }
 
-.navigation--container
-{
+.header-navigation-container {
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
 }
 
-.navigation
-{
+.header-navigation-bar {
     margin-right: auto;
     margin-top: auto;
     margin-bottom: 0;
 }
 
-.navigation--upper
-{
+.header-navigation-upper {
     flex: 1;
 }
 
-.navigation--lower
-{
+.header-navigation-lower {
     display: flex;
 }
 
-.navigation--list
-{
+.header-navigation-list {
     display: flex;
     margin-top: auto;
     margin-bottom: -0.1625rem;
     list-style-type: none;
 }
 
-.navigation--list--item
-{
+.header-navigation-list-item {
     padding-top: 1vh;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
     padding-bottom: 2.5vh;
     font-weight: 300;
-    border-top: 0.1625rem solid $background-color;
-    border-bottom: 0.1625rem solid $secondary-color;
+    border-top: $header-border solid $background-color;
+    border-bottom: $header-border solid $secondary-color;
     transition: background-color 0.5s, border-top 0.5s, border-bottom 0.5s;
 }
 
-.navigation--list--item:hover
-{
-    background-color: #afcef6;
-    border-top: 0.1625rem solid #afcef6;
-    border-bottom: 0.1625rem solid #0047a5;
+.header-navigation-list-item:hover {
+    background-color: $background-color-navigation;
+    border-top: $header-border solid $background-color-navigation;
+    border-bottom: $header-border solid $border-color-blue;
 }
 
-.navigation--list--item-active
-{
-    background-color: #afcef6;
-    border-top: 0.1625rem solid #0047a5;
+.header-navigation-list-item-active {
+    background-color: $background-color-navigation;
+    border-top: $header-border solid $border-color-blue;
     transition: border-top 0.5s, border-bottom 0.5s;
 }
 
-.navigation--list--item-active:hover
-{
-    background-color: #afcef6;
-    border-top: 0.1625rem solid #0047a5;
+.header-navigation-list-item-active:hover {
+    background-color: $background-color-navigation;
+    border-top: $header-border solid $border-color-blue;
 }
 
-.welcome
-{
+.header-welcome {
     margin-right: 0.5rem;
     font-weight: 700;
 }
 
-.welcome--container
-{
+.header-welcome-container {
     display: flex;
     align-items: center;
     margin-right: 0;
     margin-left: auto;
 }
 
-.logout-button-container
-{
+.header-logout-button-container {
     padding: 0.5rem;
-}
-
-.title--logo
-{
-    height: 5rem;
-    width: 5rem;
 }
 
 /************************************************************
@@ -509,32 +515,21 @@ html, body {
 *
 ************************************************************/
 
-.main, .collections, .entry-details, .loading
-{
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
+.main, .collections, .entry-details, .loading {
+    @extend %container;
     height: 85vh;
     overflow-y: scroll;
-    background-image: linear-gradient(180deg, $primary-color 0%, white 100%);
 }
 
-.login
-{
-    display: flex;
+.login {
+    @extend %container;
     padding: 1rem;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
     height: 100vh;
-    background-image: linear-gradient(180deg, $primary-color 0%, white 100%);
 }
 
-.login--container
-{
+.login-container {
     display: flex;
     padding: 1rem;
     flex-direction: column;
@@ -544,61 +539,40 @@ html, body {
     border-radius: $primary-border-radius;
 }
 
-.login-form
-{
+.login-form {
     width: 100%;
 }
 
-.label
-{
-    font-size: 0.75rem;
-    margin-bottom: 0.25rem;
+.login-label {
+    @include text(none, 0.25rem, 0.75rem, none);
 }
 
-.input-field
-{
-    width: 100%;
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
-}
-
-.text-centered
-{
-    font-size: 0.75rem;
-    margin-top: 1rem;
-    text-align: center;
+.login-text-centered {
+    @include text(1rem, none, 0.75rem, center);
     text-decoration: underline;
     cursor: pointer;
 }
 
-.header-text {
+.login-header-text {
     @extend %header-text;
 }
 
-.footer-border
-{
-    border-top: $primary-border-width solid $border-color-dark;
-}
-
-.footer-container
-{
+.login-footer-container {
     display: flex;
     margin-top: 1rem;
     align-items: center;
     justify-content: center;
 }
 
-.error
-{
+.login-error {
     display: flex;
     margin-top: 2rem;
     align-items: center;
     justify-content: center;
-    color: red;
+    color: $red;
 }
 
-.main--container
-{
+.main--container {
     display: flex;
     flex-direction: column;
     margin: 1rem;
@@ -607,15 +581,13 @@ html, body {
     border-radius: $primary-border-radius;
 }
 
-.main--get-started
-{
+.main--get-started {
     padding: 1rem;
     font-weight: 700;
     color: $primary-color;
 }
 
-.main--quick-look
-{
+.main--quick-look {
     padding: 0.5rem;
     margin-bottom: 2rem;
     font-size: 2rem;
@@ -623,8 +595,7 @@ html, body {
     text-align: center;
 }
 
-.main--quick-look--container
-{
+.main--quick-look--container {
     display: flex;
     padding: 0.5rem;
     width: 80%;
@@ -632,53 +603,46 @@ html, body {
     margin-right: auto;
 }
 
-.main--quick-look--item
-{
+.main--quick-look--item {
     display: flex;
     padding: 1rem;
-    background-color: white;
-    color: black;
+    background-color: $white;
+    color: $black;
     text-decoration: none;
-    border: $primary-border-width solid black;
+    border: $primary-border-width solid $black;
     border-radius: $primary-border-radius;
 }
 
-.main--quick-look--item--container
-{
+.main--quick-look--item--container {
     display: flex;
     flex-grow: 1;
     padding: 1rem;
     width: 33%;
 }
 
-.main--quick-look--item--bar
-{
+.main--quick-look--item--bar {
     margin-right: 1rem;
     padding: 0.5rem;
     border-right: $primary-border-width solid $border-color-light;
 }
 
-.main--quick-look--item--header
-{
+.main--quick-look--item--header {
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
-.main--quick-look--item--caption
-{
+.main--quick-look--item--caption {
     font-weight: 300;
     font-size: $primary-font-size;
 }
 
-.main--component--container
-{
+.main--component--container {
     display: flex;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
 
-.main--component
-{
+.main--component {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -689,20 +653,14 @@ html, body {
     border-radius: $primary-border-radius;
 }
 
-.main--component--header, .main--quick-look--icon--container
-{
+.main--component--header, .main--quick-look--icon--container {
     display: flex;
     align-items: center;
 }
 
-// .main--component--content
-// {
-//     margin-top: 0.5rem;
-//     padding: 0.5rem;
-//     background-color: white;
-//     border: $primary-border-width solid $border-color-light;
-//     border-radius: $primary-border-radius;
-// }
+.main-component-content {
+    @extend %container-content;
+}
 
 /************************************************************
 * 6. Entry Details
@@ -710,15 +668,13 @@ html, body {
 *
 ************************************************************/
 
-.entry-details--container
-{
+.entry-details--container {
     display: flex;
     flex-direction: column;
     margin: 0.5rem;
 }
 
-.entry-details--main
-{
+.entry-details--main {
     display: flex;
     flex-direction: column;
     margin: 0.5rem;
@@ -727,42 +683,30 @@ html, body {
     border-radius: $primary-border-radius;
 }
 
-.entry-details--main-upper
-{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0.75rem;
+.entry-details--main-upper {
+    @extend %horizontal-format;
     background-color: $border-color-light;
 }
 
-.entry-details--main-lower
-{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0.75rem;
+.entry-details--main-lower {
+    @extend %horizontal-format;
 }
 
-.entry-details--main-lower--element
-{
+.entry-details--main-lower--element {
     display: flex;
     flex-direction: column;
     margin-right: 2rem;
 }
 
-.entry-details--main-graphic
-{
+.entry-details--main-graphic {
     padding: 0.75rem;
 }
 
-.entry-details--panel-container
-{
+.entry-details--panel-container {
     display: flex;
 }
 
-.entry-details--left-panel
-{
+.entry-details--left-panel {
     display: flex;
     flex-direction: column;
     margin: 0.5rem;
@@ -773,39 +717,34 @@ html, body {
     border-radius: $primary-border-radius;
 }
 
-.entry-details--left-panel--tabs
-{
+.entry-details--left-panel--tabs {
     margin-bottom: 0.5rem;
     padding: 0.5rem;
     border-bottom: $primary-border-width solid $border-color-light;
     border-radius: $primary-border-radius;
 }
 
-.entry-details--left-panel--info-container
-{
+.entry-details--left-panel--info-container {
     display: flex;
     flex-direction: row;
     margin: 0.5rem;
     flex: 1;
 }
 
-.entry-details--left-panel--info-col
-{
+.entry-details--left-panel--info-col {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-.entry-details--left-panel--info
-{
+.entry-details--left-panel--info {
     display: flex;
     flex-direction: column;
     margin-left: 0.25rem;
     margin-right: 0.25rem;
 }
 
-.entry-details--right-panel
-{
+.entry-details--right-panel {
     display: flex;
     flex-direction: column;
     margin: 0.5rem;
@@ -816,34 +755,29 @@ html, body {
     border-radius: $primary-border-radius;
 }
 
-.entry-details--header
-{
+.entry-details--header {
     display: flex;
     flex-direction: column;
 }
 
-.entry-details--header-text
-{
+.entry-details--header-text {
     display: block;
     font-size: $primary-font-size;
 }
 
-.entry-details--header-value
-{
+.entry-details--header-value {
     display: block;
     font-size: 0.9rem;
 }
 
-.entry-details--text
-{
+.entry-details--text {
     display: block;
     margin-top: 1rem;
     margin-bottom: 0.4rem;
     font-size: $primary-font-size;
 }
 
-.entry-details--value
-{
+.entry-details--value {
     display: block;
     height: 1.75rem;
     font-size: 0.9rem;
@@ -851,8 +785,7 @@ html, body {
     border-radius: $primary-border-radius;
 }
 
-.entry-details--value-borderless
-{
+.entry-details--value-borderless {
     display: block;
     height: 1.75rem;
     font-size: 0.9rem;
@@ -864,22 +797,19 @@ html, body {
 *
 ************************************************************/
 
-.dropdown-button--container 
-{
+.dropdown-button--container {
     text-align: left;
     border: $primary-border-width solid $border-color-light;
     position: relative;
     border-radius: $primary-border-radius;
 }
 
-.dropdown-menu--container 
-{
+.dropdown-menu--container {
     text-align: left;
     position: relative;
 }
 
-.dropdown-button--input 
-{
+.dropdown-button--input {
     padding: 0.2rem;
     display: flex;
     align-items: center;
@@ -889,8 +819,7 @@ html, body {
     cursor: pointer;
 }
 
-.dropdown-button--menu
-{
+.dropdown-button--menu, .dropdown-menu {
     position: absolute;
     z-index: 2;
     top: 100%;
@@ -902,66 +831,40 @@ html, body {
     overflow: auto;
     white-space: nowrap;
     max-height: 10rem;
-    background-color: white;
+    background-color: $white;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
     animation: fadeInFull 0.5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
-.dropdown-menu
-{
-    position: absolute;
-    z-index: 2;
-    top: 100%;
-    right: 0;
-    transform: translateY(0.25rem) translateX(0.25rem);
-    width: auto;
-    border: $primary-border-width solid $border-color-light;
-    border-radius: $primary-border-radius;
-    overflow: auto;
-    white-space: nowrap;
-    max-height: 10rem;
-    background-color: white;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
-    animation: fadeInFull 0.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-.dropdown-button--item
-{
+.dropdown-button--item {
     padding: 0.5rem;
     cursor: pointer;
 }
 
-.dropdown-menu--item
-{
+.dropdown-menu--item {
     padding: 0.5rem;
     cursor: pointer;
-    color: black;
+    color: $black;
 }
 
-.dropdown-button--item.selected
-{
-    color: white;
+.dropdown-button--item.selected {
+    color: $white;
     background-color: $secondary-color;
 }
 
-.dropdown-button--item:hover, .dropdown-menu--item:hover
-{
+.dropdown-button--item:hover, .dropdown-menu--item:hover {
     background-color: $subheader-and-dropdown;
 }
 
-.dropdown-multi--tags
-{
+.dropdown-multi--tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.25rem;
 }
 
-.dropdown-multi--tags--item
-{
+.dropdown-multi--tags--item {
     display: flex;
     align-items: center;
     padding: 0.25rem;
@@ -969,20 +872,17 @@ html, body {
     border-radius: $primary-border-radius;
 }
 
-.dropdown-multi--tags--close
-{
+.dropdown-multi--tags--close {
     display: flex;
     align-items: center;
 }
 
-.dropdown-search--box
-{
+.dropdown-search--box {
     padding: 0.25rem;
     background-color: $subheader-and-dropdown;
 }
 
-.dropdown-search--box--input
-{
+.dropdown-search--box--input {
     width: 100%;
     padding: 0.25rem;
     border: $primary-border-width solid $border-color-light;
@@ -1002,7 +902,7 @@ html, body {
     flex: 1;
     padding: 1rem;
     background-color: $primary-color;
-    color: white;
+    color: $white;
     justify-content: center;
     align-items: center;
 }
@@ -1013,31 +913,27 @@ html, body {
 *
 ************************************************************/
 
-button
-{
+button {
     padding: 0.25rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    color: white;
+    color: $white;
     background-color: $secondary-color;
     border: 0.03125rem solid $secondary-color;
     cursor: pointer;
 }
 
-.secondary-button
-{
+.secondary-button {
     color: $secondary-color;
-    background-color: white;
+    background-color: $white;
 }
 
-.button--container
-{
+.button--container {
     border: 0.03125rem solid $secondary-color;
     border-radius: $primary-border-radius;
 }
 
-.action-bar
-{
+.action-bar {
     display: flex;
     margin-left: auto;
     margin-right: 0;
@@ -1050,24 +946,25 @@ button
 *
 ************************************************************/
 
-.quick-look--icon
-{
-    height: 3rem;
-    width: 3rem;
+.loading-image {
+    @include image(none, 3rem, 3rem);
+    animation: rotate 2s linear infinite;
 }
 
-.quick-look--component--icon
-{
-    margin-right: 0.5rem;
-    height: 1.5rem;
-    width: 1.5rem;
+.quick-look--icon {
+    @include image(none, 3rem, 3rem);
 }
 
-.data-entry--icon, .heading-icon
-{
-    margin-right: 0.25rem;
-    height: 3rem;
-    width: 3rem;
+.quick-look--component--icon {
+    @include image(0.5rem, 1.5rem, 1.5rem);
+}
+
+.table-heading-icon, .data-entry--icon, .heading-icon {
+    @include image(0.25rem, 3rem, 3rem);
+}
+
+.title--logo {
+    @include image(none, 5rem, 5rem);
 }
 
 /************************************************************
@@ -1076,23 +973,19 @@ button
 *
 ************************************************************/
 
-::-webkit-scrollbar 
-{
+::-webkit-scrollbar {
     width: 10px;
 }
 
-::-webkit-scrollbar-track 
-{
+::-webkit-scrollbar-track {
     background: $scrollbar-track;
 }
 
-::-webkit-scrollbar-thumb 
-{
+::-webkit-scrollbar-thumb {
     background: $border-color-dark;
 }
 
-::-webkit-scrollbar-thumb:hover 
-{
+::-webkit-scrollbar-thumb:hover {
     background: $scrollbar-hover;
 }
 
@@ -1102,20 +995,17 @@ button
 *
 ************************************************************/
 
-.lock-scroll
-{
+.lock-scroll {
     overflow: hidden;
 }
 
-.show
-{
+.show {
     display: block;
 }
 
-.required
-{
+.required {
     padding-right: 0.15rem;
-    color: red;
+    color: $red;
     cursor: help;
 }
 
@@ -1125,8 +1015,7 @@ button
 *
 ************************************************************/
 
-@keyframes fadeInFull
-{
+@keyframes fadeInFull {
     0% {
         opacity: 0;
     }
@@ -1135,8 +1024,7 @@ button
     }
 }
 
-@keyframes fadeInHalf
-{
+@keyframes fadeInHalf {
     0% {
         opacity: 0;
     }
@@ -1145,8 +1033,7 @@ button
     }
 }
 
-@keyframes rotate 
-{
+@keyframes rotate {
     from {
         transform: rotate(0deg);
     }

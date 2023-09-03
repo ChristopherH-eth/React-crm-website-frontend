@@ -36,7 +36,7 @@ function AccountForm(props)
             <section className="form-container" id="accounts-form--container">
                 <div className="form" ref={accountFormRef}>
                     <div className="form-header">
-                        <div className="header-text">
+                        <div className="form-header-text">
                             {isNew
                                 ? 
                                     "New Account"

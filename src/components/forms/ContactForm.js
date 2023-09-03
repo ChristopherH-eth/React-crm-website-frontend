@@ -43,7 +43,7 @@ function ContactForm(props)
             <section className="form-container" id="contacts-form--container">
                 <div className="form" ref={contactFormRef}>
                     <div className="form-header">
-                        <div className="header-text">
+                        <div className="form-header-text">
                             {isNew
                                 ? 
                                     "New Contact"
