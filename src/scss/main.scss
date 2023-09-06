@@ -963,6 +963,10 @@ button {
     @include image(0.25rem, 3rem, 3rem);
 }
 
+.table-edit-icon {
+    @include image(none, 1rem, 1rem);
+}
+
 .title--logo {
     @include image(none, 5rem, 5rem);
 }

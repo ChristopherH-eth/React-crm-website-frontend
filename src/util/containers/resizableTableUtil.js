@@ -127,10 +127,17 @@ function mapTableDataUtil(
                 </td>
                 <td className="table-cell-borderless-centered table-cell-2_5p">
                     <input
-                        className="input"
+                        className="entry-selector"
                         id="accounts--account-selector"
                         type="checkbox"
                     ></input>
+                </td>
+                <td className="table-cell-borderless-centered table-cell-2_5p">
+                    <img
+                        className="table-edit-icon"
+                        src="/images/icons/editIcon.png"
+                        alt="edit icon"
+                    />
                 </td>
                 {mapColumns(columns, dataEntry, columnWidths, resizingColumn)}
                 <td className="table-cell-borderless-centered table-cell-5p">
@@ -216,6 +223,7 @@ function mapTableHeadersUtil(
     return (
         <tr className="table-headers">
             <th className="table-cell-end table-cell-5p" />
+            <th className="table-cell-end table-cell-2_5p" />
             <th className="table-cell-end table-cell-2_5p" />
             {tableHeaders}
             <th className="table-cell-end table-cell-5p" />

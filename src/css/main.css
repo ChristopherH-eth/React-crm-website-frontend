@@ -919,6 +919,12 @@ button {
   width: 3rem;
 }
 
+.table-edit-icon {
+  margin-right: none;
+  height: 1rem;
+  width: 1rem;
+}
+
 .title--logo {
   margin-right: none;
   height: 5rem;
