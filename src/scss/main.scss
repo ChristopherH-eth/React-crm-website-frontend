@@ -964,7 +964,8 @@ button {
 }
 
 .table-edit-icon {
-    @include image(none, 1rem, 1rem);
+    @include image(none, 1.25rem, 1.25rem);
+    cursor: pointer;
 }
 
 .title--logo {

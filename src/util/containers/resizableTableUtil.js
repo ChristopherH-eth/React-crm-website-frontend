@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom"
 import DropdownButton from "../../components/elements/DropdownButton"
 import { URLS, ENDPOINTS } from "../config"
+import { editEntryUtil } from "../elements/dropdownButtonUtil"
 
 /**
  * @file resizableTableUtil.js
  * @author 0xChristopher
  * @brief This file contains functions used in ResizableTable component manipulation.
  */
+
 
 /**
  * @brief The handleColumnResize() callback function handles column resizing after a 'resizer' element
@@ -114,6 +116,9 @@ function mapTableDataUtil(
 {
     // Map data entries
     const data = dataEntries.map((dataEntry) => {
+        // Component function stored in dropdownButtonUtil
+        const editEntry = () => editEntryUtil(type, dataEntry.id, setIsLoggedIn, navigate, setIsNew, setSelectedEntry)
+
         // Data entry url
         const dataUrl = `${URLS.base}${ENDPOINTS[type]}/${dataEntry.id}`
 
@@ -137,6 +142,7 @@ function mapTableDataUtil(
                         className="table-edit-icon"
                         src="/images/icons/editIcon.png"
                         alt="edit icon"
+                        onClick={editEntry}
                     />
                 </td>
                 {mapColumns(columns, dataEntry, columnWidths, resizingColumn)}
