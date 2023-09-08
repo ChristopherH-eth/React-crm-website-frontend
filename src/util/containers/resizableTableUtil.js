@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom"
 import DropdownButton from "../../components/elements/DropdownButton"
 import { URLS, ENDPOINTS } from "../config"
+import { editEntryUtil } from "../elements/dropdownButtonUtil"
 
 /**
  * @file resizableTableUtil.js
  * @author 0xChristopher
  * @brief This file contains functions used in ResizableTable component manipulation.
  */
+
 
 /**
  * @brief The handleColumnResize() callback function handles column resizing after a 'resizer' element
@@ -114,26 +116,37 @@ function mapTableDataUtil(
 {
     // Map data entries
     const data = dataEntries.map((dataEntry) => {
+        // Component function stored in dropdownButtonUtil
+        const editEntry = () => editEntryUtil(type, dataEntry.id, setIsLoggedIn, navigate, setIsNew, setSelectedEntry)
+
         // Data entry url
         const dataUrl = `${URLS.base}${ENDPOINTS[type]}/${dataEntry.id}`
 
         // Returns a table row with mapped table details
         return (
-            <tr className="items" key={dataEntry.id}>
-                <td className="borderless--centered table-cell-5p">
+            <tr className="table-items" key={dataEntry.id}>
+                <td className="table-cell-borderless-centered table-cell-5p">
                     <span className="table-cell-content">
                         <Link className="link" to={dataUrl}>{dataEntry.id}</Link>
                     </span>
                 </td>
-                <td className="borderless--centered table-cell-2_5p">
+                <td className="table-cell-borderless-centered table-cell-2_5p">
                     <input
-                        className="input"
+                        className="entry-selector"
                         id="accounts--account-selector"
                         type="checkbox"
                     ></input>
                 </td>
+                <td className="table-cell-borderless-centered table-cell-2_5p">
+                    <img
+                        className="table-edit-icon"
+                        src="/images/icons/editIcon.png"
+                        alt="edit icon"
+                        onClick={editEntry}
+                    />
+                </td>
                 {mapColumns(columns, dataEntry, columnWidths, resizingColumn)}
-                <td className="borderless--centered table-cell-5p">
+                <td className="table-cell-borderless-centered table-cell-5p">
                     <DropdownButton
                         type={type}
                         entryId={dataEntry.id}
@@ -214,11 +227,12 @@ function mapTableHeadersUtil(
 
     // Returns a table row
     return (
-        <tr className="headers">
-            <th className="end table-cell-5p" />
-            <th className="end table-cell-2_5p" />
+        <tr className="table-headers">
+            <th className="table-cell-end table-cell-5p" />
+            <th className="table-cell-end table-cell-2_5p" />
+            <th className="table-cell-end table-cell-2_5p" />
             {tableHeaders}
-            <th className="end table-cell-5p" />
+            <th className="table-cell-end table-cell-5p" />
         </tr>
     )
 }
@@ -243,7 +257,7 @@ function mapColumns(columns, dataEntry, columnWidths, resizingColumn)
         return (
             <td 
                 key={column.id}
-                className="borderless"
+                className="table-cell-borderless"
                 style={
                     {
                         width: columnWidths[column.id], 

@@ -31,7 +31,7 @@ function RecentEntries(props)
                         />
                         Recent Leads
                     </div>
-                    <div className="main--component--content">
+                    <div className="main-component-content">
                         <table className="table">
                             <tbody>
                                 {leads()}
@@ -49,7 +49,7 @@ function RecentEntries(props)
                         />
                         Recent Opportunities
                     </div>
-                    <div className="main--component--content">
+                    <div className="main-component-content">
                     <table className="table">
                             <tbody>
                                 {opportunities()}
@@ -67,7 +67,7 @@ function RecentEntries(props)
                         />
                         Recent Contacts
                     </div>
-                    <div className="main--component--content">
+                    <div className="main-component-content">
                         <table className="table">
                             <tbody>
                                 {contacts()}
@@ -88,7 +88,7 @@ function RecentEntries(props)
                         />
                         Recent Accounts
                     </div>
-                    <div className="main--component--content">
+                    <div className="main-component-content">
                         <table className="table">
                             <tbody>
                                 {accounts()}
@@ -101,7 +101,7 @@ function RecentEntries(props)
                     <div className="main--component--header">
                         Component
                     </div>
-                    <div className="main--component--content">
+                    <div className="main-component-content">
                         Content
                     </div>
                 </div>
@@ -110,7 +110,7 @@ function RecentEntries(props)
                     <div className="main--component--header">
                         Component
                     </div>
-                    <div className="main--component--content">
+                    <div className="main-component-content">
                         Content
                     </div>
                 </div>

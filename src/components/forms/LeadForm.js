@@ -41,7 +41,7 @@ function LeadForm(props)
             <section className="form-container" id="leads-form--container">
                 <div className="form" ref={leadFormRef}>
                     <div className="form-header">
-                        <div className="header-text">
+                        <div className="form-header-text">
                             {isNew
                                 ? 
                                     "New Lead"

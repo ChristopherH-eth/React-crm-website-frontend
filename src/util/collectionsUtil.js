@@ -47,7 +47,7 @@ function getHeadingUtil(type, collectionData, actionBar, setIsNew)
                     <span className="table-heading-text">{title()}</span>
                 </div>
                 <div>
-                    <span className="text">
+                    <span className="table-text">
                         {collectionData.length} {collectionData.length === 1 ? "item" : "items"} selected
                     </span>
                 </div>

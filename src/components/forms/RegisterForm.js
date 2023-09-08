@@ -34,7 +34,7 @@ function RegisterForm()
             <section className="form-container" id="register-form--container">
                 <div className="form" ref={registerFormRef}>
                     <div className="form-header">
-                        <div className="header-text">
+                        <div className="form-header-text">
                             Register
                         </div>
                     </div>

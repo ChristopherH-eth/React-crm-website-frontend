@@ -34,15 +34,15 @@ function Login(props)
 
     return (
         <section className="login">
-            <div className="login--container">
-                <form className="form">
-                    <div className="header-text">
+            <div className="login-container">
+                <form className="login-form">
+                    <div className="login-header-text">
                         Welcome to CRM Website!
                     </div>
-                    <div className="header-text">
+                    <div className="login-header-text">
                         Login
                     </div>
-                    <div className="label">
+                    <div className="login-label">
                         Email
                     </div>
                     <input
@@ -52,7 +52,7 @@ function Login(props)
                         type="text"
                         onKeyDown={handleSubmit}
                     ></input>
-                    <div className="label">
+                    <div className="login-label">
                         Password
                     </div>
                     <input
@@ -62,7 +62,7 @@ function Login(props)
                         type="password"
                         onKeyDown={handleSubmit}
                     ></input>
-                    <div className="footer-container">
+                    <div className="login-footer-container">
                         <div className="button--container">
                             <button
                                 onClick={loginUser}
@@ -74,10 +74,10 @@ function Login(props)
                             </button>
                         </div>
                     </div>
-                    <div className="error">
+                    <div className="login-error">
                         {error}
                     </div>
-                    <div className="text-centered" onClick={showRegisterForm}>
+                    <div className="login-text-centered" onClick={showRegisterForm}>
                         New User? Register Here!
                     </div>
                 </form>
