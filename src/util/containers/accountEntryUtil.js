@@ -1,11 +1,11 @@
+import ActionBar from "../../components/elements/ActionBar"
+
 /**
  * @file accountEntryUtil.js
  * @author 0xChristopher
  * @brief This file contains functions that are called when the EntryDetails component accepts an entry
  *      of type 'account'. It's primary purpose is to return JSX to be rendered.
  */
-
-import ActionBar from "../../components/elements/ActionBar"
 
 /**
  * @brief The accountDetails() function takes in a data entry (an account in this case) as a JSON object and

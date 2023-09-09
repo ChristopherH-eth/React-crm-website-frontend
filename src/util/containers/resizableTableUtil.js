@@ -125,11 +125,6 @@ function mapTableDataUtil(
         // Returns a table row with mapped table details
         return (
             <tr className="table-items" key={dataEntry.id}>
-                <td className="table-cell-borderless-centered table-cell-5p">
-                    <span className="table-cell-content">
-                        <Link className="link" to={dataUrl}>{dataEntry.id}</Link>
-                    </span>
-                </td>
                 <td className="table-cell-borderless-centered table-cell-2_5p">
                     <input
                         className="entry-selector"
@@ -144,6 +139,11 @@ function mapTableDataUtil(
                         alt="edit icon"
                         onClick={editEntry}
                     />
+                </td>
+                <td className="table-cell-borderless-centered table-cell-5p">
+                    <span className="table-cell-content">
+                        <Link className="link" to={dataUrl}>{dataEntry.id}</Link>
+                    </span>
                 </td>
                 {mapColumns(columns, dataEntry, columnWidths, resizingColumn)}
                 <td className="table-cell-borderless-centered table-cell-5p">
