@@ -119,12 +119,12 @@ function Layout(props)
                             {isNew
                                 ?
                                     <div>
-                                        {fieldType(field.type, field)}
+                                        {fieldType(field.field_type, field)}
                                     </div>
                                 :
                                     <div>
                                         {selectedEntry && <div>
-                                            {fieldType(field.type, field, selectedEntry.lead[field.logical_name])}
+                                            {fieldType(field.field_type, field, selectedEntry.lead[field.logical_name])}
                                         </div>}
                                     </div>
                             }

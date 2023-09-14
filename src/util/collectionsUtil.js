@@ -7,13 +7,12 @@ import ActionBar from "../components/elements/ActionBar"
  */
 
 /**
- * @brief The showFormUtil() function shows the new form for the parameterized type.
- * @param type Data type of the current collection
+ * @brief The showFormUtil() function shows the new form for the current collection.
  */
-function showFormUtil(type)
+function showFormUtil()
 {
     document.body.classList.add("lock-scroll")
-    document.getElementById(`${type}-form--container`).classList.add("show")
+    document.getElementById("collection-form--container").classList.add("show")
     document.getElementById("page-mask").classList.add("show")
 }
 
@@ -31,7 +30,7 @@ function getHeadingUtil(type, collectionData, actionBar, setIsNew)
 
     const title = () => type.charAt(0).toUpperCase() + type.slice(1)    // Capitalize the first letter of type
     const showForm = () => {
-        showFormUtil(type)
+        showFormUtil()
         setIsNew(newFormFlag)
     }                                                                   // showFormUtil callback function
 

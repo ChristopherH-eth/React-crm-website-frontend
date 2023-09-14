@@ -4,6 +4,8 @@
  * @brief This file is responsible for the TextAreaField component of the CRM website.
  */
 
+// TODO: Make input field class name dynamic by using type instead.
+
 /**
  * @brief The TextAreaField() function builds a text area field component.
  * @return Returns the text area field component to be added to the page
@@ -31,7 +33,7 @@ function TextAreaField(props)
                 {isRequired
                     ?
                         <textarea
-                            className="input-field lead-form--input"
+                            className="input-field leads-form--input"
                             id={id}
                             rows={rows}
                             type="text"
@@ -39,7 +41,7 @@ function TextAreaField(props)
                         ></textarea>
                     :
                         <textarea
-                            className="input-field lead-form--input"
+                            className="input-field leads-form--input"
                             id={id}
                             rows={rows}
                             type="text"

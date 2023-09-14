@@ -6,6 +6,8 @@ import React from "react";
  * @brief This file is responsible for the TextField component of the CRM website.
  */
 
+// TODO: Make input field class name dynamic by using type instead.
+
 /**
  * @brief The TextField() function builds a text field component.
  * @return Returns the text field component to be added to the page
@@ -55,7 +57,7 @@ function TextField(props)
                 {isRequired 
                     ?
                         <input
-                            className="input-field lead-form--input"
+                            className="input-field leads-form--input"
                             id={id}
                             type="text"
                             required
@@ -64,7 +66,7 @@ function TextField(props)
                         ></input>
                     :
                         <input
-                            className="input-field lead-form--input"
+                            className="input-field leads-form--input"
                             id={id}
                             type="text"
                             value={inputValue}

@@ -4,6 +4,8 @@
  * @brief This file is responsible for the CheckBoxField component of the CRM website.
  */
 
+// TODO: Make input field class name dynamic by using type instead.
+
 /**
  * @brief The CheckBoxField() function builds a check box field component.
  * @return Returns the check box field component to be added to the page
@@ -30,14 +32,14 @@ function CheckBoxField(props)
                 {isRequired
                     ?
                         <input
-                            className="input-field-checkbox lead-form--input"
+                            className="input-field-checkbox leads-form--input"
                             id={id}
                             type="checkbox"
                             required
                         ></input>
                     :
                         <input
-                            className="input-field-checkbox lead-form--input"
+                            className="input-field-checkbox leads-form--input"
                             id={id}
                             type="checkbox"
                         ></input>

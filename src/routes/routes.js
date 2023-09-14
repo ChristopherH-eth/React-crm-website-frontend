@@ -3,9 +3,7 @@ import App from "../components/App"
 import ErrorPage from "../components/ErrorPage"
 import Main from "../components/Main"
 import Collections from "../components/Collections"
-import AccountForm from "../components/forms/AccountForm"
-import ContactForm from "../components/forms/ContactForm"
-import LeadForm from "../components/forms/LeadForm"
+import CollectionsForm from "../components/forms/CollectionsForm"
 import Login from "../components/Login"
 import EntryDetails from "../components/containers/EntryDetails"
 import Redirect from "../components/Redirect"
@@ -76,19 +74,7 @@ function getRouter(
                             setIsNew={setIsNew}
                             setSelectedEntry={setSelectedEntry}
                         />
-                        <AccountForm 
-                            setIsLoggedIn={setIsLoggedIn}
-                            user={user}
-                            isNew={isNew}
-                            selectedEntry={selectedEntry}
-                        />
-                        <ContactForm 
-                            setIsLoggedIn={setIsLoggedIn}
-                            user={user}
-                            isNew={isNew} 
-                            selectedEntry={selectedEntry}
-                        />
-                        <LeadForm 
+                        <CollectionsForm 
                             setIsLoggedIn={setIsLoggedIn}
                             user={user}
                             isNew={isNew}
