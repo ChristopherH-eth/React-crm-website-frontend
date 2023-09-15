@@ -36,12 +36,14 @@ function CheckBoxField(props)
                             id={id}
                             type="checkbox"
                             required
+                            checked={value}
                         ></input>
                     :
                         <input
                             className="input-field-checkbox leads-form--input"
                             id={id}
                             type="checkbox"
+                            checked={value}
                         ></input>
                 }   
             </div>

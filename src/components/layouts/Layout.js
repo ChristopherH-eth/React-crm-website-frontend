@@ -62,6 +62,7 @@ function Layout(props)
      *      the field data provided.
      * @param dataType The type of field to build
      * @param field The values of the field attributes
+     * @param value The value of a given field as determined by the selected entry
      * @returns A field to be placed on the layout
      */
     function fieldType(dataType, field, value)
@@ -83,7 +84,7 @@ function Layout(props)
                         label={field.label}
                         value={value}
                         isEditable={isEditable}
-                        isRequired={field.required}
+                        isRequired={field.options.isRequired}
                     />
                 )
             case "checkbox":
@@ -91,8 +92,9 @@ function Layout(props)
                     <CheckBoxField 
                         id={field.id}
                         label={field.label}
+                        value={value}
                         isEditable={isEditable}
-                        isRequired={field.required}
+                        isRequired={field.options.isRequired}
                     />
                 )
             case "textarea":
@@ -100,8 +102,9 @@ function Layout(props)
                     <TextAreaField
                         id={field.id}
                         label={field.label}
+                        value={value}
                         isEditable={isEditable}
-                        isRequired={field.required}
+                        isRequired={field.options.isRequired}
                     />
                 )
             default:

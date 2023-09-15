@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"
+import { preventNullInputUtil } from "../../util/fields/fieldUtil";
 
 /**
  * @file TextField.js
@@ -15,35 +16,27 @@ import React from "react";
 function TextField(props)
 {
     const {
-        id,                                         // Input element ID
-        label,                                      // Name of field to display
-        value,                                      // Current field value
-        isEditable,                                 // True if field can be edited
-        isRequired                                  // True if field is required
+        id,                                                                 // Input element ID
+        label,                                                              // Name of field to display
+        value,                                                              // Current field value
+        isEditable,                                                         // True if field can be edited
+        isRequired                                                          // True if field is required
     } = props
 
-    // TODO: Add comments and organize below
-    const [inputValue, setInputValue] = React.useState(value);
+    const [inputValue, setInputValue] = React.useState(value)               // State variable for input value
 
+    // Component functions stored in fieldUtil
+    const preventNullInput = () => preventNullInputUtil(inputValue)
+
+    // Input element handler function to make mutable
     const handleInputChange = (event) => {
-        setInputValue(event.target.value);
-    };
+        setInputValue(event.target.value)
+    }
 
+    // Detect changes in component input value
     React.useEffect(() => {
         setInputValue(value)
     }, [value])
-
-    /**
-     * @brief The preventNullInput() function prevents newly rendered fields from having null values.
-     * @param inputValue The field input value at render
-     */
-    function preventNullInput(inputValue)
-    {
-        if (inputValue === null)
-            return ""
-        else
-            return inputValue
-    }
 
     // Check if the field is currently editable
     if(isEditable)
@@ -69,7 +62,7 @@ function TextField(props)
                             className="input-field leads-form--input"
                             id={id}
                             type="text"
-                            value={inputValue}
+                            value={preventNullInput(inputValue)}
                             onChange={handleInputChange}
                         ></input>
                 }
