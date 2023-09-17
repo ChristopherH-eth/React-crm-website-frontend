@@ -1,3 +1,6 @@
+import React from "react"
+import { preventNullInputUtil } from "../../util/fields/fieldUtil"
+
 /**
  * @file TextAreaField.js
  * @author 0xChristopher
@@ -13,13 +16,28 @@
 function TextAreaField(props)
 {
     const {
-        id,                                         // Input element ID
-        label,                                      // Name of field to display
-        value,                                      // Current field value
-        rows,                                       // Number of rows to display
-        isEditable,                                 // True if field can be edited
-        isRequired                                  // True if field is required
+        id,                                                                 // Input element ID
+        label,                                                              // Name of field to display
+        value,                                                              // Current field value
+        rows,                                                               // Number of rows to display
+        isEditable,                                                         // True if field can be edited
+        isRequired                                                          // True if field is required
     } = props
+
+    const [inputValue, setInputValue] = React.useState(value)               // State variable for input value
+
+    // Component functions stored in fieldUtil
+    const preventNullInput = () => preventNullInputUtil(inputValue)
+
+    // Input element handler function to make mutable
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value)
+    }
+
+    // Detect changes in component input value
+    React.useEffect(() => {
+        setInputValue(value)
+    }, [value])
 
     // Check if the field is currently editable
     if (isEditable)
@@ -38,6 +56,8 @@ function TextAreaField(props)
                             rows={rows}
                             type="text"
                             required
+                            value={preventNullInput(value)}
+                            onChange={handleInputChange}
                         ></textarea>
                     :
                         <textarea
@@ -45,6 +65,8 @@ function TextAreaField(props)
                             id={id}
                             rows={rows}
                             type="text"
+                            value={preventNullInput(value)}
+                            onChange={handleInputChange}
                         ></textarea>
                 }
             </div>
