@@ -63,6 +63,7 @@ function CollectionsForm(props)
                             selectedEntry={selectedEntry}
                             isNew={isNew}
                             isEditable={isEditable}
+                            type={type}
                         />
                         <div className="footer-border" />
                         <div className="footer-container">

@@ -7,8 +7,6 @@ import { preventNullInputUtil } from "../../util/fields/fieldUtil";
  * @brief This file is responsible for the TextField component of the CRM website.
  */
 
-// TODO: Make input field class name dynamic by using type instead.
-
 /**
  * @brief The TextField() function builds a text field component.
  * @return Returns the text field component to be added to the page
@@ -20,7 +18,8 @@ function TextField(props)
         label,                                                              // Name of field to display
         value,                                                              // Current field value
         isEditable,                                                         // True if field can be edited
-        isRequired                                                          // True if field is required
+        isRequired,                                                         // True if field is required
+        type                                                                // Data type from layout
     } = props
 
     const [inputValue, setInputValue] = React.useState(value)               // State variable for input value
@@ -50,7 +49,7 @@ function TextField(props)
                 {isRequired 
                     ?
                         <input
-                            className="input-field leads-form--input"
+                            className={`input-field ${type}-form--input`}
                             id={id}
                             type="text"
                             required
@@ -59,7 +58,7 @@ function TextField(props)
                         ></input>
                     :
                         <input
-                            className="input-field leads-form--input"
+                            className={`input-field ${type}-form--input`}
                             id={id}
                             type="text"
                             value={preventNullInput(inputValue)}

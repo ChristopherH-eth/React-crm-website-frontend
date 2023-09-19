@@ -26,7 +26,8 @@ function Layout(props)
         user,                                                                       // Current user
         selectedEntry,                                                              // Entry currently selected
         isNew,                                                                      // True if the form is for a new entry
-        isEditable                                                                  // True if the field is editable
+        isEditable,                                                                 // True if the field is editable
+        type                                                                        // Data type from form
     } = props
 
     const [layoutData, setLayoutData] = React.useState()                            // Current layout array
@@ -85,6 +86,7 @@ function Layout(props)
                         value={value}
                         isEditable={isEditable}
                         isRequired={field.options.isRequired}
+                        type={type}
                     />
                 )
             case "checkbox":
@@ -95,6 +97,7 @@ function Layout(props)
                         value={value}
                         isEditable={isEditable}
                         isRequired={field.options.isRequired}
+                        type={type}
                     />
                 )
             case "textarea":
@@ -105,6 +108,7 @@ function Layout(props)
                         value={value}
                         isEditable={isEditable}
                         isRequired={field.options.isRequired}
+                        type={type}
                     />
                 )
             default:
