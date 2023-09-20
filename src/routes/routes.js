@@ -78,6 +78,7 @@ function getRouter(
                             setIsLoggedIn={setIsLoggedIn}
                             user={user}
                             isNew={isNew}
+                            setIsNew={setIsNew}
                             selectedEntry={selectedEntry}
                         />
                     </>

@@ -20,6 +20,7 @@ function CollectionsForm(props)
         setIsLoggedIn,                                                  // State function for isLoggedIn variable
         user,                                                           // Current user
         isNew,                                                          // True if the form is for a new entry
+        setIsNew,                                                       // State function for isNew variable
         selectedEntry                                                   // Entry currently selected
     } = props
 
@@ -31,7 +32,7 @@ function CollectionsForm(props)
     const addEntry = () => addEntryUtil(formInputClass, type, formRef)
 
     // Component functions stored in util
-    const destroyForm = () => destroyFormUtil(formInputClass, formRef)
+    const destroyForm = () => destroyFormUtil(formInputClass, formRef, setIsNew)
 
     const formInputClass = `${type}-form--input`                        // Form input fields class
     const formRef = React.useRef(null)                                  // Reference to the Collection Form

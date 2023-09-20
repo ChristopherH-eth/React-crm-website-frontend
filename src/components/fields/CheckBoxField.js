@@ -4,6 +4,8 @@
  * @brief This file is responsible for the CheckBoxField component of the CRM website.
  */
 
+// TODO: Add onChange handler
+
 /**
  * @brief The CheckBoxField() function builds a check box field component.
  * @return Returns the check box field component to be added to the page

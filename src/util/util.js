@@ -63,11 +63,18 @@ function hideForm()
  * @brief The destroyForm() function clears the fields of the current form and hides it.
  * @param classToClear The class of the form name to clear
  * @param formRef Reference to the form being destroyed
+ * @param setIsNew State function for the isNew variable
  */
-function destroyFormUtil(classToClear, formRef)
+function destroyFormUtil(classToClear, formRef, setIsNew)
 {
     clearCurrentFields(classToClear)
     resetScrollBar(formRef)
+
+    // Sets isNew to true so when navigating to other table collections, the layout isn't trying to
+    // populate an undefined object.
+    if(setIsNew)
+        setIsNew(true)
+
     hideForm()
 }
 

@@ -1,18 +1,13 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import { URLS, ENDPOINTS } from "../../util/config"
-import TextField from "../fields/TextField"
-import CheckBoxField from "../fields/CheckBoxField"
-import TextAreaField from "../fields/TextAreaField"
-import Subheader from "../fields/Subheader"
+import { fieldTypeUtil } from "../../util/layouts/layoutsUtil"
 
 /**
  * @file Layout.js
  * @author 0xChristopher
  * @brief This file is responsible for the Layout component of the CRM website.
  */
-
-// TODO: When a entry is selected for editing, those fields are getting cleared on cancel. If the fields don't reredner with new values, they still appear cleared.
 
 /**
  * @brief The Layout() function builds a layout component.
@@ -34,6 +29,9 @@ function Layout(props)
 
     // useNavigate hook to redirect browser
     const navigate = useNavigate()
+
+    // Component functions stored in layoutsUtil
+    const fieldType = (dataType, field, value) => fieldTypeUtil(dataType, field, value, isEditable, type)
 
     const layoutUrl = `${URLS.api}${ENDPOINTS.layout}/${layoutName}`                // Layout API endpoint
 
@@ -58,63 +56,7 @@ function Layout(props)
             .catch(console.error)
     }, [layoutUrl, navigate, setIsLoggedIn])
 
-    /**
-     * @brief The fieldType() function builds a field for display on the layout based on its type and
-     *      the field data provided.
-     * @param dataType The type of field to build
-     * @param field The values of the field attributes
-     * @param value The value of a given field as determined by the selected entry
-     * @returns A field to be placed on the layout
-     */
-    function fieldType(dataType, field, value)
-    {
-        switch(dataType)
-        {
-            case "subheader":
-                return (
-                    <Subheader
-                        label={field.label}
-                    />
-                )
-            case "text":
-            case "email":
-            case "password":
-                return (
-                    <TextField 
-                        id={field.id}
-                        label={field.label}
-                        value={value}
-                        isEditable={isEditable}
-                        isRequired={field.options.isRequired}
-                        type={type}
-                    />
-                )
-            case "checkbox":
-                return (
-                    <CheckBoxField 
-                        id={field.id}
-                        label={field.label}
-                        value={value}
-                        isEditable={isEditable}
-                        isRequired={field.options.isRequired}
-                        type={type}
-                    />
-                )
-            case "textarea":
-                return (
-                    <TextAreaField
-                        id={field.id}
-                        label={field.label}
-                        value={value}
-                        isEditable={isEditable}
-                        isRequired={field.options.isRequired}
-                        type={type}
-                    />
-                )
-            default:
-                break
-        }
-    }
+    console.log(isNew)
 
     return (
         <div>
@@ -131,7 +73,7 @@ function Layout(props)
                                 :
                                     <div>
                                         {selectedEntry && <div>
-                                            {fieldType(field.field_type, field, selectedEntry.lead[field.logical_name])}
+                                            {fieldType(field.field_type, field, selectedEntry[type][field.logical_name])}
                                         </div>}
                                     </div>
                             }
