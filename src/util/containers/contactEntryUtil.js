@@ -24,7 +24,7 @@ function contactDetails(data, actionBar)
         account                                                 // Linked account entry
     } = data
 
-    const accountUrl = `${ENDPOINTS.accounts}${account.id}`     // Link to corresponding account
+    const accountUrl = `${ENDPOINTS.accounts}/${account.id}`     // Link to corresponding account
 
     return (
         <div className="entry-details--container">

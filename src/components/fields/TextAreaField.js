@@ -7,8 +7,6 @@ import { preventNullInputUtil } from "../../util/fields/fieldUtil"
  * @brief This file is responsible for the TextAreaField component of the CRM website.
  */
 
-// TODO: Make input field class name dynamic by using type instead.
-
 /**
  * @brief The TextAreaField() function builds a text area field component.
  * @return Returns the text area field component to be added to the page
@@ -21,7 +19,8 @@ function TextAreaField(props)
         value,                                                              // Current field value
         rows,                                                               // Number of rows to display
         isEditable,                                                         // True if field can be edited
-        isRequired                                                          // True if field is required
+        isRequired,                                                         // True if field is required
+        type                                                                // Data type from layout
     } = props
 
     const [inputValue, setInputValue] = React.useState(value)               // State variable for input value
@@ -51,7 +50,7 @@ function TextAreaField(props)
                 {isRequired
                     ?
                         <textarea
-                            className="input-field leads-form--input"
+                            className={`input-field ${type}-form--input`}
                             id={id}
                             rows={rows}
                             type="text"
@@ -61,7 +60,7 @@ function TextAreaField(props)
                         ></textarea>
                     :
                         <textarea
-                            className="input-field leads-form--input"
+                            className={`input-field ${type}-form--input`}
                             id={id}
                             rows={rows}
                             type="text"
