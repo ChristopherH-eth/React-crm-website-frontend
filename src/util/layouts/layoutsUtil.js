@@ -14,7 +14,7 @@ import Subheader from "../../components/fields/Subheader"
  *      the field data provided.
  * @param dataType The type of field to build
  * @param field The values of the field attributes
- * @param user
+ * @param user The User object of the currently logged in user
  * @param value The value of a given field as determined by the selected entry
  * @param isEditable True if the field is in an editable state
  * @param type The type attribute of the input or field element

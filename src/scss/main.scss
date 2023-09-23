@@ -188,9 +188,8 @@ html, body {
 }
 
 .input-field {
+    @include text(null, 1rem, 0.85rem, null);
     width: 100%;
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
 }
 
 /************************************************************
@@ -336,6 +335,7 @@ html, body {
     animation: fadeInFull 0.5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    z-index: 2;
 }
 
 .form {
@@ -370,14 +370,8 @@ html, body {
     border-radius: $secondary-border-radius;
 }
 
-.label {
-    font-size: 0.75rem;
-    margin-bottom: 0.25rem;
-}
-
-.input-field {
-    @include text(null, 1rem, 0.85rem, null);
-    width: 100%;
+.form-label {
+    @include text(null, 0.25rem, 0.75rem, null);
 }
 
 .input-field-checkbox {
