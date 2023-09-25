@@ -43,7 +43,7 @@ function TextAreaField(props)
     {
         return (
             <div>
-                <div className="label">
+                <div className="form-label">
                     {isRequired && <span className="required" title="required">*</span>}
                     <span>{label}</span>
                 </div>
@@ -75,11 +75,11 @@ function TextAreaField(props)
     {
         return (
             <div>
-                <div className="label">
+                <div className="form-label">
                     {label}
                 </div>
                 <textarea
-                    className="text"
+                    className="form-text"
                     rows={rows}
                     type="text"
                     readOnly

@@ -31,7 +31,7 @@ function Layout(props)
     const navigate = useNavigate()
 
     // Component functions stored in layoutsUtil
-    const fieldType = (dataType, field, value) => fieldTypeUtil(dataType, field, value, isEditable, type)
+    const fieldType = (dataType, field, user, value) => fieldTypeUtil(dataType, field, user, value, isEditable, type)
 
     const layoutUrl = `${URLS.api}${ENDPOINTS.layout}/${layoutName}`                // Layout API endpoint
 
@@ -56,8 +56,6 @@ function Layout(props)
             .catch(console.error)
     }, [layoutUrl, navigate, setIsLoggedIn])
 
-    console.log(isNew)
-
     return (
         <div>
             {layoutData && 
@@ -68,12 +66,12 @@ function Layout(props)
                             {isNew
                                 ?
                                     <div>
-                                        {fieldType(field.field_type, field)}
+                                        {fieldType(field.field_type, field, user)}
                                     </div>
                                 :
                                     <div>
                                         {selectedEntry && <div>
-                                            {fieldType(field.field_type, field, selectedEntry[type][field.logical_name])}
+                                            {fieldType(field.field_type, field, user, selectedEntry[type][field.logical_name])}
                                         </div>}
                                     </div>
                             }

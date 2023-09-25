@@ -5,6 +5,7 @@
  */
 
 // TODO: Add onChange handler
+// TODO: Configure display for non-editable field
 
 /**
  * @brief The CheckBoxField() function builds a check box field component.
@@ -26,7 +27,7 @@ function CheckBoxField(props)
     {
         return (
             <div>
-                <div className="label">
+                <div className="form-label">
                     {isRequired && <span className="required" title="required">*</span>}
                     <span>{label}</span>
                 </div>
@@ -54,10 +55,10 @@ function CheckBoxField(props)
     {
         return (
             <div>
-                <div className="label">
+                <div className="form-label">
                     {label}
                 </div>
-                <div className="text">
+                <div className="form-text">
                     {value}
                 </div>
             </div>
