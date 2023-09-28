@@ -40,8 +40,6 @@ function addEntryUtil(collectionsFormInputClass, type, formRef)
         user_id: userId                                                 // Lead Creator
     }
 
-    console.log(entryBody)
-
     // Send request to server
     fetch(entryUrl, {
         method: "POST",
@@ -52,8 +50,6 @@ function addEntryUtil(collectionsFormInputClass, type, formRef)
     })
         .then((res) => res.json().then((data) => ({status: res.status, body: data})))
         .then((data) => {
-            console.log(data)
-
             // Clear input fields on success
             if (data.status === 201)
                 destroyFormUtil(collectionsFormInputClass, formRef)

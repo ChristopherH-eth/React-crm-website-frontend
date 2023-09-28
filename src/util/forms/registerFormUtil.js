@@ -11,8 +11,9 @@ import { destroyFormUtil } from "../util"
  * @brief The registerUserUtil() attempts to register a new user.
  * @param setRegisterError Sets the registerError state variable
  * @param registerFormInputClass Class value of the user registration form
+ * @param registerFormRef Reference to the Register Form
  */
-function registerUserUtil(setRegisterError, registerFormInputClass)
+function registerUserUtil(setRegisterError, registerFormInputClass, registerFormRef)
 {
     // Register API endpoint
     const registerUrl = `${URLS.api}${ENDPOINTS.register}`
@@ -55,7 +56,6 @@ function registerUserUtil(setRegisterError, registerFormInputClass)
                     if (Object.prototype.hasOwnProperty.call(data.body, prop))
                     {
                         setRegisterError(JSON.stringify(data.body[prop]))
-
                         break
                     }
                 }
@@ -63,7 +63,7 @@ function registerUserUtil(setRegisterError, registerFormInputClass)
             // Clear input fields/error, and hide form on success
             else if (data.status === 201)
             {
-                destroyFormUtil(registerFormInputClass)
+                destroyFormUtil(registerFormInputClass, registerFormRef)
                 setRegisterError("Registration Successful!")
             }
             else

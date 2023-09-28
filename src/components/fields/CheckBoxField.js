@@ -1,10 +1,11 @@
+import React from "react"
+
 /**
  * @file CheckBoxField.js
  * @author 0xChristopher
  * @brief This file is responsible for the CheckBoxField component of the CRM website.
  */
 
-// TODO: Add onChange handler
 // TODO: Configure display for non-editable field
 
 /**
@@ -22,6 +23,18 @@ function CheckBoxField(props)
         type                                        // Data type from layout
     } = props
 
+    const [inputValue, setInputValue] = React.useState(value)               // State variable for input value
+
+    // Input element handler function to make mutable
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value)
+    }
+
+    // Detect changes in component input value
+    React.useEffect(() => {
+        setInputValue(value)
+    }, [value])
+
     // Check if the field is currently editable
     if (isEditable)
     {
@@ -38,14 +51,16 @@ function CheckBoxField(props)
                             id={id}
                             type="checkbox"
                             required
-                            checked={value}
+                            checked={inputValue}
+                            onChange={handleInputChange}
                         ></input>
                     :
                         <input
                             className={`input-field-checkbox ${type}-form--input`}
                             id={id}
                             type="checkbox"
-                            checked={value}
+                            checked={inputValue}
+                            onChange={handleInputChange}
                         ></input>
                 }   
             </div>

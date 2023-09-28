@@ -18,7 +18,7 @@ function RegisterForm()
     const [registerError, setRegisterError] = React.useState()
 
     // Component functions stored in registerFormUtil
-    const registerUser = () => registerUserUtil(setRegisterError, registerFormInputClass)
+    const registerUser = () => registerUserUtil(setRegisterError, registerFormInputClass, registerFormRef)
 
     // Component functions stored in util
     const destroyForm = () => destroyFormUtil(registerFormInputClass, registerFormRef)
@@ -79,7 +79,8 @@ function RegisterForm()
                             type="password"
                         ></input>
                         <div className="label">
-                            Confirm Password
+                            <span className="required" title="required">*</span>
+                            <span>Confirm Password</span>
                         </div>
                         <input
                             className="input-field register-form--input"
