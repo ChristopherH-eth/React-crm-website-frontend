@@ -1,4 +1,5 @@
 import ActionBar from "../../components/elements/ActionBar"
+import CheckBoxField from "../../components/fields/CheckBoxField"
 
 /**
  * @file leadEntryUtil.js
@@ -17,8 +18,8 @@ import ActionBar from "../../components/elements/ActionBar"
 function leadDetails(data, actionBar)
 {
     const {
-        lead,                                               // Current lead entry
-        user                                                // Linked user entry
+        leads,                                               // Current lead entry
+        users                                                // Linked user entry
     } = data
 
     return (
@@ -33,7 +34,7 @@ function leadDetails(data, actionBar)
                     <div className="entry-details--header">
                         <span className="entry-details--header-text">Lead</span>
                         <span className="entry-details--header-value">
-                            {lead.first_name} {lead.last_name}
+                            {leads.first_name} {leads.last_name}
                         </span>
                     </div>
                     <div className="action-bar">
@@ -45,7 +46,7 @@ function leadDetails(data, actionBar)
                 <div className="entry-details--main-lower">
                     <div className="entry-details--main-lower--element">
                         <span className="entry-details--text">Title</span>
-                        <span className="entry-details--value-borderless">{lead.title}</span>
+                        <span className="entry-details--value-borderless">{leads.title}</span>
                     </div>
                     <div className="entry-details--main-lower--element">
                         <span className="entry-details--text">Company</span>
@@ -53,11 +54,11 @@ function leadDetails(data, actionBar)
                     </div>
                     <div className="entry-details--main-lower--element">
                         <span className="entry-details--text">Phone</span>
-                        <span className="entry-details--value-borderless">{lead.phone}</span>
+                        <span className="entry-details--value-borderless">{leads.phone}</span>
                     </div>
                     <div className="entry-details--main-lower--element">
                         <span className="entry-details--text">Email</span>
-                        <span className="entry-details--value-borderless">{lead.email}</span>
+                        <span className="entry-details--value-borderless">{leads.email}</span>
                     </div>
                 </div>
             </div>
@@ -76,12 +77,12 @@ function leadDetails(data, actionBar)
                             <div className="entry-details--left-panel--info">
                                 <span className="entry-details--text">Lead Owner</span>
                                 <span className="entry-details--value">
-                                    {user.first_name} {user.last_name}
+                                    {users.first_name} {users.last_name}
                                 </span>
                             </div>
                             <div className="entry-details--left-panel--info">
                                 <span className="entry-details--text">Name</span>
-                                <span className="entry-details--value">{lead.account_id}</span>
+                                <span className="entry-details--value">{leads.account_id}</span>
                             </div>
                             <div className="entry-details--left-panel--info">
                                 <span className="entry-details--text">Company</span>
@@ -92,9 +93,14 @@ function leadDetails(data, actionBar)
                                 <span className="entry-details--value"></span>
                             </div>
                             <div className="entry-details--left-panel--info">
-                                <span className="entry-details--text">Follow Up?</span>
-                                <span className="entry-details--value">
-                                    <input type="checkbox" />
+                                {/* Testing non-editable Checkbox field */}
+                                <span className="entry-details--text">
+                                    <CheckBoxField
+                                        label={"Follow Up?"}
+                                        value={1}
+                                        isEditable={false}
+                                        isRequired={false}
+                                    />
                                 </span>
                             </div>
                         </div>
@@ -105,11 +111,11 @@ function leadDetails(data, actionBar)
                             </div>
                             <div className="entry-details--left-panel--info">
                                 <span className="entry-details--text">Phone</span>
-                                <span className="entry-details--value">{lead.phone}</span>
+                                <span className="entry-details--value">{leads.phone}</span>
                             </div>
                             <div className="entry-details--left-panel--info">
                                 <span className="entry-details--text">Email</span>
-                                <span className="entry-details--value">{lead.email}</span>
+                                <span className="entry-details--value">{leads.email}</span>
                             </div>
                             <div className="entry-details--left-panel--info">
                                 <span className="entry-details--text">Rating</span>

@@ -6,7 +6,7 @@ import React from "react"
  * @brief This file is responsible for the CheckBoxField component of the CRM website.
  */
 
-// TODO: Configure display for non-editable field
+// TODO: May need to make all field classes dynamic for spacing in editable and non-editable elements.
 
 /**
  * @brief The CheckBoxField() function builds a check box field component.
@@ -74,7 +74,16 @@ function CheckBoxField(props)
                     {label}
                 </div>
                 <div className="form-text">
-                    {value}
+                    {value === 1 
+                        ? 
+                            <img 
+                                className="field-checkmark"
+                                src="/images/icons/checkmark.png"
+                                alt="checkmark"
+                            /> 
+                        : 
+                            ""
+                    }
                 </div>
             </div>
         )

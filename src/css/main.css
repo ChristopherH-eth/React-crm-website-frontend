@@ -889,6 +889,12 @@ button {
 *
 *
 ************************************************************/
+.field-checkmark {
+  margin-right: none;
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
 .loading-image {
   margin-right: none;
   height: 3rem;
