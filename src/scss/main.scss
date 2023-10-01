@@ -940,6 +940,10 @@ button {
 *
 ************************************************************/
 
+.field-checkmark {
+    @include image(none, 0.75rem, 0.75rem);
+}
+
 .loading-image {
     @include image(none, 3rem, 3rem);
     animation: rotate 2s linear infinite;

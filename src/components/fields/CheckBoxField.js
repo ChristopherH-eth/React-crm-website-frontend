@@ -1,11 +1,12 @@
+import React from "react"
+
 /**
  * @file CheckBoxField.js
  * @author 0xChristopher
  * @brief This file is responsible for the CheckBoxField component of the CRM website.
  */
 
-// TODO: Add onChange handler
-// TODO: Configure display for non-editable field
+// TODO: May need to make all field classes dynamic for spacing in editable and non-editable elements.
 
 /**
  * @brief The CheckBoxField() function builds a check box field component.
@@ -21,6 +22,18 @@ function CheckBoxField(props)
         isRequired,                                 // True if field is required
         type                                        // Data type from layout
     } = props
+
+    const [inputValue, setInputValue] = React.useState(value)               // State variable for input value
+
+    // Input element handler function to make mutable
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value)
+    }
+
+    // Detect changes in component input value
+    React.useEffect(() => {
+        setInputValue(value)
+    }, [value])
 
     // Check if the field is currently editable
     if (isEditable)
@@ -38,14 +51,16 @@ function CheckBoxField(props)
                             id={id}
                             type="checkbox"
                             required
-                            checked={value}
+                            checked={inputValue}
+                            onChange={handleInputChange}
                         ></input>
                     :
                         <input
                             className={`input-field-checkbox ${type}-form--input`}
                             id={id}
                             type="checkbox"
-                            checked={value}
+                            checked={inputValue}
+                            onChange={handleInputChange}
                         ></input>
                 }   
             </div>
@@ -59,7 +74,16 @@ function CheckBoxField(props)
                     {label}
                 </div>
                 <div className="form-text">
-                    {value}
+                    {value === 1 
+                        ? 
+                            <img 
+                                className="field-checkmark"
+                                src="/images/icons/checkmark.png"
+                                alt="checkmark"
+                            /> 
+                        : 
+                            ""
+                    }
                 </div>
             </div>
         )
