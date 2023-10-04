@@ -1,5 +1,6 @@
 import ActionBar from "../../components/elements/ActionBar"
 import CheckBoxField from "../../components/fields/CheckBoxField"
+import Layout from "../../components/layouts/Layout"
 
 /**
  * @file leadEntryUtil.js
@@ -13,14 +14,17 @@ import CheckBoxField from "../../components/fields/CheckBoxField"
  *      returns JSX to display its attributes.
  * @param data The data entry object to be displayed
  * @param actionBar The entry action bar
+ * @param type Data type for Layout
  * @return Returns JSX to be displayed on the page
  */
-function leadDetails(data, actionBar)
+function leadDetails(data, actionBar, type)
 {
     const {
         leads,                                               // Current lead entry
         users                                                // Linked user entry
     } = data
+
+    const isEditable = false
 
     return (
         <div className="entry-details--container">
@@ -68,11 +72,21 @@ function leadDetails(data, actionBar)
                 </div>
             </div>
             <div className="entry-details--panel-container">
-            <div className="entry-details--left-panel">
+                <div className="entry-details--left-panel">
                     <div className="entry-details--left-panel--tabs">
                         Details
                     </div>
-                    <div className="entry-details--left-panel--info-container">
+                    {/* TODO: Pull isNew and setIsLoggedIn variables in */}
+                    <Layout
+                        // setIsLoggedIn={setIsLoggedIn}
+                        layoutName={type}
+                        user={users}
+                        selectedEntry={leads}
+                        isNew={false}
+                        isEditable={isEditable}
+                        type={type}
+                    />
+                    {/* <div className="entry-details--left-panel--info-container">
                         <div className="entry-details--left-panel--info-col">
                             <div className="entry-details--left-panel--info">
                                 <span className="entry-details--text">Lead Owner</span>
@@ -93,7 +107,7 @@ function leadDetails(data, actionBar)
                                 <span className="entry-details--value"></span>
                             </div>
                             <div className="entry-details--left-panel--info">
-                                {/* Testing non-editable Checkbox field */}
+                                {/* Testing non-editable Checkbox field */}{/**
                                 <span className="entry-details--text">
                                     <CheckBoxField
                                         label={"Follow Up?"}
@@ -122,7 +136,7 @@ function leadDetails(data, actionBar)
                                 <span className="entry-details--value"></span>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="entry-details--right-panel">
                     Activity
