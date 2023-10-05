@@ -19,6 +19,7 @@ import Layout from "../../components/layouts/Layout"
  */
 function leadDetails(data, actionBar, type)
 {
+    // TODO: These destructured props can be removed once the common area has been built in the layout
     const {
         leads,                                               // Current lead entry
         users                                                // Linked user entry
@@ -81,7 +82,7 @@ function leadDetails(data, actionBar, type)
                         // setIsLoggedIn={setIsLoggedIn}
                         layoutName={type}
                         user={users}
-                        selectedEntry={leads}
+                        selectedEntry={data}
                         isNew={false}
                         isEditable={isEditable}
                         type={type}
