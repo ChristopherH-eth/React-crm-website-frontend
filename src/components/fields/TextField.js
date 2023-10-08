@@ -72,10 +72,10 @@ function TextField(props)
     {
         return(
             <div>
-                <div className="form-label">
+                <div className="entry-details--text">
                     {label}
                 </div>
-                <div className="form-text">
+                <div className="entry-details--value">
                     {value}
                 </div>
             </div>

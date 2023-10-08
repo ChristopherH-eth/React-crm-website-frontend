@@ -45,7 +45,7 @@ function EntryDetails(props)
     // Component functions stored in util files
     const showContactDetails = () => contactDetails(dataEntry, actionBar)
     const showAccountDetails = () => accountDetails(dataEntry, actionBar)
-    const showLeadDetails = () => leadDetails(dataEntry, actionBar)
+    const showLeadDetails = () => leadDetails(dataEntry, actionBar, type)
     const showOpportunityDetails = () => opportunityDetails(dataEntry, actionBar)
 
     // Request the action bar

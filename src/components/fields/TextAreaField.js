@@ -75,11 +75,11 @@ function TextAreaField(props)
     {
         return (
             <div>
-                <div className="form-label">
+                <div className="entry-details--text">
                     {label}
                 </div>
                 <textarea
-                    className="form-text"
+                    className="entry-details--value"
                     rows={rows}
                     type="text"
                     readOnly
