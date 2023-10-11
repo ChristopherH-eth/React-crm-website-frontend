@@ -1,7 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import { URLS, ENDPOINTS } from "../../util/config"
-import { fieldTypeUtil } from "../../util/layouts/layoutsUtil"
+import { fieldTypeUtil, createLayoutUtil } from "../../util/layouts/layoutsUtil"
 
 /**
  * @file Layout.js
@@ -31,7 +31,7 @@ function Layout(props)
     const navigate = useNavigate()
 
     // Component functions stored in layoutsUtil
-    const fieldType = (dataType, field, user, value) => fieldTypeUtil(dataType, field, user, value, isEditable, type)
+    // const fieldType = (dataType, field, user, value) => fieldTypeUtil(dataType, field, user, value, isEditable, type)
 
     const layoutUrl = `${URLS.api}${ENDPOINTS.layout}/${layoutName}`                // Layout API endpoint
 
@@ -58,28 +58,35 @@ function Layout(props)
 
     return (
         <div>
-            {layoutData && 
+            {layoutData &&
                 <div>
-                    {layoutData.fields.map((field) => (
-                        <div key={field.label}>
-                            {/* Pre-fill field values when editing an existing record */}
-                            {isNew
-                                ?
-                                    <div>
-                                        {fieldType(field.field_type, field, user)}
-                                    </div>
-                                :
-                                    <div>
-                                        {selectedEntry && <div>
-                                            {fieldType(field.field_type, field, user, selectedEntry[type][field.logical_name])}
-                                        </div>}
-                                    </div>
-                            }
-                        </div>
-                    ))}
+                    {createLayoutUtil(layoutData, user, selectedEntry, isNew, type)}
                 </div>
             }
         </div>
+        // <div>
+        //     {layoutData && 
+        //         <div>
+        //             {layoutData.fields.map((field) => (
+        //                 <div key={field.label}>
+        //                     {/* Pre-fill field values when editing an existing record */}
+        //                     {isNew
+        //                         ?
+        //                             <div>
+        //                                 {fieldType(field.field_type, field, user)}
+        //                             </div>
+        //                         :
+        //                             <div>
+        //                                 {selectedEntry && <div>
+        //                                     {fieldType(field.field_type, field, user, selectedEntry[type][field.logical_name])}
+        //                                 </div>}
+        //                             </div>
+        //                     }
+        //                 </div>
+        //             ))}
+        //         </div>
+        //     }
+        // </div>
     )
 }
 

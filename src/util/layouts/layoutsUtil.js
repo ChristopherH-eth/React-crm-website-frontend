@@ -70,4 +70,46 @@ function fieldTypeUtil(dataType, field, user, value, isEditable, type)
     }
 }
 
-export { fieldTypeUtil }
+/**
+ * @brief The createLayout() function computes an entry's layout based on its saved JSON object.
+ * @param layout The layout object to be processed and displayed
+ * @param user Current user
+ * @param selectedEntry Entry currently selected
+ * @param isNew True if the form is for a new entry
+ * @param type Data type from form
+ * @returns
+ */
+function createLayoutUtil(layout, user, selectedEntry, isNew, type)
+{
+    // Process common area
+    // Process current tab based on state
+    // Organize data based on parent subheader and tab
+    return (
+        <div className="entry-details--left-panel--column-container">
+            <div className="entry-details--left-panel--column">
+                {layout.fields.map((field, index) => (
+                    <div>
+                        {index % 2 === 0 && field.field_type !== "subheader" && (
+                            <div>
+                                {fieldTypeUtil(field.field_type, field, user, selectedEntry[type][field.logical_name])}
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
+            <div className="entry-details--left-panel--column">
+                {layout.fields.map((field, index) => (
+                    <div>
+                        {index % 2 === 1 && field.field_type !== "subheader" && (
+                            <div>
+                                {fieldTypeUtil(field.field_type, field, user, selectedEntry[type][field.logical_name])}
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}
+
+export { fieldTypeUtil, createLayoutUtil }

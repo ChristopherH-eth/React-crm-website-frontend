@@ -738,6 +738,14 @@ html, body {
     margin-right: 0.25rem;
 }
 
+.entry-details--left-panel--column-container {
+    @extend %horizontal-format;
+}
+
+.entry-details--left-panel--column {
+    width: 50%;
+}
+
 .entry-details--right-panel {
     display: flex;
     flex-direction: column;

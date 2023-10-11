@@ -47,7 +47,7 @@
   border-radius: 0.25rem;
 }
 
-.entry-details--main-lower, .entry-details--main-upper {
+.entry-details--left-panel--column-container, .entry-details--main-lower, .entry-details--main-upper {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -687,6 +687,10 @@ html, body {
   flex-direction: column;
   margin-left: 0.25rem;
   margin-right: 0.25rem;
+}
+
+.entry-details--left-panel--column {
+  width: 50%;
 }
 
 .entry-details--right-panel {
